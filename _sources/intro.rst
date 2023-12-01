@@ -1,10 +1,6 @@
-Meu Jupyter Book
-================
+Programação para Geoprocessamento
+=================================
 
-Aqui está uma breve introdução ao meu livro.
-
-
-Título e Subtítulo
 
 Breve Descrição ou Visão Geral
 
@@ -13,4 +9,4 @@ Instruções de Navegação
 Informações Adicionais
 
 
-deve estar formatado usando a sintaxe reStructuredText
+formatar usando a sintaxe reStructuredText
