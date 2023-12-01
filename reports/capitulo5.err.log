@@ -37,7 +37,7 @@ gdf_rios = gdf_rios.drop(columns=['FID_GEOFT_',
 During handling of the above exception, another exception occurred:
 
 [0;31mDriverError[0m                               Traceback (most recent call last)
-[0;32m/tmp/ipykernel_7658/1576297623.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_27372/1576297623.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;32mimport[0m [0mgeopandas[0m [0;32mas[0m [0mgpd[0m[0;34m[0m[0;34m[0m[0m
 [0;32m----> 2[0;31m [0mgdf_rios[0m [0;34m=[0m [0mgpd[0m[0;34m.[0m[0mread_file[0m[0;34m([0m[0;34m'/home/alexandro/geopythonbook/content/rios_maranhao.shp'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      3[0m [0mgdf_rios[0m [0;34m=[0m [0mgdf_rios[0m[0;34m.[0m[0mto_crs[0m[0;34m([0m[0;34m'EPSG:31983'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m

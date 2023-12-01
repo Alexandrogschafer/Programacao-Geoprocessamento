@@ -23,7 +23,7 @@ df.head()
 
 [0;31m---------------------------------------------------------------------------[0m
 [0;31mFileNotFoundError[0m                         Traceback (most recent call last)
-[0;32m/tmp/ipykernel_7612/4094199270.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_27317/4094199270.py[0m in [0;36m<module>[0;34m[0m
 [0;32m----> 1[0;31m [0mdf[0m [0;34m=[0m [0mpd[0m[0;34m.[0m[0mread_csv[0m[0;34m([0m[0;34m'/home/alexandro/geopythonbook/content/paises_america_sul.csv'[0m[0;34m,[0m [0musecols[0m[0;34m=[0m[0;34m[[0m[0;34m'País'[0m[0;34m,[0m [0;34m'Área'[0m[0;34m][0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 [0m[1;32m      2[0m [0mdf[0m[0;34m.[0m[0mhead[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
 

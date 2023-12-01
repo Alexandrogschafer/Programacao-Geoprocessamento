@@ -16,11 +16,13 @@ kernelspec:
 
 Dentro do ecossistema Python, existem diversas bibliotecas para otimizar o trabalho com dados geoespaciais. Dentre elas, Shapely e Fiona merecem destaque, não apenas por sua simplicidade, mas também pela eficácia com que lidam com tarefas geoespaciais. Quando utilizadas em conjunto, essas bibliotecas proporcionam uma abordagem integrada e robusta para o geoprocessamento básico no Python, tornando a análise e manipulação de dados espaciais mais acessível e eficiente.
 
+
 # 4.1 A biblioteca Shapely
 
 Shapely é uma biblioteca Python para manipulação e análise de objetos geométricos planares. Baseada na biblioteca GEOS (usada em PostGIS e outros sistemas), ela oferece uma interface amigável para criar, manipular e analisar formas geométricas. As classes básicas são apresentadas na figura 5. 
 
 A Shapely destaca-se principalmente por suas capacidades geométricas. Ele facilita a execução de operações como união, interseção, diferença e buffer. Além disso, a biblioteca é essencial para manipular e transformar geometrias, desde a simplificação de linhas e polígonos até a criação de um convex hull em torno de pontos ou a divisão e combinação de diferentes formas geométricas.
+
 
 ### 4.1.1 Criação de Geometrias com Shapely
 
@@ -31,6 +33,7 @@ a) Point: Representa uma coordenada única no espaço.
 ```{code-cell} python
 from shapely.geometry import Point
 ponto = Point(4.5, 3.2)
+ponto
 ```
 
 
@@ -39,6 +42,7 @@ b) Linestring: Representa uma série de pontos conectados para formar uma linha.
 ```{code-cell} python
 from shapely.geometry import LineString
 linha = LineString([(3.3, 3.1), (4.4, 4.3), (5.5, 5.7)])
+linha
 ```
 
 
@@ -47,6 +51,7 @@ c) Polygon: Representa uma área fechada. Você deve fornecer ao menos três coo
 ```{code-cell} python
 from shapely.geometry import Polygon
 poligono = Polygon([(5.1, 3.2), (6.4, 4.3), (6.6, 3.9), (5.1, 3.2)])
+poligono
 ```
 
 d) Polígono com furo: Refere-se a uma forma geométrica que consiste em um polígono externo maior e um ou mais polígonos internos menores que representam "furos" ou espaços vazios dentro do polígono maior. Estes polígonos internos são completamente contidos dentro do polígono externo e não se sobrepõem uns aos outros. Para criar um polígono com furos usando Shapely, você usaria a classe Polygon. A sintaxe básica é:
@@ -98,6 +103,7 @@ Multipoint: É uma coleção de vários pontos.
 ```{code-cell} python
 from shapely.geometry import MultiPoint
 multiponto = MultiPoint([(3.3, 3.1), (4.4, 4.3), (5.5, 5.7)])
+multiponto
 ```
 
 Multilinestring: É uma coleção de várias linhas.
@@ -105,6 +111,7 @@ Multilinestring: É uma coleção de várias linhas.
 ```{code-cell} python
 from shapely.geometry import MultiLineString
 multilinha = MultiLineString([[(3.3, 3.1), (4, 5)], [(4.4, 4.3), (5.5, 5.7)]])
+multilinha
 ```
 
 
@@ -115,6 +122,7 @@ from shapely.geometry import MultiPolygon
 poligono1 = Polygon([(4.1, 4.7), (5.0, 5.8), (5.6, 5.4), (4.1, 4.7)])
 poligono2 = Polygon([(6.2, 6.2), (7.3, 7.3), (8.1, 6.3), (6.2, 6.2)])
 multipoligono = MultiPolygon([poligono1, poligono2])
+multipoligono
 ```
 
 GeometryCollection: É uma coleção de qualquer combinação de geometrias.
@@ -122,7 +130,9 @@ GeometryCollection: É uma coleção de qualquer combinação de geometrias.
 ```{code-cell} python
 from shapely.geometry import GeometryCollection
 colecao = GeometryCollection([ponto, linha, poligono])
+colecao
 ```
+
 
 ### 4.1.2 Atributos geométrico no Shapely
 
@@ -204,6 +214,7 @@ buffer: Cria um buffer ao redor de uma geometria com uma distância especificada
 from shapely.geometry import Point
 ponto = Point(0, 0)
 buffer = ponto.buffer(1)
+buffer
 ```
 
 
@@ -216,6 +227,7 @@ pontoB = Point(2.5,0)
 bufferA = pontoA.buffer(2)
 bufferB = pontoB.buffer(2)
 uniao = bufferA.union(bufferB)
+uniao
 ```
 
 
@@ -223,6 +235,7 @@ intersection: Retorna a interseção geométrica entre geometrias.
 
 ```{code-cell} python
 interseccao = bufferA.intersection(bufferB)
+interseccao
 ```
 
 
@@ -230,10 +243,12 @@ difference: Retorna a diferença geométrica entre geometrias (subtrai a segunda
 
 ```{code-cell} python
 diferencaAB = bufferA.difference(bufferB)
+diferencaAB
 ```
 
 ```{code-cell} python
 diferencaBA = bufferB.difference(bufferA)
+diferencaBA
 ```
 
 
@@ -241,6 +256,7 @@ symmetric_difference: Retorna as partes de duas geometrias que não são compart
 
 ```{code-cell} python
 dif_simetrica = bufferA.symmetric_difference(bufferB)
+dif_simetrica
 ```
 
 
@@ -270,25 +286,27 @@ linha1.crosses(linha2)
 distance: Calcula a distância mínima entre as geometrias.
 ```{code-cell} python
 distancia = pontoB.distance(bufferA)  
-# Calcula a distância entre o pontoB e o bufferA = 0.5
 ```
 
 envelope: Retorna o menor retângulo delimitador que contém uma geometria.
 ```{code-cell} python
 envelope = bufferA.envelope
-print(envelope)
+envelope
 ```
 
 
 ## 4.2 Leitura de arquivos com Fiona
 
 A maneira como os dados espaciais são armazenados é diferente dos arquivos de texto ou binários comuns. Desta maneira, abrir um arquivo geoespacial (como um shapefile, GeoJSON, entre outros) requer uma interpretação especializada das estruturas de dados contidas no arquivo. 
+
 O Fiona fornece a interface e as funcionalidades necessárias para ler e escrever dados geoespaciais em Python. Ele se baseia no conjunto de bibliotecas GDAL/OGR e fornece uma maneira "pythonic" de manipular arquivos de formato vetorial. Uma vez que os dados são lidos com Fiona, as geometrias podem ser facilmente convertidas em objetos Shapely para análise e manipulação geométrica.
+
 
 ### 4.2.1 Leitura de arquivos shapefile com Fiona
 
 O shapefile é um formato de arquivo popular para armazenar informações geográficas, amplamente utilizado em Sistemas de Informações Geográficas (SIG ou GIS, em inglês). Embora existam outros formatos (como GeoJSON, GML, KML) que são mais modernos e flexíveis em muitos aspectos, o formato shapefile pode ser considerado o padrão na área de SIG atualmente.
 Além das informações geográficas (coordenadas que definem a geometria), cada objeto em um shapefile pode ter um conjunto de atributos associado. Além disso, um shapefile pode (e geralmente tem) um sistema de referência de coordenadas associado, que define o sistema de projeção. 
+
 É importante ressaltar que o shapefile é, na realidade, um conjunto de arquivos que trabalham juntos para representar e armazenar informações geográficas e seus atributos. Existem três arquivos principais, essenciais para que o shapefile funcione corretamente, e vários outros arquivos auxiliares que podem acompanhar um shapefile dependendo das características e necessidades do conjunto de dados. No quadro 6 apresenta-se os principais arquivos que podem constituir um shapefile.
 
 Quadro 8: Arquivos que podem constituir um shapefile.
@@ -310,8 +328,8 @@ Quadro 8: Arquivos que podem constituir um shapefile.
 | atx     | É um arquivo de índice criado pelo ArcGIS para campos específicos na tabela de atributos, acelerando determinadas operações.                                                  |
 
 
-
 Existem outros arquivos que podem, ocasionalmente, estar associados a um shapefile, especialmente quando se trabalha com softwares específicos que criam arquivos de índice ou metadados adicionais. No entanto, os listados acima são os mais comuns. Vale lembrar que para transferir ou mover um shapefile, é importante manter pelo menos os três arquivos principais juntos (.shp, .shx e .dbf) para garantir a integridade dos dados.
+
 O código a seguir é um exemplo de como ler um arquivo shapefile:
 
 ``` 
@@ -332,11 +350,11 @@ with fiona.open('caminho_para_seu_arquivo.shp', 'r') as registro:
 
 Vamos entender o que cada parte do código faz:
 
-import fiona
+``` import fiona ```
 
 A primeira linha importa a biblioteca fiona.
 
-with fiona.open('caminho_para_seu_arquivo.shp', 'r') as registro:
+``` with fiona.open('caminho_para_seu_arquivo.shp', 'r') as registro: ```
 
 A função fiona.open é usada para abrir um arquivo shapefile. O argumento 'r' indica que o arquivo está sendo aberto no modo de leitura (read). A instrução with é usada aqui para garantir que o arquivo seja fechado corretamente após sua utilização, independentemente de ocorrerem erros durante a execução do código.
 
@@ -361,17 +379,25 @@ print(props)
 ```
 
 Esse código imprime a geometria e os atributos de cada registro.
+
 Quando você usa a biblioteca fiona para abrir e ler um shapefile, vários processos ocorrem internamente. Aqui está uma visão geral do que acontece:
+
 Abertura do Arquivo: Quando você chama fiona.open(), a biblioteca primeiramente localiza e abre o arquivo shapefile para leitura;
 Leitura dos Metadados: Uma vez que o arquivo é aberto, fiona começa lendo os metadados associados ao shapefile. Isso inclui informações sobre o sistema de coordenadas, o tipo de geometria (pontos, linhas, polígonos, etc.) e a estrutura do arquivo de atributos (campos, tipos de dados, etc.);
+
 Interface Iterável: A biblioteca fornece uma interface iterável sobre os registros no shapefile. Cada registro contém uma geometria e um conjunto associado de atributos;
+
 Acesso Direto à Geometria e Atributos: Ao iterar sobre os registros, você pode acessar diretamente as geometrias e os atributos de cada registro. Fiona retorna geometrias no formato GeoJSON e permite que você interaja com os atributos como se estivesse trabalhando com um dicionário em Python;
+
 Conversão de Geometrias: Embora as geometrias retornem no formato GeoJSON, elas são compatíveis com a biblioteca shapely. Isto significa que você pode convertê-las em objetos shapely para análise e manipulação geométrica mais avançada;
+
 Fechamento Automático: Se você usar fiona dentro de um bloco with (como é recomendado), o arquivo será automaticamente fechado quando o bloco for concluído. Isso garante que os recursos do sistema sejam liberados e que não haja bloqueios no arquivo;
+
 Manipulação de Erros: Durante todo o processo, fiona tem mecanismos para lidar com erros. Se houver algum problema com o arquivo (por exemplo, se estiver corrompido ou faltando componentes), fiona geralmente lançará um erro explicativo.
 
 Obtendo metadados do arquivo
 Os metadados de um shapefile referem-se a informações sobre o próprio shapefile, como o sistema de coordenadas em que os dados estão projetados, o tipo de geometria (pontos, linhas ou polígonos) e outras informações que descrevem o conteúdo, qualidade, condição, e outras características do arquivo. Em muitos casos, os metadados são vitais para a correta interpretação e uso dos dados no shapefile. Sem metadados adequados, um usuário pode interpretar mal os dados, levando a decisões ou análises incorretas.
+
 Os metadados de um arquivo shapefile utilizando Fiona podem ser obtidos utilizando o seguinte código:
 
 ```
@@ -421,7 +447,10 @@ with fiona.open('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp', 'r') 
 Aplicando o script de consulta de metadados, obtemos:
 
 
-O EPSG 4326 é um código de sistema de referência espacial (SRS) que se refere ao sistema WGS 84 (World Geodetic System 1984). EPSG significa "European Petroleum Survey Group". Originalmente era um grupo de trabalho dedicado à aplicação da geodésia e da cartografia na indústria de petróleo e gás na Europa. O grupo criou e mantém uma base de dados com códigos para sistemas de referência espacial, transformações de coordenadas, unidades e métodos relacionados. Este banco de dados é amplamente utilizado em software GIS e outras aplicações geoespaciais. “4326” é o código específico no banco de dados EPSG que se refere ao WGS 84 com coordenadas em latitude e longitude (em graus decimais). 
+O EPSG 4326 é um código de sistema de referência espacial (SRS) que se refere ao sistema WGS 84 (World Geodetic System 1984). EPSG significa "European Petroleum Survey Group". Originalmente era um grupo de trabalho dedicado à aplicação da geodésia e da cartografia na indústria de petróleo e gás na Europa. 
+
+O grupo criou e mantém uma base de dados com códigos para sistemas de referência espacial, transformações de coordenadas, unidades e métodos relacionados. Este banco de dados é amplamente utilizado em software GIS e outras aplicações geoespaciais. “4326” é o código específico no banco de dados EPSG que se refere ao WGS 84 com coordenadas em latitude e longitude (em graus decimais). 
+
 
 
 ## 4.3 Manipulando e escrevendo com Shapely e Fiona
@@ -461,38 +490,45 @@ print(f'Shapefile {shapefile_saida} criado com sucesso!')
 
 Vamos entender cada parte do código:
 
-import fiona
-from shapely.geometry import Point, mapping
+```import fiona: ``` 
 
-import fiona: Importa a biblioteca Fiona, que é usada para a leitura e escrita de arquivos geoespaciais.
-from shapely.geometry import Point, mapping: Importa a classe Point da biblioteca Shapely, que é usada para criar geometrias de ponto. A função mapping é usada para converter geometrias Shapely em um formato que Fiona possa entender.
+Importa a biblioteca Fiona, que é usada para a leitura e escrita de arquivos geoespaciais.
 
+```from shapely.geometry import Point, mapping ```
+
+Importa a classe Point da biblioteca Shapely, que é usada para criar geometrias de ponto. A função mapping é usada para converter geometrias Shapely em um formato que Fiona possa entender.
+
+```
 esquema = {
     'geometry': 'Point',
     'properties': {'id': 'int', 'name': 'str'},
 }
+```
 
 Um dicionário chamado esquema é definido para especificar a estrutura do shapefile. Indica que o shapefile conterá geometrias do tipo ponto ('geometry': 'Point') e terá duas propriedades/atributos: id (um número inteiro) e name (uma string).
 
-shapefile_saida = 'pontos_saida.shp'
+``` shapefile_saida = 'pontos_saida.shp' ```
 Especifica o nome e o caminho do novo shapefile que será criado: shapefile_saida.
 
-with fiona.open(shapefile_saida, 'w', 'ESRI Shapefile', esquema) as c:
+``` with fiona.open(shapefile_saida, 'w', 'ESRI Shapefile', esquema) as c:```
 Aqui, o comando fiona.open é usado com o argumento 'w' (para escrita) para criar um novo shapefile. Também especifica o formato do arquivo ('ESRI Shapefile') e o esquema previamente definido.
 
-ponto = Point(5, 5)
+``` ponto = Point(5, 5)
     propriedades = {'ID': 1, 'NOME': 'Ponto de exemplo'}
+```
 
 Um objeto de ponto é criado usando a classe Point da biblioteca Shapely, e as propriedades associadas a esse ponto são armazenadas no dicionário “propriedades”.
 
+```
    c.write({
         'geometry': mapping(ponto),
         'properties': propriedades
     })
+```
 
 O ponto e suas propriedades são escritos no shapefile. A função mapping é usada para converter o objeto de ponto em um formato que Fiona possa entender e escrever no arquivo.
 
-print(f'Shapefile {shapefile_saida} criado com sucesso!')
+``` print(f'Shapefile {shapefile_saida} criado com sucesso!') ```
 
 Uma mensagem é impressa para confirmar que o shapefile foi criado com sucesso. 
 
@@ -500,6 +536,7 @@ Uma mensagem é impressa para confirmar que o shapefile foi criado com sucesso.
 Você pode visualizar os arquivos criados na aba files, na lateral esquerda do ambiente do Google Colab.
 
 Lembre-se de que ao trabalhar com shapefiles, além do arquivo .shp, outros arquivos (como .shx e .dbf) também são gerados. Se você decidir mover ou compartilhar seu shapefile, certifique-se de incluir esses arquivos auxiliares.
+
 
 Exemplo 2: Criar um shapefile com as capitais do Brasil, com geometrias do tipo ponto.
 
@@ -583,7 +620,9 @@ Na figura 26 podemos visualizar os pontos referentes as capitais provenientes do
 Exemplo 3: Escrever um arquivo em formato GeoJSON
 
 O GeoJSON é um formato de intercâmbio de dados geoespaciais, baseado no JSON (JavaScript Object Notation). Foi desenvolvido para representar objetos geográficos simples, juntamente com seus atributos não espaciais. Devido à simplicidade e à crescente adoção de tecnologias baseadas em web para aplicações geoespaciais, o GeoJSON vem se tornando um dos formatos padrão para transmissão de dados geoespaciais na web.
+
 O GeoJSON suporta vários tipos de geometria, incluindo Point (ponto), Linestring (linha), Polygon (polígono), Multipoint, Multilinestring, e Multipolygon. Além disso, ele suporta GeometryCollection, que, como vimos, é uma coleção de geometrias. Além da geometria, cada objeto GeoJSON pode ter atributos associados. Estes são armazenados em um objeto chamado propriedades. As coordenadas em GeoJSON são sempre em longitude e latitude (e opcionalmente altitude), e são representadas no formato decimal.
+
 Para criar um arquivo GeoJSON no fiona, é necessário alterar o argumento driver para "GeoJSON" quando você abrir o arquivo para escrita com fiona.open(). Esse argumento especifica o formato desejado, que neste caso é GeoJSON.
 with fiona.open(arquivo_saida, 'w', driver='GeoJSON', schema=esquema) as c:
 
@@ -632,6 +671,7 @@ O arquivo GeoJSON criado é:
 ```
 
 Exemplo 4: Escrever um arquivo shapefile com geometrias do tipo polígono
+
 Para escrever um shapefile contendo polígonos, utilizaremos a mesma sintaxe dos exemplos anteriores, usando Shapely para a criação das geometrias e Fiona para a escrita dos dados em formato shapefile:
 
 ```{code-cell} python

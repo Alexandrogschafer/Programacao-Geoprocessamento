@@ -15,8 +15,11 @@ kernelspec:
 # 6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON
 
 O geoprocessamento, como área que se dedica à coleta, processamento e análise de dados geoespaciais, é intrinsecamente ligado à visualização de informações. A representação gráfica desses dados não apenas facilita a compreensão de padrões e tendências espaciais, mas também serve como uma ponte entre informações complexas e a tomada de decisões informadas. Mapas, gráficos e outras representações visuais transformam conjuntos de dados brutos em insights tangíveis, permitindo que especialistas e tomadores de decisão visualizem fenômenos geográficos de maneira mais intuitiva.
+
 Além disso, em um mundo onde a quantidade de dados geoespaciais cresce exponencialmente, a capacidade de sintetizar e apresentar esses dados de forma clara e concisa é crucial. A visualização adequada permite que os usuários identifiquem rapidamente áreas de interesse, anomalias ou padrões, otimizando processos de análise e acelerando a resposta a questões geográficas críticas. Esta síntese visual também facilita a comunicação entre diferentes públicos, desde especialistas técnicos até o público em geral, democratizando o acesso à informação geoespacial.
+
 Por fim, a visualização de dados no geoprocessamento não se limita à simples representação gráfica. Ela também desempenha um papel vital na validação e qualidade dos dados. Através da representação visual, erros, inconsistências ou lacunas nos dados podem ser rapidamente identificados e corrigidos. Assim, a visualização atua como uma ferramenta de controle de qualidade, garantindo que as análises e decisões tomadas com base nesses dados sejam confiáveis e precisas.
+
 Existem diversas ferramentas dedicadas à visualização de dados espaciais. Entre as mais populares estão o QGIS e o ArcGIS. No entanto, linguagens de programação, como Python e R, também oferecem bibliotecas que permitem criar visualizações espaciais complexas e personalizadas. Algumas das principais bibliotecas e ferramentas que possibilitam a visualização de dados espaciais em Python são o Geopandas, o Matplotlib (e Pyplot), o Folium e o Rasterio. Nesta seção, exploraremos algumas dessas ferramentas e bibliotecas. 
 
 
@@ -25,19 +28,24 @@ Existem diversas ferramentas dedicadas à visualização de dados espaciais. Ent
 O Matplotlib é uma das principais bibliotecas de visualização de dados em Python, criada por John D. Hunter em 2003. Desde sua concepção, cresceu significativamente como um projeto de código aberto, auxiliado por uma grande comunidade de colaboradores. 
 A biblioteca destaca-se pela sua capacidade de gerar uma ampla variedade de gráficos, como de linha, barras, dispersão, histogramas, entre outros, e se integra com as principais estruturas de dados do Python, como listas e arrays, especialmente com a biblioteca Numpy.
 Um diferencial do Matplotlib é seu alto grau de personalização. O usuário pode ajustar quase todos os aspectos de uma visualização, desde cores e estilos até a posição das legendas e dos eixos. É possível implementar a biblioteca em diferentes interfaces gráficas, servidores web e Notebooks Jupyter, conferindo grande versatilidade na criação e exportação de gráficos.
+
 Além de suas capacidades intrínsecas, a extensibilidade do Matplotlib é evidente no surgimento de bibliotecas derivadas que oferecem funcionalidades adicionais, como o Seaborn para visualizações estatísticas e o Basemap para mapeamento geográfico. Sua adoção generalizada em diversos campos, como pesquisa acadêmica, ciência de dados e engenharia, reforça seu papel como uma ferramenta importante para análise e comunicação de dados.
 
 ### 6.1.1 Principais abordagens para a criação de gráficos no Matplotlib
 
 A criação de gráficos no Matplotlib pode ser abordada de duas maneiras principais: a abordagem funcional e a abordagem orientada a objetos. Ambas permitem a criação de visualizações de alta qualidade, mas são usadas em contextos diferentes e têm diferenças em termos de flexibilidade e controle sobre os elementos do gráfico.
+
 A abordagem Funcional é a mais simples, sendo frequentemente usada para gráficos rápidos e diretos. A interface pyplot do Matplotlib oferece uma série de funções que atuam sobre uma configuração padrão em andamento. Por exemplo, quando você chama plt.plot(...), você está modificando o gráfico atual. As funções nesta abordagem se assemelham a comandos, e a sequência em que são chamadas importa, pois alteram o estado atual do gráfico. Embora seja conveniente para gráficos simples, pode tornar-se menos intuitiva para visualizações mais complexas com múltiplos subgráficos.
+
 A abordagem orientada a objetos (OO) no Matplotlib refere-se a uma maneira de criar e manipular gráficos usando explicitamente objetos e métodos associados a esses objetos, em vez de depender de uma interface funcional mais direta. Esta abordagem oferece um controle mais explícito e maior flexibilidade sobre a figura e os eixos do gráfico. Ao invés de depender do estado global, você trabalha diretamente com objetos específicos, como a figura e os eixos, permitindo um controle mais preciso sobre todos os aspectos da visualização. É especialmente útil para visualizações mais complexas, como aquelas com múltiplos subgráficos ou eixos. Ela é frequentemente combinada com a interface pyplot para obter a flexibilidade da programação orientada a objeto com a simplicidade das funções do pyplot.
+
 Em resumo, enquanto a abordagem funcional é ótima para criar rapidamente visualizações simples, a abordagem orientada a objetos oferece a flexibilidade necessária para criar visualizações mais complexas e personalizadas. A escolha entre as abordagens depende do contexto e da complexidade da visualização desejada. Em nosso curso, vamos optar por trabalhar com a abordagem funcional sempre que possível.
 
 
 Primeiros passos no Matplotlib
 
 Gráficos básicos
+
 Para começar, focaremos na elaboração de gráficos fundamentais, abordando os tipos linha, coluna e dispersão.
 Exemplo 1:
 
@@ -89,11 +97,11 @@ Nesta linha, você está definindo uma lista chamada “etiqueta” que contém 
 
 Aqui, você está definindo uma lista chamada “valor” que contém três números: 3, 7 e 2. Esses números representarão as alturas das barras correspondentes às etiquetas 'A', 'B' e 'C'.
 
-plt.bar(etiqueta, valor)
+```plt.bar(etiqueta, valor) ```
 
 Esta é a chamada principal para a criação do gráfico de barras. A função bar() do plt (pyplot) é usada para criar gráficos de barra. Ela espera, pelo menos, dois argumentos: os rótulos das barras e os valores das barras. Neste caso, as barras serão rotuladas como 'A', 'B' e 'C', e terão alturas de 3, 7 e 2 unidades, respectivamente.
 
-plt.show()
+``` plt.show() ```
 
 Por fim, esta linha exibe o gráfico. Ela é responsável por renderizar o gráfico e mostrá-lo ao usuário (figura 75):
 
@@ -109,14 +117,19 @@ plt.show()
 Vamos detalhar o código:
 
 ``` x = [1, 2, 3, 4, 5] ```
+
 Aqui, estamos definindo uma lista chamada x que contém cinco números. Esta lista representará as coordenadas x dos pontos que você deseja plotar no gráfico de dispersão.
 
 ``` y = [5, 4, 3, 2, 1] ```
+
 Nesta linha, estamos definindo uma segunda lista chamada y que também contém cinco números. Essa lista representará as coordenadas y correspondentes dos pontos a serem plotados no gráfico.
 
-plt.scatter(x, y)
+``` plt.scatter(x, y) ```
+
 Esta é a linha principal do código, onde a função scatter() do plt (módulo pyplot da Matplotlib) é chamada para criar um gráfico de dispersão. Ela espera, pelo menos, dois argumentos: as coordenadas x e y dos pontos. Neste caso, estamos instruindo a Matplotlib a criar pontos nas coordenadas (1,5), (2,4), (3,3), (4,2) e (5,1). Por fim:
-plt.show()
+
+``` plt.show() ```
+
 
 
 ### 6.1.3 Personalizando Gráficos com Matplotlib
@@ -124,9 +137,11 @@ plt.show()
 A efetividade de uma visualização não reside apenas em representar dados, mas também na forma como essa representação é feita. Uma boa personalização pode destacar informações importantes, enquanto uma escolha de design inadequada pode obscurecer ou até mesmo distorcer os dados. O Matplotlib fornece uma grande quantidade de ferramentas para personalizar gráficos, garantindo que eles sejam informativos e esteticamente agradáveis.
 
 Cores, marcadores e linhas
+
 A aparência visual de um gráfico pode ser definida principalmente por suas cores, os marcadores utilizados e os estilos de linha.
 
 Cores
+
 Em Matplotlib, a cor de qualquer elemento do gráfico pode ser alterada. As cores podem ser especificadas de várias maneiras, incluindo nomes comuns ('red', 'blue', 'green'), códigos hexadecimais ('#FF5733'), entre outros.  
 Exemplo:
 
@@ -139,6 +154,7 @@ plt.show()
 
 
 Marcadores
+
 Em gráficos de dispersão ou pontos específicos de uma linha, os marcadores indicam a localização exata de um ponto. Existem diferentes estilos de marcadores disponíveis, como 'o' para círculos, 's' para quadrados, '^' para triângulos, entre outros.  
 Exemplo:
 
@@ -150,6 +166,7 @@ plt.show
 ```
 
 Linhas
+
 Os estilos de linha podem variar, e Matplotlib oferece opções como linhas contínuas ('-'), tracejadas ('--'), pontos e traços ('-.'), entre outros.  
 Exemplo:
 
@@ -181,13 +198,17 @@ plt.show()
 
 Ao ajustar esses elementos básicos, já é possível criar gráficos mais informativos e visualmente atraentes. 
 
+
 Rótulos, títulos e legendas
+
 Os rótulos, títulos e legendas são componentes essenciais em visualizações de dados, pois proporcionam contexto e significado, facilitando a interpretação dos gráficos. Vejamos um exemplo na figura 82:
 
 
 
 Rótulos: são usados para dar nome aos eixos (x e y) de um gráfico.
+
 Títulos: uma descrição breve e concisa que indica o propósito ou o conteúdo do gráfico.
+
 Legendas: usadas para identificar as diferentes séries ou categorias em um gráfico, especialmente útil quando várias linhas, pontos ou barras são desenhadas no mesmo espaço.
 
 A partir dos elementos apresentados até aqui, podemos sugerir uma estrutura básica para criar um gráfico no Matplotlib:
@@ -202,14 +223,21 @@ plt.show()
 ```
 
 Esse é o código para gerar o gráfico da figura 82. Vamos detalhar cada componente:
+
 plt.plot(x, y, label='Legenda') é a função principal para plotar gráficos de linhas. Ela toma os valores do eixo x e y como entrada e os plota. O argumento label é usado para associar uma legenda a essa linha específica, o que será útil quando chamarmos plt.legend() mais tarde. Podemos ter diversos outros argumentos, como os responsáveis pela definição de cores, marcadores, tipo e espessura de linhas, entre outros;
+
 plt.xlabel('Eixo X') e plt.ylabel('Eixo Y') são usadas para adicionar rótulos aos eixos x e y, respectivamente;
 plt.title('Título do Gráfico') é usada para adicionar um título ao gráfico;
+
 plt.legend() é usada para mostrar as legendas associadas a cada série no gráfico. A legenda é baseada nos labels fornecidos nas chamadas anteriores, como em plt.plot();
+
 plt.show() é usado para exibir o gráfico. Sem chamar essa função, o gráfico pode não ser exibido (dependendo do ambiente em que você está trabalhando).
+
 Esta estrutura básica é suficiente para criar gráficos simples. No entanto, o Matplotlib é uma biblioteca muito versátil e possui muitas outras funcionalidades que permitem personalizar e aprimorar seus gráficos, dependendo da necessidade. 
 
+
 Adicionando texto ao gráfico
+
 Além dos componentes mencionados acima, o Matplotlib permite que você adicione texto em qualquer parte do gráfico.
 Use plt.text(x, y, "Texto") para adicionar um texto na posição (x, y) do gráfico.
 
@@ -252,9 +280,11 @@ plt.legend()
 plt.show()
 ```
 
+
 ### 6.1.4 Subplots na Matplotlib
 
 Subplots são uma maneira de criar múltiplos gráficos em uma única figura. Eles são úteis quando você quer comparar diferentes conjuntos de dados lado a lado ou quando quer visualizar diferentes aspectos de um mesmo conjunto de dados. Com a combinação de subplots e as diversas funções de plotagem disponíveis, você pode criar uma ampla variedade de visualizações para analisar e apresentar seus dados.
+
 A função plt.subplots() é a maneira mais comum de criar subplots. Ela retorna uma figura e os eixos dos subplots.
 
 ```{code-cell} python
@@ -264,7 +294,9 @@ fig, ax = plt.subplots()
 
 Neste caso, fig é a figura completa, enquanto ax é um único conjunto de eixos. Você pode plotar diretamente neste conjunto de eixos usando métodos como ax.plot().
 
+
 Especificando o número de subplots
+
 Você pode especificar o número de subplots passando dois argumentos para plt.subplots(): o número de linhas e o número de colunas.
 
 ```{code-cell} python
@@ -288,9 +320,13 @@ ou
 fig.subplots_adjust(left=None, bottom=None, right=None, 
     top=None, wspace=None, hspace=None)
 ```
+
 Em que:
+
 left, right, top, bottom controlam o espaçamento em relação à figura.
+
 wspace e hspace controlam o espaçamento entre subplots.
+
 Para visualizar o resultado:
 
 ```{code-cell} python
@@ -301,6 +337,7 @@ plt.show()
 
 
 Plotando nos Subplots
+
 Uma vez que você tenha seus subplots definidos, você pode plotar neles usando os métodos de plotagem do objeto de eixos.
 
 ```{code-cell} python
@@ -311,6 +348,7 @@ axs[1].plot([0, 1, 2], [0, -1, 0], label='Subplot 2
 
 
 Títulos e Rótulos
+
 Você pode adicionar títulos e rótulos a cada subplot individualmente:
 
 ```{code-cell} python
@@ -321,6 +359,7 @@ axs[0].set_ylabel('Eixo Y do Subplot 1')
 
 
 Compartilhando Eixos
+
 Se você estiver comparando dados em diferentes subplots e quiser que eles compartilhem o mesmo eixo X ou Y, você pode usar o argumento sharex ou sharey:
 
 ```{code-cell} python
@@ -330,7 +369,9 @@ fig, axs = plt.subplots(2, 1, sharex=True)
 Neste exemplo, ambos subplots compartilharão o mesmo eixo X.
 
 Exemplo: Criando múltiplos gráficos em uma única figura.
+
 a) Usando plt.subplots():
+
 O método plt.subplots() retorna uma figura e uma matriz de objetos "axes" (eixos), que são as áreas individuais de plotagem.
 
 Etapa 1: Importação de biblioteca e criação da figura e dos subplots.
@@ -344,6 +385,7 @@ fig, ax = plt.subplots(nrows=2, ncols=2, figsize=(10, 10))
 Nesse código, plt.subplots() retorna uma figura (fig) e os eixos (ax) dos subplots; nrows=2, ncols=2 define uma matriz 2x2, resultando em 4 subplots; figsize=(10, 10) define o tamanho da figura. Neste caso, a figura terá 10x10 polegadas.
 
 Etapa 2: Plotando os gráficos em cada subplot.
+
 Cada subplot é referenciado usando a indexação ``` ax[row, col] ```. Por exemplo, ``` ax[0, 0] ``` refere-se ao subplot superior esquerdo, enquanto ``` ax[1, 1] ``` é o subplot inferior direito. 
 
 # Primeiro subplot (superior esquerdo)
@@ -384,6 +426,7 @@ O método tight_layout() ajusta o espaçamento entre os subplots para que não s
 ### 6.1.5 Gráficos com dados reais
 
 Para exemplificar a criação de gráficos com dados reais, vamos criar um gráfico para visualizar a precipitação mensal (em mm) registrada na estação meteorológica do INMET, código A827, instalada no município de Bagé-RS nos anos de 2021, 2022 e 2023. Os dados estão armazenados em um arquivo CSV. 
+
 O código completo para ler o arquivo e criar o gráfico é:
 
 ```{code-cell} python
@@ -411,39 +454,46 @@ Figura 92: Precipitação na estação climatológica INMET A827 entre 2021 e 20
 
 Vamos analisar o código por partes:
 
+```
 import pandas as pd
 import matplotlib.pyplot as plt
 df_precipitacao = pd.read_csv('/content/precipitacao_A827.csv')
 df_precipitacao.head()
+```
  
 Aqui realizamos a leitura do arquivo CSV denominado precipitacao_A827.CSV. Os dados do arquivo são armazenados no DataFrame chamado df_precipitacao. Em seguida, as primeiras cinco linhas do DataFrame são impressas usando o método head().
 
-ax = df_precipitacao.plot(kind='bar', figsize=(10, 6), width=0.8, 
-  ``` color=['steelblue', 'mediumseagreen', 'silver']) ```
+```
+ax = df_precipitacao.plot(kind='bar', figsize=(10, 6), width=0.8, color=['steelblue', 'mediumseagreen', 'silver']) ```
 
 Nesse código, df_precipitacao.plot(...) utiliza a função plot() do DataFrame df_precipitacao para criar um gráfico; kind='bar' especifica que o tipo de gráfico desejado é um gráfico de barras; figsize=(10, 6) define o tamanho da figura como 10 unidades de largura por 6 unidades de altura; width=0.8 define a largura das barras como 80% da largura padrão entre os ticks do eixo x; ``` color=['steelblue', 'mediumseagreen', 'silver'] ``` define as cores das barras. 
 
-ax.set_xlabel('Mês')
+``` ax.set_xlabel('Mês') ```
  
 Define o rótulo do eixo x como "Mês".
 
-ax.set_ylabel('Precipitação mensal (mm)') 
+``` ax.set_ylabel('Precipitação mensal (mm)') ```
+
 Define o rótulo do eixo y como "Precipitação mensal (mm)".
 
-ax.set_title('Precipitação: Estação INMET A827(Bagé)') 
+``` ax.set_title('Precipitação: Estação INMET A827(Bagé)') ```
+
 Estabelece o título do gráfico.
 
 ``` ax.set_xticklabels(df_precipitacao['Mês'], rotation=45) ```
 
 Define os rótulos do eixo x com os valores da coluna 'Mês' do DataFrame df_precipitacao e roda esses rótulos em 45 graus para melhor visualização.
 
-ax.legend() 
+``` ax.legend() ```
+
 Exibe a legenda do gráfico, que, por padrão, usará os nomes das colunas do DataFrame como rótulos.
 
-plt.tight_layout() 
+``` plt.tight_layout() ```
+
 Ajusta automaticamente o layout da figura para garantir que tudo seja exibido corretamente.
 
-plt.show() 
+``` plt.show() ```
+
 Exibe a figura (figura x). Se você estiver usando um Jupyter Notebook ou um ambiente IPython, a figura será exibida diretamente abaixo da célula que contém o código. Em outros ambientes, isso pode abrir uma janela com a figura.
 
 
@@ -451,22 +501,35 @@ Exibe a figura (figura x). Se você estiver usando um Jupyter Notebook ou um amb
 
 Quando você cria um gráfico, seja para análise de dados, apresentações ou publicações, muitas vezes é necessário exportá-lo para um formato de arquivo específico. A exportação de gráficos envolve várias considerações, incluindo o formato de arquivo, resolução e qualidade. A escolha certa depende do uso pretendido do gráfico e das especificações do meio em que será apresentado.
 
+
 Formatos
+
 Existem vários formatos de arquivo para os quais você pode exportar um gráfico, e a escolha do formato depende do uso pretendido. Alguns dos formatos mais comuns incluem:
+
 PNG (Portable Network Graphics): É um formato de imagem matricial, o que significa que ele armazena o gráfico como uma coleção de pixels. É amplamente usado devido à sua compressão sem perdas e suporte a transparência;
+
 JPEG (Joint Photographic Experts Group): Também é um formato de imagem matricial, mas usa compressão com perdas, o que pode reduzir a qualidade da imagem. É mais adequado para fotografias do que para gráficos;
+
 SVG (Scalable Vector Graphics): É um formato de imagem vetorial, o que possibilita que o gráfico seja redimensionado sem perder qualidade;
+
 PDF (Portable Document Format): É um formato de arquivo versátil que pode conter gráficos vetoriais e matriciais. É amplamente usado para publicações e impressão.
 
+
 Resolução
+
 A resolução refere-se ao número de pixels por polegada (PPI) ou pontos por polegada (DPI) em uma imagem. Uma resolução mais alta resulta em uma imagem mais nítida, mas também em um tamanho de arquivo maior. A resolução ideal depende de onde o gráfico será usado:
 Tela (web, apresentações): Geralmente, uma resolução de 72 PPI é suficiente;
+
 Impressão: Para obter uma imagem nítida, é recomendável uma resolução de pelo menos 300 DPI.
 
+
 Qualidade
+
 A qualidade refere-se à quantidade de detalhes e clareza em uma imagem. Em formatos de compressão com perdas, como JPEG, você pode escolher um nível de qualidade ao exportar. Uma qualidade mais alta resultará em uma imagem mais nítida, mas também em um tamanho de arquivo maior. Por outro lado, uma qualidade mais baixa reduzirá o tamanho do arquivo, mas também a nitidez da imagem. Ao exportar gráficos, é importante equilibrar a qualidade e o tamanho do arquivo, considerando o propósito pretendido do gráfico. 
 
+
 Exportando o gráfico de precipitação da estação A827
+
 Para exportar o último gráfico criado com os dados de precipitação da estação climatológica A827 no contexto do Matplotlib, utilizamos o método savefig(). Vamos criar um arquivo em formato PNG, com resolução de 300dpi.
 
 plt.savefig('precipitacao_2021-2023_A827.png', format='png', dpi=300)
@@ -494,9 +557,11 @@ plt.show()
 Depois de executar este código, você encontrará o gráfico exportado como um arquivo PNG com a resolução especificada, no diretório atual de trabalho.
 
 
+
 ## 6.2 Função de plotagem integrada do GeoPandas.
 
 Como vimos no capítulo anterior, o Geopandas é uma extensão do Pandas, uma das bibliotecas mais populares para análise de dados em Python. Ele facilita o trabalho com dados geoespaciais, incorporando estruturas para manipulação de geometrias.
+
 Com o Geopandas, é possível realizar a plotagem básica de dados geográficos com facilidade. Um simples comando plot() aplicado a um GeoDataFrame ou GeoSeries gera uma representação visual dos dados. Por exemplo:
 
 ```{code-cell} python
@@ -508,7 +573,9 @@ gdf_uf.plot()
 
 A seguir, exploraremos as opções de personalização do método plot. A visualização padrão é prática, mas muitas vezes precisamos modificar cores, legendas e outros detalhes para melhorar a apresentação dos dados. Entender essas opções nos ajudará a produzir gráficos mais claros e adequados ao nosso propósito.
 
+
 a) Definição da cor de preenchimento
+
 O blue é a cor padrão quando plotamos utilizando o .plot(). Para aplicar outra cor a todas as geometrias do GeoDataFrame, você pode usar o argumento color.
 
 ```{code-cell} python
@@ -517,6 +584,7 @@ gdf_uf.plot(color = 'green')
 
 
 Atribuindo cores diferentes de acordo com os atributos
+
 Para colorir geometrias com base nos valores de uma coluna (atributo) específica, você pode utilizar os argumentos column e cmap (mapa de cores). Vamos criar uma visualização do gdf_uf, atribuindo cores a cada geometria com base nos valores da coluna NM_REGIAO e usando o esquema de cores Pastel2.
 
 ```{code-cell} python
@@ -525,12 +593,18 @@ gdf_uf.plot(column = 'NM_REGIAO', cmap = 'Pastel2')
 
 
 O cmap, abreviação de Colormap, refere-se a uma escala de cores ou um mapa de cores no Matplotlib e em outras bibliotecas de visualização. O Matplotlib oferece uma variedade de colormaps pré-definidos que podem ser usados conforme o tipo de dado e a preferência visual. Alguns exemplos de colormaps no Matplotlib incluem:
+
 Sequenciais: São adequados para dados que vão de valores baixos a altos. Exemplos: Blues, Greens, OrRd.
+
 Divergentes: São adequados para dados que têm um valor médio significativo e variações nos dois extremos (baixo e alto). Exemplos: RdBu (Vermelho-Azul), coolwarm.
+
 Cíclicos: São adequados para dados que têm valores repetidos em ciclos. Exemplo: twilight.
+
 Qualitativos: São usados para representar informações categóricas. Exemplo: tab10. Para mais detalhes, consulte (https://matplotlib.org/stable/users/explain/colors/colormaps.html).
 
+
 Personalizando as linhas de borda 
+
 Usando edgecolor e linewidth, você pode personalizar a cor e a largura das linhas de borda das geometrias. Exemplo:
 
 ```{code-cell} python
@@ -539,6 +613,7 @@ gdf_uf.plot(color='green', edgecolor='black', linewidth=0.8)
 
 
 Configuração de legenda e barra de cores
+
 Ao usar o argumento legend=True, você pode adicionar uma legenda ou barra de cores para representar os valores dos dados.
 
 ```{code-cell} python
@@ -549,23 +624,34 @@ gdf_uf.plot(column = 'NM_REGIAO', cmap = 'Pastel2', legend=True)
 Estes são apenas alguns exemplos básicos de como você pode personalizar a plotagem de seus dados geográficos no Geopandas. Como o Geopandas se integra perfeitamente ao Matplotlib, as possibilidades são amplas e permitem muita personalização. Estudaremos a integração do Geopandas com a Matplotlib a seguir.
 
 
+
 ## 6.3 Integração do Geopandas com Matplotlib
 
-Quando você usa o método .plot() do Geopandas, ele já está usando o matplotlib implicitamente. No entanto, para uma integração mais profunda e personalizada, você pode usar a matplotlib explicitamente. 
-Essa integração é bastante direta e traz várias vantagens, dentre elas:
+Quando você usa o método .plot() do Geopandas, ele já está usando o matplotlib implicitamente. No entanto, para uma integração mais profunda e personalizada, você pode usar a matplotlib explicitamente. Essa integração é bastante direta e traz várias vantagens, dentre elas:
+
 Personalização Avançada: O matplotlib oferece uma ampla gama de opções de personalização, permitindo que você ajuste quase todos os aspectos do seu gráfico;
+
 Combinação de Gráficos: Você pode combinar seu mapa com outros tipos de gráficos, como gráficos de barras, linhas ou scatter plots, em uma única figura;
+
 Subplots: Como discutido anteriormente, o matplotlib permite criar subplots. Isso é útil se você quiser mostrar vários mapas lado a lado para comparação;
+
 Controle de Legenda: O matplotlib oferece opções avançadas para personalizar a legenda do seu gráfico, incluindo posição, tamanho, cor e muito mais;
+
 Integração com Outras Bibliotecas: Ao usar o matplotlib como base, você pode facilmente integrar seu mapa com outras bibliotecas de visualização que também usam o matplotlib, como seaborn;
+
 Exportação Flexível: O matplotlib oferece várias opções para exportar seu gráfico, permitindo que você escolha formatos, resoluções e outros parâmetros de exportação;
+
 Interatividade: Embora o matplotlib seja principalmente uma biblioteca de plotagem estática, ele tem algumas funcionalidades interativas, especialmente quando usado em ambientes como o Jupyter Notebook.
 
 Em resumo, integrar o Geopandas com a Matplotlib oferece uma maior flexibilidade e controle sobre a visualização dos seus dados geoespaciais. Vamos explorar algumas opções de personalização a seguir.
 
+
 Configuração das etiquetas dos eixos
+
 O método .plot() do Geopandas retorna um objeto de eixos (ax) do matplotlib, e você pode usar esse objeto para ajustar as propriedades dos eixos, incluindo o tamanho do texto das etiquetas dos eixos. 
+
 As etiquetas dos eixos na Matplotlib são altamente configuráveis. O método ax.tick_params() pode ser usado para ajustar várias propriedades das etiquetas dos eixos e dos marcadores (ticks) ao mesmo tempo. 
+
 Vamos reduzir o tamanho do texto referente aos valores das coordenadas geográficas em nosso GeoDataFrame gdf_uf:
 
 ```{code-cell} python
@@ -587,6 +673,7 @@ No método ax.tick_params(), o argumento labelsize define o tamanho do texto. Vo
 Além de ax.tick_params(), existem outros métodos e propriedades para ajustar as etiquetas dos eixos e os ticks. A documentação oficial do matplotlib é uma excelente fonte para verificar as opções disponíveis e obter exemplos detalhados. Você pode encontrar mais informações sobre ax.tick_params() e outras funcionalidades relacionadas na documentação da matplotlib, em: (https://matplotlib.org/stable/api/axis_api.html).
 
 Mais exemplos de integração entre Geopandas e Matplotlib
+
 Exemplo 1: Plotando um único GeoDataFrame
 
 ```{code-cell} python
@@ -606,22 +693,27 @@ plt.show()
 
 Resumidamente, este código carrega um conjunto de dados geoespaciais do Brasil a partir de um arquivo shapefile, cria uma figura e eixos usando matplotlib, plota os dados geoespaciais no gráfico, personaliza o gráfico e, em seguida, exibe o gráfico resultante. 
 Vamos analisar o código passo a passo.
-fig, ax = plt.subplots(figsize=(10, 10))
+
+``` fig, ax = plt.subplots(figsize=(10, 10)) ```
 
 Uma figura e eixos são criados usando a função subplots do matplotlib. A figura terá um tamanho de 10x10 polegadas.
-gdf_uf.plot(ax=ax, color='darkseagreen', edgecolor='black')
+
+``` gdf_uf.plot(ax=ax, color='darkseagreen', edgecolor='black') ```
 
 O método .plot() do GeoDataFrame (gdf_uf) é usado para visualizar os dados geoespaciais. O argumento ax=ax indica que o plot deve ser feito nos eixos previamente criados. O argumento color='darkseagreen' define a cor de preenchimento das unidades federativas, enquanto edgecolor='black' define a cor das bordas.
 
-
+```
 ax.set_title('Brasil')
 ax.set_xlabel('Longitude')
 ax.set_ylabel('Latitude')
+```
 
 Aqui, o gráfico é personalizado usando funções do matplotlib. O título do gráfico é definido como "Brasil", e os rótulos dos eixos x e y são definidos como "Longitude" e "Latitude", respectivamente.
 
 
+
 Exemplo 2: Plotando uma geometria e o conteúdo de uma coluna
+
 Vamos plotar a mesma figura anterior, mas inserindo na visualização a sigla referente a cada estado. Para tanto, vamos utilizar a função annotate da matplotlib. A ideia é iterar sobre cada geometria (neste caso, cada estado) no GeoDataFrame e adicionar uma anotação (o nome do estado) à sua posição central.
 
 ```{code-cell} python
@@ -651,6 +743,7 @@ Neste código, a parte chave é o loop for que itera sobre as coordenadas centra
 
 
 Exemplo 3: Plotando camadas de geometrias sobrepostas
+
 Vamos criar uma plotagem das rodovias do estado de Sergipe sobrepostas a geometria desse estado.
 
 ```{code-cell} python
@@ -699,6 +792,7 @@ plt.show()
 
 
 Exemplo 4: Classificando um tema por categorias
+
 O GeoDataFrame gdf_rodovias tem uma coluna chamada jurisdição que especifica a jurisdição de cada segmento de rodovia (Federal, Estadual, Municipal ou desconhecida). Vamos gerar uma plotagem das rodovias de Sergipe, categorizadas de acordo com a sua jurisdição. Para tanto, vamos utilizar o argumento column no método plot e adicionar uma legenda.
 
 ```{code-cell} python
@@ -735,7 +829,9 @@ Neste código: leg.set_bbox_to_anchor((0.9, 0.3)) ajusta a posição da legenda 
 
 
 Exemplo 6: Mapa coroplético 
+
 Vamos criar uma visualização da distribuição espacial da população por município para o estado de Santa Catarina (dados referentes ao ano de 2021). Para simplificar, usaremos aqui o termo ‘mapa coroplético’, mesmo que alguns dos elementos que constituem um mapa por definição (como a escala gráfica ou numérica) não estejam presentes nessa visualização.
+
 Inicialmente, vamos importar as bibliotecas, ler o arquivo shapefile e plotar as primeiras linhas do GeoDataFrame.
 
 ```{code-cell} python
@@ -775,11 +871,11 @@ plt.show()
 
 Vamos detalhar o código:
 
-fig, ax = plt.subplots(figsize=(10, 10))
+``` fig, ax = plt.subplots(figsize=(10, 10)) ```
 
 Esta linha cria uma figura (fig) e um conjunto de eixos (ax) com um tamanho especificado de 10x10 polegadas.
 
-gdf_sc.plot(column='pop_2021', ax=ax, cmap='OrRd')
+``` gdf_sc.plot(column='pop_2021', ax=ax, cmap='OrRd') ```
 
 Aqui, estamos usando o método plot do GeoDataFrame gdf_sc para criar um mapa coroplético. Estamos atribuindo cores aos municípios com base nos valores da coluna pop_2021, usando o cmap 'OrRd'. O argumento ax=ax especifica que queremos plotar os dados no conjunto de eixos que criamos anteriormente.
 
@@ -787,11 +883,11 @@ Aqui, estamos usando o método plot do GeoDataFrame gdf_sc para criar um mapa co
 
 Esta linha adiciona uma barra de cores (colorbar) ao gráfico. A barra de cores fornece uma referência visual para mapear cores individuais para valores de dados. O argumento shrink=0.5 especifica que a barra de cores deve ser reduzida para metade do tamanho do eixo.
 
-cbar.set_label('População por Município', size=10)
+``` cbar.set_label('População por Município', size=10) ```
 
 Aqui, estamos definindo um rótulo para a barra de cores com o texto "População por Município" e especificando que o tamanho da fonte do rótulo deve ser 10.
 
-cbar.ax.tick_params(labelsize=9)
+``` cbar.ax.tick_params(labelsize=9) ```
 
 O código acima ajusta os parâmetros dos ticks (marcadores) da barra de cores. Estamos definindo o tamanho da fonte dos rótulos dos marcadores para 9.
 
@@ -839,41 +935,45 @@ plt.show()
 
 Vamos analisar as diferenças com relação ao código anterior:
 
+```
 import matplotlib.pyplot as plt
 import numpy as np
 import matplotlib.colors as mcolors
 import matplotlib.cm as cm
+```
 
 Aqui, além da Matplotlib importamos o numpy, e os módulos matplotlib.colors e matplotlib.cm, que são usados para trabalhar com mapas de cores.
 
+```
 gdf_sc = gdf_sc.copy()
-``` gdf_sc['pop_2021_log'] = np.log(gdf_sc['pop_2021']) ```
+gdf_sc['pop_2021_log'] = np.log(gdf_sc['pop_2021']) ```
 
 Cria uma cópia do GeoDataFrame gdf_sc para evitar alterações no original. Em seguida, adiciona uma nova coluna pop_2021_log que contém o logaritmo natural dos valores da coluna pop_2021.
 
-cmap = 'OrRd'
 ```
-norm = mcolors.Normalize(vmin=gdf_sc['pop_2021'].min(), 
-    vmax=gdf_sc['pop_2021'].max())
+cmap = 'OrRd'
+norm = mcolors.Normalize(vmin=gdf_sc['pop_2021'].min(), vmax=gdf_sc['pop_2021'].max())
 ```
 
 Define o mapa de cores como 'OrRd' e cria um objeto de normalização que mapeia os valores da coluna pop_2021 para o intervalo ``` [0, 1] ```.
 
-gdf_sc.plot(column='pop_2021_log', ax=ax, cmap=cmap, legend=False)
+``` gdf_sc.plot(column='pop_2021_log', ax=ax, cmap=cmap, legend=False) ```
 
 Plota o mapa coroplético usando a coluna pop_2021_log e o mapa de cores definido anteriormente. A legenda não é mostrada porque legend=False.
 
+```
 cbar = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
-``` cbar_ax = fig.add_axes([0.95, 0.25, 0.02, 0.5]) ```
+cbar_ax = fig.add_axes([0.95, 0.25, 0.02, 0.5])
 cb = fig.colorbar(cbar, cax=cbar_ax, orientation='vertical
+```
 
 Cria uma legenda personalizada para o mapa; plt.cm.ScalarMappable é usado para mapear os valores da coluna pop_2021 para cores no mapa de cores; fig.add_axes adiciona um novo conjunto de eixos à figura para a legenda, e fig.colorbar adiciona a legenda à figura.
-
 
 Ao utilizar a escala logarítmica, foi possível representar de forma mais eficaz a distribuição populacional, realçando tanto áreas densamente quanto escassamente povoadas.
 
 
 Exemplo 7: Múltiplos plots em uma visualização
+
 A visualização simultânea de múltiplos conjuntos de dados geoespaciais pode proporcionar uma compreensão abrangente das características e relações territoriais de uma área. No exemplo a seguir, exploraremos o uso de subplots para visualizar, lado a lado: os estados, os biomas e as regiões hidrográficas do Brasil. Para facilitar o entendimento, inicialmente vamos apresentar o código sem a configuração de estilos de cores, dos textos e de legendas. 
 
 ```{code-cell} python
@@ -911,9 +1011,10 @@ plt.show()
 
 No código acima:
 
-fig, axs = plt.subplots(1, 3, figsize=(15, 5))
+``` fig, axs = plt.subplots(1, 3, figsize=(15, 5)) ```
 
 Aqui, usamos o método plt.subplots() para criar uma figura (fig) e três subplots (axs). O argumento “1, 3” indica que queremos 1 linha e 3 colunas de subplots, ou seja, três áreas de plotagem lado a lado. O argumento figsize=(15, 5) define o tamanho total da figura como 15x5 polegadas.
+
 ```
 gdf_uf.plot(ax=axs[0])
 axs[0].set_title('Estados')
@@ -924,17 +1025,19 @@ axs[1].set_title('Biomas')
 gdf_hid.plot(ax=axs[2])
 axs[2].set_title('Regiões Hidrográficas')
 ```
-```
-Neste código, estamos plotando o gdf_uf (que representa os estados) no primeiro subplot (área de plotagem axs[0]). Em seguida, definimos um título para esse subplot. Da mesma forma, estamos plotando o gdf_bio (que representa os biomas) no segundo subplot (área de plotagem axs[1]) e definindo um título para ele. Por fim, estamos plotando o gdf_hid (que representa as regiões hidrográficas) no terceiro subplot (área de plotagem axs[2]) e definindo um título para ele.```
 
+Neste código, estamos plotando o gdf_uf (que representa os estados) no primeiro subplot (área de plotagem ``` axs[0] ```). Em seguida, definimos um título para esse subplot. Da mesma forma, estamos plotando o gdf_bio (que representa os biomas) no segundo subplot (área de plotagem ``` axs[1] ```) e definindo um título para ele. Por fim, estamos plotando o gdf_hid (que representa as regiões hidrográficas) no terceiro subplot (área de plotagem ``` axs[2] ```) e definindo um título para ele.
+
+```
 for ax in axs:
     ax.axis('off')
 
 plt.tight_layout()
 plt.show()
+```
 
 Aqui, estamos percorrendo cada subplot (área de plotagem) e desativando os eixos usando ax.axis('off'), o que remove os rótulos e os marcadores dos eixos, tornando a visualização mais limpa. plt.tight_layout() ajusta automaticamente o tamanho e a posição dos subplots para que eles se ajustem bem na figura; plt.show() exibe a figura criada.
-	Agora vamos alterar o código, adicionando as configurações de texto, legendas e categorias:
+Agora vamos alterar o código, adicionando as configurações de texto, legendas e categorias:
 
 ```{code-cell} python
 # Criando uma figura e três eixos
@@ -971,13 +1074,17 @@ plt.show()
 
 
 Vamos analisar o código:
-fig, axs = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
+
+``` fig, axs = plt.subplots(nrows=1, ncols=3, figsize=(15, 5)) ```
+
 Aqui, usamos o método plt.subplots() para criar uma figura (fig) e três eixos (axs), da mesma maneira que no código anterior.
 
+```
 legend_args = {
     'loc': 'lower left',
     'fontsize': 'small'  # Reduzindo o tamanho da fonte da legenda
 }
+```
 
 Neste trecho, definimos um dicionário legend_args que contém argumentos para personalizar a legenda dos plots. A legenda é posicionada no canto inferior esquerdo ('loc': 'lower left') e tem tamanho de fonte pequeno ('fontsize': 'small').
 
@@ -991,26 +1098,29 @@ gdf_bio.plot(column='NOME', ax=axs[1], cmap = 'Greens', edgecolor='black',
     legend=True, legend_kwds=legend_args)
 axs[1].set_title('Biomas do Brasil')
 ```
-```
-Neste trecho, estamos plotando o gdf_bio no segundo eixo (axs[1]) e atribuindo cores aos biomas com base na coluna 'NOME', usando o mapa de cores Greens. As bordas dos biomas são definidas como pretas (edgecolor='black'). A legenda é ativada (legend=True) e personalizada usando os argumentos definidos anteriormente (legend_kwds=legend_args). Em seguida, definimos um título para esse eixo.
-```
+
+Neste trecho, estamos plotando o gdf_bio no segundo eixo (``` axs[1] ```) e atribuindo cores aos biomas com base na coluna 'NOME', usando o mapa de cores Greens. As bordas dos biomas são definidas como pretas (edgecolor='black'). A legenda é ativada (legend=True) e personalizada usando os argumentos definidos anteriormente (legend_kwds=legend_args). Em seguida, definimos um título para esse eixo.
+
      
 Plotando o mapa das regiões hidrográficas do Brasil no terceiro eixo
+
 ```
 gdf_hid.plot(column='RHI_NM', ax=axs[2], cmap='Blues', edgecolor='black', 
     legend=True, legend_kwds=legend_args)
 axs[2].set_title('Regiões Hidrográficas do Brasil')
 ```
-```
-Aqui, plotamos o gdf_hid no terceiro eixo (axs[2]) e atribuímos cores as regiões hidrográficas com base na coluna 'RHI_NM' usando o mapa de cores 'Blues'. As bordas das regiões são definidas como pretas (edgecolor='black'). A legenda é ativada (legend=True) e personalizada usando os argumentos definidos anteriormente (legend_kwds=legend_args). Em seguida, definimos um título para esse eixo.
-```
+
+Aqui, plotamos o gdf_hid no terceiro eixo (```axs[2] ```) e atribuímos cores as regiões hidrográficas com base na coluna 'RHI_NM' usando o mapa de cores 'Blues'. As bordas das regiões são definidas como pretas (edgecolor='black'). A legenda é ativada (legend=True) e personalizada usando os argumentos definidos anteriormente (legend_kwds=legend_args). Em seguida, definimos um título para esse eixo.
+
 O restante do código permanece inalterado com relação ao primeiro código apresentado. 
 
 
 ## 6.4 Adicionando Mapas Base à Plotagem com Contextily
 
 Ao visualizar dados geoespaciais, muitas vezes é útil ter um mapa base para fornecer contexto geográfico. A biblioteca Contextily permite adicionar facilmente mapas base, provenientes de fontes populares como OpenStreetMap e Stamen às suas visualizações.
+
 A biblioteca foi projetada para integrar-se perfeitamente com outras bibliotecas geoespaciais, como Geopandas e Matplotlib. Ela é capaz de reprojetar os dados automaticamente para o sistema de coordenadas Web Mercator (EPSG:3857), comumente usado por provedores de tiles de mapas base. Além disso, ao recuperar tiles de mapas base, otimiza o desempenho armazenando-os localmente em cache.
+
 
 Provedores de mapas base no Contextily
 
@@ -1052,10 +1162,12 @@ Greyscale_Shaded_Relief
 
 
 Figura 109: Exemplos de estilos de mapa base disponíveis a partir da Contextily.
+
 Vale lembrar que a disponibilidade dos tiles pode variar dependendo dos termos de serviço dos provedores e da capacidade de suportar tráfego. Além disso, a lista de provedores e estilos pode mudar com o tempo, conforme novos estilos são adicionados ou antigos são removidos. Você pode verificar diretamente a lista completa de provedores e estilos disponíveis no ambiente Python explorando o módulo ctx.providers.
 
-Exemplo: 
-Criar uma visualização do município de Florianópolis com o basemap WorldImagery, do provedor ESRI.
+
+Exemplo: Criar uma visualização do município de Florianópolis com o basemap WorldImagery, do provedor ESRI.
+
 Inicialmente, precisamos instalar a biblioteca Contextily:
 
 ```{code-cell} python
@@ -1090,25 +1202,37 @@ plt.show()
 
 Detalhando o código anterior:
 
-ax = gdf.to_crs(epsg=3857).plot(figsize=(15, 15), facecolor='none', alpha=0.9, edgecolor='r')
+``` ax = gdf.to_crs(epsg=3857).plot(figsize=(15, 15), facecolor='none', alpha=0.9, edgecolor='r') ```
+
 Aqui, reprojetamos o GeoDataFrame gdf para o sistema de coordenadas Web Mercator (EPSG:3857), que é comum para mapas base. Em seguida, plotamos com as seguintes características: 
 
-figsize=(15, 15): Define o tamanho da figura;
+``` figsize=(15, 15): Define o tamanho da figura; ```
+
 facecolor='none': Define a cor de preenchimento das geometrias como ‘sem cor’;
+
 alpha=0.9: Define a transparência das geometrias (0 é totalmente transparente, 1 é totalmente opaco);
+
 edgecolor='r': Define a cor das bordas das geometrias como vermelho.
 
+```
 ctx.add_basemap(ax, source=ctx.providers.Esri.WorldImagery, zoom=12)
 plt.show()
+```
+
 A biblioteca Contextily é usada para adicionar um mapa base à visualização. Neste caso, o mapa base escolhido é o WorldImagery da Esri. A função add_basemap adiciona esse mapa ao fundo da plotagem de gdf, com um nível de zoom definido como 12. Por fim, plt.show() é utilizado para exibir o gráfico.
+
 
 
 ## 6.5 Visualização interativa com folium
 
 O Folium é uma biblioteca que tem como base a biblioteca JavaScript Leaflet.js (https://leafletjs.com/). Sua integração com as bibliotecas Pandas e Geopandas permite transformar DataFrames e GeoDataFrames em visualizações de mapa interativas. 
+
 O Folium suporta uma ampla variedade de tiles de mapa, como Mapbox e OpenStreetMap, para que os usuários possam personalizar a aparência de seus mapas base. É possível configurar cores, ícones e estilos para a visualização de dados. Com relação a ícones, o Folium utiliza predominantemente os ícones do FontAwesome 4.7 e os estilos de cores são predefinidos dentro da própria biblioteca. A lista completa de ícones disponíveis pode ser consultada no seguinte link: (https://fontawesome.com/v4.7/icons/).
+
 O Folium possui um conjunto predefinido de cores para os ícones. No entanto, ao contrário dos ícones, a lista de cores não está bem documentada em um único lugar, no site oficial ou na documentação do Folium. Algumas das cores disponíveis são: 'red', 'blue', 'green', 'purple', 'orange', 'darkred', 'lightred', 'beige'- 'darkblue', 'darkgreen', 'cadetblue', 'darkpurple', 'white', 'pink', 'lightblue', 'lightgreen', 'gray', 'black', 'lightgray'.
+
 Existem vários plugins que ampliam as funcionalidades do Folium e possibilitam a criação de visualizações de mapas mais interativas e ricas em recursos, como o HeatMap, MarkerCluster, Fullscreen. Além disso, como o Folium é baseado no Leaflet.js, muitos plugins do Leaflet podem ser facilmente adaptados ou integrados a ele.
+
 
 
 ### 6.5.1 Aplicando o Folium com dados reais
@@ -1159,14 +1283,16 @@ Nessa visualização, além de termos a localização dos pontos referentes às 
 
 Vamos analisar o código por partes:
 
+```
 latitude_central = gdf_hsp.geometry.y.mean()
 longitude_central = gdf_hsp.geometry.x.mean()
 print(latitude_central, longitude_central)
 #Saída: (-22.6444, -48.0966)
+```
 
 Esse código calcula a latitude e longitude médias de todas as geometrias no GeoDataFrame. Isso é usado para definir o ponto central do mapa que será criado posteriormente.
 
-```{code-cell} python
+```
 mapa_hid = folium.Map(location=[latitude_central, longitude_central], zoom_start=7)
 Um mapa é inicializado usando a biblioteca Folium, centrado nas coordenadas médias calculadas anteriormente e com um nível de zoom inicial de 7.
 
@@ -1175,10 +1301,11 @@ for idx, row in gdf_hsp.iterrows():
                   popup=row['potenciaou']  
                  ).add_to(mapa_hid)
 ```
-```
-Para cada hidrelétrica no GeoDataFrame gdf_hsp, um marcador é adicionado ao mapa. A localização de cada marcador é definida pela latitude (row['geometry'].y) e longitude (row['geometry'].x) da hidrelétrica. Um pop-up também é adicionado a cada marcador, que exibirá a potência da hidrelétrica quando o marcador for clicado. Para alvar a visualização interativa em um arquivo HTML:
-mapa_hid.save('mapa_hidreletricas_SP.html')
-```
+
+Para cada hidrelétrica no GeoDataFrame gdf_hsp, um marcador é adicionado ao mapa. A localização de cada marcador é definida pela latitude (``` row['geometry'].y ```) e longitude (``` row['geometry'].x ```) da hidrelétrica. Um pop-up também é adicionado a cada marcador, que exibirá a potência da hidrelétrica quando o marcador for clicado. Para alvar a visualização interativa em um arquivo HTML:
+
+``` mapa_hid.save('mapa_hidreletricas_SP.html') ```
+
 
 Vamos agora gerar uma nova visualização, alterando o mapa base e o símbolo dos marcadores.
 
@@ -1215,6 +1342,7 @@ folium.Map(location=[latitude_central, longitude_central], zoom_start=7, width=6
 ```
 
 	Nesse Código, width=600 e height=400 definem as dimensões do mapa em pixels. Neste caso, o mapa terá uma largura de 600 pixels e uma altura de 400 pixels.
+
 
 Exemplo 2: Criar a visualização interativa de uma geometria do tipo ‘linha’: a BR-116.
 

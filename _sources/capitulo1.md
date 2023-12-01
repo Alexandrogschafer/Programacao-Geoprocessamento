@@ -1,3 +1,18 @@
+---
+jupytext:
+  formats: md:myst
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.11.5
+kernelspec:
+  display_name: Python 3
+  language: python
+  name: python3
+---
+
+
 # 1. INTRODUÇÃO
 
 A análise geoespacial contemporânea pode ser facilmente realizada por meio de pacotes geoespaciais comerciais ou de código aberto intuitivos, bastando, muitas vezes, um simples clique. Entretanto, surge a pergunta: por que optar por aprender uma linguagem de programação nesse contexto? As principais razões incluem: a) Busca por controle total sobre algoritmos, dados e execução; b) Necessidade de automatizar tarefas analíticas específicas e recorrentes sem a complexidade de um extenso framework geoespacial; c) Intenção de desenvolver um programa facilmente compartilhável; d) Vontade de aprofundar o conhecimento em análise geoespacial, indo além do uso superficial de softwares.
@@ -29,6 +44,7 @@ Estas são apenas algumas das linguagens e tecnologias no vasto campo do geoproc
 *A linguagem Python*
 
 Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional e de tipagem dinâmica. Foi criada por Guido Van Rossum durante 1985-1990 e teve sua primeira versão lançada em 1991. Em 2020, o Python se tornou uma das linguagens de programação mais populares, sendo amplamente usada em áreas como análise de dados, aprendizado de máquina, automação, desenvolvimento web e, claro, geoprocessamento.
+
 O Python continua a ser desenvolvido e melhorado, com novas versões sendo lançadas regularmente. Como linguagem, o Python manteve seu foco original na facilidade de leitura, simplicidade e explicitação, tornando-se um favorito tanto para iniciantes quanto para programadores experientes. Aqui estão algumas das características do Python:
 
 - Código legível: utiliza indentação para delinear blocos de código, ao contrário de outras linguagens que usam chaves ou palavras-chave específicas. Esta característica torna o código Python mais limpo e fácil de entender, facilitando a leitura e a manutenção do código;
@@ -128,7 +144,9 @@ Essas bibliotecas fornecem uma base sólida para trabalhar com dados geoespaciai
 
 ## 1.4 IDEs e Ambientes de desenvolvimento
 
-As IDEs (Integrated Development Environments) e ambientes de desenvolvimento em Python são fundamentais para facilitar e otimizar o fluxo de trabalho dos desenvolvedores. Essas plataformas oferecem um conjunto integrado de ferramentas que auxiliam desde a escrita do código, com recursos como realce de sintaxe e autocompletar, até a depuração e teste de aplicações. Ao longo dos anos, a comunidade Python desenvolveu e aprimorou uma variedade de IDEs e ambientes, cada um com suas peculiaridades e vantagens, atendendo a diferentes necessidades e estilos de programação. Escolher o ambiente certo pode significativamente o desenvolvimento e melhorar a qualidade do código produzido. A seguir, exploraremos alguns dos ambientes e ferramentas mais populares usados para trabalhar com Python.
+As IDEs (Integrated Development Environments) e ambientes de desenvolvimento em Python são fundamentais para facilitar e otimizar o fluxo de trabalho dos desenvolvedores. Essas plataformas oferecem um conjunto integrado de ferramentas que auxiliam desde a escrita do código, com recursos como realce de sintaxe e autocompletar, até a depuração e teste de aplicações. 
+
+Ao longo dos anos, a comunidade Python desenvolveu e aprimorou uma variedade de IDEs e ambientes, cada um com suas peculiaridades e vantagens, atendendo a diferentes necessidades e estilos de programação. Escolher o ambiente certo pode significativamente o desenvolvimento e melhorar a qualidade do código produzido. A seguir, exploraremos alguns dos ambientes e ferramentas mais populares usados para trabalhar com Python.
 
 Ambiente de Linha de Comando (CLI):
 - Terminal Python (Python Shell): Este é o REPL (Read-Eval-Print Loop) padrão do Python, acessível digitando python ou python3 no terminal ou prompt de comando.
@@ -163,6 +181,7 @@ A escolha de um ambiente específico frequentemente se resume a preferências pe
 *O Jupyter Notebook e o Google Colaboratory*
 
 O Jupyter Notebook é uma plataforma de desenvolvimento integrado (IDE) que une a edição de código à visualização imediata de seus resultados. Esta ferramenta facilita a elaboração de documentos interativos, incorporando não só códigos, mas também textos estilizados, imagens, diagramas e fórmulas matemáticas. Sua capacidade de compartilhamento promove a cooperação entre diversos usuários em um único documento, seja por meio de repositórios no GitHub ou pelo serviço online Jupyter Notebook Viewer. É uma ferramenta popular entre cientistas de dados, pesquisadores e educadores para realizar análises de dados, modelagem estatística, simulação numérica, ensino de programação, entre outros.
+
 Algumas das principais características e funcionalidades do Jupyter Notebook:
 
 - Código Interativo: Uma de suas principais características é a capacidade de executar código de forma interativa. Isto é, você pode escrever e executar o código em células individuais e ver os resultados imediatamente, facilitando a experimentação e a depuração.
@@ -181,4 +200,5 @@ Algumas das principais características e funcionalidades do Jupyter Notebook:
 O Google Colaboratory, conhecido como "Google Colab", é um serviço gratuito do Google que oferece um ambiente Jupyter Notebook na nuvem. Ele permite desenvolver, executar e compartilhar códigos em Python diretamente pelo navegador, sem necessidade de configuração prévia. Essa facilidade torna o Colab atraente para iniciantes em análise de dados e geoprocessamento, assim como para pesquisadores e desenvolvedores interessados em colaboração e experimentação rápida.
 
 A interface do Colab é intuitiva, muito similar à do Jupyter Notebook tradicional. No entanto, ela vem com integrações adicionais, como o Google Drive, garantindo que os notebooks sejam salvos automaticamente em sua conta e possam ser compartilhados como qualquer outro documento Google.
+
 Uma das maiores vantagens do Google Colab é seu acesso à infraestrutura robusta do Google Cloud. Isso permite que os usuários se beneficiem de recursos computacionais avançados, como GPUs e TPUs, ideais para tarefas intensivas que poderiam ser desafiadoras para computadores pessoais convencionais.
