@@ -66,7 +66,7 @@ const thebe_selector_output = ".output, .cell_output"
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="2. FUNDAMENTOS DA LINGUAGEM PYTHON" href="capitulo2.html" />
-    <link rel="prev" title="Meu Jupyter Book" href="intro.html" />
+    <link rel="prev" title="Programação para Geoprocessamento" href="intro.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   </head>
@@ -163,22 +163,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Meu Jupyter Book
+                    Programação para Geoprocessamento
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">1. INTRODUÇÃO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo2.html">2. FUNDAMENTOS DA LINGUAGEM PYTHON</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="capitulo3.html">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo4.html">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS:</a></li>
 </ul>
 
@@ -373,7 +370,9 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linguagens-de-programacao-em-geoprocessamento">1.1 Linguagens de programação em Geoprocessamento</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linguagens-de-programacao-em-geoprocessamento">1.1 Linguagens de programação em Geoprocessamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-linguagem-python">1.2 A linguagem Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dominios-de-aplicacao-da-linguagem-python">1.2.1 Domínios de aplicação da linguagem Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vantagens-e-desvantagens-do-python">1.2.2 Vantagens e desvantagens do Python</a></li>
 </ul>
 </li>
@@ -381,7 +380,10 @@ document.write(`
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecossistema-python-em-geoprocessamento">1.3.1 Ecossistema Python em geoprocessamento</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ides-e-ambientes-de-desenvolvimento">1.4 IDEs e Ambientes de desenvolvimento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ides-e-ambientes-de-desenvolvimento">1.4 IDEs e Ambientes de desenvolvimento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o-jupyter-notebook-e-o-google-colaboratory">1.4.1 O Jupyter Notebook e o Google Colaboratory</a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -414,7 +416,9 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
 <li><p>.NET/C#: O ArcGIS, da Esri, oferece uma API para desenvolvimento baseada em .NET. Assim, desenvolvedores que trabalham com plataformas Esri muitas vezes usam C# para personalizações e desenvolvimento de plugins;</p></li>
 </ul>
 <p>Estas são apenas algumas das linguagens e tecnologias no vasto campo do geoprocessamento e SIG. Dependendo das necessidades específicas do projeto, outras linguagens e ferramentas podem ser mais apropriadas.</p>
-<p><em>A linguagem Python</em></p>
+</section>
+<section id="a-linguagem-python">
+<h2>1.2 A linguagem Python<a class="headerlink" href="#a-linguagem-python" title="Permalink to this heading">#</a></h2>
 <p>Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional e de tipagem dinâmica. Foi criada por Guido Van Rossum durante 1985-1990 e teve sua primeira versão lançada em 1991. Em 2020, o Python se tornou uma das linguagens de programação mais populares, sendo amplamente usada em áreas como análise de dados, aprendizado de máquina, automação, desenvolvimento web e, claro, geoprocessamento.</p>
 <p>O Python continua a ser desenvolvido e melhorado, com novas versões sendo lançadas regularmente. Como linguagem, o Python manteve seu foco original na facilidade de leitura, simplicidade e explicitação, tornando-se um favorito tanto para iniciantes quanto para programadores experientes. Aqui estão algumas das características do Python:</p>
 <ul class="simple">
@@ -427,7 +431,8 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
 <li><p>Portabilidade: é uma linguagem de programação multiplataforma, o que significa que o mesmo código Python pode ser executado em diferentes sistemas operacionais com pouca ou nenhuma modificação;</p></li>
 <li><p>Comunidade ativa e crescente: Python tem uma grande e ativa comunidade de programadores que contribuem para a melhoria constante da linguagem, além de fornecer suporte através de fóruns e sites de perguntas e respostas.</p></li>
 </ul>
-<p><em>Domínios de aplicação da linguagem Python</em></p>
+<section id="dominios-de-aplicacao-da-linguagem-python">
+<h3>1.2.1 Domínios de aplicação da linguagem Python<a class="headerlink" href="#dominios-de-aplicacao-da-linguagem-python" title="Permalink to this heading">#</a></h3>
 <p>Python é uma linguagem de programação que vem sendo utilizada em uma ampla gama de domínios de aplicação:</p>
 <ul class="simple">
 <li><p>Desenvolvimento Web: é amplamente usado no desenvolvimento web com frameworks como Django, Flask, Pyramid e muitos outros;</p></li>
@@ -439,6 +444,7 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
 <li><p>Desenvolvimento de jogos: Bibliotecas como Pygame fornecem os módulos necessários para a criação de jogos;</p></li>
 <li><p>Geoprocessamento: Python tem se destacado na manipulação e análise de dados geoespaciais. Com bibliotecas como Geopandas, é possível gerenciar dados espaciais e executar sofisticadas operações geoespaciais, incluindo projeções e operações geométricas.</p></li>
 </ul>
+</section>
 <section id="vantagens-e-desvantagens-do-python">
 <h3>1.2.2 Vantagens e desvantagens do Python<a class="headerlink" href="#vantagens-e-desvantagens-do-python" title="Permalink to this heading">#</a></h3>
 <p>O Python oferece uma série de vantagens significativas que o tornam adequado para uma variedade de aplicações. Entretanto, existem desvantagens que os desenvolvedores devem considerar ao escolher a linguagem para projetos específicos. Dentre elas, é possível citar:</p>
@@ -552,7 +558,8 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
 <li><p>Thonny: IDE para iniciantes, focado em ensinar programação em Python.</p></li>
 </ul>
 <p>A escolha de um ambiente específico frequentemente se resume a preferências pessoais, natureza do projeto e experiência anterior. Em muitos casos, é comum utilizar mais de um ambiente e/ou ferramenta.</p>
-<p><em>O Jupyter Notebook e o Google Colaboratory</em></p>
+<section id="o-jupyter-notebook-e-o-google-colaboratory">
+<h3>1.4.1 O Jupyter Notebook e o Google Colaboratory<a class="headerlink" href="#o-jupyter-notebook-e-o-google-colaboratory" title="Permalink to this heading">#</a></h3>
 <p>O Jupyter Notebook é uma plataforma de desenvolvimento integrado (IDE) que une a edição de código à visualização imediata de seus resultados. Esta ferramenta facilita a elaboração de documentos interativos, incorporando não só códigos, mas também textos estilizados, imagens, diagramas e fórmulas matemáticas. Sua capacidade de compartilhamento promove a cooperação entre diversos usuários em um único documento, seja por meio de repositórios no GitHub ou pelo serviço online Jupyter Notebook Viewer. É uma ferramenta popular entre cientistas de dados, pesquisadores e educadores para realizar análises de dados, modelagem estatística, simulação numérica, ensino de programação, entre outros.</p>
 <p>Algumas das principais características e funcionalidades do Jupyter Notebook:</p>
 <ul class="simple">
@@ -571,6 +578,7 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
 <p>O Google Colaboratory, conhecido como “Google Colab”, é um serviço gratuito do Google que oferece um ambiente Jupyter Notebook na nuvem. Ele permite desenvolver, executar e compartilhar códigos em Python diretamente pelo navegador, sem necessidade de configuração prévia. Essa facilidade torna o Colab atraente para iniciantes em análise de dados e geoprocessamento, assim como para pesquisadores e desenvolvedores interessados em colaboração e experimentação rápida.</p>
 <p>A interface do Colab é intuitiva, muito similar à do Jupyter Notebook tradicional. No entanto, ela vem com integrações adicionais, como o Google Drive, garantindo que os notebooks sejam salvos automaticamente em sua conta e possam ser compartilhados como qualquer outro documento Google.</p>
 <p>Uma das maiores vantagens do Google Colab é seu acesso à infraestrutura robusta do Google Cloud. Isso permite que os usuários se beneficiem de recursos computacionais avançados, como GPUs e TPUs, ideais para tarefas intensivas que poderiam ser desafiadoras para computadores pessoais convencionais.</p>
+</section>
 </section>
 </section>
 
@@ -610,7 +618,7 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Meu Jupyter Book</p>
+        <p class="prev-next-title">Programação para Geoprocessamento</p>
       </div>
     </a>
     <a class="right-next"
@@ -637,7 +645,9 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linguagens-de-programacao-em-geoprocessamento">1.1 Linguagens de programação em Geoprocessamento</a><ul class="nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#linguagens-de-programacao-em-geoprocessamento">1.1 Linguagens de programação em Geoprocessamento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-linguagem-python">1.2 A linguagem Python</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dominios-de-aplicacao-da-linguagem-python">1.2.1 Domínios de aplicação da linguagem Python</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#vantagens-e-desvantagens-do-python">1.2.2 Vantagens e desvantagens do Python</a></li>
 </ul>
 </li>
@@ -645,7 +655,10 @@ Outra vantagem é a visualização de dados. Com bibliotecas específicas, é po
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#ecossistema-python-em-geoprocessamento">1.3.1 Ecossistema Python em geoprocessamento</a></li>
 </ul>
 </li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ides-e-ambientes-de-desenvolvimento">1.4 IDEs e Ambientes de desenvolvimento</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ides-e-ambientes-de-desenvolvimento">1.4 IDEs e Ambientes de desenvolvimento</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#o-jupyter-notebook-e-o-google-colaboratory">1.4.1 O Jupyter Notebook e o Google Colaboratory</a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -163,22 +163,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Meu Jupyter Book
+                    Programação para Geoprocessamento
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="capitulo1.html">1. INTRODUÇÃO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo2.html">2. FUNDAMENTOS DA LINGUAGEM PYTHON</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="capitulo3.html">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo4.html">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS:</a></li>
 </ul>
 
@@ -373,19 +370,20 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leitura-de-arquivos">5.1 Leitura de arquivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criando-geometrias-no-geopandas">5.2 Criando geometrias no Geopandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-apply-map-e-replace-no-contexto-do-geopandas">5.3 Funções apply, map e replace no contexto do Geopandas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-funcao-apply-no-geopandas">5.3.1 A função apply no Geopandas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-funcoes-map-e-replace-no-geopandas">5.3.2 As funções map e replace no Geopandas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combinando-dataframes-e-geodataframes">5.4 Combinando DataFrames e GeoDataFrames</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anexacao-metodo-concat">5.4.1 Anexação: Método concat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#juncoes-de-atributos-attribute-joins">5.4.2 Junções de Atributos (Attribute Joins)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-e-filtragem-de-dados">5.5 Seleção e filtragem de dados</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-com-base-em-atributos">5.5.1 Seleção com base em atributos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-com-base-em-condicoes">5.5.1.1 Seleção com base em Condições</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#o-metodo-query">5.5.1.2 O Método query</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-com-base-em-atributos">5.5.1 Seleção com base em atributos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-de-subconjuntos-via-coordenadas-bounding-box-com-notacao-slice">5.5.2 Seleção de subconjuntos via coordenadas: bounding box com notação slice.</a></li>
 </ul>
 </li>
@@ -422,7 +420,8 @@ document.write(`
 <p>Figura 27: estruturas de dados do Geopandas.</p>
 <p>O Geopandas é capaz de lidar com uma variedade de tipos geométricos, abrangendo pontos, linhas, polígonos e combinações destes. Esta capacidade é complementada por uma série de operações espaciais, possíveis graças à integração com bibliotecas como Shapely e Fiona. Estas operações incluem, mas não se limitam a, interseção, união, diferença e buffer. Além disso, a biblioteca oferece ferramentas robustas para análise espacial, permitindo o cálculo de áreas, distâncias e outras métricas geométricas essenciais.</p>
 <p>A flexibilidade do Geopandas não se restringe apenas às operações mencionadas. Ele pode ler e escrever em diversos formatos de dados espaciais, incluindo shapefile e GeoJSON. Além disso, suporta operações de projeção e transformações entre sistemas de coordenadas. Para os profissionais que trabalham com bancos de dados espaciais, o Geopandas também pode ser integrado ao PostGIS, facilitando operações avançadas e consultas SQL. Quando se trata de visualização, a biblioteca se integra perfeitamente a outras soluções Python, como Matplotlib, Plotly e Folium, oferecendo um vasto leque de opções para representação gráfica de dados geoespaciais.</p>
-<p>Leitura de arquivos</p>
+<section id="leitura-de-arquivos">
+<h2>5.1 Leitura de arquivos<a class="headerlink" href="#leitura-de-arquivos" title="Permalink to this heading">#</a></h2>
 <p>O Geopandas tem a capacidade de simplificar a leitura de arquivos geoespaciais em Python, suportando uma variedade de formatos comuns na área de Geoprocessamento.</p>
 <p>O método gpd.read_file é uma função da biblioteca Geopandas que permite ler diferentes formatos de arquivos de dados geoespaciais e convertê-los em um GeoDataFrame. Quando você utiliza o gpd.read_file, o Geopandas faz uso da biblioteca Fiona internamente para ler o arquivo. Isso significa que ele pode lidar com uma variedade de formatos de arquivo, incluindo Shapefiles (.shp), GeoJSON, GPKG, entre outros.</p>
 <p>Lendo Shapefiles com Geopandas</p>
@@ -540,7 +539,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>epsg:4674
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>GEOGCS[&quot;GCS_SIRGAS_2000&quot;,DATUM[&quot;D_SIRGAS_2000&quot;,SPHEROID[&quot;GRS_1980&quot;,6378137,298.257222101]],PRIMEM[&quot;Greenwich&quot;,0],UNIT[&quot;Degree&quot;,0.0174532925199433],AXIS[&quot;Longitude&quot;,EAST],AXIS[&quot;Latitude&quot;,NORTH]]
 </pre></div>
 </div>
 </div>
@@ -790,8 +789,15 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/3764209e5555f49b8e26b592415d035be4c9d1a2138c6fbc0a2789a295112d6b.png" src="_images/3764209e5555f49b8e26b592415d035be4c9d1a2138c6fbc0a2789a295112d6b.png" />
 </div>
 </div>
 <p>No código acima, serão lidas apenas as primeiras dez linhas do arquivo shapefile.</p>
@@ -851,13 +857,234 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
+<span class="n">gdf</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>capital</th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>BrasÃ­lia</td>
+      <td>-47.8825</td>
+      <td>-15.7934</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Rio Branco</td>
+      <td>-67.827</td>
+      <td>-9.97499</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>MaceiÃ³</td>
+      <td>-35.7353</td>
+      <td>-9.66599</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Manaus</td>
+      <td>-60.0253</td>
+      <td>-3.11333</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>MacapÃ¡</td>
+      <td>-51.0705</td>
+      <td>0.039452</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>Salvador</td>
+      <td>-38.5014</td>
+      <td>-12.9714</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>Fortaleza</td>
+      <td>-38.5423</td>
+      <td>-3.71722</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>VitÃ³ria</td>
+      <td>-40.2976</td>
+      <td>-20.3195</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>GoiÃ¢nia</td>
+      <td>-49.2539</td>
+      <td>-16.6869</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>SÃ£o LuÃ­s</td>
+      <td>-44.3028</td>
+      <td>-2.52996</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>CuiabÃ¡</td>
+      <td>-56.0974</td>
+      <td>-15.6014</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>Campo Grande</td>
+      <td>-54.6156</td>
+      <td>-20.4428</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>Belo Horizonte</td>
+      <td>-43.9378</td>
+      <td>-19.9208</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>BelÃ©m</td>
+      <td>-48.4874</td>
+      <td>-1.4554</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>JoÃ£o Pessoa</td>
+      <td>-34.8761</td>
+      <td>-7.11509</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>Curitiba</td>
+      <td>-49.2713</td>
+      <td>-25.4296</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>Recife</td>
+      <td>-34.8813</td>
+      <td>-8.05428</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>Teresina</td>
+      <td>-42.8056</td>
+      <td>-5.09194</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>Rio de Janeiro</td>
+      <td>-43.1965</td>
+      <td>-22.9083</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>Natal</td>
+      <td>-35.2091</td>
+      <td>-5.79448</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>Porto Alegre</td>
+      <td>-51.2167</td>
+      <td>-30.0277</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>Porto Velho</td>
+      <td>-63.9004</td>
+      <td>-8.76077</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>Boa Vista</td>
+      <td>-60.6733</td>
+      <td>2.81972</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>FlorianÃ³polis</td>
+      <td>-48.5012</td>
+      <td>-27.5954</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>SÃ£o Paulo</td>
+      <td>-46.6395</td>
+      <td>-23.5475</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>Aracaju</td>
+      <td>-37.0763</td>
+      <td>-10.9873</td>
+      <td>None</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>Palmas</td>
+      <td>-48.3344</td>
+      <td>-10.2391</td>
+      <td>None</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Lendo dados não espaciais (tabulares)</p>
 <p>O Geopandas é projetado para lidar com dados geoespaciais, mas, dado que é uma extensão do Pandas, também pode manipular dados tabulares (não espaciais). No entanto, para dados puramente tabulares, é mais comum e direto usar o Pandas.</p>
-<p>Criando geometrias no Geopandas</p>
+</section>
+<section id="criando-geometrias-no-geopandas">
+<h2>5.2 Criando geometrias no Geopandas<a class="headerlink" href="#criando-geometrias-no-geopandas" title="Permalink to this heading">#</a></h2>
 <p>No Geopandas, além de manipular e analisar dados geoespaciais, você também pode criar geometrias. Como vimos anteriormente, a biblioteca Shapely (que é uma dependência do Geopandas) fornece as ferramentas para criar e manipular geometrias. O Geopandas integra essas ferramentas para facilitar a criação e manipulação de geometrias dentro de seus GeoDataFrames e GeoSeries. Vamos estudar algumas funções e métodos para criar geometrias no Geopandas:</p>
 <p>a) A partir de dados:</p>
 <p>Se você tiver dados em um DataFrame do Pandas e quiser convertê-los em um GeoDataFrame com geometrias, pode usar a função Geopandas.GeoDataFrame.</p>
@@ -872,9 +1099,56 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">latitude</span><span class="p">))</span>
+<span class="n">gdf</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>longitude</th>
+      <th>latitude</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>-67.8270</td>
+      <td>-9.97499</td>
+      <td>POINT (-67.82700 -9.97499)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>-40.2976</td>
+      <td>-20.31950</td>
+      <td>POINT (-40.29760 -20.31950)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>-54.6156</td>
+      <td>-20.44280</td>
+      <td>POINT (-54.61560 -20.44280)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>A primeira linha desse código cria um DataFrame do Pandas chamado df, com base em um dicionário de dados. O dicionário tem duas chaves: ‘longitude’ e ‘latitude’. Cada chave está associada a uma lista de valores.</p>
 <p>A segunda linha do código converte o DataFrame df em um GeoDataFrame gdf, adicionando informações geométricas (neste caso, pontos) a partir de duas colunas do DataFrame original que representam coordenadas de longitude e latitude. gpd.points_from_xy(df.longitude, df.latitude), points_from_xy cria uma série de objetos geométricos do tipo “ponto” a partir de duas sequências de valores: a primeira para as coordenadas X (longitudes) e a segunda para as coordenadas Y (latitudes). Assim, ela transforma pares de valores de longitude e latitude em pontos geométricos.</p>
@@ -884,6 +1158,7 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+
 <span class="c1"># Definição do dicionário</span>
 <span class="n">capitais</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;Rio Branco&#39;</span><span class="p">:</span> <span class="p">(</span><span class="s1">&#39;Acre&#39;</span><span class="p">,</span> <span class="p">(</span><span class="o">-</span><span class="mf">67.8270</span><span class="p">,</span> <span class="o">-</span><span class="mf">9.97499</span><span class="p">)),</span>
@@ -898,7 +1173,7 @@ document.write(`
 </div>
 <p>Um dicionário chamado capitais é definido. As chaves desse dicionário são nomes de capitais de alguns estados brasileiros. Cada valor associado a uma capital é uma tupla contendo o nome do estado e outra tupla com as coordenadas geográficas (longitude e latitude) da capital.</p>
 <p>O objetivo das próximas linhas de código é extrair informações separadas do dicionário capitais e armazená-las em listas individuais.</p>
-<p>Convertendo o dicionário para listas separadas</p>
+<p>Convertendo o dicionário em listas separadas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nomes</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">capitais</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
@@ -915,7 +1190,7 @@ document.write(`
 <p>c) longitudes = <code class="docutils literal notranslate"><span class="pre">[capitais[capital][1][0]</span></code> for capital in nomes] extrai a longitude de cada capital (que é o primeiro elemento da segunda tupla associada a cada capital) e armazena os valores na lista longitudes.</p>
 <p>d) latitudes = <code class="docutils literal notranslate"><span class="pre">[capitais[capital][1][1]</span> <span class="pre">for</span> <span class="pre">capital</span> <span class="pre">in</span> <span class="pre">nomes]</span></code> extrai a latitude de cada capital (que é o segundo elemento da segunda tupla associada a cada capital) e armazena os valores na lista latitudes.</p>
 <p>O trecho de código abaixo cria um GeoDataFrame a partir das listas nomes, estados, longitudes e latitudes que foram previamente extraídas do dicionário capitais.</p>
-<p>Criando um GeoDataFrame</p>
+<p>Criando o GeoDataFrame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">({</span>
@@ -923,15 +1198,80 @@ document.write(`
     <span class="s1">&#39;estado&#39;</span><span class="p">:</span> <span class="n">estados</span><span class="p">,</span>
     <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">Point</span><span class="p">(</span><span class="n">xy</span><span class="p">)</span> <span class="k">for</span> <span class="n">xy</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">longitudes</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">)]</span>
 <span class="p">})</span>
+<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>capital</th>
+      <th>estado</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Rio Branco</td>
+      <td>Acre</td>
+      <td>POINT (-67.82700 -9.97499)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Vitória</td>
+      <td>Espírito Santo</td>
+      <td>POINT (-40.29760 -20.31950)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Campo Grande</td>
+      <td>Mato Grosso do Sul</td>
+      <td>POINT (-54.61560 -20.44280)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>João Pessoa</td>
+      <td>Paraíba</td>
+      <td>POINT (-34.87610 -7.11509)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Porto Alegre</td>
+      <td>Rio Grande do Sul</td>
+      <td>POINT (-51.21670 -30.02770)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Nesse trecho:</p>
 <p>a) gpd.GeoDataFrame() cria um novo GeoDataFrame chamado gdf;</p>
 <p>b) ‘capital’: nomes e ‘estado’: estados são colunas que armazenam os nomes das capitais e dos estados, respectivamente, usando as listas nomes e estados;</p>
 <p>c) ‘geometry’: <code class="docutils literal notranslate"><span class="pre">[Point(xy)</span> <span class="pre">for</span> <span class="pre">xy</span> <span class="pre">in</span> <span class="pre">zip(longitudes,</span> <span class="pre">latitudes)]</span></code> é a coluna de geometria do GeoDataFrame. A compreensão de lista dentro dessa linha cria uma lista de objetos Point a partir das listas longitudes e latitudes. A função zip() é usada para emparelhar cada longitude com sua latitude correspondente, e cada par é passado para o construtor Point() para criar um objeto geométrico do tipo ponto.</p>
-<p>gdf.crs = ‘EPSG:4674’</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">crs</span> <span class="o">=</span> <span class="s1">&#39;EPSG:4674&#39;</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>A linha acima atribui o CRS SIRGAS 2000 ao GeoDataFrame gdf.</p>
 <p>A partir de WKT (Well-Known Text)</p>
 <p>O formato WKT, que significa Well-Known Text, é uma representação textual padrão para geometrias espaciais. Ele é usado para transmitir informações sobre objetos geométricos - como pontos, linhas e polígonos - de uma maneira legível por humanos e máquina.</p>
@@ -939,12 +1279,43 @@ document.write(`
 <p>Para criar um GeoDataFrame a partir de um WKT:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">GeometryCollection</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">GeometryCollection</span><span class="p">,</span> <span class="n">Point</span><span class="p">,</span> <span class="n">LineString</span>
 
-<span class="n">geom_collection</span> <span class="o">=</span> <span class="n">GeometryCollection</span><span class="p">([</span><span class="n">Point</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
-    <span class="n">LineString</span><span class="p">([(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">)])])</span>
+<span class="n">geom_collection</span> <span class="o">=</span> <span class="n">GeometryCollection</span><span class="p">([</span>
+    <span class="n">Point</span><span class="p">(</span><span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> 
+    <span class="n">LineString</span><span class="p">([(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">),</span> <span class="p">(</span><span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">)])</span>
+<span class="p">])</span>
+
+<span class="c1"># Criar uma lista com as geometrias usando a propriedade &#39;geoms&#39;</span>
+<span class="n">geometrias</span> <span class="o">=</span> <span class="p">[</span><span class="n">geom</span> <span class="k">for</span> <span class="n">geom</span> <span class="ow">in</span> <span class="n">geom_collection</span><span class="o">.</span><span class="n">geoms</span><span class="p">]</span>
+
+<span class="c1"># Criar um GeoDataFrame a partir das geometrias</span>
+<span class="n">gdf_wkt</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">geometry</span><span class="o">=</span><span class="n">geometrias</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">gdf_wkt</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                                            geometry
+0                          POINT (40.00000 10.00000)
+1  LINESTRING (10.00000 10.00000, 20.00000 20.000...
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_wkt</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/bf7bccd8bc7f56014eaae6f7ecc7b8beb960ab1dcbc3901b2f4311f14d416d0e.png" src="_images/bf7bccd8bc7f56014eaae6f7ecc7b8beb960ab1dcbc3901b2f4311f14d416d0e.png" />
 </div>
 </div>
 <p>Escrevendo um GeoDataFrame para um arquivo no disco</p>
@@ -952,7 +1323,7 @@ document.write(`
 <p>Escrever em Shapefile:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/saida/capitais.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># gdf.to_file(&#39;~/geopythonbook/capitais.shp&#39;)</span>
 </pre></div>
 </div>
 </div>
@@ -960,7 +1331,7 @@ document.write(`
 <p>Escrever em GeoJSON:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/saida/capitais.geojson&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/capitais.geojson&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -968,11 +1339,12 @@ document.write(`
 <p>Escrever em GeoPackage (GPKG):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/saida/capitais.gpkg&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GPKG&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span><span class="o">.</span><span class="n">to_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/capitais.gpkg&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GPKG&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
+</section>
 <section id="funcoes-apply-map-e-replace-no-contexto-do-geopandas">
 <h2>5.3 Funções apply, map e replace no contexto do Geopandas<a class="headerlink" href="#funcoes-apply-map-e-replace-no-contexto-do-geopandas" title="Permalink to this heading">#</a></h2>
 <section id="a-funcao-apply-no-geopandas">
@@ -983,85 +1355,110 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/rios_maranhao.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;EPSG:31983&#39;</span><span class="p">)</span>
+<span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;NORIOCOMP&#39;</span><span class="p">:</span> <span class="s1">&#39;nome&#39;</span><span class="p">})</span>
 <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FID_GEOFT_&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;CORIO&#39;</span><span class="p">,</span> <span class="s1">&#39;FID_BR_UF_&#39;</span><span class="p">,</span> <span class="s1">&#39;CD_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;NM_REGIAO&#39;</span><span class="p">,</span> <span class="s1">&#39;AREA_KM2&#39;</span><span class="p">,</span> <span class="s1">&#39;Shape_Leng&#39;</span><span class="p">])</span>
+<span class="n">gdf_rios</span>
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">CPLE_OpenFailedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="nn">fiona/_shim.pyx</span> in <span class="ni">fiona._shim.gdal_open_vector</span><span class="nt">()</span>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
 
-<span class="nn">fiona/_err.pyx</span> in <span class="ni">fiona._err.exc_wrap_pointer</span><span class="nt">()</span>
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
 
-<span class="ne">CPLE_OpenFailedError</span>: /home/alexandro/geopythonbook/content/rios_maranhao.shp: No such file or directory
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">DriverError</span><span class="g g-Whitespace">                               </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_27372</span><span class="o">/</span><span class="mf">1576297623.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="ne">----&gt; </span><span class="mi">2</span> <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/rios_maranhao.shp&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">3</span> <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">to_crs</span><span class="p">(</span><span class="s1">&#39;EPSG:31983&#39;</span><span class="p">)</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span> <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;NORIOCOMP&#39;</span><span class="p">:</span> <span class="s1">&#39;nome&#39;</span><span class="p">})</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span> <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FID_GEOFT_&#39;</span><span class="p">,</span> 
-
-<span class="nn">~/anaconda3/lib/python3.9/site-packages/geopandas/io/file.py</span> in <span class="ni">_read_file</span><span class="nt">(filename, bbox, mask, rows, engine, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">257</span> 
-<span class="g g-Whitespace">    </span><span class="mi">258</span>     <span class="k">if</span> <span class="n">engine</span> <span class="o">==</span> <span class="s2">&quot;fiona&quot;</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">259</span>         <span class="k">return</span> <span class="n">_read_file_fiona</span><span class="p">(</span>
-<span class="g g-Whitespace">    </span><span class="mi">260</span>             <span class="n">path_or_bytes</span><span class="p">,</span> <span class="n">from_bytes</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">,</span> <span class="n">mask</span><span class="o">=</span><span class="n">mask</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="n">rows</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span>
-<span class="g g-Whitespace">    </span><span class="mi">261</span>         <span class="p">)</span>
-
-<span class="nn">~/anaconda3/lib/python3.9/site-packages/geopandas/io/file.py</span> in <span class="ni">_read_file_fiona</span><span class="nt">(path_or_bytes, from_bytes, bbox, mask, rows, where, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">301</span> 
-<span class="g g-Whitespace">    </span><span class="mi">302</span>     <span class="k">with</span> <span class="n">fiona_env</span><span class="p">():</span>
-<span class="ne">--&gt; </span><span class="mi">303</span>         <span class="k">with</span> <span class="n">reader</span><span class="p">(</span><span class="n">path_or_bytes</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span> <span class="k">as</span> <span class="n">features</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">304</span>             <span class="n">crs</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">crs_wkt</span>
-<span class="g g-Whitespace">    </span><span class="mi">305</span>             <span class="c1"># attempt to get EPSG code</span>
-
-<span class="nn">~/anaconda3/lib/python3.9/site-packages/fiona/env.py</span> in <span class="ni">wrapper</span><span class="nt">(*args, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">406</span>     <span class="k">def</span> <span class="nf">wrapper</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">407</span>         <span class="k">if</span> <span class="n">local</span><span class="o">.</span><span class="n">_env</span><span class="p">:</span>
-<span class="ne">--&gt; </span><span class="mi">408</span>             <span class="k">return</span> <span class="n">f</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">409</span>         <span class="k">else</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">410</span>             <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">args</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="nb">str</span><span class="p">):</span>
-
-<span class="nn">~/anaconda3/lib/python3.9/site-packages/fiona/__init__.py</span> in <span class="ni">open</span><span class="nt">(fp, mode, driver, schema, crs, encoding, layer, vfs, enabled_drivers, crs_wkt, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">262</span> 
-<span class="g g-Whitespace">    </span><span class="mi">263</span>         <span class="k">if</span> <span class="n">mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">):</span>
-<span class="ne">--&gt; </span><span class="mi">264</span>             <span class="n">c</span> <span class="o">=</span> <span class="n">Collection</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">mode</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="n">driver</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="n">encoding</span><span class="p">,</span>
-<span class="g g-Whitespace">    </span><span class="mi">265</span>                            <span class="n">layer</span><span class="o">=</span><span class="n">layer</span><span class="p">,</span> <span class="n">enabled_drivers</span><span class="o">=</span><span class="n">enabled_drivers</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">266</span>         <span class="k">elif</span> <span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;w&#39;</span><span class="p">:</span>
-
-<span class="nn">~/anaconda3/lib/python3.9/site-packages/fiona/collection.py</span> in <span class="ni">__init__</span><span class="nt">(self, path, mode, driver, schema, crs, encoding, layer, vsi, archive, enabled_drivers, crs_wkt, ignore_fields, ignore_geometry, **kwargs)</span>
-<span class="g g-Whitespace">    </span><span class="mi">160</span>             <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="o">==</span> <span class="s1">&#39;r&#39;</span><span class="p">:</span>
-<span class="g g-Whitespace">    </span><span class="mi">161</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">Session</span><span class="p">()</span>
-<span class="ne">--&gt; </span><span class="mi">162</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">session</span><span class="o">.</span><span class="n">start</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
-<span class="g g-Whitespace">    </span><span class="mi">163</span>             <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">mode</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;a&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">):</span>
-<span class="g g-Whitespace">    </span><span class="mi">164</span>                 <span class="bp">self</span><span class="o">.</span><span class="n">session</span> <span class="o">=</span> <span class="n">WritingSession</span><span class="p">()</span>
-
-<span class="nn">fiona/ogrext.pyx</span> in <span class="ni">fiona.ogrext.Session.start</span><span class="nt">()</span>
-
-<span class="nn">fiona/_shim.pyx</span> in <span class="ni">fiona._shim.gdal_open_vector</span><span class="nt">()</span>
-
-<span class="ne">DriverError</span>: /home/alexandro/geopythonbook/content/rios_maranhao.shp: No such file or directory
-</pre></div>
-</div>
-</div>
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>OBJECTID</th>
+      <th>nome</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2032</td>
+      <td>Rio Alpercatas</td>
+      <td>MULTILINESTRING ((553925.273 9338160.193, 5539...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>2197</td>
+      <td>Rio Grajaú</td>
+      <td>MULTILINESTRING ((513522.936 9585735.115, 5135...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>2232</td>
+      <td>Rio Itapecuru</td>
+      <td>MULTILINESTRING ((587754.050 9683345.492, 5878...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>2242</td>
+      <td>Rio Itapicuru</td>
+      <td>MULTILINESTRING ((600342.881 9356780.259, 6003...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>2285</td>
+      <td>Rio Mearim</td>
+      <td>MULTILINESTRING ((544348.252 9660009.406, 5443...</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>2328</td>
+      <td>Rio Pindaré</td>
+      <td>MULTILINESTRING ((498292.244 9624785.771, 4988...</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2433</td>
+      <td>Rio Zutiua ou Gentil</td>
+      <td>MULTILINESTRING ((432320.782 9588043.317, 4331...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Etapa 2: Calcular o comprimento de cada rio e armazenar os resultados na nova coluna comprimento.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rios</span><span class="p">[</span><span class="s1">&#39;comprimento&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">geom</span><span class="p">:</span> <span class="n">geom</span><span class="o">.</span><span class="n">length</span><span class="p">)</span><span class="o">/</span><span class="mf">1e3</span>
-
-<span class="n">Nesse</span> <span class="n">código</span><span class="p">,</span> <span class="n">utilizamos</span> <span class="n">o</span> <span class="n">método</span> <span class="n">apply</span><span class="p">()</span> <span class="n">para</span> <span class="n">aplicar</span> <span class="n">uma</span> <span class="n">função</span> <span class="n">a</span> <span class="n">cada</span> <span class="n">valor</span> <span class="n">na</span> <span class="n">coluna</span> <span class="n">geometry</span> <span class="n">do</span> <span class="n">GeoDataFrame</span> <span class="n">chamado</span> <span class="n">gdf_rios</span><span class="o">.</span> <span class="n">A</span> <span class="n">função</span> <span class="n">é</span> <span class="n">uma</span> <span class="n">função</span> <span class="k">lambda</span> <span class="n">que</span> <span class="n">pega</span> <span class="n">um</span> <span class="n">argumento</span> <span class="n">geom</span> <span class="p">(</span><span class="n">que</span> <span class="n">representa</span> <span class="n">uma</span> <span class="n">geometria</span> <span class="n">individual</span> <span class="n">da</span> <span class="n">coluna</span> <span class="n">geometry</span><span class="p">)</span> <span class="n">e</span> <span class="n">retorna</span> <span class="n">o</span> <span class="n">comprimento</span> <span class="n">dessa</span> <span class="n">geometria</span> <span class="n">usando</span> <span class="n">o</span> <span class="n">método</span> <span class="n">length</span><span class="o">.</span> <span class="n">Em</span> <span class="n">seguida</span><span class="p">,</span> <span class="n">dividimos</span> <span class="n">todos</span> <span class="n">os</span> <span class="n">comprimentos</span> <span class="n">por</span> <span class="mf">1e3</span> <span class="p">(</span><span class="n">que</span> <span class="n">é</span> <span class="n">igual</span> <span class="n">a</span> <span class="mi">1000</span><span class="p">)</span><span class="o">.</span> <span class="n">Isso</span> <span class="n">é</span> <span class="n">feito</span> <span class="n">para</span> <span class="n">converter</span> <span class="n">os</span> <span class="n">comprimentos</span> <span class="n">de</span> <span class="n">metros</span> <span class="n">para</span> <span class="n">quilômetros</span><span class="o">.</span>
-<span class="nb">print</span> <span class="p">(</span><span class="n">gdf_rios</span><span class="p">[[</span><span class="s1">&#39;nome&#39;</span><span class="p">,</span> <span class="s1">&#39;comprimento&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Nesse código, utilizamos o método apply() para aplicar uma função a cada valor na coluna geometry do GeoDataFrame chamado gdf_rios. A função é uma função lambda que pega um argumento geom (que representa uma geometria individual da coluna geometry) e retorna o comprimento dessa geometria usando o método length. Em seguida, dividimos todos os comprimentos por 1e3 (que é igual a 1000). Isso é feito para converter os comprimentos de metros para quilômetros.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">gdf_rios</span><span class="p">[[</span><span class="s1">&#39;nome&#39;</span><span class="p">,</span> <span class="s1">&#39;comprimento&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   nome  comprimento
+0        Rio Alpercatas   263.718783
+1            Rio Grajaú   640.787566
+2         Rio Itapecuru   528.194711
+3         Rio Itapicuru   350.665856
+4            Rio Mearim   868.274643
+5           Rio Pindaré   551.433119
+6  Rio Zutiua ou Gentil   261.962298
 </pre></div>
 </div>
 </div>
@@ -1081,6 +1478,18 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span> <span class="p">(</span><span class="n">gdf_rios</span><span class="p">[[</span><span class="s1">&#39;nome_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;comprimento&#39;</span><span class="p">]])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   nome_UF  comprimento
+0        Rio Alpercatas MA   263.718783
+1            Rio Grajaú MA   640.787566
+2         Rio Itapecuru MA   528.194711
+3         Rio Itapicuru MA   350.665856
+4            Rio Mearim MA   868.274643
+5           Rio Pindaré MA   551.433119
+6  Rio Zutiua ou Gentil MA   261.962298
 </pre></div>
 </div>
 </div>
@@ -1126,6 +1535,18 @@ A linha elif row.geometry.length &lt; 600000: é avaliada se a primeira condiç�
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>                   nome_UF categoria_comp
+0        Rio Alpercatas MA        pequeno
+1            Rio Grajaú MA         grande
+2         Rio Itapecuru MA          médio
+3         Rio Itapicuru MA          médio
+4            Rio Mearim MA         grande
+5           Rio Pindaré MA          médio
+6  Rio Zutiua ou Gentil MA        pequeno
+</pre></div>
+</div>
+</div>
 </div>
 </section>
 <section id="as-funcoes-map-e-replace-no-geopandas">
@@ -1139,10 +1560,93 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span> <span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/mun_MT_MS_GO.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<span class="n">gdf_co</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span> <span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/22_municipios_GO_MT_MS/mun_MT_MS_GO.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_co</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_MUN</th>
+      <th>NM_MUN</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5000203</td>
+      <td>Água Clara</td>
+      <td>MS</td>
+      <td>7781.558</td>
+      <td>POLYGON ((-52.87937 -20.45074, -52.88065 -20.4...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>5000252</td>
+      <td>Alcinópolis</td>
+      <td>MS</td>
+      <td>4397.518</td>
+      <td>POLYGON ((-53.55574 -18.01502, -53.55599 -18.0...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>5000609</td>
+      <td>Amambai</td>
+      <td>MS</td>
+      <td>4193.742</td>
+      <td>POLYGON ((-55.19177 -23.34493, -55.19177 -23.3...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>5000708</td>
+      <td>Anastácio</td>
+      <td>MS</td>
+      <td>2913.177</td>
+      <td>POLYGON ((-55.92957 -20.81490, -55.93068 -20.8...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5000807</td>
+      <td>Anaurilândia</td>
+      <td>MS</td>
+      <td>3415.657</td>
+      <td>POLYGON ((-52.96197 -22.46000, -52.96923 -22.4...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_co</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/c615b5c551e871610621e3182f4c61e98166a59edf2dd090fb2363bae998e9ff.png" src="_images/c615b5c551e871610621e3182f4c61e98166a59edf2dd090fb2363bae998e9ff.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1155,8 +1659,8 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <p>Na linha de código acima, criamos um dicionário chamado mapeamento (ele será útil em nossos próximos códigos). Neste dicionário, as siglas dos estados (como ‘GO’ e ‘MT’) são usadas como chaves, e os nomes completos dos estados (como ‘Goiás’ e ‘Mato Grosso’) são os valores correspondentes. Em termos práticos, isso significa que, se você acessar o valor associado à chave ‘GO’ no dicionário mapeamento, obterá ‘Goiás’. Da mesma forma, se acessar o valor associado à chave ‘MT’, obterá ‘Mato Grosso’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_map</span> <span class="o">=</span> <span class="n">gdf</span>
-<span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapeamento</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_map</span> <span class="o">=</span> <span class="n">gdf_co</span>
+<span class="n">gdf_map</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_map</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">mapeamento</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1165,17 +1669,19 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <p>Usando a função replace:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rep</span> <span class="o">=</span> <span class="n">gdf</span>
-<span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">mapeamento</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rep</span> <span class="o">=</span> <span class="n">gdf_co</span>
+<span class="n">gdf_rep</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_rep</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="n">mapeamento</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 <p>Neste segundo código, a função replace é aplicada à coluna ‘SIGLA_UF’ do GeoDataFrame gdf_rep. Semelhante à função map, a função replace substituirá os valores da coluna com base no dicionário mapeamento. No entanto, a diferença fundamental é que, com replace, se um valor da coluna ‘SIGLA_UF’ não estiver no dicionário mapeamento, ele permanecerá inalterado. Ou seja, replace não converte valores não mapeados para NaN.</p>
 <p>Em resumo, enquanto tanto a função map quanto a função replace podem ser usadas para transformar valores com base em um dicionário de mapeamento, a função map irá converter valores não mapeados para NaN, enquanto a função replace deixará valores não mapeados inalterados.</p>
-<p>5.4 Combinando DataFrames e GeoDataFrames</p>
-<p>No âmbito da análise de dados geoespaciais, a combinação de DataFrames e GeoDataFrames é uma prática essencial para integrar e manipular informações de diferentes fontes. As ferramentas concat e merge, disponíveis em bibliotecas como pandas e geopandas, são amplamente utilizadas neste processo. Enquanto concat é utilizado para empilhar DataFrames verticalmente ou horizontalmente, respeitando o mesmo conjunto de colunas, a função merge é empregada para unir DataFrames com base em colunas específicas, similar a uma operação de junção em bancos de dados. Para melhor compreensão, exploraremos a aplicação dessas funções em detalhes utilizando dados reais a seguir.</p>
 </section>
+</section>
+<section id="combinando-dataframes-e-geodataframes">
+<h2>5.4 Combinando DataFrames e GeoDataFrames<a class="headerlink" href="#combinando-dataframes-e-geodataframes" title="Permalink to this heading">#</a></h2>
+<p>No âmbito da análise de dados geoespaciais, a combinação de DataFrames e GeoDataFrames é uma prática essencial para integrar e manipular informações de diferentes fontes. As ferramentas concat e merge, disponíveis em bibliotecas como pandas e geopandas, são amplamente utilizadas neste processo. Enquanto concat é utilizado para empilhar DataFrames verticalmente ou horizontalmente, respeitando o mesmo conjunto de colunas, a função merge é empregada para unir DataFrames com base em colunas específicas, similar a uma operação de junção em bancos de dados. Para melhor compreensão, exploraremos a aplicação dessas funções em detalhes utilizando dados reais a seguir.</p>
 <section id="anexacao-metodo-concat">
 <h3>5.4.1 Anexação: Método concat<a class="headerlink" href="#anexacao-metodo-concat" title="Permalink to this heading">#</a></h3>
 <p>Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 38). Queremos criar um GeoDataFrame de todo o país.</p>
@@ -1185,11 +1691,11 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
-<span class="n">gdf_norte</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/norte.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_sul</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/sul.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_nordeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/nordeste.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_sudeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/sudeste.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_centro_oeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/centro_oeste.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_norte</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/norte.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_sul</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sul.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_nordeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/nordeste.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_sudeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sudeste.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_centro_oeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/centro_oeste.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1203,12 +1709,94 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>NM_UF</th>
+      <th>SIGLA_UF</th>
+      <th>NM_REGIAO</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12</td>
+      <td>Acre</td>
+      <td>AC</td>
+      <td>Norte</td>
+      <td>164173.429</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13</td>
+      <td>Amazonas</td>
+      <td>AM</td>
+      <td>Norte</td>
+      <td>1559255.881</td>
+      <td>POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15</td>
+      <td>Pará</td>
+      <td>PA</td>
+      <td>Norte</td>
+      <td>1245870.704</td>
+      <td>MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16</td>
+      <td>Amapá</td>
+      <td>AP</td>
+      <td>Norte</td>
+      <td>142470.762</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17</td>
+      <td>Tocantins</td>
+      <td>TO</td>
+      <td>Norte</td>
+      <td>277423.627</td>
+      <td>POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_brasil</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/08cb7a355a92f7c7f8750a956d34a9135dc047d9a53a948b95f8be4708d59c7f.png" src="_images/08cb7a355a92f7c7f8750a956d34a9135dc047d9a53a948b95f8be4708d59c7f.png" />
 </div>
 </div>
 </section>
@@ -1220,13 +1808,89 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/capitais_br.shp&#39;</span><span class="p">)</span>
-<span class="n">df_censo_cap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/censo_capitais.xlsx&#39;</span><span class="p">)</span>
+<span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/15_BR_capitais/capitais_br.shp&#39;</span><span class="p">)</span>
+<span class="n">df_censo_cap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx&#39;</span><span class="p">)</span>
 
 <span class="n">df_censo_cap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>codigo</th>
+      <th>Capital</th>
+      <th>UF</th>
+      <th>2000</th>
+      <th>2010</th>
+      <th>2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>2800308</td>
+      <td>Aracaju</td>
+      <td>Sergipe</td>
+      <td>461083</td>
+      <td>570937</td>
+      <td>602757</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>1501402</td>
+      <td>Belém</td>
+      <td>Pará</td>
+      <td>1279861</td>
+      <td>1393399</td>
+      <td>1303389</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>3106200</td>
+      <td>Belo Horizonte</td>
+      <td>Minas Gerais</td>
+      <td>2232747</td>
+      <td>2375151</td>
+      <td>2315560</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>1400100</td>
+      <td>Boa Vista</td>
+      <td>Roraima</td>
+      <td>200383</td>
+      <td>284313</td>
+      <td>413486</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5300108</td>
+      <td>Brasília</td>
+      <td>Distrito Federal</td>
+      <td>2043169</td>
+      <td>2570160</td>
+      <td>2817068</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1234,6 +1898,70 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>capital</th>
+      <th>estado</th>
+      <th>codigo</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Brasília</td>
+      <td>Distrito Federal</td>
+      <td>5300108</td>
+      <td>POINT (-47.88250 -15.79340)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Rio Branco</td>
+      <td>Acre</td>
+      <td>1200401</td>
+      <td>POINT (-67.82700 -9.97499)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Maceió</td>
+      <td>Alagoas</td>
+      <td>2704302</td>
+      <td>POINT (-35.73530 -9.66599)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Manaus</td>
+      <td>Amazonas</td>
+      <td>1302603</td>
+      <td>POINT (-60.02530 -3.11333)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Macapá</td>
+      <td>Amapá</td>
+      <td>1600303</td>
+      <td>POINT (-51.07050 0.03945)</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Agora vamos renomear as colunas do DataFrame df_censo_cap para torná-las mais descritivas:</p>
 <div class="cell docutils container">
@@ -1252,8 +1980,7 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>Junção dos dataframes usando as colunas ‘capital’ e ‘Capital’</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_censo_cap</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_censo_cap</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;codigo&#39;</span><span class="p">,</span> 
-    <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;codigo&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_censo_cap</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_censo_cap</span><span class="p">,</span> <span class="n">left_on</span><span class="o">=</span><span class="s1">&#39;codigo&#39;</span><span class="p">,</span> <span class="n">right_on</span><span class="o">=</span><span class="s1">&#39;codigo&#39;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1275,7 +2002,55 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <h2>5.5 Seleção e filtragem de dados<a class="headerlink" href="#selecao-e-filtragem-de-dados" title="Permalink to this heading">#</a></h2>
 <section id="selecao-com-base-em-atributos">
 <h3>5.5.1 Seleção com base em atributos<a class="headerlink" href="#selecao-com-base-em-atributos" title="Permalink to this heading">#</a></h3>
-<p>No Geopandas, a seleção com base em atributos refere-se ao processo de filtrar dados em um GeoDataFrame com base nos valores das colunas, similarmente ao que fazemos com o Pandas. Esse tipo de seleção permite que os usuários isolem subconjuntos específicos de dados com base em critérios definidos, como características geográficas, demográficas ou qualquer outro atributo tabular. Para exemplificar a seleção por atributos, vamos utilizar o GeoDataFrame gdf_uf_cp criado anteriormente.</p>
+<p>No Geopandas, a seleção com base em atributos refere-se ao processo de filtrar dados em um GeoDataFrame com base nos valores das colunas, similarmente ao que fazemos com o Pandas. Esse tipo de seleção permite que os usuários isolem subconjuntos específicos de dados com base em critérios definidos, como características geográficas, demográficas ou qualquer outro atributo tabular. Para exemplificar a seleção por atributos, vamos realizar algumas operações para criar um GeoDataFrame com os dados do PIB estadual de 2020 e dos Censos de 2000, 2010 e 2022 a partir de dado s que estão em planilhas do Excel.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ler o arquivo shapefile</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ler o arquivo Excel com dados do PIB estadual</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfpib</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfcenso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/13_censo_UF/censo_UF.xlsx&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unindo os dataframes dfpib e dfcenso</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df_uf</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">dfpib</span><span class="p">,</span> <span class="n">dfcenso</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="s1">&#39;UF_y&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;UF_x&#39;</span><span class="p">:</span> <span class="s1">&#39;UF&#39;</span><span class="p">})</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>Unindo o dataframe df_uf com o geodataframe</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf_cp</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_uf</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_REGIAO&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
 <p>Selecionar uma única coluna</p>
 <p>Sintaxe básica:
 <code class="docutils literal notranslate"><span class="pre">gdf['nome_da_coluna']</span></code></p>
@@ -1302,6 +2077,70 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2022</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>830026</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Amazonas</td>
+      <td>116019</td>
+      <td>3941175</td>
+      <td>POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pará</td>
+      <td>215936</td>
+      <td>8116132</td>
+      <td>MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>Amapá</td>
+      <td>18469</td>
+      <td>733508</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>Tocantins</td>
+      <td>43650</td>
+      <td>1511459</td>
+      <td>POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Descartar Colunas</p>
 <p>Ao invés de selecionar colunas específicas, você também pode descartar colunas que não deseja:</p>
@@ -1312,28 +2151,174 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SIGLA_UF</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AC</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>557226</td>
+      <td>733559</td>
+      <td>830026</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AM</td>
+      <td>POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...</td>
+      <td>Amazonas</td>
+      <td>116019</td>
+      <td>2813085</td>
+      <td>3483985</td>
+      <td>3941175</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PA</td>
+      <td>MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...</td>
+      <td>Pará</td>
+      <td>215936</td>
+      <td>6189550</td>
+      <td>7581051</td>
+      <td>8116132</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AP</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+      <td>Amapá</td>
+      <td>18469</td>
+      <td>475843</td>
+      <td>669526</td>
+      <td>733508</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TO</td>
+      <td>POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...</td>
+      <td>Tocantins</td>
+      <td>43650</td>
+      <td>1155913</td>
+      <td>1383445</td>
+      <td>1511459</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-<section id="selecao-com-base-em-condicoes">
-<h4>5.5.1.1 Seleção com base em Condições<a class="headerlink" href="#selecao-com-base-em-condicoes" title="Permalink to this heading">#</a></h4>
+<p>Seleção com base em Condições</p>
 <p>A seleção baseada em condições é uma técnica comum ao trabalhar com DataFrames no Pandas e Geopandas. Ela permite filtrar linhas de um DataFrame com base em critérios específicos definidos por uma ou mais condições. Essa técnica é especialmente útil para análises exploratórias, pré-processamento de dados e muitas outras operações de manipulação de dados.</p>
 <p>Sintaxe Básica:</p>
-<p>A seleção baseada em condições é realizada usando uma expressão booleana dentro de colchetes.</p>
-<p>Exemplo:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span> <span class="n">gdf</span><span class="p">[</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;coluna&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
+<p>A seleção baseada em condições é realizada usando uma expressão booleana dentro de colchetes. Por exemplo:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span> <span class="n">gdf</span><span class="p">[</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;coluna&#39;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">10</span><span class="p">]</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Exemplo: Criar o GeoDataFrame pop_menor_1M, com os estados brasileiros com população menor do que 1 milhão de habitantes em 2022:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">pop_menor_1M</span> <span class="o">=</span> <span class="n">gdf_uf_cp</span><span class="p">[</span><span class="n">gdf_uf_cp</span><span class="p">[</span><span class="s1">&#39;Popul_2022&#39;</span><span class="p">]</span> <span class="o">&lt;</span> <span class="mi">1000000</span><span class="p">]</span>
-<span class="n">pop_menor_1M</span><span class="o">.</span><span class="n">Head</span><span class="p">()</span>
+<span class="n">pop_menor_1M</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12</td>
+      <td>AC</td>
+      <td>164173.429</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>557226</td>
+      <td>733559</td>
+      <td>830026</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16</td>
+      <td>AP</td>
+      <td>142470.762</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+      <td>Amapá</td>
+      <td>18469</td>
+      <td>475843</td>
+      <td>669526</td>
+      <td>733508</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>14</td>
+      <td>RR</td>
+      <td>223644.530</td>
+      <td>POLYGON ((-60.12972 4.50843, -60.12960 4.50826...</td>
+      <td>Roraima</td>
+      <td>16024</td>
+      <td>324152</td>
+      <td>450479</td>
+      <td>636303</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Exemplo 2: Criar o GeoDataFrame pop_maior_20M, com os estados brasileiros cuja população era maior do que 20 milhões de habitantes em 2022:</p>
 <div class="cell docutils container">
@@ -1343,6 +2328,64 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>31</td>
+      <td>MG</td>
+      <td>586513.983</td>
+      <td>POLYGON ((-42.51148 -14.98627, -42.50964 -14.9...</td>
+      <td>Minas Gerais</td>
+      <td>682786</td>
+      <td>17866402</td>
+      <td>19597330</td>
+      <td>20538718</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>35</td>
+      <td>SP</td>
+      <td>248219.485</td>
+      <td>MULTIPOLYGON (((-46.47312 -22.70498, -46.47289...</td>
+      <td>São Paulo</td>
+      <td>2377639</td>
+      <td>36969476</td>
+      <td>41262199</td>
+      <td>44420459</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Selecionar a partir de Múltiplas Condições</p>
 <p>Para aplicar múltiplas condições, é importante entender como combiná-las corretamente. Você pode usar operadores lógicos como “&amp;” (e), “|” (ou) e “ ~ ” (não) para combinar condições. Lembre-se de colocar cada condição entre parênteses.</p>
@@ -1353,10 +2396,78 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>29</td>
+      <td>BA</td>
+      <td>564760.429</td>
+      <td>MULTIPOLYGON (((-39.26447 -8.61413, -39.26341 ...</td>
+      <td>Bahia</td>
+      <td>305321</td>
+      <td>13066910</td>
+      <td>14016906</td>
+      <td>14136417</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>41</td>
+      <td>PR</td>
+      <td>199298.981</td>
+      <td>MULTIPOLYGON (((-48.30974 -25.49328, -48.27691...</td>
+      <td>Paraná</td>
+      <td>487931</td>
+      <td>9558454</td>
+      <td>10444526</td>
+      <td>11443208</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>43</td>
+      <td>RS</td>
+      <td>281707.151</td>
+      <td>MULTIPOLYGON (((-51.71873 -31.85463, -51.71941...</td>
+      <td>Rio Grande do Sul</td>
+      <td>470942</td>
+      <td>10181749</td>
+      <td>10693929</td>
+      <td>10880506</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
-</section>
-<section id="o-metodo-query">
-<h4>5.5.1.2 O Método query<a class="headerlink" href="#o-metodo-query" title="Permalink to this heading">#</a></h4>
+<p>O Método query</p>
 <p>O método query permite escrever condições de seleção de forma mais legível, especialmente quando se lida com condições complexas. Por exemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1364,6 +2475,76 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>13</th>
+      <td>29</td>
+      <td>BA</td>
+      <td>564760.429</td>
+      <td>MULTIPOLYGON (((-39.26447 -8.61413, -39.26341 ...</td>
+      <td>Bahia</td>
+      <td>305321</td>
+      <td>13066910</td>
+      <td>14016906</td>
+      <td>14136417</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>41</td>
+      <td>PR</td>
+      <td>199298.981</td>
+      <td>MULTIPOLYGON (((-48.30974 -25.49328, -48.27691...</td>
+      <td>Paraná</td>
+      <td>487931</td>
+      <td>9558454</td>
+      <td>10444526</td>
+      <td>11443208</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>43</td>
+      <td>RS</td>
+      <td>281707.151</td>
+      <td>MULTIPOLYGON (((-51.71873 -31.85463, -51.71941...</td>
+      <td>Rio Grande do Sul</td>
+      <td>470942</td>
+      <td>10181749</td>
+      <td>10693929</td>
+      <td>10880506</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Vamos realizar algumas consultas utilizando o método query.</p>
 <p>Utilizando o operador OR</p>
@@ -1374,15 +2555,155 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>14</th>
+      <td>31</td>
+      <td>MG</td>
+      <td>586513.983</td>
+      <td>POLYGON ((-42.51148 -14.98627, -42.50964 -14.9...</td>
+      <td>Minas Gerais</td>
+      <td>682786</td>
+      <td>17866402</td>
+      <td>19597330</td>
+      <td>20538718</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>33</td>
+      <td>RJ</td>
+      <td>43750.425</td>
+      <td>MULTIPOLYGON (((-42.00612 -22.88563, -42.00634...</td>
+      <td>Rio de Janeiro</td>
+      <td>753824</td>
+      <td>14367083</td>
+      <td>15989929</td>
+      <td>16054524</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>35</td>
+      <td>SP</td>
+      <td>248219.485</td>
+      <td>MULTIPOLYGON (((-46.47312 -22.70498, -46.47289...</td>
+      <td>São Paulo</td>
+      <td>2377639</td>
+      <td>36969476</td>
+      <td>41262199</td>
+      <td>44420459</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Operador NOT (~)</p>
+<p>Selecionar os estados cuja população não era maior do que 1 milhão no censo de 2022:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>	<span class="n">Selecionar</span> <span class="n">os</span> <span class="n">estados</span> <span class="n">cuja</span> <span class="n">população</span> <span class="n">não</span> <span class="n">era</span> <span class="n">maior</span> <span class="n">do</span> <span class="n">que</span> <span class="mi">1</span> <span class="n">milhão</span> <span class="n">no</span> <span class="n">censo</span> <span class="n">de</span> <span class="mi">2022</span><span class="p">:</span>
-<span class="n">gdf_uf_cp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;~(Popul_2022 &gt; 1000000)&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf_cp</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="s1">&#39;~(Popul_2022 &gt; 1000000)&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>SIGLA_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12</td>
+      <td>AC</td>
+      <td>164173.429</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>557226</td>
+      <td>733559</td>
+      <td>830026</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16</td>
+      <td>AP</td>
+      <td>142470.762</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+      <td>Amapá</td>
+      <td>18469</td>
+      <td>475843</td>
+      <td>669526</td>
+      <td>733508</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>14</td>
+      <td>RR</td>
+      <td>223644.530</td>
+      <td>POLYGON ((-60.12972 4.50843, -60.12960 4.50826...</td>
+      <td>Roraima</td>
+      <td>16024</td>
+      <td>324152</td>
+      <td>450479</td>
+      <td>636303</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>O método isin</p>
 <p>O método isin é útil para filtrar o DataFrame com base em uma lista de valores.</p>
@@ -1392,9 +2713,48 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="n">norte_nordeste</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;NM_REGIAO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Norte&#39;</span><span class="p">,</span> <span class="s1">&#39;Nordeste&#39;</span><span class="p">])]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">norte_nordeste</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>   CD_UF                NM_UF SIGLA_UF NM_REGIAO     AREA_KM2  \
+0     12                 Acre       AC     Norte   164173.429   
+1     13             Amazonas       AM     Norte  1559255.881   
+2     15                 Pará       PA     Norte  1245870.704   
+3     16                Amapá       AP     Norte   142470.762   
+4     17            Tocantins       TO     Norte   277423.627   
+5     21             Maranhão       MA  Nordeste   329651.496   
+6     22                Piauí       PI  Nordeste   251755.481   
+7     23                Ceará       CE  Nordeste   148894.447   
+8     24  Rio Grande do Norte       RN  Nordeste    52809.599   
+9     25              Paraíba       PB  Nordeste    56467.242   
+10    26           Pernambuco       PE  Nordeste    98067.877   
+11    27              Alagoas       AL  Nordeste    27830.661   
+12    28              Sergipe       SE  Nordeste    21938.188   
+13    29                Bahia       BA  Nordeste   564760.429   
+25    11             Rondônia       RO     Norte   237754.172   
+26    14              Roraima       RR     Norte   223644.530   
+
+                                             geometry  
+0   POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...  
+1   POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...  
+2   MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...  
+3   MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...  
+4   POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...  
+5   MULTIPOLYGON (((-44.58680 -2.23341, -44.58696 ...  
+6   POLYGON ((-42.47034 -3.48377, -42.46126 -3.484...  
+7   POLYGON ((-37.87162 -4.36640, -37.87109 -4.367...  
+8   MULTIPOLYGON (((-35.18728 -5.78987, -35.18707 ...  
+9   MULTIPOLYGON (((-34.79580 -7.17500, -34.79578 ...  
+10  MULTIPOLYGON (((-35.04823 -8.60936, -35.04756 ...  
+11  MULTIPOLYGON (((-35.28700 -9.14489, -35.28699 ...  
+12  MULTIPOLYGON (((-37.01203 -10.92784, -37.01267...  
+13  MULTIPOLYGON (((-39.26447 -8.61413, -39.26341 ...  
+25  POLYGON ((-62.60021 -13.01675, -62.59999 -13.0...  
+26  POLYGON ((-60.12972 4.50843, -60.12960 4.50826...  
 </pre></div>
 </div>
 </div>
@@ -1403,12 +2763,8 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>No Pandas e no Geopandas, a seleção de dados pode ser feita de várias maneiras, sendo as mais comuns a seleção por rótulos, por posição e por um único valor específico. Vamos entender a diferença entre esses métodos e exemplificar a partir GeoDataFrame gdf_uf_cp.</p>
 <p>Seleção por Rótulos (loc)</p>
 <p>O método loc é usado principalmente para selecionar com base em rótulos (nomes) de linhas e colunas. Pode aceitar rótulos de índices de linha e rótulos de colunas para retornar um subconjunto do DataFrame. Para obter o valor da coluna “A” na linha com índice “x”:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valor</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">valor</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Em que:</p>
 <p>‘x’: É o rótulo da linha que você deseja acessar. Neste caso, você está tentando acessar a linha cujo rótulo (ou índice) é ‘x’.</p>
@@ -1432,6 +2788,11 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3974495
+</pre></div>
+</div>
+</div>
 </div>
 <p>Consulta 2: Obter a geometria do estado da Paraíba.</p>
 <div class="cell docutils container">
@@ -1440,11 +2801,22 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/fac0b1299728d98ce22c612d3cd5b5e68943866f53a399f4f5948ee26b8faabd.svg" src="_images/fac0b1299728d98ce22c612d3cd5b5e68943866f53a399f4f5948ee26b8faabd.svg" /></div>
 </div>
 <p>Consulta 3: Obter os valores de PIB de 2020 (PIB_2020), População em 2000 (Popul_2000) e população em 2022 (Popul_2022) para o estado do Espírito Santo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf_cp</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;ES&#39;</span><span class="p">,[</span><span class="s1">&#39;UF&#39;</span><span class="p">,</span> <span class="s1">&#39;PIB_2020&#39;</span><span class="p">,</span> <span class="s1">&#39;Popul_2000&#39;</span><span class="p">,</span> <span class="s1">&#39;Popul_2022&#39;</span><span class="p">]]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>UF            Espírito Santo
+PIB_2020              138446
+Popul_2000           3094390
+Popul_2022           3833486
+Name: ES, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1456,6 +2828,231 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>geometry</th>
+    </tr>
+    <tr>
+      <th>SIGLA_UF</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>AC</th>
+      <td>12</td>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+    </tr>
+    <tr>
+      <th>AM</th>
+      <td>13</td>
+      <td>Amazonas</td>
+      <td>116019</td>
+      <td>POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...</td>
+    </tr>
+    <tr>
+      <th>PA</th>
+      <td>15</td>
+      <td>Pará</td>
+      <td>215936</td>
+      <td>MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...</td>
+    </tr>
+    <tr>
+      <th>AP</th>
+      <td>16</td>
+      <td>Amapá</td>
+      <td>18469</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+    </tr>
+    <tr>
+      <th>TO</th>
+      <td>17</td>
+      <td>Tocantins</td>
+      <td>43650</td>
+      <td>POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...</td>
+    </tr>
+    <tr>
+      <th>MA</th>
+      <td>21</td>
+      <td>Maranhão</td>
+      <td>106916</td>
+      <td>MULTIPOLYGON (((-44.58680 -2.23341, -44.58696 ...</td>
+    </tr>
+    <tr>
+      <th>PI</th>
+      <td>22</td>
+      <td>Piauí</td>
+      <td>56391</td>
+      <td>POLYGON ((-42.47034 -3.48377, -42.46126 -3.484...</td>
+    </tr>
+    <tr>
+      <th>CE</th>
+      <td>23</td>
+      <td>Ceará</td>
+      <td>166915</td>
+      <td>POLYGON ((-37.87162 -4.36640, -37.87109 -4.367...</td>
+    </tr>
+    <tr>
+      <th>RN</th>
+      <td>24</td>
+      <td>Rio Grande do Norte</td>
+      <td>71577</td>
+      <td>MULTIPOLYGON (((-35.18728 -5.78987, -35.18707 ...</td>
+    </tr>
+    <tr>
+      <th>PB</th>
+      <td>25</td>
+      <td>Paraíba</td>
+      <td>70292</td>
+      <td>MULTIPOLYGON (((-34.79580 -7.17500, -34.79578 ...</td>
+    </tr>
+    <tr>
+      <th>PE</th>
+      <td>26</td>
+      <td>Pernambuco</td>
+      <td>193307</td>
+      <td>MULTIPOLYGON (((-35.04823 -8.60936, -35.04756 ...</td>
+    </tr>
+    <tr>
+      <th>AL</th>
+      <td>27</td>
+      <td>Alagoas</td>
+      <td>63202</td>
+      <td>MULTIPOLYGON (((-35.28700 -9.14489, -35.28699 ...</td>
+    </tr>
+    <tr>
+      <th>SE</th>
+      <td>28</td>
+      <td>Sergipe</td>
+      <td>45410</td>
+      <td>MULTIPOLYGON (((-37.01203 -10.92784, -37.01267...</td>
+    </tr>
+    <tr>
+      <th>BA</th>
+      <td>29</td>
+      <td>Bahia</td>
+      <td>305321</td>
+      <td>MULTIPOLYGON (((-39.26447 -8.61413, -39.26341 ...</td>
+    </tr>
+    <tr>
+      <th>MG</th>
+      <td>31</td>
+      <td>Minas Gerais</td>
+      <td>682786</td>
+      <td>POLYGON ((-42.51148 -14.98627, -42.50964 -14.9...</td>
+    </tr>
+    <tr>
+      <th>ES</th>
+      <td>32</td>
+      <td>Espírito Santo</td>
+      <td>138446</td>
+      <td>MULTIPOLYGON (((-40.27883 -20.33437, -40.27883...</td>
+    </tr>
+    <tr>
+      <th>RJ</th>
+      <td>33</td>
+      <td>Rio de Janeiro</td>
+      <td>753824</td>
+      <td>MULTIPOLYGON (((-42.00612 -22.88563, -42.00634...</td>
+    </tr>
+    <tr>
+      <th>SP</th>
+      <td>35</td>
+      <td>São Paulo</td>
+      <td>2377639</td>
+      <td>MULTIPOLYGON (((-46.47312 -22.70498, -46.47289...</td>
+    </tr>
+    <tr>
+      <th>PR</th>
+      <td>41</td>
+      <td>Paraná</td>
+      <td>487931</td>
+      <td>MULTIPOLYGON (((-48.30974 -25.49328, -48.27691...</td>
+    </tr>
+    <tr>
+      <th>SC</th>
+      <td>42</td>
+      <td>Santa Catarina</td>
+      <td>349275</td>
+      <td>MULTIPOLYGON (((-49.23653 -26.03711, -49.23650...</td>
+    </tr>
+    <tr>
+      <th>RS</th>
+      <td>43</td>
+      <td>Rio Grande do Sul</td>
+      <td>470942</td>
+      <td>MULTIPOLYGON (((-51.71873 -31.85463, -51.71941...</td>
+    </tr>
+    <tr>
+      <th>MS</th>
+      <td>50</td>
+      <td>Mato Grosso do Sul</td>
+      <td>122628</td>
+      <td>POLYGON ((-54.68379 -23.83050, -54.68569 -23.8...</td>
+    </tr>
+    <tr>
+      <th>MT</th>
+      <td>51</td>
+      <td>Mato Grosso</td>
+      <td>178650</td>
+      <td>POLYGON ((-56.07160 -17.17062, -56.07246 -17.1...</td>
+    </tr>
+    <tr>
+      <th>GO</th>
+      <td>52</td>
+      <td>Goiás</td>
+      <td>224126</td>
+      <td>POLYGON ((-47.33502 -15.58733, -47.33512 -15.5...</td>
+    </tr>
+    <tr>
+      <th>DF</th>
+      <td>53</td>
+      <td>Distrito Federal</td>
+      <td>265847</td>
+      <td>POLYGON ((-48.01472 -16.04996, -48.01573 -16.0...</td>
+    </tr>
+    <tr>
+      <th>RO</th>
+      <td>11</td>
+      <td>Rondônia</td>
+      <td>51599</td>
+      <td>POLYGON ((-62.60021 -13.01675, -62.59999 -13.0...</td>
+    </tr>
+    <tr>
+      <th>RR</th>
+      <td>14</td>
+      <td>Roraima</td>
+      <td>16024</td>
+      <td>POLYGON ((-60.12972 4.50843, -60.12960 4.50826...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Consulta 5: Selecionar colunas específicas em um intervalo de linhas. Nesta consulta, vamos acessar os registros entre os estados de Sergipe e Santa Catarina.</p>
 <div class="cell docutils container">
@@ -1464,6 +3061,98 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2022</th>
+    </tr>
+    <tr>
+      <th>SIGLA_UF</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>SE</th>
+      <td>Sergipe</td>
+      <td>45410</td>
+      <td>1781714</td>
+      <td>2209558</td>
+    </tr>
+    <tr>
+      <th>BA</th>
+      <td>Bahia</td>
+      <td>305321</td>
+      <td>13066910</td>
+      <td>14136417</td>
+    </tr>
+    <tr>
+      <th>MG</th>
+      <td>Minas Gerais</td>
+      <td>682786</td>
+      <td>17866402</td>
+      <td>20538718</td>
+    </tr>
+    <tr>
+      <th>ES</th>
+      <td>Espírito Santo</td>
+      <td>138446</td>
+      <td>3094390</td>
+      <td>3833486</td>
+    </tr>
+    <tr>
+      <th>RJ</th>
+      <td>Rio de Janeiro</td>
+      <td>753824</td>
+      <td>14367083</td>
+      <td>16054524</td>
+    </tr>
+    <tr>
+      <th>SP</th>
+      <td>São Paulo</td>
+      <td>2377639</td>
+      <td>36969476</td>
+      <td>44420459</td>
+    </tr>
+    <tr>
+      <th>PR</th>
+      <td>Paraná</td>
+      <td>487931</td>
+      <td>9558454</td>
+      <td>11443208</td>
+    </tr>
+    <tr>
+      <th>SC</th>
+      <td>Santa Catarina</td>
+      <td>349275</td>
+      <td>5349580</td>
+      <td>7609601</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Seleção por Posição (iloc)</p>
 <p>O método iloc é usado principalmente para seleção por posição inteira. Aceita somente valores inteiros que representam a posição do índice (linha) ou coluna.</p>
@@ -1484,12 +3173,24 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;AC&#39;
+</pre></div>
+</div>
+</div>
 </div>
 <p>Verificando no GeoDataFrame original:</p>
 <p>Consulta 2: Obter os valores das duas primeiras colunas na primeira linha.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf_cp</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">:</span><span class="mi">2</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SIGLA_UF    AC
+CD_UF       12
+Name: 0, dtype: object
 </pre></div>
 </div>
 </div>
@@ -1501,16 +3202,14 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/7214f280301b528d436dd412ce20aaf5eccd4edc3ef348c6cced019d11057ebf.svg" src="_images/7214f280301b528d436dd412ce20aaf5eccd4edc3ef348c6cced019d11057ebf.svg" /></div>
 </div>
 <p>Seleção de um Valor Específico (at)</p>
 <p>O método at é semelhante ao loc, mas é usado para acessar um valor específico rapidamente. É mais rápido que loc quando você precisa acessar um único valor, mas não é adequado para selecionar múltiplos elementos.</p>
 <p>Para obter o valor da coluna “A” na linha com índice “x”:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">valor</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">valor</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">at</span><span class="p">[</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;A&#39;</span><span class="p">]</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Vamos alterar novamente o índice do GeoDataFrame para “SIGLA_UF”.</p>
 <div class="cell docutils container">
@@ -1527,6 +3226,8 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/533b9e476674138c723cc8aca95698840334a88ae3bee5c74caef9d7c39969a3.svg" src="_images/533b9e476674138c723cc8aca95698840334a88ae3bee5c74caef9d7c39969a3.svg" /></div>
 </div>
 <p>Observações:</p>
 <p>Embora at seja mais rápido para acessar um único valor, em operações mais complexas ou ao trabalhar com slices/subconjuntos, loc e iloc são geralmente mais versáteis.</p>
@@ -1549,6 +3250,8 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/6b3daccf4c2b433d2aa7fd3d392b0649fbf36820cf4795e24823cf8a07af8a50.svg" src="_images/6b3daccf4c2b433d2aa7fd3d392b0649fbf36820cf4795e24823cf8a07af8a50.svg" /></div>
 </div>
 <p>Vantagens de usar iat:</p>
 <p>Velocidade: O iat é otimizado para ser rápido ao acessar um único valor, tornando-o mais eficiente que iloc quando você precisa apenas de um valor escalar.</p>
@@ -1556,7 +3259,6 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>Cuidados ao usar iat:</p>
 <p>Como iat é baseado em posições numéricas, é importante ter certeza de que você está referenciando a posição correta para evitar acessar dados errados.</p>
 <p>Semelhante ao at, o iat é projetado para acessar um único valor de cada vez e não é adequado para operações que envolvem múltiplos valores ou slices.</p>
-</section>
 </section>
 <section id="selecao-de-subconjuntos-via-coordenadas-bounding-box-com-notacao-slice">
 <h3>5.5.2 Seleção de subconjuntos via coordenadas: bounding box com notação slice.<a class="headerlink" href="#selecao-de-subconjuntos-via-coordenadas-bounding-box-com-notacao-slice" title="Permalink to this heading">#</a></h3>
@@ -1572,6 +3274,12 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/a77a441d772cea833247fcf4e3a206ad1977e5f2380512cb17b1464d70511c09.png" src="_images/a77a441d772cea833247fcf4e3a206ad1977e5f2380512cb17b1464d70511c09.png" />
+</div>
 </div>
 <p>Lembre-se de garantir que o GeoDataFrame e a bounding box estejam no mesmo Sistema de Referência de Coordenadas (CRS) para obter resultados precisos. Se eles não estiverem, você precisará reprojetar o GeoDataFrame ou a bounding box para um CRS em comum antes de realizar a operação.</p>
 </section>
@@ -1580,11 +3288,13 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <h2>5.6 Operações espaciais no Geopandas<a class="headerlink" href="#operacoes-espaciais-no-geopandas" title="Permalink to this heading">#</a></h2>
 <p>Uma operação espacial refere-se a um conjunto de procedimentos ou métodos aplicados a objetos geométricos que produzem novas informações geoespaciais ou novas geometrias com base nas propriedades e relações espaciais dos objetos originais. Estas operações são fundamentais em sistemas de informação geográfica (SIG) e análise espacial, permitindo a obtenção de insights, a transformação de dados e resolução de problemas específicos do domínio espacial.</p>
 <p>No Geopandas, estas operações são facilitadas pela integração com outras bibliotecas, como Shapely, para a manipulação de geometrias, e Fiona para a leitura e a escrita de arquivos. Dentre as operações espaciais mais comuns no Geopandas, podemos destacar:</p>
-<p>Operações Métricas;</p>
-<p>Operações de Transformação;</p>
-<p>Operações de Generalização;</p>
-<p>Operações de Decomposição;</p>
-<p>Operações entre múltiplos GeoDataframes.</p>
+<ul class="simple">
+<li><p>Operações Métricas;</p></li>
+<li><p>Operações de Transformação;</p></li>
+<li><p>Operações de Generalização;</p></li>
+<li><p>Operações de Decomposição;</p></li>
+<li><p>Operações entre múltiplos GeoDataframes.</p></li>
+</ul>
 <p>É importante ressaltar que a classificação mencionada acima pode variar de acordo com o contexto. Muitos métodos e funções no Geopandas podem se encaixar em múltiplas categorias de operações. Além disso, existem outras possíveis classificações e categorizações de operações que não serão abordadas em nosso curso.</p>
 <section id="operacoes-metricas">
 <h3>5.6.1 Operações métricas<a class="headerlink" href="#operacoes-metricas" title="Permalink to this heading">#</a></h3>
@@ -1622,7 +3332,7 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>Inicialmente vamos criar um GeoDataFrame a partir do arquivo shapefile, que tem os seguintes atributos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/BR_UF.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1651,6 +3361,20 @@ Vamos verificar se o GeoDataFrame está em uma projeção apropriada para cálcu
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: GEOGCS[&quot;GCS_SIRGAS_2000&quot;,DATUM[&quot;D_SIRGAS_2000&quot;,SPH ...&gt;
+Name: SIRGAS 2000
+Axis Info [ellipsoidal]:
+- lon[east]: Longitude (Degree)
+- lat[north]: Latitude (Degree)
+Area of Use:
+- undefined
+Datum: Sistema de Referencia Geocentrico para las AmericaS 2000
+- Ellipsoid: GRS 1980
+- Prime Meridian: Greenwich
+</pre></div>
+</div>
+</div>
 </div>
 <p>O GeoDataFrame está em um sistema de coordenadas geográficas. Para calcular a área, o ideal é que ele esteja em um sistema de coordenadas UTM. Vamos reprojetá-lo para o EPSG 31982 (SIRGAS UTM 22S).</p>
 <div class="cell docutils container">
@@ -1675,8 +3399,22 @@ Vamos verificar se o GeoDataFrame está em uma projeção apropriada para cálcu
 Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rio</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/rios_arag_toc.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rio</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_rio</span><span class="o">.</span><span class="n">crs</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;Geographic 2D CRS: GEOGCS[&quot;SAD69&quot;,DATUM[&quot;South_American_Datum_1969&quot;,S ...&gt;
+Name: SAD69
+Axis Info [ellipsoidal]:
+- lon[east]: Longitude (degree)
+- lat[north]: Latitude (degree)
+Area of Use:
+- undefined
+Datum: South American Datum 1969
+- Ellipsoid: GRS 1967
+- Prime Meridian: Greenwich
 </pre></div>
 </div>
 </div>
@@ -1714,11 +3452,25 @@ Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8243/2493095251.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+
+  centroides = gdf[&#39;geometry&#39;].centroid
+</pre></div>
+</div>
+</div>
 </div>
 <p>Exemplo: Determinar os centroides dos estados do Brasil.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;centroid&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">centroid</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8243/4009800209.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+
+  gdf_uf[&#39;centroid&#39;] = gdf_uf[&#39;geometry&#39;].centroid
 </pre></div>
 </div>
 </div>
@@ -1732,11 +3484,87 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>Inicialmente, vamos ler o shapefile e criar o GeoDataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/capitais_UTM22.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>CD_UF</th>
+      <th>NM_UF</th>
+      <th>SIGLA_UF</th>
+      <th>NM_REGIAO</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>12</td>
+      <td>Acre</td>
+      <td>AC</td>
+      <td>Norte</td>
+      <td>164173.429</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>13</td>
+      <td>Amazonas</td>
+      <td>AM</td>
+      <td>Norte</td>
+      <td>1559255.881</td>
+      <td>POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>15</td>
+      <td>Pará</td>
+      <td>PA</td>
+      <td>Norte</td>
+      <td>1245870.704</td>
+      <td>MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>16</td>
+      <td>Amapá</td>
+      <td>AP</td>
+      <td>Norte</td>
+      <td>142470.762</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>17</td>
+      <td>Tocantins</td>
+      <td>TO</td>
+      <td>Norte</td>
+      <td>277423.627</td>
+      <td>POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Como o GeoDataFrame está em coordenadas geográficas, vamos reprojetá-lo para o EPSG 31982.</p>
 <div class="cell docutils container">
@@ -1748,18 +3576,20 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 </div>
 <p>Podemos verificar a mudança das coordenadas da coluna ‘geometry’.</p>
 <p>Por fim, calculamos a distância entre capitais. Para tanto, vamos utilizar a seguinte sintaxe:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distancia</span> <span class="o">=</span> <span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">capA</span><span class="p">])</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">capB</span><span class="p">])</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">distancia</span> <span class="o">=</span> <span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">capA</span><span class="p">])</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="n">capB</span><span class="p">])</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>No código acima, <code class="docutils literal notranslate"><span class="pre">iloc[capA]</span> <span class="pre">e</span> <span class="pre">iloc[capB]</span></code> são as posições dos índices no GeoDataFrame das capitais que se está consultando. Por exemplo, a posição do índice de Brasilia é zero <code class="docutils literal notranslate"><span class="pre">(iloc[0])</span></code> e a de Palmas é seis <code class="docutils literal notranslate"><span class="pre">(iloc[6]).</span></code></p>
 <p>Distância entre Brasília e Palmas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distancia</span> <span class="o">=</span> <span class="p">(</span><span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span><span class="o">/</span><span class="mf">1e3</span>
+<span class="n">distancia</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>616.9329616034571
 </pre></div>
 </div>
 </div>
@@ -1768,6 +3598,12 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distancia</span> <span class="o">=</span> <span class="p">(</span><span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">2</span><span class="p">])</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">4</span><span class="p">])</span><span class="o">/</span><span class="mf">1e3</span>
+<span class="n">distancia</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>3175.1035119015814
 </pre></div>
 </div>
 </div>
@@ -1776,6 +3612,12 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distancia</span> <span class="o">=</span> <span class="p">(</span><span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span><span class="o">/</span><span class="mf">1e3</span>
+<span class="n">distancia</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1210.6531218832938
 </pre></div>
 </div>
 </div>
@@ -1783,14 +3625,20 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>total_bounds</p>
 <p>O método total_bounds no Geopandas retorna uma tupla contendo as coordenadas do retângulo envolvente para todas as geometrias em um GeoSeries ou GeoDataFrame.</p>
 <p>A tupla que retorna tem a seguinte estrutura:</p>
-<p>(minx, miny, maxx, maxy)</p>
+<p><code class="docutils literal notranslate"><span class="pre">(minx,</span> <span class="pre">miny,</span> <span class="pre">maxx,</span> <span class="pre">maxy)</span></code></p>
 <p>minx e miny: São as coordenadas x e y do canto inferior esquerdo do retângulo delimitador;</p>
 <p>maxx e maxy: São as coordenadas x e y do canto superior direito do retângulo delimitador.</p>
-<p>Exemplo: verificar os limites do GeoDataFrame contendo a geometria do Brasil (DataFrame gdf_br):</p>
+<p>Exemplo: verificar os limites do GeoDataFrame contendo a geometria do estado do Amazonas (DataFrame gdf_am):</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">limites</span> <span class="o">=</span> <span class="n">gdf_br</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">total_bounds</span>
-<span class="c1"># Saída: array([-73.99044997, -33.75117799, -28.84763991,   5.27184108])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_am</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;AM&#39;</span><span class="p">]</span> 
+<span class="n">limites</span> <span class="o">=</span> <span class="n">gdf_am</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">total_bounds</span>
+<span class="n">limites</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([-73.80155812,  -9.81804587, -56.09755804,   2.24663056])
 </pre></div>
 </div>
 </div>
@@ -1866,51 +3714,6 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 </tbody>
 </table>
 <p>Vamos aplicar o método dissolve no GeoDataFrame dos estados brasileiros, agregando os dados do censo de 2000, 2010 e 2022. Cada estado tem um nome, uma geometria e pertence a um país (no caso, o Brasil).</p>
-<p>Inicialmente, vamos realizar algumas operações para criar um GeoDataFrame com os dados do PIB estadual de 2020 e dos Censos de 2000, 2010 e 2022 a partir de dado s que estão em planilhas do Excel.</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ler o arquivo shapefile</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/BR_UF.shp&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ler o arquivo Excel com dados do PIB estadual</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfpib</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/pibUfBr2020.xlsx&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-<p>Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span>dfcenso = pd.read_excel(&#39;/home/alexandro/geopythonbook/content/censo_UF.xlsx&#39;)```
-
-Unindo os dataframes dfpib e dfcenso
-```{code-cell} python
-df_uf = pd.merge(dfpib, dfcenso, on=&#39;SIGLA_UF&#39;).drop(columns=&#39;UF_y&#39;).rename(columns={&#39;UF_x&#39;: &#39;UF&#39;})
-</pre></div>
-</div>
-</div>
-</div>
-<p>Unindo o dataframe df_uf com o geodataframe</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf_cp</span> <span class="o">=</span> <span class="n">gdf</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">df_uf</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_REGIAO&#39;</span><span class="p">])</span>
-</pre></div>
-</div>
-</div>
-</div>
 <p>Para aplicar o dissolve, precisamos de uma coluna com dados em comum para todos os registros (no caso, os estados). Com não temos essa coluna, vamos inserir uma coluna ‘pais’, com o valor default ‘br’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1919,6 +3722,106 @@ df_uf = pd.merge(dfpib, dfcenso, on=&#39;SIGLA_UF&#39;).drop(columns=&#39;UF_y&#
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>SIGLA_UF</th>
+      <th>CD_UF</th>
+      <th>AREA_KM2</th>
+      <th>geometry</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+      <th>pais</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>AC</td>
+      <td>12</td>
+      <td>164173.429</td>
+      <td>POLYGON ((-68.79282 -10.99957, -68.79367 -10.9...</td>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>557226</td>
+      <td>733559</td>
+      <td>830026</td>
+      <td>br</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>AM</td>
+      <td>13</td>
+      <td>1559255.881</td>
+      <td>POLYGON ((-56.76292 -3.23221, -56.76789 -3.242...</td>
+      <td>Amazonas</td>
+      <td>116019</td>
+      <td>2813085</td>
+      <td>3483985</td>
+      <td>3941175</td>
+      <td>br</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PA</td>
+      <td>15</td>
+      <td>1245870.704</td>
+      <td>MULTIPOLYGON (((-48.97548 -0.19834, -48.97487 ...</td>
+      <td>Pará</td>
+      <td>215936</td>
+      <td>6189550</td>
+      <td>7581051</td>
+      <td>8116132</td>
+      <td>br</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>AP</td>
+      <td>16</td>
+      <td>142470.762</td>
+      <td>MULTIPOLYGON (((-51.04561 -0.05088, -51.05422 ...</td>
+      <td>Amapá</td>
+      <td>18469</td>
+      <td>475843</td>
+      <td>669526</td>
+      <td>733508</td>
+      <td>br</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>TO</td>
+      <td>17</td>
+      <td>277423.627</td>
+      <td>POLYGON ((-48.24830 -13.19239, -48.24844 -13.1...</td>
+      <td>Tocantins</td>
+      <td>43650</td>
+      <td>1155913</td>
+      <td>1383445</td>
+      <td>1511459</td>
+      <td>br</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Agora que temos a coluna com um valor em comum para todos os estados podemos aplicar a função dissolve.</p>
 <div class="cell docutils container">
@@ -1928,6 +3831,64 @@ df_uf = pd.merge(dfpib, dfcenso, on=&#39;SIGLA_UF&#39;).drop(columns=&#39;UF_y&#
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+      <th>SIGLA_UF</th>
+      <th>CD_UF</th>
+      <th>AREA_KM2</th>
+      <th>UF</th>
+      <th>PIB_2020</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+    </tr>
+    <tr>
+      <th>pais</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>br</th>
+      <td>MULTIPOLYGON (((-51.77089 -31.88283, -51.77588...</td>
+      <td>AC</td>
+      <td>12</td>
+      <td>164173.429</td>
+      <td>Acre</td>
+      <td>16476</td>
+      <td>557226</td>
+      <td>733559</td>
+      <td>830026</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>A figura abaixo mostra a geometria antes (a) e após (b) a aplicação do método dissolve.</p>
 <p>O resultado da operação dissolve terá a coluna usada para dissolver como índice. No exemplo acima, país se torna o índice do gdf_br. Se você não quiser que a coluna de dissolução se torne o índice, pode resetar o índice usando reset_index().</p>
@@ -1946,6 +3907,52 @@ df_uf = pd.merge(dfpib, dfcenso, on=&#39;SIGLA_UF&#39;).drop(columns=&#39;UF_y&#
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>geometry</th>
+      <th>Popul_2000</th>
+      <th>Popul_2010</th>
+      <th>Popul_2022</th>
+      <th>PIB_2020</th>
+    </tr>
+    <tr>
+      <th>pais</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>br</th>
+      <td>MULTIPOLYGON (((-51.77089 -31.88283, -51.77588...</td>
+      <td>169590693</td>
+      <td>190755799</td>
+      <td>203062512</td>
+      <td>7609598</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 </section>
 <section id="operacoes-de-decomposicao">
@@ -1971,14 +3978,10 @@ df_uf = pd.merge(dfpib, dfcenso, on=&#39;SIGLA_UF&#39;).drop(columns=&#39;UF_y&#
 </tbody>
 </table>
 <p>Boundary</p>
-<p>O método boundary retorna uma representação geométrica das linhas de borda de uma geometria. Para um polígono, isso resultará em uma Linestring (ou Multilinestring para polígonos com furos) que representa o contorno do polígono. Ele não fornece uma medida, mas sim uma representação geométrica.
-Sintaxe básica:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">contornos</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">boundary</span>
+<p>O método boundary retorna uma representação geométrica das linhas de borda de uma geometria. Para um polígono, isso resultará em uma Linestring (ou Multilinestring para polígonos com furos) que representa o contorno do polígono. Ele não fornece uma medida, mas sim uma representação geométrica.</p>
+<p>Sintaxe básica:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">contornos</span> <span class="o">=</span> <span class="n">gdf</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">boundary</span>
 </pre></div>
-</div>
-</div>
 </div>
 <p>Exemplo: gerar a geometria de contorno do estado de Santa Catarina:</p>
 <div class="cell docutils container">
@@ -1987,6 +3990,12 @@ Sintaxe básica:</p>
 <span class="n">contorno_sc</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/8cb8f46365218ec590029c3697e18291b16c737725fa7f86a0997d24abf606d5.png" src="_images/8cb8f46365218ec590029c3697e18291b16c737725fa7f86a0997d24abf606d5.png" />
 </div>
 </div>
 </section>
@@ -2003,11 +4012,17 @@ Sintaxe básica:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_rodo</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/rodovias_BR.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_rodo</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/20_BR_rodovias/rodovias_BR.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_rodo</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/02bf8ac2e22fe83b82e5e1346844e64b6a1aa2eb96558ff9c723211d6e708aa4.png" src="_images/02bf8ac2e22fe83b82e5e1346844e64b6a1aa2eb96558ff9c723211d6e708aa4.png" />
 </div>
 </div>
 <p>Etapa 2. Filtragem do estado desejado.</p>
@@ -2017,6 +4032,12 @@ Sintaxe básica:</p>
 <span class="n">gdf_RS</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/c241f3da0eaa2f34a21b341c56e72aac10cb08da6690343cc52de7e46ae673dc.png" src="_images/c241f3da0eaa2f34a21b341c56e72aac10cb08da6690343cc52de7e46ae673dc.png" />
 </div>
 </div>
 <p>Etapa 3. Verificação e Ajuste de CRS.</p>
@@ -2044,6 +4065,12 @@ Sintaxe básica:</p>
 <span class="n">rodovias_rs</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/8b06a78d659a09b6439c9e376d344e7865e31c7b9c5a56d7dbac4cf6b39eb3d8.png" src="_images/8b06a78d659a09b6439c9e376d344e7865e31c7b9c5a56d7dbac4cf6b39eb3d8.png" />
 </div>
 </div>
 </section>
@@ -2087,7 +4114,8 @@ Sintaxe básica:</p>
 <p>Inicialmente, vamos filtrar o GeoDataFrame ‘gdf_cap’ para encontrar a linha que tem ‘Cuiabá’ como capital.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">filtro_cuiaba</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Cuiabá&#39;</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson&#39;</span><span class="p">)</span>
+<span class="n">filtro_cuiaba</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Cuiabá&#39;</span>
 <span class="n">gdf_cuiaba</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="p">[</span><span class="n">filtro_cuiaba</span><span class="p">]</span>
 </pre></div>
 </div>
@@ -2125,7 +4153,7 @@ Sintaxe básica:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="n">filtro_roraima</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Roraima&#39;</span>
 <span class="n">gdf_roraima</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="n">filtro_roraima</span><span class="p">]</span>
 </pre></div>
@@ -2166,7 +4194,7 @@ Sintaxe básica:</p>
 <p>Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_br116</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/br116.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_br116</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/14_br116/br116.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2191,6 +4219,21 @@ Sintaxe básica:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">estados_br116</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>7                 Ceará
+9               Paraíba
+10           Pernambuco
+13                Bahia
+14         Minas Gerais
+16       Rio de Janeiro
+17            São Paulo
+18               Paraná
+19       Santa Catarina
+20    Rio Grande do Sul
+Name: NM_UF, dtype: object
 </pre></div>
 </div>
 </div>
@@ -2237,6 +4280,46 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome</th>
+      <th>valor</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10</td>
+      <td>POLYGON ((1.70000 1.00000, 1.69663 0.93139, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15</td>
+      <td>POLYGON ((3.70000 1.00000, 3.69663 0.93139, 3....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2244,6 +4327,46 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome</th>
+      <th>valor</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PC</td>
+      <td>20</td>
+      <td>POLYGON ((2.70000 1.00000, 2.69663 0.93139, 2....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PD</td>
+      <td>30</td>
+      <td>POLYGON ((4.70000 1.00000, 4.69663 0.93139, 4....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>O código abaixo configura a visualização dos GeoDataFrames em uma única área de plotagem:</p>
 <div class="cell docutils container">
@@ -2253,6 +4376,12 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/8852e40032da1f2f33b44cca3c6f97f9186f02e06d635c19395b7859a99acafb.png" src="_images/8852e40032da1f2f33b44cca3c6f97f9186f02e06d635c19395b7859a99acafb.png" />
+</div>
 </div>
 <p>mesmo codigo acima, mas para aparecer os nomes das geometrias</p>
 <div class="cell docutils container">
@@ -2261,6 +4390,12 @@ Sintaxe básica:</p>
 <span class="n">gdf2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;red&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.5</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/8852e40032da1f2f33b44cca3c6f97f9186f02e06d635c19395b7859a99acafb.png" src="_images/8852e40032da1f2f33b44cca3c6f97f9186f02e06d635c19395b7859a99acafb.png" />
 </div>
 </div>
 <p>Função para obter coordenadas representativas para anotação</p>
@@ -2284,13 +4419,25 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8243/3885928556.py:2: ShapelyDeprecationWarning: The &#39;type&#39; attribute is deprecated, and will be removed in the future. You can use the &#39;geom_type&#39; attribute instead.
+  if geom.type == &#39;Point&#39;:
+</pre></div>
+</div>
+</div>
 </div>
 <p>Adicionando anotações para gdf2</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">geom</span><span class="p">,</span> <span class="n">label</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">gdf2</span><span class="o">.</span><span class="n">geometry</span><span class="p">,</span> <span class="n">gdf2</span><span class="p">[</span><span class="s1">&#39;nome&#39;</span><span class="p">]):</span>
     <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">get_coords</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
-    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8243/3885928556.py:2: ShapelyDeprecationWarning: The &#39;type&#39; attribute is deprecated, and will be removed in the future. You can use the &#39;geom_type&#39; attribute instead.
+  if geom.type == &#39;Point&#39;:
 </pre></div>
 </div>
 </div>
@@ -2315,16 +4462,20 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
-</div>
-<p>Este código verifica se cada geometria em gs1 tem interseção com alguma geometria em gs2. Retorna uma série booleana, com True em caso afirmativo e False caso contrário.</p>
-<p>Vamos tentar visualizar o GeoDataFrame:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="c1"># Saída: TypeError: no numeric data to plot</span>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    True
+1    True
+dtype: bool
 </pre></div>
 </div>
 </div>
+</div>
+<p>Este código verifica se cada geometria em gs1 tem interseção com alguma geometria em gs2. Retorna uma série booleana, com True em caso afirmativo e False caso contrário.</p>
+<p>Vamos tentar visualizar o GeoDataFrame:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+
+<span class="n">Saída</span><span class="p">:</span> <span class="ne">TypeError</span><span class="p">:</span> <span class="n">no</span> <span class="n">numeric</span> <span class="n">data</span> <span class="n">to</span> <span class="n">plot</span>
+</pre></div>
 </div>
 <p>Como intersects resulta em uma Series de valores booleanos, não pode ser plotada diretamente.</p>
 <p>b) Intersection</p>
@@ -2336,12 +4487,25 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    POLYGON ((1.69663 0.93139, 1.68655 0.86344, 1....
+1    POLYGON ((3.69663 0.93139, 3.68655 0.86344, 3....
+dtype: geometry
+</pre></div>
+</div>
+</div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cons_intersection</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/53ac3d2cad86167f52603b966ce5707321d8bf996e21753259845728647203e9.png" src="_images/53ac3d2cad86167f52603b966ce5707321d8bf996e21753259845728647203e9.png" />
 </div>
 </div>
 <p>c) Intersects com Sjoin</p>
@@ -2353,6 +4517,68 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alexandro/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3377: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
+  if (await self.run_code(code, result,  async_=asy)):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_left</th>
+      <th>valor_left</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>nome_right</th>
+      <th>valor_right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10</td>
+      <td>POLYGON ((1.70000 1.00000, 1.69663 0.93139, 1....</td>
+      <td>0</td>
+      <td>PC</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15</td>
+      <td>POLYGON ((3.70000 1.00000, 3.69663 0.93139, 3....</td>
+      <td>0</td>
+      <td>PC</td>
+      <td>20</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15</td>
+      <td>POLYGON ((3.70000 1.00000, 3.69663 0.93139, 3....</td>
+      <td>1</td>
+      <td>PD</td>
+      <td>30</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Nesse código: a)  gpd.sjoin(…) é o método do Geopandas usado para realizar junções espaciais entre dois GeoDataFrames; b) op=’intersects’ especifica o tipo de relação espacial a ser verificada. Neste caso, estamos interessados em geometrias que se interseccionam (ou seja, têm pelo menos um ponto em comum); c) how=’inner’ especifica o tipo de junção a ser realizada. Uma junção “inner” retornará apenas as linhas onde houve uma correspondência. Em outras palavras, as linhas no resultado são apenas aquelas para as quais uma geometria em gdf1 intersecciona uma geometria em gdf2.</p>
 <p>O código abaixo possibilita a plotagem do resultado da aplicação do sjoin.</p>
@@ -2373,6 +4599,9 @@ Sintaxe básica:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/d6b0e02577f4bcf5e28fa79323d18852a5ddb2ba74b5d9a0f5fca4218379ad02.png" src="_images/d6b0e02577f4bcf5e28fa79323d18852a5ddb2ba74b5d9a0f5fca4218379ad02.png" />
+</div>
 </div>
 <p>Nessa operação, as geometrias originais de gdf1 são preservadas (figura x). Contudo, informações adicionais de gdf2 são anexadas às linhas correspondentes de gdf1 onde ocorre a interseção. Especificamente, os polígonos “PC” e “PD” de gdf2 tem interseção com as geometrias “PA” e “PB” de gdf1, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf1 e incorporando informações relevantes de gdf2 onde as interseções ocorrem.
 Vamos aplicar novamente o sjoin, mas invertendo a ordem dos GeoDataFrames:</p>
@@ -2383,6 +4612,68 @@ Vamos aplicar novamente o sjoin, mas invertendo a ordem dos GeoDataFrames:</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alexandro/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3377: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
+  if (await self.run_code(code, result,  async_=asy)):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_left</th>
+      <th>valor_left</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>nome_right</th>
+      <th>valor_right</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PC</td>
+      <td>20</td>
+      <td>POLYGON ((2.70000 1.00000, 2.69663 0.93139, 2....</td>
+      <td>0</td>
+      <td>PA</td>
+      <td>10</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>PC</td>
+      <td>20</td>
+      <td>POLYGON ((2.70000 1.00000, 2.69663 0.93139, 2....</td>
+      <td>1</td>
+      <td>PB</td>
+      <td>15</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PD</td>
+      <td>30</td>
+      <td>POLYGON ((4.70000 1.00000, 4.69663 0.93139, 4....</td>
+      <td>1</td>
+      <td>PB</td>
+      <td>15</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Note que, agora, as geometrias originais de gdf2 que são preservadas (figura x). Contudo, informações adicionais de gdf1 são anexadas às linhas correspondentes de gdf2 onde ocorre a interseção. Especificamente, os polígonos “PA” e “PB” de gdf1 tem interseção com as geometrias “PC” e “PD” de gdf2, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin2, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf2 e incorporando informações relevantes de gdf1 onde as interseções ocorrem.</p>
 <p>d) Intersection com operação de Overlay</p>
@@ -2395,6 +4686,60 @@ Uso comum: Semelhante à operação intersection, mas mantém informações (atr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_1</th>
+      <th>valor_1</th>
+      <th>nome_2</th>
+      <th>valor_2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10</td>
+      <td>PC</td>
+      <td>20</td>
+      <td>POLYGON ((1.69663 0.93139, 1.68655 0.86344, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15</td>
+      <td>PC</td>
+      <td>20</td>
+      <td>POLYGON ((2.45889 0.55592, 2.41797 0.61110, 2....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PB</td>
+      <td>15</td>
+      <td>PD</td>
+      <td>30</td>
+      <td>POLYGON ((3.69663 0.93139, 3.68655 0.86344, 3....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Nesse código, gpd.overlay(…) é o método do Geopandas usado para realizar operações de sobreposição espacial entre dois GeoDataFrames. gdf1 e gdf2: São os dois GeoDataFrames que estão sendo combinados. A operação compara cada geometria em gdf1 com cada geometria em gdf2. how=’intersection’ especifica o tipo de operação de sobreposição a ser realizada. A opção “intersection” retorna a interseção geométrica entre as geometrias dos dois GeoDataFrames. Isso significa que a geometria resultante é aquela que é compartilhada entre gdf1 e gdf2 (figuras 65 e 66).</p>
 <div class="cell docutils container">
@@ -2411,6 +4756,9 @@ Uso comum: Semelhante à operação intersection, mas mantém informações (atr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<img alt="_images/d3307277ea181c422e4fac03d9dfd462122bd3f044b755e0a98c6ba27a3f1135.png" src="_images/d3307277ea181c422e4fac03d9dfd462122bd3f044b755e0a98c6ba27a3f1135.png" />
+</div>
 </div>
 <p>Diferente do sjoin, que mantém as geometrias originais de um dos GeoDataFrames e apenas anexa os atributos do outro onde há interseção, o overlay cria geometrias resultantes da interseção real entre as geometrias dos dois GeoDataFrames. Além disso, o novo GeoDataFrame resultante também combina os atributos das geometrias originais de gdf1 e gdf2 para cada uma dessas novas geometrias de interseção. Assim, cons_int_overlay fornece uma representação espacial precisa de onde as geometrias de gdf1 e gdf2 se cruzam, juntamente com os atributos combinados dessas interseções.</p>
 <p>Agora vamos inverter a ordem de entrada dos GeoDataFrames na consulta:</p>
@@ -2421,6 +4769,60 @@ Uso comum: Semelhante à operação intersection, mas mantém informações (atr
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_1</th>
+      <th>valor_1</th>
+      <th>nome_2</th>
+      <th>valor_2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PC</td>
+      <td>20</td>
+      <td>PA</td>
+      <td>10</td>
+      <td>POLYGON ((1.45889 0.55592, 1.41797 0.61110, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PC</td>
+      <td>20</td>
+      <td>PB</td>
+      <td>15</td>
+      <td>POLYGON ((2.69663 0.93139, 2.68655 0.86344, 2....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PD</td>
+      <td>30</td>
+      <td>PB</td>
+      <td>15</td>
+      <td>POLYGON ((3.45889 0.55592, 3.41797 0.61110, 3....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Podemos verificar que, em termos de geometria, a interseção entre gdf1 e gdf2 será a mesma que a interseção entre gdf2 e gdf1. No entanto, a ordem dos atributos no resultado é diferente. Enquanto cons_int_overlay tem os atributos de gdf1 seguidos pelos de gdf2 para cada geometria de interseção, cons_int_overlay2 tem os atributos de gdf2 seguidos pelos de gdf1. Desta maneira, é possível concluir que a ordem em que GeoDataFrames são fornecidos ao método overlay influenciam a ordem dos atributos no GeoDataFrame resultante, mas não a geometria da interseção.</p>
 <p>Conclusões:</p>
@@ -2446,9 +4848,17 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_usinas</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/hidreletricas.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/content/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_usinas</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gdf_usinas</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;nome&#39;, &#39;nomeabrev&#39;, &#39;geometriaa&#39;, &#39;potenciaou&#39;, &#39;potenciafi&#39;,
+       &#39;codigohidr&#39;, &#39;operaciona&#39;, &#39;situacaofi&#39;, &#39;id_produto&#39;, &#39;id_element&#39;,
+       &#39;geometry&#39;],
+      dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -2459,12 +4869,22 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;CD_UF&#39;, &#39;NM_UF&#39;, &#39;SIGLA_UF&#39;, &#39;NM_REGIAO&#39;, &#39;AREA_KM2&#39;, &#39;geometry&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
 </div>
 <p>Vamos deletar algumas colunas de gdf_uf que não utilizaremos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;CD_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;AREA_KM2&#39;</span><span class="p">])</span>
 <span class="n">gdf_uf</span><span class="o">.</span><span class="n">columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;SIGLA_UF&#39;, &#39;NM_REGIAO&#39;, &#39;geometry&#39;], dtype=&#39;object&#39;)
 </pre></div>
 </div>
 </div>
@@ -2487,6 +4907,100 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/alexandro/anaconda3/lib/python3.9/site-packages/IPython/core/interactiveshell.py:3377: FutureWarning: The `op` parameter is deprecated and will be removed in a future release. Please use the `predicate` parameter instead.
+  if (await self.run_code(code, result,  async_=asy)):
+</pre></div>
+</div>
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome</th>
+      <th>nomeabrev</th>
+      <th>geometriaa</th>
+      <th>potenciaou</th>
+      <th>potenciafi</th>
+      <th>codigohidr</th>
+      <th>operaciona</th>
+      <th>situacaofi</th>
+      <th>id_produto</th>
+      <th>id_element</th>
+      <th>geometry</th>
+      <th>index_right</th>
+      <th>SIGLA_UF</th>
+      <th>NM_REGIAO</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>Usina Hidrelétrica Ponte de Pedra</td>
+      <td>None</td>
+      <td>Não</td>
+      <td>176100</td>
+      <td>176100</td>
+      <td>None</td>
+      <td>Sim</td>
+      <td>Construída</td>
+      <td>250000</td>
+      <td>92</td>
+      <td>POINT (-54.82721 -17.60881)</td>
+      <td>22</td>
+      <td>MT</td>
+      <td>Centro-oeste</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>Usina Hidrelétrica Itiquira (Casas de Forças I...</td>
+      <td>None</td>
+      <td>Sim</td>
+      <td>156000</td>
+      <td>156000</td>
+      <td>None</td>
+      <td>Sim</td>
+      <td>Construída</td>
+      <td>250000</td>
+      <td>0</td>
+      <td>POINT (-54.83041 -17.09113)</td>
+      <td>22</td>
+      <td>MT</td>
+      <td>Centro-oeste</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>Pequena Central Hidrelétrica São Lourenço</td>
+      <td>None</td>
+      <td>Não</td>
+      <td>29100</td>
+      <td>29100</td>
+      <td>None</td>
+      <td>Sim</td>
+      <td>Construída</td>
+      <td>250000</td>
+      <td>0</td>
+      <td>POINT (-54.94313 -16.21622)</td>
+      <td>22</td>
+      <td>MT</td>
+      <td>Centro-oeste</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Esse código associa cada usina ao estado ao qual ela está localizada e consulta as colunas do GeoDataFrame.</p>
 <p>Podemos verificar que, agora, o GeoDataFrame usinas_uf tem colunas referentes aos estados (SIGLA_UF E NM_REGIAO).
@@ -2498,12 +5012,26 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>SIGLA_UF
+MT    3
+dtype: int64
+</pre></div>
+</div>
+</div>
 </div>
 <p>Por fim, vamos agrupar os dados por região (NM_REGIAO) e imprimir o número de usinas em cada região do país.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">numero_usinas_por_regiao</span> <span class="o">=</span> <span class="n">usinas_uf</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s1">&#39;NM_REGIAO&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">size</span><span class="p">()</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">numero_usinas_por_regiao</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>NM_REGIAO
+Centro-oeste    3
+dtype: int64
 </pre></div>
 </div>
 </div>
@@ -2522,12 +5050,88 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_1</th>
+      <th>valor_1</th>
+      <th>nome_2</th>
+      <th>valor_2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10.0</td>
+      <td>PC</td>
+      <td>20.0</td>
+      <td>POLYGON ((1.69663 0.93139, 1.68655 0.86344, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>PC</td>
+      <td>20.0</td>
+      <td>POLYGON ((2.45889 0.55592, 2.41797 0.61110, 2....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>PD</td>
+      <td>30.0</td>
+      <td>POLYGON ((3.69663 0.93139, 3.68655 0.86344, 3....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PA</td>
+      <td>10.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POLYGON ((1.49497 0.50503, 1.44408 0.45889, 1....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POLYGON ((3.49497 0.50503, 3.44408 0.45889, 3....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">uniao</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/f3af1091b227d3a279108b3758301cbb4f22e7ccc8c1b64cc493e54c932c2bba.png" src="_images/f3af1091b227d3a279108b3758301cbb4f22e7ccc8c1b64cc493e54c932c2bba.png" />
 </div>
 </div>
 <p>Overlay com difference</p>
@@ -2539,12 +5143,58 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome</th>
+      <th>valor</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10</td>
+      <td>POLYGON ((1.49497 0.50503, 1.44408 0.45889, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15</td>
+      <td>POLYGON ((3.49497 0.50503, 3.44408 0.45889, 3....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diferenca</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/f6ecacd560c812d19f4f968e6c2e7285b12d81f0ad612a9e59281364be3af309.png" src="_images/f6ecacd560c812d19f4f968e6c2e7285b12d81f0ad612a9e59281364be3af309.png" />
 </div>
 </div>
 <p>Fazendo gdf2 a esquerda e gdf1 a direita:</p>
@@ -2555,6 +5205,46 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome</th>
+      <th>valor</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PC</td>
+      <td>20</td>
+      <td>POLYGON ((2.49497 0.50503, 2.44408 0.45889, 2....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PD</td>
+      <td>30</td>
+      <td>POLYGON ((4.69663 0.93139, 4.68655 0.86344, 4....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <p>Overlay com symmetric_difference</p>
 <p>Essa operação retorna as geometrias que são exclusivas para cada um dos conjuntos de dados. É o oposto da interseção, mantendo apenas as áreas que não se sobrepõem.</p>
@@ -2565,12 +5255,80 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_1</th>
+      <th>valor_1</th>
+      <th>nome_2</th>
+      <th>valor_2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POLYGON ((1.49497 0.50503, 1.44408 0.45889, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POLYGON ((3.49497 0.50503, 3.44408 0.45889, 3....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>PC</td>
+      <td>20.0</td>
+      <td>POLYGON ((2.49497 0.50503, 2.44408 0.45889, 2....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>PD</td>
+      <td>30.0</td>
+      <td>POLYGON ((4.69663 0.93139, 4.68655 0.86344, 4....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">diferenca_simetrica</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/4813174f3170f69c1dc2df6973037c711d04a033c7ddf58e82ae2e27955be50f.png" src="_images/4813174f3170f69c1dc2df6973037c711d04a033c7ddf58e82ae2e27955be50f.png" />
 </div>
 </div>
 <p>Overlay com identity</p>
@@ -2582,12 +5340,88 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>nome_1</th>
+      <th>valor_1</th>
+      <th>nome_2</th>
+      <th>valor_2</th>
+      <th>geometry</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>PA</td>
+      <td>10.0</td>
+      <td>PC</td>
+      <td>20.0</td>
+      <td>POLYGON ((1.69663 0.93139, 1.68655 0.86344, 1....</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>PC</td>
+      <td>20.0</td>
+      <td>POLYGON ((2.45889 0.55592, 2.41797 0.61110, 2....</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>PD</td>
+      <td>30.0</td>
+      <td>POLYGON ((3.69663 0.93139, 3.68655 0.86344, 3....</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>PA</td>
+      <td>10.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POLYGON ((1.49497 0.50503, 1.44408 0.45889, 1....</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>PB</td>
+      <td>15.0</td>
+      <td>NaN</td>
+      <td>NaN</td>
+      <td>POLYGON ((3.49497 0.50503, 3.44408 0.45889, 3....</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">identidade</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/ad1e1cc852879f0b07363756774689a7f7c4f6eb6fb62dc9f17092ec7c24d5ca.png" src="_images/ad1e1cc852879f0b07363756774689a7f7c4f6eb6fb62dc9f17092ec7c24d5ca.png" />
 </div>
 </div>
 </section>
@@ -2658,19 +5492,20 @@ Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.</p>
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#leitura-de-arquivos">5.1 Leitura de arquivos</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#criando-geometrias-no-geopandas">5.2 Criando geometrias no Geopandas</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-apply-map-e-replace-no-contexto-do-geopandas">5.3 Funções apply, map e replace no contexto do Geopandas</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#a-funcao-apply-no-geopandas">5.3.1 A função apply no Geopandas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#as-funcoes-map-e-replace-no-geopandas">5.3.2 As funções map e replace no Geopandas</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combinando-dataframes-e-geodataframes">5.4 Combinando DataFrames e GeoDataFrames</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#anexacao-metodo-concat">5.4.1 Anexação: Método concat</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#juncoes-de-atributos-attribute-joins">5.4.2 Junções de Atributos (Attribute Joins)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-e-filtragem-de-dados">5.5 Seleção e filtragem de dados</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-com-base-em-atributos">5.5.1 Seleção com base em atributos</a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-com-base-em-condicoes">5.5.1.1 Seleção com base em Condições</a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#o-metodo-query">5.5.1.2 O Método query</a></li>
-</ul>
-</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-com-base-em-atributos">5.5.1 Seleção com base em atributos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#selecao-de-subconjuntos-via-coordenadas-bounding-box-com-notacao-slice">5.5.2 Seleção de subconjuntos via coordenadas: bounding box com notação slice.</a></li>
 </ul>
 </li>

@@ -465,7 +465,7 @@ df.loc[df['País'] == 'Brasil', 'População'] = 203062512
 
 Alterando valores com base em uma condição:
 
-	Você pode combinar a filtragem de dados com a atribuição para alterar valores com base em uma condição:
+Você pode combinar a filtragem de dados com a atribuição para alterar valores com base em uma condição:
 ```{code-cell} python
 df.loc[df['População'] > 15000000, 'PIB (2020)'] += 0.1
 ```
@@ -1144,8 +1144,7 @@ Merge
 O método merge() é usado para combinar DataFrames com base em colunas comuns.
 
 ```{code-cell} python
-df_mesclado = df.merge(df_satelites, left_on='Imagem', 
-    right_on='Satélite', how='left')
+df_mesclado = df.merge(df_satelites, left_on='Imagem', right_on='Satélite', how='left')
 df_mesclado
 ```
 
@@ -1181,14 +1180,14 @@ Neste exemplo, estamos usando on para especificar a coluna do DataFrame df que d
 
 A leitura de arquivos CSV (Comma-Separated Values) é uma das tarefas mais comuns ao se trabalhar com análise de dados em Python. No Pandas utilizamos a função read_CSV. Vamos explorar os principais aspectos e opções dessa função:
 Sintaxe básica:
-```{code-cell} python
-# df = pd.read_csv('caminho_do_arquivo.csv')
+```
+df = pd.read_csv('caminho_do_arquivo.csv')
 ```
 
 Caso o delimitador do arquivo seja ponto e vírgula, é possível utilizar o parâmetro “sep”:
 
-```{code-cell} python
-# df = pd.read_csv('caminho_do_arquivo.csv', sep=';')
+```
+df = pd.read_csv('caminho_do_arquivo.csv', sep=';')
 ```
 
 Quadro 6: Parâmetros do método read_csv.
@@ -1216,14 +1215,14 @@ Quadro 6: Parâmetros do método read_csv.
 Exemplo 2: Ler somente determinadas colunas de um arquivo.
 
 ```{code-cell} python
-df = pd.read_csv('/home/alexandro/geopythonbook/content/paises_america_sul.csv', usecols=['País', 'Área'])
+df = pd.read_csv('/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', usecols=['País', 'Área'])
 df.head()
 ```
 
 Exemplo 3: Ler um arquivo e interpretar a coluna 'data' como data.
 
 ```{code-cell} python
-df = pd.read_csv('/home/alexandro/geopythonbook/content/paises_america_sul.csv', parse_dates=['Independência'])
+df = pd.read_csv('/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', parse_dates=['Independência'])
 df.dtypes
 ```
 
@@ -1244,7 +1243,7 @@ Considere a tabela abaixo, que é proveniente de um arquivo CSV:
 Nesta tabela, temos diversos dados ausentes, representados por diferentes valores. Para que o Pandas os interprete como valores ausentes, podemos utilizar o método na_values() quando da leitura do arquivo CSV:
 
 ```{code-cell} python
-df = pd.read_csv('/home/alexandro/geopythonbook/content/paises.csv', na_values=['NA', 'N/A', '-'], encoding='ISO-8859-1')
+df = pd.read_csv('/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', na_values=['NA', 'N/A', '-'], encoding='ISO-8859-1')
 ```
 
 O parâmetro na_values é usado para especificar uma lista de valores que devem ser tratados como "faltantes" (ou "NA" - Not Available) ao ler o arquivo. No exemplo fornecido, qualquer ocorrência dos valores 'NA', 'N/A' ou '-' nas células do arquivo CSV será interpretada pelo Pandas como um valor faltante (NaN).
@@ -1279,8 +1278,8 @@ Quadro 7: Parâmetros do método read_excel.
 
 
 Sintaxe básica:
-```{code-cell} python
-# df = pd.read_excel('caminho_do_arquivo.xlsx')
+```
+df = pd.read_excel('caminho_do_arquivo.xlsx')
 ```
 
 Exemplos:
@@ -1301,7 +1300,7 @@ Figura 4: Planilhas do excel com dados de países das Américas do Sul e Central
 
 Para importar os dados somente da planilha america_central:
 ```{code-cell} python
-df = pd.read_excel('/home/alexandro/geopythonbook/content/paises_america_sul_central.xlsx', 
+df = pd.read_excel('/home/alexandro/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', 
     sheet_name='america_central')
 ```
 
@@ -1310,7 +1309,7 @@ O método pd.read_excel() é utilizado para ler arquivos no formato Excel. O arg
 
 Também é possível ler várias planilhas de um arquivo Excel com apenas um script:
 ```{code-cell} python
-dfs = pd.read_excel('//home/alexandro/geopythonbook/content paises_america_sul_central.xlsx', sheet_name=['america_sul', 'america_central'])
+dfs = pd.read_excel('//home/alexandro/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', sheet_name=['america_sul', 'america_central'])
 ```
 
 Nesse código: 
@@ -1328,8 +1327,8 @@ Arquivo CSV
 
 Para gravar um DataFrame como um arquivo CSV, use o método to_CSV:
 
-```{code-cell} python
-# df.to_csv('caminho_para_salvar.csv', index=False, sep=',')
+```
+df.to_csv('caminho_para_salvar.csv', index=False, sep=',')
 ```
 
 
@@ -1343,8 +1342,8 @@ Arquivo Excel
 
 Para gravar um DataFrame em um arquivo do Excel, use o método to_excel:
 
-```{code-cell} python
-# df.to_excel('caminho_para_salvar.xlsx', sheet_name='Planilha1', index=False)
+```
+df.to_excel('caminho_para_salvar.xlsx', sheet_name='Planilha1', index=False)
 ```
 
 Parâmetros comuns:

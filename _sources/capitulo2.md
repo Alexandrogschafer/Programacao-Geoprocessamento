@@ -1274,7 +1274,7 @@ Armazenar coleções de dados que são dinâmicos por natureza.
 
 
 
-Dicionários
+### 2.3.3 Dicionários
 
 Dicionários são estruturas de dados em Python que armazenam pares chave-valor. Cada chave em um dicionário deve ser única, e os valores associados a essas chaves podem ser acessados diretamente pela chave. A natureza de mapeamento dos dicionários os torna altamente úteis para representar coisas como dados de configuração, registros de tabelas ou qualquer estrutura de dados que associe um identificador (a chave) a um valor. Eles são especialmente úteis quando se deseja criar estruturas de dados complexas e altamente personalizadas. 
 É importante destacar que os dicionários são mutáveis, o que significa que você pode adicionar, modificar e remover pares de chave-valor após o dicionário ter sido criado.
@@ -1628,7 +1628,7 @@ dicionario.clear()
 
 
 
-Conjuntos (Sets)
+### 2.3.4 Conjuntos (Sets)
 
 Conjuntos (ou sets, em inglês) são uma das estruturas de dados fundamentais em Python. Eles são coleções não ordenadas de elementos únicos. Isso significa que um conjunto não pode conter elementos duplicados. Devido à sua natureza não ordenada, conjuntos não suportam indexação ou fatiamento, como listas ou strings. Aqui estão algumas características e operações fundamentais associadas aos conjuntos:
 
@@ -2386,7 +2386,7 @@ Neste exemplo, o loop externo percorre cada linha da matriz, e o loop interno pe
 O aninhamento de loops é uma ferramenta poderosa, mas é importante estar ciente de que pode aumentar significativamente o tempo de processamento, especialmente se as estruturas de dados forem grandes. A complexidade computacional de loops aninhados é frequentemente um produto das iterações de cada loop, tornando-se potencialmente ineficiente para grandes conjuntos de dados se não for manejado corretamente.
 
 
-Funções
+# 2.5 Funções
 
 Em programação, uma função é um bloco de código organizado e reutilizável que realiza uma única ação relacionada. As funções fornecem uma maneira de modularizar seu código, tornando-o mais eficiente, legível e reutilizável. Além disso, elas permitem definir interfaces de código que podem ser usadas de forma consistente.
 
@@ -2519,7 +2519,7 @@ varios_args(1, 2, 3, a=4, b=5)
 Ao chamar a função, passamos três argumentos posicionais (1, 2 e 3) e dois argumentos nomeados (a=4 e b=5). Como esperado, args coletou os argumentos posicionais em uma tupla, e kwargs coletou os argumentos nomeados em um dicionário.
 
 
-Manipulação de arquivos de texto e .CSV
+## 2.6 Manipulação de arquivos de texto e .CSV
 
 A manipulação de arquivos é uma tarefa comum em programação. Ela permite que você leia, escreva, crie ou delete arquivos a partir do seu programa. A maioria das linguagens de programação oferece bibliotecas ou módulos nativos para facilitar essas operações.
 
@@ -2587,7 +2587,7 @@ file2.close()
 ```
 
 
-Módulos e pacotes
+## 2.7 Módulos e pacotes
 
 No contexto de geoprocessamento, a organização e reutilização de código são essenciais. Módulos e pacotes em Python desempenham um papel vital em garantir que o código seja estruturado, reutilizável e fácil de manter.
 

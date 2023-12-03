@@ -163,22 +163,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Meu Jupyter Book
+                    Programação para Geoprocessamento
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="capitulo1.html">1. INTRODUÇÃO</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo2.html">2. FUNDAMENTOS DA LINGUAGEM PYTHON</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="capitulo3.html">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS:</a></li>
 </ul>
 
@@ -800,6 +797,12 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">distancia</span> <span class="o">=</span> <span class="n">pontoB</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">bufferA</span><span class="p">)</span>  
+<span class="n">distancia</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0.5
 </pre></div>
 </div>
 </div>
@@ -844,33 +847,16 @@ Além das informações geográficas (coordenadas que definem a geometria), cada
 </tr>
 </tbody>
 </table>
-<table class="table">
-<thead>
-<tr class="row-odd"><th class="head"><p>Arquivo</p></th>
-<th class="head"><p>Descrição</p></th>
-</tr>
-</thead>
-<tbody>
-<tr class="row-even"><td><p>prj</p></td>
-<td><p>Contém informações sobre a projeção e o sistema de coordenadas em que os dados estão definidos.</p></td>
-</tr>
-<tr class="row-odd"><td><p>sbn e sbx</p></td>
-<td><p>São arquivos de índice espacial. Eles podem ser usados por alguns sistemas SIG para renderizar e consultar dados mais rapidamente.</p></td>
-</tr>
-<tr class="row-even"><td><p>qix</p></td>
-<td><p>É um arquivo de índice espacial opcional criado por algumas ferramentas, como o QGIS, para acelerar operações espaciais.</p></td>
-</tr>
-<tr class="row-odd"><td><p>lyr</p></td>
-<td><p>É um arquivo utilizado pelo ArcGIS para armazenar informações sobre a simbologia e a visualização do shapefile.</p></td>
-</tr>
-<tr class="row-even"><td><p>cpg</p></td>
-<td><p>Contém informações sobre a codificação de caracteres para o arquivo .dbf, o que pode ser importante para a exibição correta de caracteres especiais ou não ASCII.</p></td>
-</tr>
-<tr class="row-odd"><td><p>atx</p></td>
-<td><p>É um arquivo de índice criado pelo ArcGIS para campos específicos na tabela de atributos, acelerando determinadas operações.</p></td>
-</tr>
-</tbody>
-</table>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>                                                                                                                                  |
+</pre></div>
+</div>
+<p>|———|—————————————————————————————————————————————————————————-|
+| prj     | Contém informações sobre a projeção e o sistema de coordenadas em que os dados estão definidos.                                                                             |
+| sbn e sbx | São arquivos de índice espacial. Eles podem ser usados por alguns sistemas SIG para renderizar e consultar dados mais rapidamente.                                          |
+| qix     | É um arquivo de índice espacial opcional criado por algumas ferramentas, como o QGIS, para acelerar operações espaciais.                                                     |
+| lyr     | É um arquivo utilizado pelo ArcGIS para armazenar informações sobre a simbologia e a visualização do shapefile.                                                               |
+| cpg     | Contém informações sobre a codificação de caracteres para o arquivo .dbf, o que pode ser importante para a exibição correta de caracteres especiais ou não ASCII.            |
+| atx     | É um arquivo de índice criado pelo ArcGIS para campos específicos na tabela de atributos, acelerando determinadas operações.                                                  |</p>
 <p>Existem outros arquivos que podem, ocasionalmente, estar associados a um shapefile, especialmente quando se trabalha com softwares específicos que criam arquivos de índice ou metadados adicionais. No entanto, os listados acima são os mais comuns. Vale lembrar que para transferir ou mover um shapefile, é importante manter pelo menos os três arquivos principais juntos (.shp, .shx e .dbf) para garantir a integridade dos dados.</p>
 <p>O código a seguir é um exemplo de como ler um arquivo shapefile:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fiona</span>
@@ -970,19 +956,21 @@ ID: 25, Nome: Paraíba, Sigla: PB
 ID: 26, Nome: Pernambuco, Sigla: PE
 ID: 27, Nome: Alagoas, Sigla: AL
 ID: 28, Nome: Sergipe, Sigla: SE
-ID: 29, Nome: Bahia, Sigla: BA
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 29, Nome: Bahia, Sigla: BA
 ID: 31, Nome: Minas Gerais, Sigla: MG
 ID: 32, Nome: Espírito Santo, Sigla: ES
 ID: 33, Nome: Rio de Janeiro, Sigla: RJ
 ID: 35, Nome: São Paulo, Sigla: SP
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 41, Nome: Paraná, Sigla: PR
+ID: 41, Nome: Paraná, Sigla: PR
 ID: 42, Nome: Santa Catarina, Sigla: SC
 ID: 43, Nome: Rio Grande do Sul, Sigla: RS
 ID: 50, Nome: Mato Grosso do Sul, Sigla: MS
 ID: 51, Nome: Mato Grosso, Sigla: MT
-ID: 52, Nome: Goiás, Sigla: GO
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 52, Nome: Goiás, Sigla: GO
 ID: 53, Nome: Distrito Federal, Sigla: DF
 ID: 11, Nome: Rondônia, Sigla: RO
 ID: 14, Nome: Roraima, Sigla: RR
@@ -1037,7 +1025,7 @@ ID: 14, Nome: Roraima, Sigla: RR
 </div>
 </div>
 <p>Vamos entender cada parte do código:</p>
-<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fiona:</span> </code></p>
+<p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fiona</span> </code></p>
 <p>Importa a biblioteca Fiona, que é usada para a leitura e escrita de arquivos geoespaciais.</p>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">shapely.geometry</span> <span class="pre">import</span> <span class="pre">Point,</span> <span class="pre">mapping</span> </code></p>
 <p>Importa a classe Point da biblioteca Shapely, que é usada para criar geometrias de ponto. A função mapping é usada para converter geometrias Shapely em um formato que Fiona possa entender.</p>
@@ -1121,10 +1109,9 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 <p>Com este código, criamos um dicionário chamado “capitais”. As chaves do dicionário são os nomes das capitais e os valores são tuplas que contêm o nome do estado e as coordenadas (longitude e latitude) da respectiva capital.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;capitais_br.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;ESRI Shapefile&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">4326</span><span class="p">),</span> <span class="n">schema</span><span class="o">=</span><span class="n">esquema</span><span class="p">)</span> <span class="k">as</span> <span class="n">layer</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como &#39;capitais_br.shp&#39;. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.</span>
 
-<span class="c1"># Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como &#39;capitais_br.shp&#39;. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.</span>
-
+<span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;capitais_br.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;ESRI Shapefile&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">4326</span><span class="p">),</span> <span class="n">schema</span><span class="o">=</span><span class="n">esquema</span><span class="p">)</span> <span class="k">as</span> <span class="n">layer</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">capital</span><span class="p">,</span> <span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span> <span class="ow">in</span> <span class="n">capitais</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
         <span class="n">ponto</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
         <span class="n">propriedades</span> <span class="o">=</span> <span class="p">{</span>
@@ -1162,11 +1149,12 @@ Na figura 26 podemos visualizar os pontos referentes as capitais provenientes do
 <p>O GeoJSON suporta vários tipos de geometria, incluindo Point (ponto), Linestring (linha), Polygon (polígono), Multipoint, Multilinestring, e Multipolygon. Além disso, ele suporta GeometryCollection, que, como vimos, é uma coleção de geometrias. Além da geometria, cada objeto GeoJSON pode ter atributos associados. Estes são armazenados em um objeto chamado propriedades. As coordenadas em GeoJSON são sempre em longitude e latitude (e opcionalmente altitude), e são representadas no formato decimal.</p>
 <p>Para criar um arquivo GeoJSON no fiona, é necessário alterar o argumento driver para “GeoJSON” quando você abrir o arquivo para escrita com fiona.open(). Esse argumento especifica o formato desejado, que neste caso é GeoJSON.
 with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as c:</p>
-<p>Vamos criar um arquivo GeoJSON contendo uma linha definida a partir de três pontos.
-from shapely.geometry import LineString, mapping</p>
+<p>Vamos criar um arquivo GeoJSON contendo uma linha definida a partir de três pontos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define a estrutura do GeoJSON</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">LineString</span><span class="p">,</span> <span class="n">mapping</span>
+
+<span class="c1"># Define a estrutura do GeoJSON</span>
 <span class="n">esquema</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="s1">&#39;LineString&#39;</span><span class="p">,</span>
     <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;descricao&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">},</span>
@@ -1179,8 +1167,7 @@ from shapely.geometry import LineString, mapping</p>
 
 <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">arquivo_saida</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;GeoJSON&#39;</span><span class="p">,</span> <span class="n">schema</span><span class="o">=</span><span class="n">esquema</span><span class="p">)</span> <span class="k">as</span> <span class="n">c</span><span class="p">:</span>
     
-    <span class="c1"># Exemplo de dados: uma linha com coordenadas [(0,0), (5,5), (10,10)]</span>
-    <span class="c1"># e algumas propriedades</span>
+    <span class="c1"># Exemplo de dados: uma linha com coordenadas [(0,0), (5,5), (10,10)] e algumas propriedades</span>
     <span class="n">linha</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">),</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)])</span>
     <span class="n">propriedades</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;descricao&#39;</span><span class="p">:</span> <span class="s1">&#39;Linha Exemplo&#39;</span><span class="p">}</span>
     
@@ -1196,30 +1183,6 @@ from shapely.geometry import LineString, mapping</p>
 </div>
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arquivo GeoJSON linhas_saida.geojson criado com sucesso!
-</pre></div>
-</div>
-</div>
-</div>
-<p>O arquivo GeoJSON criado é:</p>
-<div class="cell docutils container">
-<div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
-<span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;FeatureCollection&#39;</span><span class="p">,</span>
-<span class="s1">&#39;features&#39;</span><span class="p">:</span> <span class="p">[</span>
-<span class="p">{</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;Feature&#39;</span><span class="p">,</span> <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;descricao&#39;</span><span class="p">:</span> <span class="s1">&#39;Linha Exemplo&#39;</span> <span class="p">},</span> 
-<span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="p">{</span> <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="s1">&#39;LineString&#39;</span><span class="p">,</span> 
-<span class="s1">&#39;coordinates&#39;</span><span class="p">:</span> <span class="p">[</span> <span class="p">[</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">5.0</span> <span class="p">],</span> <span class="p">[</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span> <span class="p">]</span> <span class="p">]</span> <span class="p">}</span> <span class="p">}</span>
-<span class="p">]</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;type&#39;: &#39;FeatureCollection&#39;,
- &#39;features&#39;: [{&#39;type&#39;: &#39;Feature&#39;,
-   &#39;properties&#39;: {&#39;id&#39;: 1, &#39;descricao&#39;: &#39;Linha Exemplo&#39;},
-   &#39;geometry&#39;: {&#39;type&#39;: &#39;LineString&#39;,
-    &#39;coordinates&#39;: [[0.0, 0.0], [5.0, 5.0], [10.0, 10.0]]}}]}
 </pre></div>
 </div>
 </div>

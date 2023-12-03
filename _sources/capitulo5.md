@@ -25,7 +25,7 @@ O Geopandas é capaz de lidar com uma variedade de tipos geométricos, abrangend
 A flexibilidade do Geopandas não se restringe apenas às operações mencionadas. Ele pode ler e escrever em diversos formatos de dados espaciais, incluindo shapefile e GeoJSON. Além disso, suporta operações de projeção e transformações entre sistemas de coordenadas. Para os profissionais que trabalham com bancos de dados espaciais, o Geopandas também pode ser integrado ao PostGIS, facilitando operações avançadas e consultas SQL. Quando se trata de visualização, a biblioteca se integra perfeitamente a outras soluções Python, como Matplotlib, Plotly e Folium, oferecendo um vasto leque de opções para representação gráfica de dados geoespaciais.
 
 
-Leitura de arquivos
+## 5.1 Leitura de arquivos
 
 O Geopandas tem a capacidade de simplificar a leitura de arquivos geoespaciais em Python, suportando uma variedade de formatos comuns na área de Geoprocessamento. 
 
@@ -143,6 +143,7 @@ a) Argumento rows
 Ler apenas as primeiras 10 linhas
 ```{code-cell} python
 gdf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp', rows=10)
+gdf.plot()
 ```
 
 No código acima, serão lidas apenas as primeiras dez linhas do arquivo shapefile.
@@ -187,16 +188,16 @@ Ao trabalhar com dados geoespaciais, especialmente dados de diferentes fontes ou
 Para corrigir o problema, vamos ler novamente o arquivo, especificando a codificação (parâmetro encoding) ISO-8859-1:
 ```{code-cell} python
 gdf = gpd.read_file('/home/alexandro/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv', encoding='ISO-8859-1')
+gdf
 ```
-
-
 
 Lendo dados não espaciais (tabulares)
 
 O Geopandas é projetado para lidar com dados geoespaciais, mas, dado que é uma extensão do Pandas, também pode manipular dados tabulares (não espaciais). No entanto, para dados puramente tabulares, é mais comum e direto usar o Pandas.
 
 
-Criando geometrias no Geopandas
+
+## 5.2 Criando geometrias no Geopandas
 
 No Geopandas, além de manipular e analisar dados geoespaciais, você também pode criar geometrias. Como vimos anteriormente, a biblioteca Shapely (que é uma dependência do Geopandas) fornece as ferramentas para criar e manipular geometrias. O Geopandas integra essas ferramentas para facilitar a criação e manipulação de geometrias dentro de seus GeoDataFrames e GeoSeries. Vamos estudar algumas funções e métodos para criar geometrias no Geopandas:
 
@@ -210,6 +211,7 @@ df = pd.DataFrame({'longitude': [-67.8270, -40.2976, -54.6156],
     
 ```{code-cell} python
 gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy(df.longitude, df.latitude))
+gdf
 ```
 
 A primeira linha desse código cria um DataFrame do Pandas chamado df, com base em um dicionário de dados. O dicionário tem duas chaves: 'longitude' e 'latitude'. Cada chave está associada a uma lista de valores.
@@ -223,6 +225,7 @@ Para criar um shapefile com atributos e geometrias, a partir de um dicionário:
 ```{code-cell} python
 from shapely.geometry import Point
 import geopandas as gpd
+
 # Definição do dicionário
 capitais = {
     'Rio Branco': ('Acre', (-67.8270, -9.97499)),
@@ -237,7 +240,7 @@ Um dicionário chamado capitais é definido. As chaves desse dicionário são no
 
 O objetivo das próximas linhas de código é extrair informações separadas do dicionário capitais e armazená-las em listas individuais.
 
-Convertendo o dicionário para listas separadas
+Convertendo o dicionário em listas separadas
 ```{code-cell} python
 nomes = list(capitais.keys())
 estados = [capitais[capital][0] for capital in nomes]
@@ -257,13 +260,14 @@ d) latitudes = ``` [capitais[capital][1][1] for capital in nomes] ``` extrai a l
 
 O trecho de código abaixo cria um GeoDataFrame a partir das listas nomes, estados, longitudes e latitudes que foram previamente extraídas do dicionário capitais.
 
-Criando um GeoDataFrame
+Criando o GeoDataFrame
 ```{code-cell} python
 gdf = gpd.GeoDataFrame({
     'capital': nomes,
     'estado': estados,
     'geometry': [Point(xy) for xy in zip(longitudes, latitudes)]
 })
+gdf.head()
 ```
 
 Nesse trecho:
@@ -274,7 +278,9 @@ b) 'capital': nomes e 'estado': estados são colunas que armazenam os nomes das 
 
 c) 'geometry': ``` [Point(xy) for xy in zip(longitudes, latitudes)] ``` é a coluna de geometria do GeoDataFrame. A compreensão de lista dentro dessa linha cria uma lista de objetos Point a partir das listas longitudes e latitudes. A função zip() é usada para emparelhar cada longitude com sua latitude correspondente, e cada par é passado para o construtor Point() para criar um objeto geométrico do tipo ponto.
 
+```{code-cell} python
 gdf.crs = 'EPSG:4674'
+```
 
 A linha acima atribui o CRS SIRGAS 2000 ao GeoDataFrame gdf. 
 
@@ -288,11 +294,27 @@ O formato WKT é útil porque fornece uma maneira padrão e concisa de represent
 Para criar um GeoDataFrame a partir de um WKT:
 
 ```{code-cell} python
+import geopandas as gpd
 from shapely.geometry import GeometryCollection, Point, LineString
 
-geom_collection = GeometryCollection([Point(40, 10), 
-    LineString([(10, 10), (20, 20), (10, 40)])])
+geom_collection = GeometryCollection([
+    Point(40, 10), 
+    LineString([(10, 10), (20, 20), (10, 40)])
+])
+
+# Criar uma lista com as geometrias usando a propriedade 'geoms'
+geometrias = [geom for geom in geom_collection.geoms]
+
+# Criar um GeoDataFrame a partir das geometrias
+gdf_wkt = gpd.GeoDataFrame(geometry=geometrias)
+
+print(gdf_wkt)
 ```
+
+```{code-cell} python
+gdf_wkt.plot()
+``` 
+
 
 Escrevendo um GeoDataFrame para um arquivo no disco 
 
@@ -301,17 +323,18 @@ Escrever um GeoDataFrame em um arquivo ou banco de dados é uma operação corri
 
 Escrever em Shapefile:
 ```{code-cell} python
-gdf.to_file('/home/alexandro/geopythonbook/content/saida/capitais.shp')
+# gdf.to_file('~/geopythonbook/capitais.shp')
 ```
 
 Escrever em GeoJSON:
 ```{code-cell} python
-gdf.to_file('/home/alexandro/geopythonbook/content/saida/capitais.geojson', driver='GeoJSON')
+gdf.to_file('~/geopythonbook/capitais.geojson', driver='GeoJSON')
+
 ```
 
 Escrever em GeoPackage (GPKG):
 ```{code-cell} python
-gdf.to_file('/home/alexandro/geopythonbook/content/saida/capitais.gpkg', driver='GPKG')
+gdf.to_file('~/geopythonbook/capitais.gpkg', driver='GPKG')
 ```
 
 ## 5.3 Funções apply, map e replace no contexto do Geopandas
@@ -327,19 +350,22 @@ Exemplo 1: Calcular o comprimento dos rios do estado do Maranhão apresentados n
 Etapa 1: Leitura do shapefile e edição do GeoDataFrame
 ```{code-cell} python
 import geopandas as gpd
-gdf_rios = gpd.read_file('/home/alexandro/geopythonbook/content/rios_maranhao.shp')
-gdf_rios = gdf_rios.to_crs('EPSG:31983')
+gdf_rios = gpd.read_file('/home/alexandro/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp')
 gdf_rios = gdf_rios.rename(columns={'NORIOCOMP': 'nome'})
 gdf_rios = gdf_rios.drop(columns=['FID_GEOFT_', 
     'CORIO', 'FID_BR_UF_', 'CD_UF', 'NM_UF', 'SIGLA_UF', 
     'NM_REGIAO', 'AREA_KM2', 'Shape_Leng'])
+gdf_rios
 ```
 
 Etapa 2: Calcular o comprimento de cada rio e armazenar os resultados na nova coluna comprimento.
 ```{code-cell} python
 gdf_rios['comprimento'] = gdf_rios['geometry'].apply(lambda geom: geom.length)/1e3
+```
 
 Nesse código, utilizamos o método apply() para aplicar uma função a cada valor na coluna geometry do GeoDataFrame chamado gdf_rios. A função é uma função lambda que pega um argumento geom (que representa uma geometria individual da coluna geometry) e retorna o comprimento dessa geometria usando o método length. Em seguida, dividimos todos os comprimentos por 1e3 (que é igual a 1000). Isso é feito para converter os comprimentos de metros para quilômetros.
+
+```{code-cell} python
 print (gdf_rios[['nome', 'comprimento']])
 ```
 
@@ -411,8 +437,12 @@ a) utilizando a função map:
 Inicialmente, criamos um GeoDataFrame a partir do arquivo shapefile mun_MT_MS_GO.shp.
 ```{code-cell} python
 import geopandas as gpd
-gdf = gpd.read_file ('/home/alexandro/geopythonbook/content/mun_MT_MS_GO.shp')
-gdf.head()
+gdf_co = gpd.read_file ('/home/alexandro/geopythonbook/content/22_municipios_GO_MT_MS/mun_MT_MS_GO.shp')
+gdf_co.head()
+```
+
+```{code-cell} python
+gdf_co.plot()
 ```
 
 ```{code-cell} python
@@ -422,8 +452,8 @@ mapeamento = {'GO': 'Goiás', 'MT': 'Mato Grosso'}
 Na linha de código acima, criamos um dicionário chamado mapeamento (ele será útil em nossos próximos códigos). Neste dicionário, as siglas dos estados (como 'GO' e 'MT') são usadas como chaves, e os nomes completos dos estados (como 'Goiás' e 'Mato Grosso') são os valores correspondentes. Em termos práticos, isso significa que, se você acessar o valor associado à chave 'GO' no dicionário mapeamento, obterá 'Goiás'. Da mesma forma, se acessar o valor associado à chave 'MT', obterá 'Mato Grosso'. 
 
 ```{code-cell} python
-gdf_map = gdf
-gdf['SIGLA_UF'] = gdf['SIGLA_UF'].map(mapeamento)
+gdf_map = gdf_co
+gdf_map['SIGLA_UF'] = gdf_map['SIGLA_UF'].map(mapeamento)
 ```
 
 Neste código, a função map é aplicada à coluna 'SIGLA_UF'. O que ela faz é mapear os valores desta coluna usando o dicionário mapeamento. Se um valor da coluna 'SIGLA_UF' corresponder a uma chave do dicionário, ele será substituído pelo valor associado no dicionário. Qualquer valor na coluna 'SIGLA_UF' que não estiver no dicionário mapeamento será convertido para NaN (ou seja, considerado como valor ausente). Saída:
@@ -432,8 +462,8 @@ Neste código, a função map é aplicada à coluna 'SIGLA_UF'. O que ela faz é
 Usando a função replace:
 
 ```{code-cell} python
-gdf_rep = gdf
-gdf['SIGLA_UF'] = gdf['SIGLA_UF'].replace(mapeamento)
+gdf_rep = gdf_co
+gdf_rep['SIGLA_UF'] = gdf_rep['SIGLA_UF'].replace(mapeamento)
 ```
 
 Neste segundo código, a função replace é aplicada à coluna 'SIGLA_UF' do GeoDataFrame gdf_rep. Semelhante à função map, a função replace substituirá os valores da coluna com base no dicionário mapeamento. No entanto, a diferença fundamental é que, com replace, se um valor da coluna 'SIGLA_UF' não estiver no dicionário mapeamento, ele permanecerá inalterado. Ou seja, replace não converte valores não mapeados para NaN.
@@ -442,7 +472,7 @@ Neste segundo código, a função replace é aplicada à coluna 'SIGLA_UF' do Ge
 Em resumo, enquanto tanto a função map quanto a função replace podem ser usadas para transformar valores com base em um dicionário de mapeamento, a função map irá converter valores não mapeados para NaN, enquanto a função replace deixará valores não mapeados inalterados.
 
 
-5.4 Combinando DataFrames e GeoDataFrames
+## 5.4 Combinando DataFrames e GeoDataFrames
 
 No âmbito da análise de dados geoespaciais, a combinação de DataFrames e GeoDataFrames é uma prática essencial para integrar e manipular informações de diferentes fontes. As ferramentas concat e merge, disponíveis em bibliotecas como pandas e geopandas, são amplamente utilizadas neste processo. Enquanto concat é utilizado para empilhar DataFrames verticalmente ou horizontalmente, respeitando o mesmo conjunto de colunas, a função merge é empregada para unir DataFrames com base em colunas específicas, similar a uma operação de junção em bancos de dados. Para melhor compreensão, exploraremos a aplicação dessas funções em detalhes utilizando dados reais a seguir.
 
@@ -458,11 +488,11 @@ Inicialmente, valos criar os GeoDataFrames de cada região a partir dos arquivos
 import pandas as pd
 import geopandas as gpd
 
-gdf_norte = gpd.read_file('/home/alexandro/geopythonbook/content/norte.shp')
-gdf_sul = gpd.read_file('/home/alexandro/geopythonbook/content/sul.shp')
-gdf_nordeste = gpd.read_file('/home/alexandro/geopythonbook/content/nordeste.shp')
-gdf_sudeste = gpd.read_file('/home/alexandro/geopythonbook/content/sudeste.shp')
-gdf_centro_oeste = gpd.read_file('/home/alexandro/geopythonbook/content/centro_oeste.shp')
+gdf_norte = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/norte.shp')
+gdf_sul = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sul.shp')
+gdf_nordeste = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/nordeste.shp')
+gdf_sudeste = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sudeste.shp')
+gdf_centro_oeste = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/centro_oeste.shp')
 ```
 
 Em seguida, concatenamos todos os GeoDataFrames criados:
@@ -486,8 +516,8 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 ```{code-cell} python
 import pandas as pd
 import geopandas as gpd
-gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/capitais_br.shp')
-df_censo_cap = pd.read_excel('/home/alexandro/geopythonbook/content/censo_capitais.xlsx')
+gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/15_BR_capitais/capitais_br.shp')
+df_censo_cap = pd.read_excel('/home/alexandro/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx')
 
 df_censo_cap.head()
 ```
@@ -512,8 +542,7 @@ Vamos combinar gdf_cap e df_censo_cap com base na coluna codigo. A junção é d
 
 Junção dos dataframes usando as colunas 'capital' e 'Capital'
 ```{code-cell} python
-gdf_censo_cap = gdf_cap.merge(df_censo_cap, left_on='codigo', 
-    right_on='codigo', how='inner')
+gdf_censo_cap = gdf_cap.merge(df_censo_cap, left_on='codigo', right_on='codigo', how='inner')
 ```
 
 Nesse código, o método merge é usado para combinar DataFrames com base em colunas ou índices comuns. O parâmetro on=’codigo' especifica que a combinação deve ser feita com base na coluna codigo. Em outras palavras, para cada linha em gdf_cap que tenha uma determinada sigla na coluna codigo, o método procurará por linhas em df_censo_cap que tenham a mesma sigla e combinará as informações.
@@ -532,7 +561,37 @@ gdf_censo_cap = gdf_censo_cap.drop(columns=['Capital'])
 
 ### 5.5.1 Seleção com base em atributos
 
-No Geopandas, a seleção com base em atributos refere-se ao processo de filtrar dados em um GeoDataFrame com base nos valores das colunas, similarmente ao que fazemos com o Pandas. Esse tipo de seleção permite que os usuários isolem subconjuntos específicos de dados com base em critérios definidos, como características geográficas, demográficas ou qualquer outro atributo tabular. Para exemplificar a seleção por atributos, vamos utilizar o GeoDataFrame gdf_uf_cp criado anteriormente.
+No Geopandas, a seleção com base em atributos refere-se ao processo de filtrar dados em um GeoDataFrame com base nos valores das colunas, similarmente ao que fazemos com o Pandas. Esse tipo de seleção permite que os usuários isolem subconjuntos específicos de dados com base em critérios definidos, como características geográficas, demográficas ou qualquer outro atributo tabular. Para exemplificar a seleção por atributos, vamos realizar algumas operações para criar um GeoDataFrame com os dados do PIB estadual de 2020 e dos Censos de 2000, 2010 e 2022 a partir de dado s que estão em planilhas do Excel.
+
+```{code-cell} python
+import geopandas as gpd
+import pandas as pd
+```
+
+Ler o arquivo shapefile
+```{code-cell} python
+gdf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+```
+
+Ler o arquivo Excel com dados do PIB estadual
+```{code-cell} python
+dfpib = pd.read_excel('/home/alexandro/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx')
+```
+
+Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022
+```{code-cell} python
+dfcenso = pd.read_excel('/home/alexandro/geopythonbook/content/13_censo_UF/censo_UF.xlsx')
+```
+
+Unindo os dataframes dfpib e dfcenso
+```{code-cell} python
+df_uf = pd.merge(dfpib, dfcenso, on='SIGLA_UF').drop(columns='UF_y').rename(columns={'UF_x': 'UF'})
+```
+
+Unindo o dataframe df_uf com o geodataframe
+```{code-cell} python
+gdf_uf_cp = gdf.merge(df_uf, on='SIGLA_UF').drop(columns=['NM_UF', 'NM_REGIAO'])
+```
 
 Selecionar uma única coluna
 
@@ -544,6 +603,8 @@ ou
 ``` gdf.nome_da_coluna ```
 
 Exemplo: Selecionar a coluna ‘UF’, que armazena o nome dos estados brasileiros:
+
+
 ```{code-cell} python
 estados=gdf_uf_cp['UF']
 ```
@@ -576,16 +637,15 @@ gdf_drop = gdf_uf_cp.drop(columns=['CD_UF', 'AREA_KM2'])
 gdf_drop.head()
 ```
 
-#### 5.5.1.1 Seleção com base em Condições
+Seleção com base em Condições
 
 A seleção baseada em condições é uma técnica comum ao trabalhar com DataFrames no Pandas e Geopandas. Ela permite filtrar linhas de um DataFrame com base em critérios específicos definidos por uma ou mais condições. Essa técnica é especialmente útil para análises exploratórias, pré-processamento de dados e muitas outras operações de manipulação de dados.
 
 Sintaxe Básica:
 
-A seleção baseada em condições é realizada usando uma expressão booleana dentro de colchetes. 
+A seleção baseada em condições é realizada usando uma expressão booleana dentro de colchetes. Por exemplo:
 
-Exemplo: 
-```{code-cell} python
+```
  gdf[gdf['coluna'] > 10]
 ```
 
@@ -593,7 +653,7 @@ Exemplo: Criar o GeoDataFrame pop_menor_1M, com os estados brasileiros com popul
 
 ```{code-cell} python
 pop_menor_1M = gdf_uf_cp[gdf_uf_cp['Popul_2022'] < 1000000]
-pop_menor_1M.Head()
+pop_menor_1M.head()
 ```
 
 
@@ -617,7 +677,7 @@ gdf_uf_cp[(gdf_uf_cp['Popul_2022'] > 10000000) & (gdf_uf_cp['PIB_2020'] < 500000
 
 
 
-#### 5.5.1.2 O Método query
+O Método query
 
 O método query permite escrever condições de seleção de forma mais legível, especialmente quando se lida com condições complexas. Por exemplo:
 ```{code-cell} python
@@ -636,8 +696,10 @@ gdf_uf_cp.query('Popul_2022 > 15000000 | PIB_2020 > 1600000')
 
 
 Operador NOT (~)
+
+Selecionar os estados cuja população não era maior do que 1 milhão no censo de 2022:
 ```{code-cell} python
-	Selecionar os estados cuja população não era maior do que 1 milhão no censo de 2022:
+	
 gdf_uf_cp.query('~(Popul_2022 > 1000000)')
 ```
 
@@ -655,7 +717,7 @@ Exemplo: Criar um GeoDataFrame com todos os estados que fazem parte das regiões
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/BR_UF.shp')
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
 norte_nordeste = gdf_uf[gdf_uf['NM_REGIAO'].isin(['Norte', 'Nordeste'])]
 print(norte_nordeste)
 ```
@@ -670,7 +732,7 @@ Seleção por Rótulos (loc)
 
 O método loc é usado principalmente para selecionar com base em rótulos (nomes) de linhas e colunas. Pode aceitar rótulos de índices de linha e rótulos de colunas para retornar um subconjunto do DataFrame. Para obter o valor da coluna "A" na linha com índice "x":
 
-```{code-cell} python
+```
 valor = gdf.loc['x', 'A']
 ```
 
@@ -769,7 +831,7 @@ O método at é semelhante ao loc, mas é usado para acessar um valor específic
 
 Para obter o valor da coluna "A" na linha com índice "x":
 
-```{code-cell} python
+```
 valor = gdf.at['x', 'A']
 ```
 
@@ -855,15 +917,15 @@ Uma operação espacial refere-se a um conjunto de procedimentos ou métodos apl
 
 No Geopandas, estas operações são facilitadas pela integração com outras bibliotecas, como Shapely, para a manipulação de geometrias, e Fiona para a leitura e a escrita de arquivos. Dentre as operações espaciais mais comuns no Geopandas, podemos destacar:
 
-Operações Métricas;
+- Operações Métricas;
 
-Operações de Transformação;
+- Operações de Transformação;
 
-Operações de Generalização;
+- Operações de Generalização;
 
-Operações de Decomposição;
+- Operações de Decomposição;
 
-Operações entre múltiplos GeoDataframes.
+- Operações entre múltiplos GeoDataframes.
 
 
 É importante ressaltar que a classificação mencionada acima pode variar de acordo com o contexto. Muitos métodos e funções no Geopandas podem se encaixar em múltiplas categorias de operações. Além disso, existem outras possíveis classificações e categorizações de operações que não serão abordadas em nosso curso.
@@ -898,7 +960,7 @@ Exemplo: Calcular a área do estado de Santa Catarina, utilizando o shapefile BR
 Inicialmente vamos criar um GeoDataFrame a partir do arquivo shapefile, que tem os seguintes atributos:
 
 ```{code-cell} python
-gdf_uf=gpd.read_file('/home/alexandro/geopythonbook/content/BR_UF.shp')
+gdf_uf=gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
  
 Em seguida, selecionamos as colunas que irão compor nosso GeoDataFrame.
@@ -944,7 +1006,7 @@ Exemplo: Determinar o comprimento dos rios Araguaia e Tocantins, criando uma col
 Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas.
 
 ```{code-cell} python
-gdf_rio=gpd.read_file('/home/alexandro/geopythonbook/content/rios_arag_toc.shp')
+gdf_rio=gpd.read_file('/home/alexandro/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp')
 gdf_rio.crs
 ```
 
@@ -999,7 +1061,7 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 
 Inicialmente, vamos ler o shapefile e criar o GeoDataFrame.
 ```{code-cell} python
-gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/capitais_UTM22.shp')
+gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp')
 gdf.head()
 ```
 
@@ -1013,7 +1075,7 @@ Podemos verificar a mudança das coordenadas da coluna ‘geometry’.
 
 Por fim, calculamos a distância entre capitais. Para tanto, vamos utilizar a seguinte sintaxe:
 
-```{code-cell} python
+```
 distancia = (gdf['geometry'].iloc[capA]).distance(gdf['geometry'].iloc[capB])
 ```
 
@@ -1022,19 +1084,19 @@ No código acima, ``` iloc[capA] e iloc[capB] ``` são as posições dos índice
 Distância entre Brasília e Palmas
 ```{code-cell} python
 distancia = (gdf_cap['geometry'].iloc[0]).distance(gdf_cap['geometry'].iloc[6])/1e3
-
+distancia
 ```
 
 Distância entre Belém e Porto Alegre
 ```{code-cell} python
 distancia = (gdf_cap['geometry'].iloc[2]).distance(gdf_cap['geometry'].iloc[4])/1e3
-
+distancia
 ```
 
 #Distância entre Goiás e Florianópolis
 ```{code-cell} python
 distancia = (gdf_cap['geometry'].iloc[1]).distance(gdf_cap['geometry'].iloc[5])/1e3
-
+distancia
 ```
 
 
@@ -1044,16 +1106,20 @@ O método total_bounds no Geopandas retorna uma tupla contendo as coordenadas do
 
 A tupla que retorna tem a seguinte estrutura:
 
-(minx, miny, maxx, maxy)
+
+``` (minx, miny, maxx, maxy) ```
 
 minx e miny: São as coordenadas x e y do canto inferior esquerdo do retângulo delimitador;
 
 maxx e maxy: São as coordenadas x e y do canto superior direito do retângulo delimitador.
 
-Exemplo: verificar os limites do GeoDataFrame contendo a geometria do Brasil (DataFrame gdf_br):
+
+Exemplo: verificar os limites do GeoDataFrame contendo a geometria do estado do Amazonas (DataFrame gdf_am):
+
 ```{code-cell} python
-limites = gdf_br['geometry'].total_bounds
-# Saída: array([-73.99044997, -33.75117799, -28.84763991,   5.27184108])
+gdf_am = gdf_uf[gdf_uf['SIGLA_UF'] == 'AM'] 
+limites = gdf_am['geometry'].total_bounds
+limites
 ```
  
 
@@ -1090,36 +1156,6 @@ Quadro 12: Operações de generalização no Geopandas.
 
 Vamos aplicar o método dissolve no GeoDataFrame dos estados brasileiros, agregando os dados do censo de 2000, 2010 e 2022. Cada estado tem um nome, uma geometria e pertence a um país (no caso, o Brasil).
 
-Inicialmente, vamos realizar algumas operações para criar um GeoDataFrame com os dados do PIB estadual de 2020 e dos Censos de 2000, 2010 e 2022 a partir de dado s que estão em planilhas do Excel.
-
-```{code-cell} python
-import geopandas as gpd
-import pandas as pd
-```
-
-Ler o arquivo shapefile
-```{code-cell} python
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/BR_UF.shp')
-```
-
-Ler o arquivo Excel com dados do PIB estadual
-```{code-cell} python
-dfpib = pd.read_excel('/home/alexandro/geopythonbook/content/pibUfBr2020.xlsx')
-```
-
-Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022
-```{code-cell} python
-dfcenso = pd.read_excel('/home/alexandro/geopythonbook/content/censo_UF.xlsx')```
-
-Unindo os dataframes dfpib e dfcenso
-```{code-cell} python
-df_uf = pd.merge(dfpib, dfcenso, on='SIGLA_UF').drop(columns='UF_y').rename(columns={'UF_x': 'UF'})
-```
-
-Unindo o dataframe df_uf com o geodataframe
-```{code-cell} python
-gdf_uf_cp = gdf.merge(df_uf, on='SIGLA_UF').drop(columns=['NM_UF', 'NM_REGIAO'])
-```
 
 
 Para aplicar o dissolve, precisamos de uma coluna com dados em comum para todos os registros (no caso, os estados). Com não temos essa coluna, vamos inserir uma coluna ‘pais’, com o valor default ‘br’.
@@ -1176,8 +1212,10 @@ Quadro 13: Operações de decomposição no Geopandas.
 Boundary 
 
 O método boundary retorna uma representação geométrica das linhas de borda de uma geometria. Para um polígono, isso resultará em uma Linestring (ou Multilinestring para polígonos com furos) que representa o contorno do polígono. Ele não fornece uma medida, mas sim uma representação geométrica.
+
 Sintaxe básica:
-```{code-cell} python
+
+```
 contornos = gdf['geometry'].boundary
 ```
 
@@ -1209,8 +1247,8 @@ Etapa 1. Importação do Geopandas, leitura dos arquivos shapefile e plotagem da
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_rodo = gpd.read_file('/home/alexandro/geopythonbook/content/rodovias_BR.shp')
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/BR_UF.shp')
+gdf_rodo = gpd.read_file('/home/alexandro/geopythonbook/content/20_BR_rodovias/rodovias_BR.shp')
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
 gdf_rodo.plot()
 ```
 
@@ -1275,6 +1313,7 @@ Exemplo: Verificar qual estado brasileiro contém o ponto referente a capital Cu
 Inicialmente, vamos filtrar o GeoDataFrame 'gdf_cap' para encontrar a linha que tem 'Cuiabá' como capital.
 
 ```{code-cell} python
+gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson')
 filtro_cuiaba = gdf_cap['capital'] == 'Cuiabá'
 gdf_cuiaba = gdf_cap[filtro_cuiaba]
 ```
@@ -1311,7 +1350,7 @@ Inicialmente, vamos ler o arquivo shapefile, criar um GeoDataFrame e filtrar ape
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/BR_UF.shp')
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
 filtro_roraima = gdf_uf['NM_UF'] == 'Roraima'
 gdf_roraima = gdf_uf[filtro_roraima]
 ```
@@ -1352,7 +1391,7 @@ Exemplo: Determinar quais estados brasileiros são interseccionados pela rodovia
 Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains.
 
 ```{code-cell} python
-gdf_br116 = gpd.read_file('/home/alexandro/geopythonbook/content/br116.shp')
+gdf_br116 = gpd.read_file('/home/alexandro/geopythonbook/content/14_br116/br116.shp')
 ```
 
 
@@ -1450,7 +1489,7 @@ Adicionando anotações para gdf2
 ```{code-cell} python
 for geom, label in zip(gdf2.geometry, gdf2['nome']):
     x, y = get_coords(geom)
-    ax.text(x, y, label
+    ax.text(x, y, label)
 ```
 
 A visualização dos GeoDataFrames é apresentada na figura 61.
@@ -1478,9 +1517,10 @@ Este código verifica se cada geometria em gs1 tem interseção com alguma geome
 
 
 Vamos tentar visualizar o GeoDataFrame:
-```{code-cell} python
+```
 resultado.plot()
-# Saída: TypeError: no numeric data to plot
+
+Saída: TypeError: no numeric data to plot
 ```
 
 Como intersects resulta em uma Series de valores booleanos, não pode ser plotada diretamente. 
@@ -1617,8 +1657,8 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 Inicialmente, vamos ler os arquivos shapefile e criar os GeoDataFrames. Em seguida, verificamos as colunas existentes em gdf_usinas e gdf_uf.
 ```{code-cell} python
 import geopandas as gpd
-gdf_usinas = gpd.read_file('/home/alexandro/geopythonbook/content/hidreletricas.shp')
-gdf_uf = gpd.read_file('/content/BR_UF.shp')
+gdf_usinas = gpd.read_file('/home/alexandro/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp')
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
 print(gdf_usinas.columns)
 ```
 

@@ -286,6 +286,7 @@ linha1.crosses(linha2)
 distance: Calcula a distância mínima entre as geometrias.
 ```{code-cell} python
 distancia = pontoB.distance(bufferA)  
+distancia
 ```
 
 envelope: Retorna o menor retângulo delimitador que contém uma geometria.
@@ -316,9 +317,7 @@ Quadro 8: Arquivos que podem constituir um shapefile.
 | shp     | Contém a geometria dos objetos, por exemplo, pontos, linhas ou polígonos.                                                      |
 | shx     | É o índice da geometria. Ele fornece um índice para os objetos no arquivo .shp, permitindo um acesso mais rápido a eles.     |
 | dbf     | Contém os atributos para cada objeto em uma tabela. Cada linha da tabela corresponde a um objeto no arquivo .shp e cada coluna é um atributo desse objeto. |
-
-
-| Arquivo | Descrição                                                                                                                                                                  |
+                                                                                                                                      |
 |---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | prj     | Contém informações sobre a projeção e o sistema de coordenadas em que os dados estão definidos.                                                                             |
 | sbn e sbx | São arquivos de índice espacial. Eles podem ser usados por alguns sistemas SIG para renderizar e consultar dados mais rapidamente.                                          |
@@ -490,7 +489,7 @@ print(f'Shapefile {shapefile_saida} criado com sucesso!')
 
 Vamos entender cada parte do código:
 
-```import fiona: ``` 
+```import fiona ``` 
 
 Importa a biblioteca Fiona, que é usada para a leitura e escrita de arquivos geoespaciais.
 
@@ -588,10 +587,9 @@ capitais = {
 Com este código, criamos um dicionário chamado “capitais”. As chaves do dicionário são os nomes das capitais e os valores são tuplas que contêm o nome do estado e as coordenadas (longitude e latitude) da respectiva capital.
 
 ```{code-cell} python
-with fiona.open('capitais_br.shp', 'w', driver='ESRI Shapefile', crs=from_epsg(4326), schema=esquema) as layer:
-
 # Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como 'capitais_br.shp'. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.
 
+with fiona.open('capitais_br.shp', 'w', driver='ESRI Shapefile', crs=from_epsg(4326), schema=esquema) as layer:
     for capital, (estado, coords) in capitais.items():
         ponto = Point(coords)
         propriedades = {
@@ -606,6 +604,7 @@ with fiona.open('capitais_br.shp', 'w', driver='ESRI Shapefile', crs=from_epsg(4
         }
         layer.write(propriedades)
 ```
+
 
 Nesse código, iteramos sobre o dicionário capitais. Para cada capital, ele cria um objeto Point com as coordenadas. Em seguida, ele cria um dicionário propriedades que contém as informações geométricas e os atributos associados. Esse dicionário é então escrito (adicionado) no arquivo shapefile usando o método write.
 
@@ -627,9 +626,12 @@ Para criar um arquivo GeoJSON no fiona, é necessário alterar o argumento drive
 with fiona.open(arquivo_saida, 'w', driver='GeoJSON', schema=esquema) as c:
 
 Vamos criar um arquivo GeoJSON contendo uma linha definida a partir de três pontos.
-from shapely.geometry import LineString, mapping
+
 
 ```{code-cell} python
+
+from shapely.geometry import LineString, mapping
+
 # Define a estrutura do GeoJSON
 esquema = {
     'geometry': 'LineString',
@@ -643,8 +645,7 @@ arquivo_saida = 'linhas_saida.geojson'
 
 with fiona.open(arquivo_saida, 'w', driver='GeoJSON', schema=esquema) as c:
     
-    # Exemplo de dados: uma linha com coordenadas [(0,0), (5,5), (10,10)]
-    # e algumas propriedades
+    # Exemplo de dados: uma linha com coordenadas [(0,0), (5,5), (10,10)] e algumas propriedades
     linha = LineString([(0, 0), (5, 5), (10, 10)])
     propriedades = {'id': 1, 'descricao': 'Linha Exemplo'}
     
@@ -657,18 +658,7 @@ with fiona.open(arquivo_saida, 'w', driver='GeoJSON', schema=esquema) as c:
 print(f'Arquivo GeoJSON {arquivo_saida} criado com sucesso!')
 ```
 
-O arquivo GeoJSON criado é:
 
-```{code-cell} python
-{
-'type': 'FeatureCollection',
-'features': [
-{ 'type': 'Feature', 'properties': { 'id': 1, 'descricao': 'Linha Exemplo' }, 
-'geometry': { 'type': 'LineString', 
-'coordinates': [ [ 0.0, 0.0 ], [ 5.0, 5.0 ], [ 10.0, 10.0 ] ] } }
-]
-}
-```
 
 Exemplo 4: Escrever um arquivo shapefile com geometrias do tipo polígono
 

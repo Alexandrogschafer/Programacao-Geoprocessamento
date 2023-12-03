@@ -165,22 +165,19 @@ const thebe_selector_output = ".output, .cell_output"
         <ul class="nav bd-sidenav bd-sidenav__home-link">
             <li class="toctree-l1">
                 <a class="reference internal" href="intro.html">
-                    Meu Jupyter Book
+                    Programação para Geoprocessamento
                 </a>
             </li>
         </ul>
         <ul class="current nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="capitulo1.html">1. INTRODUÇÃO</a></li>
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">2. FUNDAMENTOS DA LINGUAGEM PYTHON</a></li>
+
 <li class="toctree-l1"><a class="reference internal" href="capitulo3.html">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo4.html">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
-
-
-
-
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS:</a></li>
 </ul>
 
@@ -375,6 +372,7 @@ document.write(`
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. FUNDAMENTOS DA LINGUAGEM PYTHON</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxe-basica-variaveis-operadores-expressoes">2.1 Sintaxe básica: variáveis, operadores, expressões</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis">2.1.1 Variáveis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-aritmeticos-comparacao-logicos">2.1.2 Operadores: aritméticos, comparação, lógicos</a></li>
@@ -392,11 +390,20 @@ document.write(`
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-de-dados">2.3 Estruturas de dados</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas">2.3.1 Listas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas">2.3.2 Tuplas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dicionarios">2.3.3 Dicionários</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-sets">2.3.4 Conjuntos (Sets)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-de-controle">2.4 Estruturas de controle</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-condicionais-estrutura-e-sintaxe-do-if-elif-e-else">2.4.1 Estruturas condicionais: estrutura e sintaxe do if, elif e else</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-de-repeticao-loops">2.4.2 Estruturas de repetição (Loops)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes">2.5 Funções</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacao-de-arquivos-de-texto-e-csv">2.6 Manipulação de arquivos de texto e .CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-e-pacotes">2.7 Módulos e pacotes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos">2.7.1 Módulos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pacotes">2.7.2 Pacotes</a></li>
 </ul>
@@ -409,6 +416,9 @@ document.write(`
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-abordagem-pythonic-para-codificacao">2.10 A abordagem Pythonic para codificação</a></li>
 </ul>
+</li>
+</ul>
+
             </nav>
         </div>
     </div>
@@ -2285,7 +2295,9 @@ Dados matriciais: Em análises de dados matriciais, cada pixel pode ser represen
 <p>Representar coleções que podem requerer alterações;</p>
 <p>Realizar diversas operações como inserção, remoção, etc.;</p>
 <p>Armazenar coleções de dados que são dinâmicos por natureza.</p>
-<p>Dicionários</p>
+</section>
+<section id="dicionarios">
+<h3>2.3.3 Dicionários<a class="headerlink" href="#dicionarios" title="Permalink to this heading">#</a></h3>
 <p>Dicionários são estruturas de dados em Python que armazenam pares chave-valor. Cada chave em um dicionário deve ser única, e os valores associados a essas chaves podem ser acessados diretamente pela chave. A natureza de mapeamento dos dicionários os torna altamente úteis para representar coisas como dados de configuração, registros de tabelas ou qualquer estrutura de dados que associe um identificador (a chave) a um valor. Eles são especialmente úteis quando se deseja criar estruturas de dados complexas e altamente personalizadas.
 É importante destacar que os dicionários são mutáveis, o que significa que você pode adicionar, modificar e remover pares de chave-valor após o dicionário ter sido criado.</p>
 <p>Dada a complexidade inerente aos dados geográficos - que muitas vezes envolvem não apenas coordenadas, mas também uma variedade de atributos associados - os dicionários são ferramentas ideais para armazenar e acessar essas informações de forma estruturada.</p>
@@ -2752,7 +2764,9 @@ False
 </div>
 </div>
 </div>
-<p>Conjuntos (Sets)</p>
+</section>
+<section id="conjuntos-sets">
+<h3>2.3.4 Conjuntos (Sets)<a class="headerlink" href="#conjuntos-sets" title="Permalink to this heading">#</a></h3>
 <p>Conjuntos (ou sets, em inglês) são uma das estruturas de dados fundamentais em Python. Eles são coleções não ordenadas de elementos únicos. Isso significa que um conjunto não pode conter elementos duplicados. Devido à sua natureza não ordenada, conjuntos não suportam indexação ou fatiamento, como listas ou strings. Aqui estão algumas características e operações fundamentais associadas aos conjuntos:</p>
 <p>Não ordenado: Os itens têm uma ordem não definida e não podem ser referenciados por índice ou chave.</p>
 <p>Elementos únicos: Os conjuntos não permitem elementos duplicados.</p>
@@ -2784,7 +2798,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;ponto&#39;, &#39;polígono&#39;, &#39;linha&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;polígono&#39;, &#39;linha&#39;, &#39;ponto&#39;}
 </pre></div>
 </div>
 </div>
@@ -2830,7 +2844,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;intersecção&#39;, &#39;união&#39;, &#39;diferença&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;diferença&#39;, &#39;intersecção&#39;, &#39;união&#39;}
 </pre></div>
 </div>
 </div>
@@ -3854,7 +3868,11 @@ Ponto 45 está acima do nível desejado.
 </div>
 <p>Neste exemplo, o loop externo percorre cada linha da matriz, e o loop interno percorre cada ponto dentro de uma linha específica. A combinação dos dois loops permite que você processe cada ponto individual da matriz.</p>
 <p>O aninhamento de loops é uma ferramenta poderosa, mas é importante estar ciente de que pode aumentar significativamente o tempo de processamento, especialmente se as estruturas de dados forem grandes. A complexidade computacional de loops aninhados é frequentemente um produto das iterações de cada loop, tornando-se potencialmente ineficiente para grandes conjuntos de dados se não for manejado corretamente.</p>
-<p>Funções</p>
+</section>
+</section>
+</section>
+<section class="tex2jax_ignore mathjax_ignore" id="funcoes">
+<h1>2.5 Funções<a class="headerlink" href="#funcoes" title="Permalink to this heading">#</a></h1>
 <p>Em programação, uma função é um bloco de código organizado e reutilizável que realiza uma única ação relacionada. As funções fornecem uma maneira de modularizar seu código, tornando-o mais eficiente, legível e reutilizável. Além disso, elas permitem definir interfaces de código que podem ser usadas de forma consistente.</p>
 <p>No contexto do geoprocessamento, que envolve a coleta, armazenamento e análise de dados geoespaciais, a modularização do código através de funções não só permite eficiência e clareza, mas também facilita a reutilização do código em diferentes projetos. Desta maneira, assegura consistência em tarefas frequentemente repetidas, como interpolação de dados e transformação de sistemas de coordenadas. Por outro lado, o uso de funções ajuda a abstrair a complexidade dos algoritmos, tornando o código mais legível. Isso é essencial, especialmente quando se trabalha em colaboração, pois funções bem definidas podem ser compartilhadas, promovendo consistência e economia de tempo. Ao adotar funções em geoprocessamento, os profissionais garantem não apenas a organização, mas também a robustez e eficiência do seu trabalho.</p>
 <p>Definição da Função</p>
@@ -4034,7 +4052,8 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <p>Ao chamar a função, passamos três argumentos posicionais (1, 2 e 3) e dois argumentos nomeados (a=4 e b=5). Como esperado, args coletou os argumentos posicionais em uma tupla, e kwargs coletou os argumentos nomeados em um dicionário.</p>
-<p>Manipulação de arquivos de texto e .CSV</p>
+<section id="manipulacao-de-arquivos-de-texto-e-csv">
+<h2>2.6 Manipulação de arquivos de texto e .CSV<a class="headerlink" href="#manipulacao-de-arquivos-de-texto-e-csv" title="Permalink to this heading">#</a></h2>
 <p>A manipulação de arquivos é uma tarefa comum em programação. Ela permite que você leia, escreva, crie ou delete arquivos a partir do seu programa. A maioria das linguagens de programação oferece bibliotecas ou módulos nativos para facilitar essas operações.</p>
 <p>Abrindo um arquivo</p>
 <p>Antes de ler ou escrever em um arquivo, você precisa abri-lo. Durante a abertura, você especifica o modo de abertura, que determina se você está lendo, escrevendo, anexando, etc.</p>
@@ -4099,11 +4118,12 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 </div>
-<p>Módulos e pacotes</p>
+</section>
+<section id="modulos-e-pacotes">
+<h2>2.7 Módulos e pacotes<a class="headerlink" href="#modulos-e-pacotes" title="Permalink to this heading">#</a></h2>
 <p>No contexto de geoprocessamento, a organização e reutilização de código são essenciais. Módulos e pacotes em Python desempenham um papel vital em garantir que o código seja estruturado, reutilizável e fácil de manter.</p>
 <p>No contexto do geoprocessamento, em que a complexidade das tarefas e a precisão dos dados são cruciais, a estruturação do código desempenha um papel fundamental. A implementação estratégica de módulos e pacotes introduz uma organização meticulosa ao código, tornando-o mais intuitivo e acessível. Esta organização não só segmenta diferentes funções e classes de maneira clara, mas também simplifica a navegação e a compreensão das operações codificadas.</p>
 <p>Além da organização, módulos e pacotes são importantes no que diz respeito à reutilização e manutenção do código. Uma das maiores vantagens é a capacidade de reutilizar funções, especialmente aquelas destinadas à manipulação de dados geoespaciais, em múltiplos projetos, eliminando a redundância e economizando tempo. Esta modularidade também se traduz em manutenção mais eficaz. Corrigir erros ou atualizar características em módulos específicos se torna uma tarefa direta, minimizando o risco de perturbar outras seções do código, garantindo assim soluções de geoprocessamento mais robustas e confiáveis.</p>
-</section>
 <section id="modulos">
 <h3>2.7.1 Módulos<a class="headerlink" href="#modulos" title="Permalink to this heading">#</a></h3>
 <p>Um módulo em Python é simplesmente um arquivo contendo definições e instruções Python. O nome do arquivo é o nome do módulo acrescido do sufixo .py. Módulos são usados para organizar as funcionalidades em unidades lógicas, ajudando a manter o código mais organizado e facilitando a reutilização de código.</p>
@@ -4199,7 +4219,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-01 13:23:59.566353
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-02 07:11:36.952439
 </pre></div>
 </div>
 </div>
@@ -4213,7 +4233,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-01
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-02
 </pre></div>
 </div>
 </div>
@@ -4243,7 +4263,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>69
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>70
 </pre></div>
 </div>
 </div>
@@ -4257,7 +4277,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-06
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-07
 </pre></div>
 </div>
 </div>
@@ -4714,6 +4734,7 @@ Nenhum erro foi identificado no bloco try!
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#">2. FUNDAMENTOS DA LINGUAGEM PYTHON</a><ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#sintaxe-basica-variaveis-operadores-expressoes">2.1 Sintaxe básica: variáveis, operadores, expressões</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#variaveis">2.1.1 Variáveis</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#operadores-aritmeticos-comparacao-logicos">2.1.2 Operadores: aritméticos, comparação, lógicos</a></li>
@@ -4731,11 +4752,20 @@ Nenhum erro foi identificado no bloco try!
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-de-dados">2.3 Estruturas de dados</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#listas">2.3.1 Listas</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#tuplas">2.3.2 Tuplas</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#dicionarios">2.3.3 Dicionários</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#conjuntos-sets">2.3.4 Conjuntos (Sets)</a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-de-controle">2.4 Estruturas de controle</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-condicionais-estrutura-e-sintaxe-do-if-elif-e-else">2.4.1 Estruturas condicionais: estrutura e sintaxe do if, elif e else</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#estruturas-de-repeticao-loops">2.4.2 Estruturas de repetição (Loops)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toc-h1 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes">2.5 Funções</a><ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#manipulacao-de-arquivos-de-texto-e-csv">2.6 Manipulação de arquivos de texto e .CSV</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos-e-pacotes">2.7 Módulos e pacotes</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#modulos">2.7.1 Módulos</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#pacotes">2.7.2 Pacotes</a></li>
 </ul>
@@ -4748,6 +4778,9 @@ Nenhum erro foi identificado no bloco try!
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-abordagem-pythonic-para-codificacao">2.10 A abordagem Pythonic para codificação</a></li>
 </ul>
+</li>
+</ul>
+
   </nav></div>
 
 </div></div>

@@ -42,7 +42,7 @@ A abordagem orientada a objetos (OO) no Matplotlib refere-se a uma maneira de cr
 Em resumo, enquanto a abordagem funcional é ótima para criar rapidamente visualizações simples, a abordagem orientada a objetos oferece a flexibilidade necessária para criar visualizações mais complexas e personalizadas. A escolha entre as abordagens depende do contexto e da complexidade da visualização desejada. Em nosso curso, vamos optar por trabalhar com a abordagem funcional sempre que possível.
 
 
-Primeiros passos no Matplotlib
+## 6.1.2 Primeiros passos no Matplotlib
 
 Gráficos básicos
 
@@ -343,7 +343,7 @@ Uma vez que você tenha seus subplots definidos, você pode plotar neles usando 
 ```{code-cell} python
 fig, axs = plt.subplots(2, 1)
 axs[0].plot([0, 1, 2], [0, 1, 0], label='Subplot 1')
-axs[1].plot([0, 1, 2], [0, -1, 0], label='Subplot 2
+axs[1].plot([0, 1, 2], [0, -1, 0], label='Subplot 2')
 ```
 
 
@@ -388,26 +388,21 @@ Etapa 2: Plotando os gráficos em cada subplot.
 
 Cada subplot é referenciado usando a indexação ``` ax[row, col] ```. Por exemplo, ``` ax[0, 0] ``` refere-se ao subplot superior esquerdo, enquanto ``` ax[1, 1] ``` é o subplot inferior direito. 
 
-# Primeiro subplot (superior esquerdo)
+
 ```{code-cell} python
+# Primeiro subplot (superior esquerdo)
 ax[0, 0].plot([0, 1, 2], [0, 1, 4])
 ax[0, 0].set_title('Gráfico de Linha')
-```
 
 # Segundo subplot (superior direito)
-```{code-cell} python
 ax[0, 1].scatter([0, 1, 2], [0, 1, 3])
 ax[0, 1].set_title('Gráfico de Dispersão')
-```
 
 # Terceiro subplot (inferior esquerdo)
-```{code-cell} python
 ax[1, 0].bar(['A', 'B', 'C'], [3, 7, 2])
 ax[1, 0].set_title('Gráfico de Barras')
-```
 
 # Quarto subplot (inferior direito)
-```{code-cell} python
 ax[1, 1].hist([0, 1, 2, 2, 3, 3, 3, 4, 4, 5])
 ax[1, 1].set_title('Histograma')
 ```
@@ -433,7 +428,7 @@ O código completo para ler o arquivo e criar o gráfico é:
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df_precipitacao = pd.read_csv('/home/alexandro/geopythonbook/content/precipitacao_A827.csv')
+df_precipitacao = pd.read_csv('/home/alexandro/geopythonbook/content/23_estacao_a827/precipitacao_A827.csv')
 df_precipitacao.head()
 ```
 
@@ -457,14 +452,15 @@ Vamos analisar o código por partes:
 ```
 import pandas as pd
 import matplotlib.pyplot as plt
-df_precipitacao = pd.read_csv('/content/precipitacao_A827.csv')
+df_precipitacao = pd.read_csv('/home/alexandro/geopythonbook/content/23_estacao_a827/precipitacao_A827.csv')
 df_precipitacao.head()
 ```
  
 Aqui realizamos a leitura do arquivo CSV denominado precipitacao_A827.CSV. Os dados do arquivo são armazenados no DataFrame chamado df_precipitacao. Em seguida, as primeiras cinco linhas do DataFrame são impressas usando o método head().
 
 ```
-ax = df_precipitacao.plot(kind='bar', figsize=(10, 6), width=0.8, color=['steelblue', 'mediumseagreen', 'silver']) ```
+ax = df_precipitacao.plot(kind='bar', figsize=(10, 6), width=0.8, color=['steelblue', 'mediumseagreen', 'silver']) 
+```
 
 Nesse código, df_precipitacao.plot(...) utiliza a função plot() do DataFrame df_precipitacao para criar um gráfico; kind='bar' especifica que o tipo de gráfico desejado é um gráfico de barras; figsize=(10, 6) define o tamanho da figura como 10 unidades de largura por 6 unidades de altura; width=0.8 define a largura das barras como 80% da largura padrão entre os ticks do eixo x; ``` color=['steelblue', 'mediumseagreen', 'silver'] ``` define as cores das barras. 
 
@@ -537,11 +533,7 @@ plt.savefig('precipitacao_2021-2023_A827.png', format='png', dpi=300)
 É importante ressaltar que o método savefig() deve ser posicionado antes do método .show para que o gráfico seja exportado corretamente. O código atualizado com esta linha é:
 
 ```{code-cell} python
-import pandas as pd
-import matplotlib.pyplot as plt
 
-df_precipitacao = pd.read_csv('/home/alexandro/geopythonbook/content/precipitacao_A827.csv')
-df_precipitacao.head()
 ax = df_precipitacao.plot(kind='bar', figsize=(10, 6), width=0.8, 
     color=['steelblue', 'mediumseagreen', 'silver'])
 ax.set_xlabel('Mês')
@@ -566,7 +558,7 @@ Com o Geopandas, é possível realizar a plotagem básica de dados geográficos 
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_uf = gpd.read_file('/content/BR_UF.shp')
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
 gdf_uf.plot()
 ```
 
@@ -750,8 +742,8 @@ Vamos criar uma plotagem das rodovias do estado de Sergipe sobrepostas a geometr
 import geopandas as gdf_gpd
 import matplotlib.pyplot as plt
 
-gdf_sergipe = gpd.read_file('/home/alexandro/geopythonbook/content/sergipe_UF.shp')
-gdf_rodovias = gpd.read_file('/home/alexandro/geopythonbook/content/sergipe_rodo.shp')
+gdf_sergipe = gpd.read_file('/home/alexandro/geopythonbook/content/24_sergipe/sergipe_UF.shp')
+gdf_rodovias = gpd.read_file('/home/alexandro/geopythonbook/content/24_sergipe/sergipe_rodo.shp')
 
 # Criar uma figura e eixos com Matplotlib
 fig, ax = plt.subplots(figsize=(10, 10))
@@ -838,7 +830,7 @@ Inicialmente, vamos importar as bibliotecas, ler o arquivo shapefile e plotar as
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-gdf_sc = gpd.read_file('/home/alexandro/geopythonbook/content/censo_mun_sc.shp')
+gdf_sc = gpd.read_file('/home/alexandro/geopythonbook/content/25_censo_SC/censo_mun_sc.shp')
 gdf_sc.head()
 ```
 
@@ -917,11 +909,14 @@ gdf_sc.plot(column='pop_2021_log', ax=ax, cmap=cmap, legend=False)
 
 # Criar uma legenda personalizada
 cbar = plt.cm.ScalarMappable(norm=norm, cmap=cmap)
+
 # Ajustar as dimensões da legenda
 cbar_ax = fig.add_axes([0.95, 0.25, 0.02, 0.5])
 cb = fig.colorbar(cbar, cax=cbar_ax, orientation='vertical')
+
 # Ajustar o tamanho do título da legenda
 cb.set_label('População', size=10)  
+
 # Ajustar o tamanho dos ticks da legenda
 cb.ax.tick_params(labelsize=9)      
 
@@ -946,7 +941,8 @@ Aqui, além da Matplotlib importamos o numpy, e os módulos matplotlib.colors e 
 
 ```
 gdf_sc = gdf_sc.copy()
-gdf_sc['pop_2021_log'] = np.log(gdf_sc['pop_2021']) ```
+gdf_sc['pop_2021_log'] = np.log(gdf_sc['pop_2021']) 
+```
 
 Cria uma cópia do GeoDataFrame gdf_sc para evitar alterações no original. Em seguida, adiciona uma nova coluna pop_2021_log que contém o logaritmo natural dos valores da coluna pop_2021.
 
@@ -981,9 +977,9 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 # Leitura dos arquivos
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/BR_UF.shp')
-gdf_bio = gpd.read_file('/home/alexandro/geopythonbook/content/biomas.shp')
-gdf_hid = gpd.read_file('/home/alexandro/geopythonbook/content/regioes_hidro.shp')
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_bio = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/biomas.shp')
+gdf_hid = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/regioes_hidro.shp')
 
 # Criando uma figura com três subplots (um ao lado do outro)
 fig, axs = plt.subplots(1, 3, figsize=(15, 5))
@@ -1040,6 +1036,11 @@ Aqui, estamos percorrendo cada subplot (área de plotagem) e desativando os eixo
 Agora vamos alterar o código, adicionando as configurações de texto, legendas e categorias:
 
 ```{code-cell} python
+
+gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_bio = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/biomas.shp')
+gdf_hid = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/regioes_hidro.shp')
+
 # Criando uma figura e três eixos
 fig, axs = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
 
@@ -1091,9 +1092,11 @@ Neste trecho, definimos um dicionário legend_args que contém argumentos para p
 ```
 gdf_uf.plot(column='SIGLA_UF', ax=axs[0], cmap='Pastel2', edgecolor='black')
 axs[0].set_title('Estados Brasileiros')
+```
 
-Aqui, plotamos o gdf_uf no primeiro eixo (axs[0]) e atribuímos cores aos estados com base na coluna 'SIGLA_UF' usando o mapa de cores Pastel2. As bordas dos estados são definidas como pretas (edgecolor='black'). Em seguida, definimos um título para esse eixo.
+Aqui, plotamos o gdf_uf no primeiro eixo (```axs[0]```) e atribuímos cores aos estados com base na coluna 'SIGLA_UF' usando o mapa de cores Pastel2. As bordas dos estados são definidas como pretas (edgecolor='black'). Em seguida, definimos um título para esse eixo.
 
+```
 gdf_bio.plot(column='NOME', ax=axs[1], cmap = 'Greens', edgecolor='black', 
     legend=True, legend_kwds=legend_args)
 axs[1].set_title('Biomas do Brasil')
@@ -1171,7 +1174,7 @@ Exemplo: Criar uma visualização do município de Florianópolis com o basemap 
 Inicialmente, precisamos instalar a biblioteca Contextily:
 
 ```{code-cell} python
-!pip install contextily
+# !pip install contextily
 ```
 
 O comando !pip install é utilizado para instalar pacotes Python utilizando o gerenciador de pacotes pip. O prefixo “!“ é específico para ambientes como o Jupyter Notebook e indica que o comando deve ser executado no sistema operacional, e não no kernel Python. 
@@ -1183,11 +1186,13 @@ import contextily as ctx
 import matplotlib.pyplot as plt
 
 # Carregar o GeoDataFrame
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/floripa.shp')
+gdf = gpd.read_file('/home/alexandro/geopythonbook/content/27_floripa/floripa.shp')
 gdf.plot()
+```
 
 Agora vamos plotar o GeoDataFrame utilizando o Contextily:
 
+```{code-cell} python
 # Plotar o GeoDataFrame
 ax = gdf.to_crs(epsg=3857).plot(figsize=(15, 15), facecolor='none', 
     alpha=0.9, edgecolor='r')
@@ -1241,27 +1246,28 @@ Vamos demonstrar algumas das funcionalidades do Folium a partir de exemplos com 
 
 Exemplo 1: Criar uma visualização interativa das localizações das hidrelétricas e PCHs do estado de São Paulo.
 
-Importar as bibliotecas, ler o arquivo shapefile e criar o GeoDataFrame
+
 ```{code-cell} python
+
+# Importar as bibliotecas, ler o arquivo shapefile e criar o GeoDataFrame
 import geopandas as gpd
 import folium
-gdf_hsp = gpd.read_file('/home/alexandro/geopythonbook/content/hidreletricas_sp.shp')
-```
+gdf_hsp = gpd.read_file('/home/alexandro/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp')
 
-Calcular a latitude e longitude médias das geometrias no GeoDataFrame
-```{code-cell} python
+
+#nCalcular a latitude e longitude médias das geometrias no GeoDataFrame
+
 latitude_central = gdf_hsp.geometry.y.mean()
 longitude_central = gdf_hsp.geometry.x.mean()
-```
 
-Imprimir as coordenadas centrais
-```{code-cell} python
+
+# Imprimir as coordenadas centrais
+
 print(latitude_central, longitude_central)
-#Saída: (-22.6444, -48.0966)
-```
 
-Inicializar um mapa centrado nas coordenadas médias com um nível de zoom inicial de 7
-```{code-cell} python
+
+# Inicializar um mapa centrado nas coordenadas médias com um nível de zoom inicial de 7
+
 mapa_hid = folium.Map(location=[latitude_central, longitude_central], 
     zoom_start=7)
 # Também é possível inserir manualmente as coordenadas centrais do mapa
@@ -1341,7 +1347,7 @@ mapa_hid
 folium.Map(location=[latitude_central, longitude_central], zoom_start=7, width=600, height=400, control_scale=True)
 ```
 
-	Nesse Código, width=600 e height=400 definem as dimensões do mapa em pixels. Neste caso, o mapa terá uma largura de 600 pixels e uma altura de 400 pixels.
+Nesse Código, width=600 e height=400 definem as dimensões do mapa em pixels. Neste caso, o mapa terá uma largura de 600 pixels e uma altura de 400 pixels.
 
 
 Exemplo 2: Criar a visualização interativa de uma geometria do tipo ‘linha’: a BR-116.
@@ -1352,7 +1358,7 @@ import geopandas as gpd
 import folium
 
 # Ler o arquivo shapefile e armazenar no GeoDataFrame
-gdf = gpd.read_file('/content/br116.shp')
+gdf = gpd.read_file('/home/alexandro/geopythonbook/content/14_br116/br116.shp')
 
 # Calcular o ponto central da união das geometrias no GeoDataFrame
 center = gdf.geometry.unary_union.centroid
@@ -1377,7 +1383,7 @@ mapabr = folium.Map(location=[latitude_central, longitude_central],
 mapabr.add_child(gdf_ftrs)
 
 # Exibir o mapa 
-Mapabr
+mapabr
 ```
 
 
@@ -1389,7 +1395,7 @@ import geopandas as gpd
 import folium
 
 # Ler o arquivo shapefile e armazenar no GeoDataFrame
-amapa = gpd.read_file('/content/censo_mun_AP.shp')
+amapa = gpd.read_file('/home/alexandro/geopythonbook/content/29_mun_amapa/censo_mun_AP.shp')
 
 # Calcular o ponto central (centroid) da união de todas as geometrias no GeoDataFrame
 center = amapa.geometry.unary_union.centroid
@@ -1513,7 +1519,7 @@ Por fim, vamos gerar um mapa interativo (figura 121) que mostra os municípios d
 ```{code-cell} python
 # Carregar o shapefile que contém informações sobre as estações 
 # fluviométricas da ANA
-ANA = gpd.read_file('/home/alexandro/geopythonbook/content/ANA_estacoes.shp')
+ANA = gpd.read_file('/home/alexandro/geopythonbook/content/30_estacoes_ANA/ANA_estacoes.shp')
 
 # Definir uma função para estilizar as geometrias dos municípios.
 def estilo_mun(ftr):

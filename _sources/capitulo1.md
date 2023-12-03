@@ -41,7 +41,7 @@ Existe grande número de linguagens de programação utilizadas em trabalhos que
 Estas são apenas algumas das linguagens e tecnologias no vasto campo do geoprocessamento e SIG. Dependendo das necessidades específicas do projeto, outras linguagens e ferramentas podem ser mais apropriadas.
 
 
-*A linguagem Python*
+## 1.2 A linguagem Python
 
 Python é uma linguagem de programação de alto nível, interpretada, de script, imperativa, orientada a objetos, funcional e de tipagem dinâmica. Foi criada por Guido Van Rossum durante 1985-1990 e teve sua primeira versão lançada em 1991. Em 2020, o Python se tornou uma das linguagens de programação mais populares, sendo amplamente usada em áreas como análise de dados, aprendizado de máquina, automação, desenvolvimento web e, claro, geoprocessamento.
 
@@ -57,7 +57,7 @@ O Python continua a ser desenvolvido e melhorado, com novas versões sendo lanç
 - Comunidade ativa e crescente: Python tem uma grande e ativa comunidade de programadores que contribuem para a melhoria constante da linguagem, além de fornecer suporte através de fóruns e sites de perguntas e respostas.
 
 
-*Domínios de aplicação da linguagem Python*
+### 1.2.1 Domínios de aplicação da linguagem Python
 
 Python é uma linguagem de programação que vem sendo utilizada em uma ampla gama de domínios de aplicação:
 
@@ -178,7 +178,7 @@ Outros IDEs:
 A escolha de um ambiente específico frequentemente se resume a preferências pessoais, natureza do projeto e experiência anterior. Em muitos casos, é comum utilizar mais de um ambiente e/ou ferramenta.
 
 
-*O Jupyter Notebook e o Google Colaboratory*
+### 1.4.1 O Jupyter Notebook e o Google Colaboratory
 
 O Jupyter Notebook é uma plataforma de desenvolvimento integrado (IDE) que une a edição de código à visualização imediata de seus resultados. Esta ferramenta facilita a elaboração de documentos interativos, incorporando não só códigos, mas também textos estilizados, imagens, diagramas e fórmulas matemáticas. Sua capacidade de compartilhamento promove a cooperação entre diversos usuários em um único documento, seja por meio de repositórios no GitHub ou pelo serviço online Jupyter Notebook Viewer. É uma ferramenta popular entre cientistas de dados, pesquisadores e educadores para realizar análises de dados, modelagem estatística, simulação numérica, ensino de programação, entre outros.
 
@@ -194,6 +194,7 @@ Algumas das principais características e funcionalidades do Jupyter Notebook:
 - Interface com Outras Ferramentas: Além do tradicional formato de notebook, o projeto Jupyter também oferece o JupyterLab, uma interface de usuário mais avançada que oferece uma experiência semelhante a uma IDE, com múltiplas janelas e painéis.
 - Reprodutibilidade: Ao detalhar cada etapa da análise, os notebooks promovem práticas de ciência reprodutível. Outros pesquisadores ou colegas podem seguir o mesmo processo, entender as decisões tomadas e até reproduzir os resultados.
 - Integração com Big Data: O Jupyter pode ser integrado com plataformas de big data como Apache Spark, permitindo análises em grandes conjuntos de dados diretamente a partir do notebook.
+
 
 *Google Colaboratory*
 
