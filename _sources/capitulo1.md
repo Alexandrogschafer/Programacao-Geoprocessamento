@@ -30,15 +30,16 @@ Apesar das vantagens da utilização da programação, não se pode negar o valo
 ## 1.1 Linguagens de programação em Geoprocessamento
 
 Existe grande número de linguagens de programação utilizadas em trabalhos que envolvem o geoprocessamento. Algumas das principais linguagens de programação e suas aplicações específicas na área incluem:
+
 - Python: É uma das linguagens mais populares no campo de geoprocessamento. Muitos softwares GIS, como o QGIS e ArcGIS, oferecem interfaces de script baseadas em Python. Bibliotecas populares em Python para geoprocessamento incluem GDAL, Geopandas, Shapely, Fiona, PyProj, entre outras;
 - R: Principalmente conhecido por análise estatística, R também possui pacotes, como sf (Simple Features) e sp (Spatial), que o tornam adequado para análise espacial e geoprocessamento;
 - JavaScript: Com o aumento dos mapas interativos online, o JavaScript se tornou crucial no geoprocessamento web. Bibliotecas como Leaflet e OpenLayers permitem criar visualizações de mapas interativas em websites;
 - SQL: Muitos sistemas de bancos de dados espaciais, como PostGIS (uma extensão do PostgreSQL), utilizam SQL para consultas e manipulações espaciais. As extensões espaciais de SQL permitem operações como interseção, união e buffer diretamente no banco de dados;
 - Java: Softwares como GeoServer e algumas bibliotecas GIS, como Geotools, são baseados em Java. Também é usado em aplicações Android que têm capacidades GIS;
 - C++ e C: Algumas das plataformas de geoprocessamento, como GDAL, são escritas em C ou C++. Elas oferecem desempenho e são usadas para tarefas intensivas de processamento";
-- .NET/C#: O ArcGIS, da Esri, oferece uma API para desenvolvimento baseada em .NET. Assim, desenvolvedores que trabalham com plataformas Esri muitas vezes usam C# para personalizações e desenvolvimento de plugins;
+- .NET/C#: O ArcGIS, da Esri, oferece uma API para desenvolvimento baseada em .NET. Assim, desenvolvedores que trabalham com plataformas Esri muitas vezes usam C# para personalizações e desenvolvimento de plugins.
 
-Estas são apenas algumas das linguagens e tecnologias no vasto campo do geoprocessamento e SIG. Dependendo das necessidades específicas do projeto, outras linguagens e ferramentas podem ser mais apropriadas.
+Estas são apenas algumas das linguagens e tecnologias no campo do geoprocessamento e SIG. Dependendo das necessidades específicas do projeto, outras linguagens e ferramentas podem ser mais apropriadas.
 
 
 ## 1.2 A linguagem Python
