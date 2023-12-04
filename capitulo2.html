@@ -178,7 +178,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
 </ul>
 
     </div>
@@ -441,35 +441,43 @@ document.write(`
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">8</span>
-<span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;Airton&#39;</span> 
+<span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;Ana&#39;</span> 
 <span class="n">idade</span> <span class="o">=</span> <span class="mi">30</span>       
 <span class="n">altura_metros</span> <span class="o">=</span> <span class="mf">1.75</span>
 </pre></div>
 </div>
 </div>
 </div>
+<br>
 <p>Tipagem dinâmica refere-se ao mecanismo pelo qual o tipo de uma variável é determinado em tempo de execução, ao contrário da tipagem estática, onde o tipo de uma variável é determinado em tempo de compilação. Em linguagens com tipagem dinâmica, o tipo de uma variável pode mudar durante a execução do programa, dependendo do valor que lhe é atribuído.
 Cada linguagem de programação possui suas próprias regras e convenções para nomear variáveis, mas existem algumas práticas gerais recomendadas:</p>
 <p><em>Regras comuns:</em></p>
-<p>O nome geralmente começa com uma letra ou sublinhado (_);</p>
-<p>Pode conter letras (maiúsculas ou minúsculas), números ou sublinhados;</p>
-<p>Não deve conter espaços ou caracteres especiais;</p>
-<p>Não deve ser uma palavra reservada da linguagem.</p>
+<ul class="simple">
+<li><p>O nome geralmente começa com uma letra ou sublinhado (_);</p></li>
+<li><p>Pode conter letras (maiúsculas ou minúsculas), números ou sublinhados;</p></li>
+<li><p>Não deve conter espaços ou caracteres especiais;</p></li>
+<li><p>Não deve ser uma palavra reservada da linguagem.
+<br></p></li>
+</ul>
 <p><em>Convenções (de acordo com PEP 8)</em></p>
 <p>O PEP 8 é a convenção de estilo para o código Python. PEP é uma sigla para “Python Enhancement Proposal” (Proposta de Melhoria do Python), e o número 8 refere-se ao número específico deste PEP. O PEP 8 fornece um conjunto de regras e recomendações para formatar o código Python, tornando-o mais legível e consistente em toda a comunidade Python.</p>
-<p>Nomes de Variáveis: devem ser escritos em letras minúsculas, com palavras separadas por sublinhados. Exemplo: minha_variavel, contador, taxa_de_juros;</p>
-<p>Variáveis Privadas: Para variáveis que são destinadas a uso interno dentro de um módulo ou classe e que não devem ser acessadas diretamente de fora, é comum usar um sublinhado antes do nome, como _variavel_privada;</p>
-<p>Variáveis Muito Privadas: Se um nome de variável começa com dois sublinhados __, indica que a variável é “muito privada” e, geralmente, é usada para evitar conflitos de nome em subclasses;</p>
-<p>Variáveis de Sistema: Se um nome de variável termina com dois sublinhados, é uma variável de sistema ou “mágica” que tem um uso especial em Python, como <strong>init</strong>, <strong>name</strong>, etc;</p>
-<p>Constantes: Constantes são geralmente declaradas em letras maiúsculas com palavras separadas por sublinhados, por exemplo: PI, TAXA_FIXA;</p>
-<p>Evitar o Uso de l (letra ‘el’ minúscula) e O (letra ‘o’ maiúscula): Estes podem ser confundidos com o número 1 e 0, respectivamente.</p>
+<ul class="simple">
+<li><p>Nomes de Variáveis: devem ser escritos em letras minúsculas, com palavras separadas por sublinhados. Exemplo: minha_variavel, contador, taxa_de_juros;</p></li>
+<li><p>Variáveis Privadas: Para variáveis que são destinadas a uso interno dentro de um módulo ou classe e que não devem ser acessadas diretamente de fora, é comum usar um sublinhado antes do nome, como _variavel_privada;</p></li>
+<li><p>Variáveis Muito Privadas: Se um nome de variável começa com dois sublinhados __, indica que a variável é “muito privada” e, geralmente, é usada para evitar conflitos de nome em subclasses;</p></li>
+<li><p>Variáveis de Sistema: Se um nome de variável termina com dois sublinhados, é uma variável de sistema ou “mágica” que tem um uso especial em Python, como <strong>init</strong>, <strong>name</strong>, etc;</p></li>
+<li><p>Constantes: Constantes são geralmente declaradas em letras maiúsculas com palavras separadas por sublinhados, por exemplo: PI, TAXA_FIXA;</p></li>
+<li><p>Evitar o uso de l (letra ‘el’ minúscula) e O (letra ‘o’ maiúscula): Estes podem ser confundidos com o número 1 e 0, respectivamente.
+<br></p></li>
+</ul>
 <p><em>Atribuição de valores a variáveis</em></p>
 <p>Atribuição de valores a variáveis é o processo de guardar um valor em uma variável. Em muitas linguagens de programação, incluindo Python, o operador de atribuição é o sinal de igual (=). Isso significa que você está associando um valor à variável à esquerda do sinal de igual.</p>
-<p>Em Python, a operação de atribuição cria uma referência entre o nome da variável e o valor ou objeto. Portanto, a variável não contém o valor em si, mas sim uma referência para o valor.</p>
+<p>Em Python, a operação de atribuição cria uma referência entre o nome da variável e o valor ou objeto. Portanto, a variável não contém o valor em si, mas sim uma referência para o valor.
+<br></p>
 <p><em>Atribuição simples</em></p>
 <p>A atribuição simples é o método mais básico e direto de associar um valor a uma variável. Na atribuição simples, utilizamos o operador “=” para designar um valor a uma variável.</p>
 <p>A sintaxe básica é:
-nome_da_variavel = valor</p>
+<code class="docutils literal notranslate"><span class="pre">nome_da_variavel</span> <span class="pre">=</span> <span class="pre">valor</span></code></p>
 <p>Aqui estão alguns exemplos usando Python:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -484,11 +492,12 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
+<br>
 <p>Em linguagens com tipagem dinâmica, como Python, o tipo da variável é determinado automaticamente com base no valor atribuído. Assim, você não precisa declarar explicitamente o tipo da variável ao criá-la.</p>
 <p>A principal coisa a lembrar sobre a atribuição simples é que ela designa um valor à variável, e a variável passa a referenciar esse valor. Se o valor for um objeto, a variável não contém o objeto em si, mas sim uma referência a ele.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;Airton&#39;</span>            <span class="c1"># A variável &#39;nome&#39; recebe o valor &#39;Airton&#39;.</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">nome</span> <span class="o">=</span> <span class="s1">&#39;Ana&#39;</span>            <span class="c1"># A variável &#39;nome&#39; recebe o valor &#39;Ana&#39;.</span>
 
 <span class="n">idade</span> <span class="o">=</span> <span class="mi">30</span>                 <span class="c1"># A variável &#39;idade&#39; recebe o valor &#39;30&#39;.</span>
 
@@ -501,6 +510,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
+<br>
 <p>Uma vez que uma variável é nomeada, seu nome não pode ser alterado. No entanto, o valor associado a essa variável pode.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -511,6 +521,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
+<br>
 <p><em>Atribuição múltipla</em></p>
 <p>A atribuição múltipla é uma característica disponível em algumas linguagens de programação, incluindo o Python, que permite que você atribua valores a várias variáveis simultaneamente em uma única instrução. Vamos ver como a atribuição múltipla funciona em Python:</p>
 <div class="cell docutils container">
@@ -520,6 +531,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
+<br>
 <p>Neste caso, x receberá o valor 15, y receberá o valor 25, e z receberá o valor 35.</p>
 <p>Uma das vantagens da atribuição múltipla é a facilidade com que você pode trocar valores entre duas variáveis.</p>
 <div class="cell docutils container">
@@ -527,11 +539,19 @@ nome_da_variavel = valor</p>
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">7</span>
 <span class="n">y</span> <span class="o">=</span> <span class="mi">12</span>
 <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">y</span><span class="p">,</span> <span class="n">x</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O valor de x é:&#39;</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;O valor de y é:&#39;</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>O valor de x é: 12
+O valor de y é: 7
 </pre></div>
 </div>
 </div>
 </div>
-<p>Após a execução dessas instruções, x terá o valor 12 e y terá o valor 7.</p>
+<br>
 <p>A atribuição múltipla torna o código mais conciso e, em muitos casos, mais legível, especialmente quando usada de maneira apropriada e não excessiva.</p>
 </section>
 <section id="operadores-aritmeticos-comparacao-logicos">
@@ -590,7 +610,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
-<p>Divisão inteira:</p>
+<p>Divisão inteira: Realiza a divisão entre operandos, retornando somente a parte inteira do quociente.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="o">//</span> <span class="mi">4</span>
@@ -603,7 +623,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
-<p>Módulo:</p>
+<p>Módulo: Retorna o resto da divisão entre operandos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="mi">9</span> <span class="o">%</span> <span class="mi">4</span>
@@ -667,6 +687,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
+<br>
 <p><em>Operadores de comparação</em></p>
 <p>Os operadores de comparação em Python são usados para comparar dois valores e retornar um valor booleano (True ou False) com base no resultado da comparação. Eles são fundamentais para estruturas de controle condicional, como instruções if, elif e else. O quadro 2 traz os principais operadores de comparação em Python.</p>
 <p>Igual a:</p>
@@ -747,6 +768,7 @@ nome_da_variavel = valor</p>
 </div>
 </div>
 </div>
+<br>
 <p><em>Operadores lógicos</em></p>
 <p>Os operadores lógicos são usados para avaliar múltiplas condições ou combinar o resultado de diferentes comparações, resultando em um valor booleano (True ou False). O quadro 3 traz os operadores lógicos em Python.</p>
 <p>Operador and: Retorna True se ambas as condições forem verdadeiras.</p>
@@ -788,14 +810,18 @@ nome_da_variavel = valor</p>
 </section>
 <section id="expressoes">
 <h3>2.1.3 Expressões<a class="headerlink" href="#expressoes" title="Permalink to this heading">#</a></h3>
-<p>Expressões em Python referem-se a combinações de valores, variáveis e operadores que são avaliadas pelo interpretador Python para produzir um resultado. Em termos simples, uma expressão é como uma instrução matemática que o Python resolve e retorna um valor. No contexto de uma expressão:</p>
+<p>Expressões em Python referem-se a combinações de valores, variáveis e operadores que são avaliadas pelo interpretador Python para produzir um resultado. Em termos simples, uma expressão é como uma instrução matemática que o Python resolve e retorna um valor. No contexto de uma expressão:
+<br></p>
 <p>Valores: São os dados básicos com os quais trabalhamos, como números (2, 4.5) ou strings (“geoprocessamento”, “Python”).
 Operadores: São símbolos que realizam operações sobre valores, como adição (“+”), subtração (“-”), multiplicação (“*”), divisão (“/”) e muitos outros.</p>
-<p>Exemplo: “3 + 4” é uma expressão onde “3” e “4” são valores e “+” é um operador.</p>
+<p>Exemplo: “3 + 4” é uma expressão onde “3” e “4” são valores e “+” é um operador.
+<br></p>
 <p>Variáveis: São nomes que designam locais na memória para armazenar valores. Uma vez que um valor é atribuído a uma variável, a variável pode ser usada em expressões.</p>
-<p>Exemplo: “x = 5” (Aqui, “x” é uma variável e “5” é um valor. Depois disso, é possível usar “x” em expressões como “x + 2”.)</p>
+<p>Exemplo: “x = 5” (Aqui, “x” é uma variável e “5” é um valor. Depois disso, é possível usar “x” em expressões como “x + 2”.)
+<br></p>
 <p>Funções: são blocos de código reutilizáveis que realizam uma tarefa específica. Em expressões, funções podem ser usadas para processar valores e produzir resultados.</p>
-<p>Exemplo: “print(“Geoprocessamento com Python”)” (Aqui, “print” é uma função que exibe seu argumento.)</p>
+<p>Exemplo: “print(“Geoprocessamento com Python”)” (Aqui, “print” é uma função que exibe seu argumento.)
+<br></p>
 <p>Avaliação: Quando o Python encontra uma expressão, seja em um script ou no terminal interativo, ele avalia (ou calcula) a expressão e retorna um resultado.</p>
 <p>Exemplo: Na expressão “7 * 6”, o Python avaliará isso e retornará “42”.</p>
 </section>
@@ -803,14 +829,18 @@ Operadores: São símbolos que realizam operações sobre valores, como adição
 <section id="tipos-basicos-de-dados">
 <h2>2.2 Tipos básicos de dados<a class="headerlink" href="#tipos-basicos-de-dados" title="Permalink to this heading">#</a></h2>
 <p>Os tipos básicos de dados (figura 1), também conhecidos como tipos primitivos ou fundamentais, referem-se às categorias mais simples e fundamentais de informações que uma linguagem de programação pode representar e manipular diretamente. Em Python, os principais tipos básicos de dados são: Inteiros, Ponto Flutuante, Strings, Booleanos e Bytes. Esses tipos de dados são a base para a representação e manipulação de informações em Python. O entendimento desses tipos básicos é essencial, pois eles são frequentemente usados em combinação com as estruturas mais avançadas.</p>
+<p><img alt="Figura 1" src="_images/fig1.png" /></p>
 <p>Figura 1: Tipos básicos de dados em Python.</p>
 <section id="inteiros">
 <h3>2.2.1 Inteiros<a class="headerlink" href="#inteiros" title="Permalink to this heading">#</a></h3>
-<p>Inteiros são números sem uma parte fracionária, podendo ser positivos, negativos ou zero. Eles são fundamentais na matemática e na ciência da computação e são um dos tipos de dados primitivos mais comuns em linguagens de programação. Em Python, o tipo para inteiros é int.</p>
+<p>Inteiros são números sem uma parte fracionária, podendo ser positivos, negativos ou zero. Eles são fundamentais na matemática e na ciência da computação e são um dos tipos de dados primitivos mais comuns em linguagens de programação. Em Python, o tipo para inteiros é int.
+<br></p>
 <p><em>Características dos Inteiros:</em></p>
-<p>Natureza: não têm uma parte decimal. Podem ser tanto números positivos quanto negativos, incluindo o zero;</p>
-<p>Operações Básicas: Com inteiros, você pode realizar operações aritméticas padrão como adição, subtração, multiplicação e divisão (embora a divisão de dois inteiros, em muitas linguagens de programação modernas, possa resultar em um número de ponto flutuante);</p>
-<p>Tamanho e Limites: o tamanho (ou a quantidade de memória ocupada) por um inteiro pode variar, mas há um limite. Em versões recentes do Python, o tamanho dos inteiros é flexível e expande conforme necessário, mas é limitado pela quantidade de memória disponível.</p>
+<ul class="simple">
+<li><p>Natureza: não têm uma parte decimal. Podem ser tanto números positivos quanto negativos, incluindo o zero;</p></li>
+<li><p>Operações Básicas: Com inteiros, você pode realizar operações aritméticas padrão como adição, subtração, multiplicação e divisão (embora a divisão de dois inteiros, em muitas linguagens de programação modernas, possa resultar em um número de ponto flutuante);</p></li>
+<li><p>Tamanho e Limites: o tamanho (ou a quantidade de memória ocupada) por um inteiro pode variar, mas há um limite. Em versões recentes do Python, o tamanho dos inteiros é flexível e expande conforme necessário, mas é limitado pela quantidade de memória disponível.</p></li>
+</ul>
 <p>Exemplos:</p>
 <p>Definindo inteiros:</p>
 <div class="cell docutils container">
@@ -822,6 +852,7 @@ Operadores: São símbolos que realizam operações sobre valores, como adição
 </div>
 </div>
 </div>
+<br>
 <p>Imprimindo o tipo para confirmar que são inteiros:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -919,12 +950,15 @@ Operadores: São símbolos que realizam operações sobre valores, como adição
 </section>
 <section id="floats-numeros-de-ponto-flutuante">
 <h3>2.2.2 Floats (Números de Ponto Flutuante)<a class="headerlink" href="#floats-numeros-de-ponto-flutuante" title="Permalink to this heading">#</a></h3>
-<p>São números que têm uma parte decimal. Eles são usados para representar quantidades que não são inteiras. Em termos técnicos, “ponto flutuante” refere-se à maneira como estes números são representados internamente e a operações que podem ser realizadas com eles. Em Python, o tipo para números de ponto flutuante é float.</p>
+<p>São números que têm uma parte decimal. Eles são usados para representar quantidades que não são inteiras. Em termos técnicos, “ponto flutuante” refere-se à maneira como estes números são representados internamente e a operações que podem ser realizadas com eles. Em Python, o tipo para números de ponto flutuante é float.
+<br></p>
 <p><em>Características dos Floats:</em></p>
-<p>Natureza: Podem representar tanto números fracionários quanto inteiros;</p>
-<p>Precisão: Devido à maneira como os floats são armazenados e representados internamente, eles têm uma precisão limitada, o que pode levar a pequenas imprecisões em cálculos;</p>
-<p>Operações Básicas: Como os inteiros, os floats também suportam operações aritméticas padrão, como adição, subtração, multiplicação e divisão;</p>
-<p>Representação: Em algumas situações, números que parecem ser simples podem ter representações imprecisas quando armazenados como floats. Por exemplo, 0.1 pode não ser armazenado exatamente como 0.1 devido à maneira como os números de ponto flutuante são representados.</p>
+<ul class="simple">
+<li><p>Natureza: Podem representar tanto números fracionários quanto inteiros;</p></li>
+<li><p>Precisão: Devido à maneira como os floats são armazenados e representados internamente, eles têm uma precisão limitada, o que pode levar a pequenas imprecisões em cálculos;</p></li>
+<li><p>Operações Básicas: Como os inteiros, os floats também suportam operações aritméticas padrão, como adição, subtração, multiplicação e divisão;</p></li>
+<li><p>Representação: Em algumas situações, números que parecem ser simples podem ter representações imprecisas quando armazenados como floats. Por exemplo, 0.1 pode não ser armazenado exatamente como 0.1 devido à maneira como os números de ponto flutuante são representados.</p></li>
+</ul>
 <p>Exemplos:</p>
 <p>Definindo floats:</p>
 <div class="cell docutils container">
@@ -1030,6 +1064,7 @@ Operadores: São símbolos que realizam operações sobre valores, como adição
 </div>
 </div>
 </div>
+<br>
 <p><em>Conversão entre tipos numéricos: inteiro e float</em></p>
 <p>Em Python, é comum ser necessário converter valores entre diferentes tipos numéricos, especialmente entre int (números inteiros) e float (números de ponto flutuante). Para converter um número inteiro para um número de ponto flutuante, você pode usar a função float().</p>
 <div class="cell docutils container">
@@ -1046,6 +1081,7 @@ Operadores: São símbolos que realizam operações sobre valores, como adição
 </div>
 </div>
 </div>
+<br>
 <p><em>Conversão de float para int</em></p>
 <p>Para converter um número de ponto flutuante para um inteiro, você pode usar a função int(). É importante notar que essa conversão simplesmente descarta a parte decimal do número, sem arredondá-la.</p>
 <div class="cell docutils container">
@@ -1063,6 +1099,7 @@ Operadores: São símbolos que realizam operações sobre valores, como adição
 </div>
 </div>
 </div>
+<br>
 <p><em>Avisos:</em></p>
 <p>Ao converter de float para int, é importante lembrar que a parte decimal é truncada, não arredondada. Assim, 4.9 se tornará 4, e não 5.
 A conversão de um número muito grande ou muito pequeno pode resultar em imprecisões. Sempre esteja ciente das limitações da precisão do ponto flutuante ao trabalhar com conversões.</p>
@@ -1146,11 +1183,14 @@ A conversão de um número muito grande ou muito pequeno pode resultar em imprec
 </section>
 <section id="booleanos">
 <h3>2.2.3 Booleanos<a class="headerlink" href="#booleanos" title="Permalink to this heading">#</a></h3>
-<p>Os booleanos são um tipo de dado que representa uma das duas possíveis verdades: verdadeiro ou falso. Em Python, essas verdades são representadas pelas palavras-chave True (verdadeiro) e False (falso). O tipo booleano é fundamental em programação, pois muitas decisões e operações lógicas são baseadas em testes que resultam em um valor verdadeiro ou falso. Em Python, o tipo para valores booleanos é bool.</p>
+<p>Os booleanos são um tipo de dado que representa uma das duas possíveis verdades: verdadeiro ou falso. Em Python, essas verdades são representadas pelas palavras-chave True (verdadeiro) e False (falso). O tipo booleano é fundamental em programação, pois muitas decisões e operações lógicas são baseadas em testes que resultam em um valor verdadeiro ou falso. Em Python, o tipo para valores booleanos é bool.
+<br></p>
 <p><em>Características dos Booleanos:</em></p>
-<p>Simplicidade: Booleanos só têm dois possíveis valores: True ou False;</p>
-<p>Operações Lógicas: Os booleanos são frequentemente usados com operadores lógicos, como and, or, e not, para criar expressões mais complexas;</p>
-<p>Comparação: Operadores de comparação, como “==”, “!=”, “&lt;”, “&gt;”, “&lt;=”, e “&gt;=”, frequentemente resultam em valores booleanos.</p>
+<ul class="simple">
+<li><p>Simplicidade: Booleanos só têm dois possíveis valores: True ou False;</p></li>
+<li><p>Operações Lógicas: Os booleanos são frequentemente usados com operadores lógicos, como and, or, e not, para criar expressões mais complexas;</p></li>
+<li><p>Comparação: Operadores de comparação, como “==”, “!=”, “&lt;”, “&gt;”, “&lt;=”, e “&gt;=”, frequentemente resultam em valores booleanos.</p></li>
+</ul>
 <p>Exemplos de código:</p>
 <p>Definindo booleanos</p>
 <div class="cell docutils container">
@@ -1246,17 +1286,22 @@ A conversão de um número muito grande ou muito pequeno pode resultar em imprec
 </div>
 </div>
 <p>Estudaremos as instruções condicionais mais adiante em nosso curso. Em Python, muitos outros tipos de dados podem ser avaliados em um contexto booleano, significando que eles podem ser tratados como True ou False sob certas condições. Por exemplo:</p>
-<p>Valores numéricos 0 (zero) são tratados como False, enquanto outros valores numéricos são tratados como True;
-Coleções vazias (como listas, tuplas e strings vazias) são tratadas como False. Coleções não vazias são True;
-None é sempre tratado como False.</p>
+<ul class="simple">
+<li><p>Valores numéricos 0 (zero) são tratados como False, enquanto outros valores numéricos são tratados como True;</p></li>
+<li><p>Coleções vazias (como listas, tuplas e strings vazias) são tratadas como False. Coleções não vazias são True;</p></li>
+<li><p>None é sempre tratado como False.</p></li>
+</ul>
 </section>
 <section id="bytes">
 <h3>2.2.4 Bytes<a class="headerlink" href="#bytes" title="Permalink to this heading">#</a></h3>
-<p>Bytes são sequências imutáveis de inteiros pequenos no intervalo de 0 a 255. Eles são frequentemente usados para representar dados binários, como arquivos de imagem, áudio ou qualquer outro tipo de dado que não seja simplesmente texto. Em Python, dados do tipo byte são essenciais quando lidamos com operações de I/O (entrada e saída), especialmente quando os dados não são representáveis como strings de texto. Em Python, você pode criar bytes usando a sintaxe “b’’ ou com a função bytes().</p>
+<p>Bytes são sequências imutáveis de inteiros pequenos no intervalo de 0 a 255. Eles são frequentemente usados para representar dados binários, como arquivos de imagem, áudio ou qualquer outro tipo de dado que não seja simplesmente texto. Em Python, dados do tipo byte são essenciais quando lidamos com operações de I/O (entrada e saída), especialmente quando os dados não são representáveis como strings de texto. Em Python, você pode criar bytes usando a sintaxe “b’’ ou com a função bytes().
+<br></p>
 <p><em>Características dos Bytes:</em></p>
-<p>Imutabilidade: são imutáveis. Uma vez definidos, seus valores não podem ser alterados;</p>
-<p>Representação: são sequências de inteiros (byte literals) que variam de 0 a 255;</p>
-<p>Uso comum: Ideal para lidar com dados binários, como operações de I/O, comunicação de rede, arquivos binários, etc.</p>
+<ul class="simple">
+<li><p>Imutabilidade: são imutáveis. Uma vez definidos, seus valores não podem ser alterados;</p></li>
+<li><p>Representação: são sequências de inteiros (byte literals) que variam de 0 a 255;</p></li>
+<li><p>Uso comum: Ideal para lidar com dados binários, como operações de I/O, comunicação de rede, arquivos binários, etc.</p></li>
+</ul>
 <p>Exemplos de código:</p>
 <p>Criando bytes usando a sintaxe b’’</p>
 <div class="cell docutils container">
@@ -1329,9 +1374,12 @@ None é sempre tratado como False.</p>
 <section id="strings">
 <h3>2.2.5 Strings<a class="headerlink" href="#strings" title="Permalink to this heading">#</a></h3>
 <p>Strings em Python são sequências de caracteres que representam texto. São fundamentais em programação, pois permitem representar e manipular dados textuais, armazenar informações, exibir mensagens ao usuário, entre outras funções. Algumas das características das Strings são:</p>
-<p>Imutabilidade: Depois de definida, uma string não pode ter seu conteúdo alterado. Qualquer operação que “modifique” a string, na realidade, cria uma nova string com o conteúdo alterado;</p>
-<p>Indexação e fatiamento: Como as strings são sequências, podemos acessar seus caracteres por índices e fatiar sub-strings;</p>
-<p>Métodos integrados: Python fornece muitos métodos úteis para processar e manipular strings.</p>
+<ul class="simple">
+<li><p>Imutabilidade: Depois de definida, uma string não pode ter seu conteúdo alterado. Qualquer operação que “modifique” a string, na realidade, cria uma nova string com o conteúdo alterado;</p></li>
+<li><p>Indexação e fatiamento: Como as strings são sequências, podemos acessar seus caracteres por índices e fatiar sub-strings;</p></li>
+<li><p>Métodos integrados: Python fornece muitos métodos úteis para processar e manipular strings.
+<br></p></li>
+</ul>
 <p><em>Definição de Strings com o uso de aspas</em></p>
 <p>Strings podem ser definidas usando aspas simples, aspas duplas ou três aspas duplas (para strings de várias linhas). Todas essas formas são válidas e a escolha entre elas muitas vezes se resume a preferência pessoal ou à necessidade de incluir certos caracteres na string (por exemplo, se você quiser incluir um apóstrofo em uma string, pode ser mais fácil usar aspas duplas para definir a string).</p>
 <p>Definindo strings:</p>
@@ -1345,6 +1393,7 @@ None é sempre tratado como False.</p>
 </div>
 </div>
 </div>
+<br>
 <p>Imprimindo strings:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1383,9 +1432,11 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br>
 <p><em>Indexação de Strings</em></p>
 <p>Em Python, strings são sequências de caracteres. Cada caractere em uma string tem um índice associado a ele, começando em 0 para o primeiro caractere, 1 para o segundo, e assim por diante. Isso permite que você acesse caracteres específicos em uma string usando seu índice. Na figura 2, temos a string “Python” com sua indexação.</p>
-<p>Figura 2: Índice da string Python.</p>
+<p><img alt="Figura 2" src="_images/fig2.png" />
+Figura 2: Índice da string Python.</p>
 <p>Aqui estão algumas questões básicas relacionadas ao acesso de string por índice:</p>
 <p>Acessar um Caractere Específico:</p>
 <div class="cell docutils container">
@@ -1461,6 +1512,7 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br>
 <p><em>Imutabilidade de Strings</em></p>
 <p>Como vimos anteriormente, strings são consideradas objetos imutáveis em Python. Isso significa que, uma vez que uma string é criada, você não pode modificar diretamente seu conteúdo. Se você tentar reatribuir um valor a uma posição específica da string, você receberá um erro. Por exemplo, se você tentar alterar o primeiro caractere de nome para ‘C’, você receberá um TypeError, indicando que a operação não é permitida.</p>
 <div class="cell docutils container">
@@ -1470,6 +1522,7 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br> 
 <p><em>Concatenação de strings</em></p>
 <p>Concatenação é o processo de combinar duas ou mais strings para formar uma única string. Em Python, o operador “+” é usado para concatenar strings. Isso significa que ele combina as strings fornecidas para formar uma nova string.</p>
 <div class="cell docutils container">
@@ -1486,11 +1539,15 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br> 
 <p><em>Interpolação de Strings</em></p>
 <p>A interpolação de strings, particularmente usando f-strings (introduzida no Python 3.6), é uma maneira eficiente e legível de formatar strings. Ela permite que você incorpore expressões diretamente dentro de strings literais, usando {}. Os benefícios das f-strings incluem:</p>
-<p>Legibilidade: tornam o código mais legível, especialmente quando você tem múltiplas variáveis ou expressões a serem interpoladas em uma string;</p>
-<p>Performance: geralmente oferecem uma performance melhor em comparação com outras técnicas de formatação de string em Python;</p>
-<p>Flexibilidade: Você pode incorporar qualquer expressão válida do Python dentro das chaves {}, o que torna as f-strings versáteis.</p>
+<ul class="simple">
+<li><p>Legibilidade: tornam o código mais legível, especialmente quando você tem múltiplas variáveis ou expressões a serem interpoladas em uma string;</p></li>
+<li><p>Performance: geralmente oferecem uma performance melhor em comparação com outras técnicas de formatação de string em Python;</p></li>
+<li><p>Flexibilidade: Você pode incorporar qualquer expressão válida do Python dentro das chaves {}, o que torna as f-strings versáteis.
+<br></p></li>
+</ul>
 <p>Exemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1507,32 +1564,44 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 <p>Nesse código:</p>
-<p>Definimos uma variável valor_venda com o valor 30;</p>
-<p>Criamos uma f-string “mensagem_venda” onde incorporamos a variável “valor_venda” diretamente dentro da string usando chaves {}. Isso significa que o valor de “valor_venda” será inserido na posição onde {valor_venda} está na string;</p>
-<p>Usando a função print(), imprimimos o valor da variável “mensagem_venda” no console;</p>
-<p>Como “mensagem_venda” contém a string “O valor total da compra foi R$ 30.”, essa é a saída.</p>
+<p>a. Definimos uma variável valor_venda com o valor 30;</p>
+<p>b. Criamos uma f-string “mensagem_venda” onde incorporamos a variável “valor_venda” diretamente dentro da string usando chaves {}. Isso significa que o valor de “valor_venda” será inserido na posição onde {valor_venda} está na string;</p>
+<p>c. Usando a função print(), imprimimos o valor da variável “mensagem_venda” no console;</p>
+<p>d. Como “mensagem_venda” contém a string “O valor total da compra foi R$ 30.”, essa é a saída.
+<br><br></p>
 <p><em>Métodos integrados</em></p>
 <p>As strings em Python vêm com uma variedade de métodos integrados que permitem realizar operações comuns em strings sem a necessidade de escrever funções adicionais. Esses métodos são essencialmente funções que estão “ligadas” a objetos de string e podem ser chamados diretamente em qualquer string. Abaixo estão algumas das operações comuns e seus métodos correspondentes:</p>
 <p>Conversão de Caso:</p>
-<p>upper(): Converte todos os caracteres da string para maiúsculas.</p>
-<p>lower(): Converte todos os caracteres da string para minúsculas.</p>
-<p>capitalize(): Converte o primeiro caractere da string para maiúscula.</p>
-<p>title(): Converte o primeiro caractere de cada palavra para maiúscula.</p>
+<ul class="simple">
+<li><p>upper(): Converte todos os caracteres da string para maiúsculas.</p></li>
+<li><p>lower(): Converte todos os caracteres da string para minúsculas.</p></li>
+<li><p>capitalize(): Converte o primeiro caractere da string para maiúscula.</p></li>
+<li><p>title(): Converte o primeiro caractere de cada palavra para maiúscula.</p></li>
+</ul>
 <p>Verificação:</p>
-<p>startswith(substring): Retorna True se a string começar com a substring especificada.</p>
-<p>endswith(substring): Retorna True se a string terminar com a substring especificada.</p>
-<p>isalpha(): Retorna True se todos os caracteres da string forem letras.</p>
-<p>isdigit(): Retorna True se todos os caracteres da string forem dígitos.</p>
+<ul class="simple">
+<li><p>startswith(substring): Retorna True se a string começar com a substring especificada.</p></li>
+<li><p>endswith(substring): Retorna True se a string terminar com a substring especificada.</p></li>
+<li><p>isalpha(): Retorna True se todos os caracteres da string forem letras.</p></li>
+<li><p>isdigit(): Retorna True se todos os caracteres da string forem dígitos.</p></li>
+</ul>
 <p>Manipulação:</p>
-<p>replace(old, new): Substitui todas as ocorrências da substring old pela substring new.</p>
-<p>strip(): Remove espaços em branco (ou outros caracteres especificados) do início e do final da string.</p>
-<p>split(delimiter): Divide a string no delimiter especificado e retorna uma lista de substrings.</p>
+<ul class="simple">
+<li><p>replace(old, new): Substitui todas as ocorrências da substring old pela substring new.</p></li>
+<li><p>strip(): Remove espaços em branco (ou outros caracteres especificados) do início e do final da string.</p></li>
+<li><p>split(delimiter): Divide a string no delimiter especificado e retorna uma lista de substrings.</p></li>
+</ul>
 <p>Busca:</p>
-<p>find(substring): Retorna o índice da primeira ocorrência da substring. Se a substring não for encontrada, retorna “-1”.</p>
-<p>count(substring): Retorna o número de ocorrências não sobrepostas da substring na string original.</p>
+<ul class="simple">
+<li><p>find(substring): Retorna o índice da primeira ocorrência da substring. Se a substring não for encontrada, retorna “-1”.</p></li>
+<li><p>count(substring): Retorna o número de ocorrências não sobrepostas da substring na string original.</p></li>
+</ul>
 <p>Outros:</p>
-<p>join(iterable): Une um iterável (como uma lista) em uma única string usando a string como delimitador.</p>
-<p>len(string): Embora não seja exatamente um método de string, a função len() retorna o número de caracteres em uma string.</p>
+<ul class="simple">
+<li><p>join(iterable): Une um iterável (como uma lista) em uma única string usando a string como delimitador.</p></li>
+<li><p>len(string): Embora não seja exatamente um método de string, a função len() retorna o número de caracteres em uma string.
+<br></p></li>
+</ul>
 <p>Exemplos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1588,21 +1657,25 @@ importante no contexto do Geoprocessamento.
 <section id="estruturas-de-dados">
 <h2>2.3 Estruturas de dados<a class="headerlink" href="#estruturas-de-dados" title="Permalink to this heading">#</a></h2>
 <p>As estruturas de dados são formas organizadas e eficientes de armazenar, acessar e manipular conjuntos de dados. Elas definem a relação entre os dados e as operações que podem ser realizadas sobre eles. A escolha da estrutura de dados adequada é crucial para a implementação eficiente de algoritmos e pode impactar significativamente o desempenho e a usabilidade de um programa. As estruturas de dados (figura 3) que serão contempladas em nosso estudo são as Listas, as Tuplas, os Dicionários e os Conjuntos.</p>
-<p>Figura 3: Estruturas de dados em Python.</p>
+<p><img alt="Figura 3" src="_images/fig3.png" />
+Figura 3: Estruturas de dados em Python.</p>
 <p>As razões pelas quais as estruturas de dados são tão importantes incluem:</p>
-<p>Eficiência Computacional: Diferentes estruturas de dados têm diferentes custos em termos de tempo e espaço. Escolher a estrutura de dados certa pode permitir que os algoritmos operem mais rapidamente, economizando tempo de CPU e memória;</p>
-<p>Organização de Dados: Estruturas de dados permitem que os dados sejam organizados de forma a serem facilmente acessíveis. Por exemplo, um dicionário em Python permite recuperar um valor em tempo constante, dada uma chave;</p>
-<p>Facilita a Implementação de Algoritmos: Muitos algoritmos têm requisitos específicos quanto à forma como os dados devem ser armazenados para que funcionem corretamente e eficientemente. As estruturas de dados fornecem os meios para atender a esses requisitos;</p>
-<p>Flexibilidade: Com a variedade de estruturas de dados disponíveis, os programadores podem escolher a estrutura que melhor se adapta à natureza dos dados e às operações que precisam ser realizadas sobre eles;</p>
-<p>Redução de Complexidade: Usar a estrutura de dados apropriada pode reduzir a complexidade do código, tornando-o mais legível e fácil de manter;</p>
-<p>Abstração: Estruturas de dados geralmente vêm com operações padrão que podem ser realizadas sobre elas (como inserir, excluir, pesquisar). Isso permite voltar a atenção para o problema que se está tentando resolver ao invés de se preocupar com os detalhes de como essas operações são implementadas;</p>
-<p>Escalabilidade: À medida que os conjuntos de dados crescem, a importância de usar a estrutura de dados correta torna-se ainda mais crítica. Algumas estruturas que funcionam bem para pequenas quantidades de dados tornam-se impraticáveis em escala maior;</p>
-<p>Aprimoramento da Tomada de Decisões: Em aplicações de negócios e análise de dados, as estruturas de dados adequadas podem facilitar a análise de grandes conjuntos de dados, levando a decisões mais informadas.</p>
+<ul class="simple">
+<li><p>Eficiência Computacional: Diferentes estruturas de dados têm diferentes custos em termos de tempo e espaço. Escolher a estrutura de dados certa pode permitir que os algoritmos operem mais rapidamente, economizando tempo de CPU e memória;</p></li>
+<li><p>Organização de Dados: Estruturas de dados permitem que os dados sejam organizados de forma a serem facilmente acessíveis. Por exemplo, um dicionário em Python permite recuperar um valor em tempo constante, dada uma chave;</p></li>
+<li><p>Facilita a Implementação de Algoritmos: Muitos algoritmos têm requisitos específicos quanto à forma como os dados devem ser armazenados para que funcionem corretamente e eficientemente. As estruturas de dados fornecem os meios para atender a esses requisitos;</p></li>
+<li><p>Flexibilidade: Com a variedade de estruturas de dados disponíveis, os programadores podem escolher a estrutura que melhor se adapta à natureza dos dados e às operações que precisam ser realizadas sobre eles;</p></li>
+<li><p>Redução de Complexidade: Usar a estrutura de dados apropriada pode reduzir a complexidade do código, tornando-o mais legível e fácil de manter;</p></li>
+<li><p>Abstração: Estruturas de dados geralmente vêm com operações padrão que podem ser realizadas sobre elas (como inserir, excluir, pesquisar). Isso permite voltar a atenção para o problema que se está tentando resolver ao invés de se preocupar com os detalhes de como essas operações são implementadas;</p></li>
+<li><p>Escalabilidade: À medida que os conjuntos de dados crescem, a importância de usar a estrutura de dados correta torna-se ainda mais crítica. Algumas estruturas que funcionam bem para pequenas quantidades de dados tornam-se impraticáveis em escala maior;</p></li>
+<li><p>Aprimoramento da Tomada de Decisões: Em aplicações de negócios e análise de dados, as estruturas de dados adequadas podem facilitar a análise de grandes conjuntos de dados, levando a decisões mais informadas.</p></li>
+</ul>
 <section id="listas">
 <h3>2.3.1 Listas<a class="headerlink" href="#listas" title="Permalink to this heading">#</a></h3>
 <p>Listas são estruturas de dados fundamentais em programação que representam coleções ordenadas de itens. Em muitas linguagens, inclusive em Python, as listas são dinâmicas, o que significa que elas podem crescer ou diminuir em tamanho conforme necessário. Os itens em uma lista são organizados sequencialmente, permitindo que os usuários acessem cada elemento por meio de um índice, que é uma posição numérica na lista. Esta natureza ordenada torna as listas adequadas para tarefas que exigem a manutenção da ordem dos dados, como quando se precisa de uma sequência específica de elementos.</p>
 <p>As listas podem conter elementos de qualquer tipo, seja números, strings, ou até mesmo outras listas e objetos complexos. A mutabilidade é outra característica crucial das listas em Python. Isso significa que, após a criação de uma lista, é possível modificar seu conteúdo, adicionar novos itens ou remover itens existentes.</p>
-<p>No contexto do geoprocessamento, as listas desempenham papel essencial na manipulação e análise de dados geoespaciais. Por exemplo, uma lista pode ser usada para armazenar uma série de pontos que definem uma rota ou um caminho. Em análises de cobertura de terreno, listas podem conter amostras de elevações em pontos específicos para gerar perfis topográficos. Em sistemas de informações geográficas (SIG), ao trabalhar com múltiplas camadas de dados, como áreas urbanas, corpos d’água e vegetação, uma lista pode ser empregada para armazenar e iterar sobre essas camadas. Além disso, ao realizar análises de proximidade, as listas podem ser utilizadas para armazenar e comparar coordenadas de diferentes objetos, ajudando a determinar, por exemplo, todos os pontos de interesse dentro de uma determinada distância de uma estrada ou rio.</p>
+<p>No contexto do geoprocessamento, as listas desempenham papel essencial na manipulação e análise de dados geoespaciais. Por exemplo, uma lista pode ser usada para armazenar uma série de pontos que definem uma rota ou um caminho. Em análises de cobertura de terreno, listas podem conter amostras de elevações em pontos específicos para gerar perfis topográficos. Em sistemas de informações geográficas (SIG), ao trabalhar com múltiplas camadas de dados, como áreas urbanas, corpos d’água e vegetação, uma lista pode ser empregada para armazenar e iterar sobre essas camadas. Além disso, ao realizar análises de proximidade, as listas podem ser utilizadas para armazenar e comparar coordenadas de diferentes objetos, ajudando a determinar, por exemplo, todos os pontos de interesse dentro de uma determinada distância de uma estrada ou rio.
+<br></p>
 <p><em>Criação de listas</em></p>
 <p>Listas são criadas colocando uma sequência de valores separados por vírgulas entre colchetes. Exemplos:</p>
 <div class="cell docutils container">
@@ -1645,8 +1718,11 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br>
 <p><em>Acessando os elementos da lista</em></p>
-<p>Acesso pelo Índice:</p>
+<ul class="simple">
+<li><p>Acesso pelo Índice:</p></li>
+</ul>
 <p>As listas são indexadas por números inteiros, começando por 0 para o primeiro item.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1685,6 +1761,7 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br>
 <p>Acesso com Índices Negativos:</p>
 <p>Os índices negativos permitem acessar a lista do final para o começo.</p>
 <div class="cell docutils container">
@@ -1704,18 +1781,20 @@ importante no contexto do Geoprocessamento.
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penultimo_registro</span> <span class="o">=</span> <span class="n">numeros</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">penultimo_registro</span><span class="p">)</span>  <span class="c1"># Saída: Uruguai</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">penultimo_pais</span> <span class="o">=</span> <span class="n">pais</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">penultimo_pais</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>4
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Uruguai
 </pre></div>
 </div>
 </div>
 </div>
-<p>Fatiamento:</p>
+<ul class="simple">
+<li><p>Fatiamento:</p></li>
+</ul>
 <p>O fatiamento é uma técnica em Python que permite acessar uma subseção (ou “fatia”) de uma lista. A sintaxe geral do fatiamento é <code class="docutils literal notranslate"><span class="pre">`lista[início:fim:passo]`</span></code>, onde “início” é o índice inicial da fatia, “fim” é o índice onde a fatia termina (exclusivo) e “passo” é o intervalo entre os itens da fatia. Vejamos alguns exemplos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1780,7 +1859,9 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Acesso múltiplo (ou desempacotamento):</p>
+<ul class="simple">
+<li><p>Acesso múltiplo (ou desempacotamento):</p></li>
+</ul>
 <p>Permite atribuir vários elementos de uma lista (ou tupla) a variáveis diferentes em uma única linha. Suponha que temos uma lista representando dados sobre uma cidade: nome da cidade, latitude e longitude.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1789,6 +1870,7 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
+<br>
 <p>Agora, vamos usar o desempacotamento para acessar múltiplos elementos da lista. É importante garantir que o número de variáveis à esquerda da atribuição corresponda ao número de elementos que você está tentando desempacotar da lista. Se houver uma discrepância, o Python lançará um erro.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1810,7 +1892,10 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Acesso por funções Built-in:</p>
+<br>
+<ul class="simple">
+<li><p>Acesso por funções Built-in:</p></li>
+</ul>
 <p>Podemos acessar os dados de uma lista utilizando funções do Python. Funções comumente utilizadas são len(), max() e min():</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1855,10 +1940,14 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Apresentamos nesta seção alguns conceitos básicos sobre a criação de listas e acesso aos seus elementos em Python. Mais adiante, veremos como acessar listar por iteração. Outro conceito importante que será estudado é o de “List comprehension”.</p>
-<p>Modificação de listas: adição e remoção de elementos</p>
-<p>As listas são mutáveis, o que significa que podemos alterar seus elementos após a criação. No contexto de modificar listas, há duas operações fundamentais: adicionar e remover elementos. Adicionar elementos pode envolver a inclusão de um único item, anexando-o ao final da lista, ou inserindo-o em uma posição específica. Também é possível juntar duas listas, expandindo uma com os elementos da outra. Por outro lado, a remoção de elementos pode se referir à exclusão de um item específico, independentemente de sua posição, ou à retirada de um item com base em sua posição. A capacidade de manipular listas dessa maneira oferece uma flexibilidade imensa, sendo um pilar central na manipulação de dados em Python.</p>
-<p>Adicionando elementos a uma lista:</p>
+<p>Apresentamos nesta seção alguns conceitos básicos sobre a criação de listas e acesso aos seus elementos em Python. Mais adiante, veremos como acessar listar por iteração. Outro conceito importante que será estudado é o de “List comprehension”.
+<br></p>
+<p><em>Modificação de listas: adição e remoção de elementos</em></p>
+<p>As listas são mutáveis, o que significa que podemos alterar seus elementos após a criação. No contexto de modificar listas, há duas operações fundamentais: adicionar e remover elementos. Adicionar elementos pode envolver a inclusão de um único item, anexando-o ao final da lista, ou inserindo-o em uma posição específica. Também é possível juntar duas listas, expandindo uma com os elementos da outra. Por outro lado, a remoção de elementos pode se referir à exclusão de um item específico, independentemente de sua posição, ou à retirada de um item com base em sua posição. A capacidade de manipular listas dessa maneira oferece uma flexibilidade imensa, sendo um pilar central na manipulação de dados em Python.
+<br></p>
+<ul class="simple">
+<li><p>Adicionando elementos a uma lista:</p></li>
+</ul>
 <p>Método append(): Adiciona um item ao final da lista.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1919,7 +2008,9 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Removendo elementos de uma lista:</p>
+<ul class="simple">
+<li><p>Removendo elementos de uma lista:</p></li>
+</ul>
 <p>Método remove(): Remove a primeira ocorrência do valor especificado.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1967,9 +2058,12 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Operações comuns: ordenamento, fatiamento, concatenação, repetição, membership.</p>
+<p><em>Operações comuns: ordenamento, fatiamento, concatenação, repetição, membership.</em></p>
 <p>No geoprocessamento, frequentemente trabalhamos com conjuntos de dados que precisam ser manipulados, analisados e transformados. As listas em Python oferecem várias operações comuns que são extremamente úteis neste contexto. Vamos explorar algumas delas com exemplos.</p>
-<p>Ordenamento: Listas podem ser ordenadas para obter uma sequência crescente ou decrescente. Exemplo: Suponha que temos uma lista de altitudes de diferentes locais e queremos ordená-las.</p>
+<ul class="simple">
+<li><p>Ordenamento:</p></li>
+</ul>
+<p>Listas podem ser ordenadas para obter uma sequência crescente ou decrescente. Exemplo: Suponha que temos uma lista de altitudes de diferentes locais e queremos ordená-las.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">altitudes</span> <span class="o">=</span> <span class="p">[</span><span class="mi">312</span><span class="p">,</span> <span class="mi">980</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">1235</span><span class="p">,</span> <span class="mi">910</span><span class="p">]</span>
@@ -1998,7 +2092,10 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Fatiamento (Slicing): O fatiamento permite obter subconjuntos de uma lista. Exemplo: Se tivermos uma lista de coordenadas e quisermos obter apenas as três primeiras:</p>
+<ul class="simple">
+<li><p>Fatiamento (Slicing):</p></li>
+</ul>
+<p>O fatiamento permite obter subconjuntos de uma lista. Exemplo: Se tivermos uma lista de coordenadas e quisermos obter apenas as três primeiras:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">coordenadas</span> <span class="o">=</span> <span class="p">[(</span><span class="mf">12.34</span><span class="p">,</span> <span class="mf">56.78</span><span class="p">),</span> <span class="p">(</span><span class="mf">23.45</span><span class="p">,</span> <span class="mf">67.89</span><span class="p">),</span> <span class="p">(</span><span class="mf">34.56</span><span class="p">,</span> <span class="mf">78.90</span><span class="p">),</span> <span class="p">(</span><span class="mf">45.67</span><span class="p">,</span> <span class="mf">89.01</span><span class="p">)]</span>
@@ -2013,7 +2110,10 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Concatenação: Podemos combinar listas para criar uma nova. Exemplo: Se tivermos duas listas de cidades e quisermos juntá-las:</p>
+<ul class="simple">
+<li><p>Concatenação:</p></li>
+</ul>
+<p>Podemos combinar listas para criar uma nova. Exemplo: Se tivermos duas listas de cidades e quisermos juntá-las:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">cidades_A</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Manaus&#39;</span><span class="p">,</span> <span class="s1">&#39;Fortaleza&#39;</span><span class="p">]</span>
@@ -2029,7 +2129,10 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Repetição: Listas podem ser repetidas usando o operador “*”. Exemplo: Criar uma lista de valores padrão para a qualidade do solo em diversas regiões:</p>
+<ul class="simple">
+<li><p>Repetição:</p></li>
+</ul>
+<p>Listas podem ser repetidas usando o operador “*”. Exemplo: Criar uma lista de valores padrão para a qualidade do solo em diversas regiões:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">qualidade_padrao</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;fértil&#39;</span><span class="p">]</span> <span class="o">*</span> <span class="mi">4</span>
@@ -2043,7 +2146,10 @@ importante no contexto do Geoprocessamento.
 </div>
 </div>
 </div>
-<p>Membership: Podemos verificar se um elemento pertence a uma lista usando a palavra-chave “in”. Exemplo: Verificar se uma determinada cidade está em nossa lista de cidades monitoradas:</p>
+<ul class="simple">
+<li><p>Membership:</p></li>
+</ul>
+<p>Podemos verificar se um elemento pertence a uma lista usando a palavra-chave “in”. Exemplo: Verificar se uma determinada cidade está em nossa lista de cidades monitoradas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">resultado</span> <span class="o">=</span> <span class="s1">&#39;Rio de Janeiro&#39;</span> <span class="ow">in</span> <span class="n">cidades_A</span>
@@ -2061,21 +2167,28 @@ importante no contexto do Geoprocessamento.
 <section id="tuplas">
 <h3>2.3.2 Tuplas<a class="headerlink" href="#tuplas" title="Permalink to this heading">#</a></h3>
 <p>As tuplas são uma das estruturas de dados em Python que permitem armazenar uma coleção ordenada de itens. Assim como as listas, as tuplas podem conter elementos de tipos diferentes. No entanto, há algumas diferenças importantes entre listas e tuplas:</p>
-<p>Imutabilidade: Uma vez que uma tupla é criada, você não pode modificar seus elementos. Isso significa que você não pode adicionar, remover ou alterar elementos após a tupla ser definida. Essa imutabilidade faz das tuplas uma escolha segura para representar coleções de dados que não devem ser alteradas durante a execução de um programa;</p>
-<p>Sintaxe: Tuplas são geralmente definidas colocando os elementos entre parênteses (), enquanto listas usam colchetes.</p>
-<p>Uso: Devido à sua natureza imutável, as tuplas são frequentemente usadas em situações em que é necessário garantir que os dados não sejam modificados. Alguns exemplos incluem:</p>
-<p>Chaves em dicionários: Em Python, as chaves de um dicionário devem ser imutáveis, tornando as tuplas uma opção adequada para chaves compostas.</p>
-<p>Retorno de múltiplos valores de funções: É comum usar tuplas para retornar múltiplos valores de uma função.</p>
-<p>Armazenar dados que não devem ser alterados: Se você tem uma coleção de valores que nunca devem ser alterados durante a vida útil do programa (por exemplo, constantes), as tuplas são uma opção natural.</p>
+<ul class="simple">
+<li><p>Imutabilidade: Uma vez que uma tupla é criada, você não pode modificar seus elementos. Isso significa que você não pode adicionar, remover ou alterar elementos após a tupla ser definida. Essa imutabilidade faz das tuplas uma escolha segura para representar coleções de dados que não devem ser alteradas durante a execução de um programa;</p></li>
+<li><p>Sintaxe: Tuplas são geralmente definidas colocando os elementos entre parênteses (), enquanto listas usam colchetes.</p></li>
+<li><p>Uso: Devido à sua natureza imutável, as tuplas são frequentemente usadas em situações em que é necessário garantir que os dados não sejam modificados. Alguns exemplos incluem:</p>
+<ul>
+<li><p>Chaves em dicionários: Em Python, as chaves de um dicionário devem ser imutáveis, tornando as tuplas uma opção adequada para chaves compostas.</p></li>
+<li><p>Retorno de múltiplos valores de funções: É comum usar tuplas para retornar múltiplos valores de uma função.</p></li>
+<li><p>Armazenar dados que não devem ser alterados: Se você tem uma coleção de valores que nunca devem ser alterados durante a vida útil do programa (por exemplo, constantes), as tuplas são uma opção natural.</p></li>
+</ul>
+</li>
+</ul>
 <p>No contexto do geoprocessamento, as tuplas desempenham vários papéis importantes, aproveitando sua natureza imutável e ordenada. Aqui estão algumas maneiras de como as tuplas podem ser aplicadas:</p>
-<p>Coordenadas Geográficas: As tuplas são uma escolha natural para representar pontos no espaço, como coordenadas (latitude, longitude). Sua natureza imutável garante que as coordenadas de um ponto específico não sejam modificadas acidentalmente.
-Dados matriciais: Em análises de dados matriciais, cada pixel pode ser representado por uma tupla que denota seu valor em várias bandas (por exemplo, bandas de imagem de satélite).</p>
-<p>Atributos Compostos: Em muitos Sistemas de Informações Geográficas (SIG), os atributos associados a um objeto podem ser armazenados como tuplas. Por exemplo, um objeto representando um edifício pode ter um atributo que é uma tupla contendo (número de andares, área, ano de construção).</p>
-<p>Chaves Únicas: No geoprocessamento, frequentemente, trabalhamos com bancos de dados espaciais. Quando se deseja criar chaves compostas para tabelas, as tuplas podem ser usadas para representar combinações únicas de diferentes colunas.</p>
-<p>Retorno de Funções: Muitas funções em bibliotecas de geoprocessamento podem retornar múltiplos valores. Por exemplo, uma função que calcula a distância e o ângulo entre dois pontos retornaria ambos os valores como uma tupla.</p>
-<p>Definição de Extensões Espaciais: Em algumas operações, como cortar ou recortar um dataset, é necessário definir a extensão espacial (bounding box). Isso pode ser representado por uma tupla de valores mínimos e máximos (xmin, ymin, xmax, ymax).</p>
-<p>Especificação de Parâmetros: Muitas operações geoespaciais exigem um conjunto de parâmetros que não mudam durante a operação. Uma tupla pode armazenar esses valores de maneira confiável.</p>
-<p>Criação de tuplas</p>
+<ul class="simple">
+<li><p>Coordenadas Geográficas: As tuplas são uma escolha natural para representar pontos no espaço, como coordenadas (latitude, longitude). Sua natureza imutável garante que as coordenadas de um ponto específico não sejam modificadas acidentalmente.</p></li>
+<li><p>Dados matriciais: Em análises de dados matriciais, cada pixel pode ser representado por uma tupla que denota seu valor em várias bandas (por exemplo, bandas de imagem de satélite).</p></li>
+<li><p>Atributos Compostos: Em muitos Sistemas de Informações Geográficas (SIG), os atributos associados a um objeto podem ser armazenados como tuplas. Por exemplo, um objeto representando um edifício pode ter um atributo que é uma tupla contendo (número de andares, área, ano de construção).</p></li>
+<li><p>Chaves Únicas: No geoprocessamento, frequentemente, trabalhamos com bancos de dados espaciais. Quando se deseja criar chaves compostas para tabelas, as tuplas podem ser usadas para representar combinações únicas de diferentes colunas.</p></li>
+<li><p>Retorno de Funções: Muitas funções em bibliotecas de geoprocessamento podem retornar múltiplos valores. Por exemplo, uma função que calcula a distância e o ângulo entre dois pontos retornaria ambos os valores como uma tupla.</p></li>
+<li><p>Definição de Extensões Espaciais: Em algumas operações, como cortar ou recortar um dataset, é necessário definir a extensão espacial (bounding box). Isso pode ser representado por uma tupla de valores mínimos e máximos (xmin, ymin, xmax, ymax).</p></li>
+<li><p>Especificação de Parâmetros: Muitas operações geoespaciais exigem um conjunto de parâmetros que não mudam durante a operação. Uma tupla pode armazenar esses valores de maneira confiável.</p></li>
+</ul>
+<p><em>Criação de tuplas</em></p>
 <p>A criação de tuplas pode ser realizada de acordo com os exemplos a seguir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2117,7 +2230,7 @@ Dados matriciais: Em análises de dados matriciais, cada pixel pode ser represen
 </div>
 </div>
 </div>
-<p>Acessando os elementos de uma tupla</p>
+<p><em>Acessando os elementos de uma tupla</em></p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>O acesso aos elementos de uma tupla em Python é feito de maneira análoga às listas. Seja por índice, acesso negativo, fatiamento, desempacotamento, uso de funções built-in ou loops, as técnicas usadas para acessar os elementos são as mesmas para ambas as estruturas de dados. A seguir temos um exemplo de acessos aos elementos da tupla “temperaturas”.
 </pre></div>
 </div>
@@ -2220,7 +2333,7 @@ Dados matriciais: Em análises de dados matriciais, cada pixel pode ser represen
 </div>
 </div>
 </div>
-<p>Conversão entre listas e tuplas</p>
+<p><em>Conversão entre listas e tuplas</em></p>
 <p>A conversão entre listas e tuplas é uma tarefa comum e fácil de realizar em Python. Tanto é possível converter uma lista em uma tupla quanto converter uma tupla em uma lista, conforme exemplos a seguir:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -2267,34 +2380,45 @@ Dados matriciais: Em análises de dados matriciais, cada pixel pode ser represen
 </div>
 </div>
 <p>Essas conversões são úteis quando você tem uma tupla, mas precisa modificar alguns de seus elementos (o que não pode ser feito diretamente, pois as tuplas são imutáveis) ou quando você tem uma lista e quer garantir que seus elementos não sejam alterados acidentalmente em outra parte do código.  No entanto, é importante observar que essas operações criam novas instâncias de objetos e não alteram as originais. Então, se você modificar a nova lista criada a partir de uma tupla, a tupla original permanecerá inalterada e vice-versa.</p>
-<p>Como escolher entre a utilização de tuplas ou de listas?</p>
+<p><em>Como escolher entre a utilização de tuplas ou de listas?</em></p>
 <p>Escolher entre tuplas e listas em Python geralmente depende do contexto e da intenção do uso. Aqui estão algumas diretrizes para ajudá-lo a decidir:</p>
 <p>a) Imutabilidade:</p>
 <p>Tuplas: São imutáveis. Uma vez que você cria uma tupla, não pode alterar seus elementos ou seu tamanho. Isso é útil quando você quer garantir que os dados permaneçam constantes e não sejam alterados acidentalmente em qualquer parte do programa.</p>
-<p>Listas: São mutáveis. Você pode modificar, adicionar ou remover elementos de uma lista após sua criação.</p>
+<p>Listas: São mutáveis. Você pode modificar, adicionar ou remover elementos de uma lista após sua criação.
+<br><br></p>
 <p>b) Semântica:</p>
 <p>Tuplas: Em muitos contextos, tuplas são usadas para representar coleções de itens heterogêneos (por exemplo, coordenadas (x, y), dados de um banco (nome, idade, endereço)). Elas geralmente têm um número fixo de elementos, cada um com um significado específico.</p>
-<p>Listas: São geralmente usadas para coleções homogêneas de itens, onde cada item tem o mesmo tipo e significado (por exemplo, uma lista de números, uma lista de nomes).</p>
+<p>Listas: São geralmente usadas para coleções homogêneas de itens, onde cada item tem o mesmo tipo e significado (por exemplo, uma lista de números, uma lista de nomes).
+<br><br></p>
 <p>c) Desempenho:</p>
 <p>Tuplas: Como são imutáveis, tuplas podem ser ligeiramente mais rápidas do que listas em certas operações, como iteração.</p>
-<p>Listas: Devido à sua natureza mutável, operações que alteram a lista (como adicionar ou remover elementos) podem ter um custo de desempenho.</p>
+<p>Listas: Devido à sua natureza mutável, operações que alteram a lista (como adicionar ou remover elementos) podem ter um custo de desempenho.
+<br><br></p>
 <p>d) Uso em dicionários:</p>
 <p>Tuplas: Podem ser usadas como chaves em dicionários, devido à sua imutabilidade.</p>
-<p>Listas: Não podem ser usadas como chaves em dicionários, porque são mutáveis.</p>
+<p>Listas: Não podem ser usadas como chaves em dicionários, porque são mutáveis.
+<br><br></p>
 <p>e) Intenção:</p>
 <p>Tuplas: Transmitir ao leitor do código que a coleção não deve ser modificada.</p>
-<p>Listas: Indicar que a coleção pode ser modificada, e que funções ou métodos que alteram listas podem ser aplicados.</p>
+<p>Listas: Indicar que a coleção pode ser modificada, e que funções ou métodos que alteram listas podem ser aplicados.
+<br><br></p>
 <p>f) Espaço em memória:</p>
-<p>Tuplas: Podem ser mais eficientes em termos de espaço em relação às listas, porque não têm o overhead adicional associado à mutabilidade das listas.</p>
+<p>Tuplas: Podem ser mais eficientes em termos de espaço em relação às listas, porque não têm o overhead adicional associado à mutabilidade das listas.
+<br><br></p>
 <p>Na prática, use tuplas para:</p>
-<p>Representar coleções imutáveis de itens;</p>
-<p>Atuar como chaves em dicionários;</p>
-<p>Garantir que os dados não sejam modificados acidentalmente;</p>
-<p>Retornar múltiplos valores de funções.</p>
+<ul class="simple">
+<li><p>Representar coleções imutáveis de itens;</p></li>
+<li><p>Atuar como chaves em dicionários;</p></li>
+<li><p>Garantir que os dados não sejam modificados acidentalmente;</p></li>
+<li><p>Retornar múltiplos valores de funções.
+<br><br></p></li>
+</ul>
 <p>Use listas para:</p>
-<p>Representar coleções que podem requerer alterações;</p>
-<p>Realizar diversas operações como inserção, remoção, etc.;</p>
-<p>Armazenar coleções de dados que são dinâmicos por natureza.</p>
+<ul class="simple">
+<li><p>Representar coleções que podem requerer alterações;</p></li>
+<li><p>Realizar diversas operações como inserção, remoção, etc.;</p></li>
+<li><p>Armazenar coleções de dados que são dinâmicos por natureza.</p></li>
+</ul>
 </section>
 <section id="dicionarios">
 <h3>2.3.3 Dicionários<a class="headerlink" href="#dicionarios" title="Permalink to this heading">#</a></h3>
@@ -2798,7 +2922,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;polígono&#39;, &#39;linha&#39;, &#39;ponto&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;linha&#39;, &#39;ponto&#39;, &#39;polígono&#39;}
 </pre></div>
 </div>
 </div>
@@ -4219,7 +4343,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-02 07:11:36.952439
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-04 11:30:35.717367
 </pre></div>
 </div>
 </div>
@@ -4233,7 +4357,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-02
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-04
 </pre></div>
 </div>
 </div>
@@ -4263,7 +4387,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>70
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>72
 </pre></div>
 </div>
 </div>
@@ -4277,7 +4401,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-07
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-09
 </pre></div>
 </div>
 </div>

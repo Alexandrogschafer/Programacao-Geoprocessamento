@@ -1252,7 +1252,7 @@ Exemplo 1: Criar uma visualização interativa das localizações das hidrelétr
 # Importar as bibliotecas, ler o arquivo shapefile e criar o GeoDataFrame
 import geopandas as gpd
 import folium
-gdf_hsp = gpd.read_file('/home/alexandro/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp')
+gdf_hsp = gpd.read_file('/home/alexandro/geopythonbook/content/28_hidreletricas_SP/hidreletricas_sp.shp')
 
 
 #nCalcular a latitude e longitude médias das geometrias no GeoDataFrame

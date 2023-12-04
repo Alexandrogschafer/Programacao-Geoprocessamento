@@ -1433,6 +1433,12 @@ data = {
     'geometry': [b1, b2]
 }
 gdf1 = gpd.GeoDataFrame(data)
+
+gdf1.head()
+```
+
+```{code-cell} python
+gdf1.plot()
 ```
 
 ```{code-cell} python
@@ -1444,49 +1450,32 @@ data2 = {
     'geometry': [b3, b4]
 }
 gdf2 = gpd.GeoDataFrame(data2)
+
+gdf2.head()
 ```
 
 ```{code-cell} python
-gdf1
+gdf2.plot(color='red')
 ```
-
-```{code-cell} python
-gdf2
-```
-
 
 
 O código abaixo configura a visualização dos GeoDataFrames em uma única área de plotagem:
 
-```{code-cell} python
-ax = gdf1['geometry'].plot(color='blue', alpha=0.5)
-gdf2['geometry'].plot(ax=ax, color='red', alpha=0.5)
-```
 
-mesmo codigo acima, mas para aparecer os nomes das geometrias
 ```{code-cell} python
 ax = gdf1.plot(color='blue', alpha=0.5)
 gdf2.plot(ax=ax, color='red', alpha=0.5)
-```
 
-Função para obter coordenadas representativas para anotação
-```{code-cell} python
 def get_coords(geom):
-    if geom.type == 'Point':
+    if geom.geom_type == 'Point':
         return geom.x, geom.y
     else:
         return geom.centroid.x, geom.centroid.y
-```
 
-Adicionando anotações para gdf1
-```{code-cell} python
 for geom, label in zip(gdf1.geometry, gdf1['nome']):
     x, y = get_coords(geom)
     ax.text(x, y, label)
-```
-    
-Adicionando anotações para gdf2
-```{code-cell} python
+
 for geom, label in zip(gdf2.geometry, gdf2['nome']):
     x, y = get_coords(geom)
     ax.text(x, y, label)
@@ -1518,7 +1507,7 @@ Este código verifica se cada geometria em gs1 tem interseção com alguma geome
 
 Vamos tentar visualizar o GeoDataFrame:
 ```
-resultado.plot()
+# resultado.plot()
 
 Saída: TypeError: no numeric data to plot
 ```
@@ -1557,15 +1546,13 @@ O código abaixo possibilita a plotagem do resultado da aplicação do sjoin.
 
 ```{code-cell} python
 import matplotlib.pyplot as plt
-# Plotar o GeoDataFrame 'join'
 ax = cons_int_sjoin.plot(edgecolor='k', color='whitesmoke')
-# Anotar cada polígono com o valor da coluna 'nome_left'
 for x, y, label_left, label_right in zip(cons_int_sjoin.geometry.centroid.x, 
     cons_int_sjoin.geometry.centroid.y, cons_int_sjoin['nome_left'], 
     cons_int_sjoin['nome_right']):
     ax.annotate(label_left, xy=(x, y), xytext=(3,3), 
         textcoords='offset points', color='blue')
-    ax.annotate(label_right, xy=(x, y), xytext=(3,-15), 
+    ax.annotate(label_right, xy=(x, y), xytext=(15,3), 
         textcoords='offset points', color='red')
 plt.show()
 ```
@@ -1579,6 +1566,19 @@ cons_int_sjoin2.head()
 ```
 
 Note que, agora, as geometrias originais de gdf2 que são preservadas (figura x). Contudo, informações adicionais de gdf1 são anexadas às linhas correspondentes de gdf2 onde ocorre a interseção. Especificamente, os polígonos "PA" e "PB" de gdf1 tem interseção com as geometrias "PC" e "PD" de gdf2, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin2, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf2 e incorporando informações relevantes de gdf1 onde as interseções ocorrem.
+
+```{code-cell} python
+import matplotlib.pyplot as plt
+ax = cons_int_sjoin2.plot(edgecolor='k', color='whitesmoke')
+for x, y, label_left, label_right in zip(cons_int_sjoin2.geometry.centroid.x, 
+    cons_int_sjoin2.geometry.centroid.y, cons_int_sjoin2['nome_left'], 
+    cons_int_sjoin2['nome_right']):
+    ax.annotate(label_left, xy=(x, y), xytext=(3,3), 
+        textcoords='offset points', color='blue')
+    ax.annotate(label_right, xy=(x, y), xytext=(3,-15), 
+        textcoords='offset points', color='red')
+plt.show()
+```
 
 
 d) Intersection com operação de Overlay
@@ -1595,8 +1595,6 @@ Nesse código, gpd.overlay(...) é o método do Geopandas usado para realizar op
 
 ```{code-cell} python
 ax = cons_int_overlay.plot(edgecolor='k', color='whitesmoke')
-
-# Anotar cada polígono com o valor da coluna 'nome_left'
 for x, y, label_left, label_right in zip(cons_int_overlay.geometry.centroid.x,
     cons_int_overlay.geometry.centroid.y, cons_int_overlay['nome_1'], cons_int_overlay['nome_2']):
     ax.annotate(label_left, xy=(x, y), xytext=(3,3), textcoords='offset points', color='blue')
@@ -1615,19 +1613,28 @@ cons_int_overlay2 = gpd.overlay(gdf2, gdf1, how='intersection')
 cons_int_overlay2
 ```
 
+```{code-cell} python
+ax = cons_int_overlay2.plot(edgecolor='k', color='whitesmoke')
+for x, y, label_left, label_right in zip(cons_int_overlay2.geometry.centroid.x,
+    cons_int_overlay2.geometry.centroid.y, cons_int_overlay2['nome_1'], cons_int_overlay2['nome_2']):
+    ax.annotate(label_left, xy=(x, y), xytext=(3,3), textcoords='offset points', color='blue')
+    ax.annotate(label_right, xy=(x, y), xytext=(3,-15), textcoords='offset points', color='red')
+
+plt.show()
+```
 
 Podemos verificar que, em termos de geometria, a interseção entre gdf1 e gdf2 será a mesma que a interseção entre gdf2 e gdf1. No entanto, a ordem dos atributos no resultado é diferente. Enquanto cons_int_overlay tem os atributos de gdf1 seguidos pelos de gdf2 para cada geometria de interseção, cons_int_overlay2 tem os atributos de gdf2 seguidos pelos de gdf1. Desta maneira, é possível concluir que a ordem em que GeoDataFrames são fornecidos ao método overlay influenciam a ordem dos atributos no GeoDataFrame resultante, mas não a geometria da interseção.
 
 
 Conclusões:
 
-Intersects é usado para verificar a interseção sem realmente computar a geometria resultante;
+- Intersects é usado para verificar a interseção sem realmente computar a geometria resultante;
 
-Intersection computa a geometria resultante da interseção;
+- Intersection computa a geometria resultante da interseção;
 
-Intersects com Sjoin: Mantém os registros do GeoDataFrame à esquerda (primeiro mencionado na operação) que têm alguma interseção com os registros do GeoDataFrame à direita. As geometrias do GeoDataFrame à esquerda são mantidas intactas. Não são alteradas para representar a interseção em si;
+- Intersects com Sjoin: Mantém os registros do GeoDataFrame à esquerda (primeiro mencionado na operação) que têm alguma interseção com os registros do GeoDataFrame à direita. As geometrias do GeoDataFrame à esquerda são mantidas intactas. Não são alteradas para representar a interseção em si;
 
-Intersection com Overlay: Cria registros que representam a interseção geométrica entre os registros dos dois GeoDataFrames fornecidos. As geometrias resultantes são as áreas de interseção entre os registros dos dois GeoDataFrames. Ou seja, são as partes que os registros dos dois GeoDataFrames têm em comum.
+- Intersection com Overlay: Cria registros que representam a interseção geométrica entre os registros dos dois GeoDataFrames fornecidos. As geometrias resultantes são as áreas de interseção entre os registros dos dois GeoDataFrames. Ou seja, são as partes que os registros dos dois GeoDataFrames têm em comum.
 
 
 #### 5.6.5.4 Junções Espaciais (Spatial Joins)
@@ -1636,17 +1643,17 @@ A junção espacial (Sjoin) é uma ferramenta que permite a combinação de info
 
 Os parâmetros principais em uma Sjoin são:
 
-how: Tipo de junção a ser realizada. Pode ser uma das seguintes opções: "left", "right" ou "inner".
+- how: Tipo de junção a ser realizada. Pode ser uma das seguintes opções: "left", "right" ou "inner".
 
-op: Operação espacial a ser usada. As opções são: "contains", "within" e "intersects".
+- op: Operação espacial a ser usada. As opções são: "contains", "within" e "intersects".
 
 O parâmetro how em sjoin (e em muitas outras operações de junção em bibliotecas como Pandas) determina como as linhas dos dois GeoDataFrames serão combinadas com base na relação espacial especificada. Ele especifica qual tipo de junção será realizado. Vamos analisar cada uma das opções:
 
-"left" (junção à esquerda): Mantém todas as linhas do GeoDataFrame à esquerda, independentemente de haver uma correspondência no GeoDataFrame à direita. As linhas que não têm correspondência no GeoDataFrame à direita terão NaN (valor ausente) para todas as colunas desse GeoDataFrame;
+- "left" (junção à esquerda): Mantém todas as linhas do GeoDataFrame à esquerda, independentemente de haver uma correspondência no GeoDataFrame à direita. As linhas que não têm correspondência no GeoDataFrame à direita terão NaN (valor ausente) para todas as colunas desse GeoDataFrame;
 
-"right" (junção à direita): Mantém todas as linhas do GeoDataFrame à direita, independentemente de haver uma correspondência no GeoDataFrame à esquerda. As linhas que não têm correspondência no GeoDataFrame à esquerda terão NaN para todas as colunas desse GeoDataFrame;
+- "right" (junção à direita): Mantém todas as linhas do GeoDataFrame à direita, independentemente de haver uma correspondência no GeoDataFrame à esquerda. As linhas que não têm correspondência no GeoDataFrame à esquerda terão NaN para todas as colunas desse GeoDataFrame;
 
-"inner" (junção interna): Mantém apenas as linhas para as quais há uma correspondência entre os dois GeoDataFrames. Ou seja, as linhas no resultado só estarão presentes se houver uma relação espacial válida entre elas (por exemplo, um ponto está dentro de um polígono) em ambos os conjuntos de dados. Linhas sem correspondência em qualquer GeoDataFrame serão descartadas.
+- "inner" (junção interna): Mantém apenas as linhas para as quais há uma correspondência entre os dois GeoDataFrames. Ou seja, as linhas no resultado só estarão presentes se houver uma relação espacial válida entre elas (por exemplo, um ponto está dentro de um polígono) em ambos os conjuntos de dados. Linhas sem correspondência em qualquer GeoDataFrame serão descartadas.
 
 Se pensarmos nos GeoDataFrames como se fossem tabelas. As opções "left", "right" e "inner" determinam quais linhas (registros) dessas tabelas estarão presentes no resultado, após a operação de junção. Se você estiver familiarizado com bancos de dados SQL, esses conceitos de junção à esquerda, à direita e interna são semelhantes aos LEFT JOIN, RIGHT JOIN e INNER JOIN, respectivamente.
 
@@ -1714,8 +1721,27 @@ As operações de sobreposição, ou "overlay", desempenham um importante papel 
 
 Vamos aplicar cada uma delas no conjunto de dados utilizado na seção anterior: os GeoDataFrames gdf1 (polígonos PA e PB) e gdf 2 (polígonos PC e PD):
 
+```{code-cell} python
+ax = gdf1.plot(color='blue', alpha=0.5)
+gdf2.plot(ax=ax, color='red', alpha=0.5)
 
-Overlay com union
+def get_coords(geom):
+    if geom.geom_type == 'Point':
+        return geom.x, geom.y
+    else:
+        return geom.centroid.x, geom.centroid.y
+
+for geom, label in zip(gdf1.geometry, gdf1['nome']):
+    x, y = get_coords(geom)
+    ax.text(x, y, label)
+
+for geom, label in zip(gdf2.geometry, gdf2['nome']):
+    x, y = get_coords(geom)
+    ax.text(x, y, label)
+```
+
+
+*Overlay com union*
 
 Essa operação combina as geometrias dos dois conjuntos de dados. Isso inclui todas as áreas de ambos os conjuntos de dados, independentemente de se sobreporem ou não.
 
@@ -1729,7 +1755,7 @@ uniao.plot()
 ```
 
 
-Overlay com difference
+*Overlay com difference*
 
 Essa operação retorna as geometrias do primeiro conjunto de dados que não são compartilhadas com o segundo conjunto de dados. Em outras palavras, remove as áreas do segundo conjunto de dados que se sobrepõem ao primeiro.
 
@@ -1750,8 +1776,11 @@ diferenca2 = gpd.overlay(gdf2, gdf1, how='difference')
 diferenca2.head()
 ```
 
+```{code-cell} python
+diferenca2.plot()
+```
 
-Overlay com symmetric_difference
+*Overlay com symmetric_difference*
 
 Essa operação retorna as geometrias que são exclusivas para cada um dos conjuntos de dados. É o oposto da interseção, mantendo apenas as áreas que não se sobrepõem.
 

@@ -1283,18 +1283,9 @@ df = pd.read_excel('caminho_do_arquivo.xlsx')
 ```
 
 Exemplos:
-Considere um arquivo do Excel denominado paises_america_sul_central, com duas planilhas (figura x): américa_central e américa_sul. 
+Considere um arquivo do Excel denominado paises_america_sul_central, com duas planilhas (figura 4): américa_central e américa_sul. 
 
-| País        | Área   | População |
-|-------------|--------|-----------|
-| Belize      | 22966  | 294385    |
-| Costa Rica  | 51100  |4133884   |
-| El Salvador | 21041  |6948073   |
-| Guatemala   | 108889 |15472156  |
-| Honduras    | 112492 |8098263   |
-| Nicarágua   | 130373 |6082447   |
-| Panamá      | 75417  |3694190   |
-
+![Figura 4](images/fig4.png)
 
 Figura 4: Planilhas do excel com dados de países das Américas do Sul e Central.
 

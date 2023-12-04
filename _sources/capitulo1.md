@@ -95,41 +95,58 @@ Em síntese, a área do geoprocessamento vem sendo profundamente influenciada pe
 ### 1.3.1 Ecossistema Python em geoprocessamento 
 
 Especificamente para o contexto do Geoprocessamento, o Python oferece um conjunto de ferramentas que permitem lidar com uma ampla variedade de tarefas, desde a manipulação e análise de dados geoespaciais até a visualização e integração com sistemas de SIG. Vamos explorar este ecossistema em mais detalhe:
+<br><br>
 
 *Manipulação e Análise de Dados Vetoriais:*
+
 - Geopandas: Extensão do Pandas para a manipulação de dados geoespaciais. Permite trabalhar com dados espaciais de forma semelhante a como os dados tabulares são manipulados com o Pandas. Usa Fiona para ler e escrever dados. Armazena geometrias como objetos shapely. Inclui funções para análises geospaciais. Recursos para plotagem básica.
 - Shapely: Fornece operações e manipulações de geometria planar. É a base da manipulação geométrica em muitas outras bibliotecas.
 - Fiona: Para leitura e escrita de dados vetoriais (similar ao GDAL, mas com uma interface mais "pythonica").
+<br><br>
 
 *Manipulação e Análise de Dados matriciais:*
+
 - Rasterio: Facilita a leitura, escrita e manipulação de dados raster. É uma interface Python para o GDAL para trabalhar com dados no Numpy.
 - Pyproj: Fornece interfaces Python para PROJ, que é uma biblioteca usada para transformações entre sistemas de coordenadas geográficas.
+<br><br>
 
 *Funções de Processamento Geoespacial:*
+
 - GDAL (Geospatial Data Abstraction Library): É uma biblioteca de baixo nível para ler e escrever formatos de dados espaciais, e inclui muitas utilidades para transformação e processamento.
+<br>
 
 *Estatísticas Espaciais e Análise Avançada:*
+
 - PySAL (Python Spatial Analysis Library): Oferece uma suíte de ferramentas para análise espacial, incluindo estatísticas espaciais, econometria espacial e visualização.
+<br>
 
 *Visualização:*
+
 - mplleaflet é uma extensão que converte gráficos Matplotlib em visualizações de mapas interativos usando Leaflet.
 - Folium: Biblioteca que facilita a visualização de dados em um mapa interativo baseado em Leaflet.
 - GeoViews é construído sobre Bokeh e HoloViews para oferecer visualizações geoespaciais fáceis e interativas.
 - ipyleaflet: Uma extensão interativa do Jupyter para a visualização de mapas baseada na biblioteca Leaflet. É excelente para análise geoespacial em Notebooks Jupyter.
+<br>
 
 *Integração com Sistemas GIS:*
+
 - ArcPy: Módulo Python do software ArcGIS que permite a automação de tarefas e a extensão das funcionalidades do ArcGIS usando Python.
 - QGIS Python API (PyQGIS): Permite automação e extensão das funcionalidades do QGIS usando Python.
+<br>
 
 *Desenvolvimento Web e Bancos de Dados Espaciais:*
+
 - GeoDjango: Um módulo do framework web Django que facilita a criação de aplicações web geoespaciais.
 - GeoAlchemy: Extensão do SQLAlchemy para trabalhar com bancos de dados espaciais.
 - PostGIS: Extensão espacial para PostgreSQL que permite o armazenamento e a manipulação de informações geográficas.
+<br>
 
 *Outras Ferramentas e Bibliotecas:*
+
 - Cartopy: Usado para mapeamento e projeções geográficas, particularmente útil para visualização de dados em mapas.
 - OWSLib: Para interagir com serviços web geoespaciais.
 - Geopy: Para geocodificação, geolocalização e outras tarefas relacionadas.
+<br>
 
 Além dessas bibliotecas específicas, bibliotecas comumente usadas no dia a dia do geoprocessamento são:
 
@@ -147,33 +164,46 @@ Essas bibliotecas fornecem uma base sólida para trabalhar com dados geoespaciai
 As IDEs (Integrated Development Environments) e ambientes de desenvolvimento em Python são fundamentais para facilitar e otimizar o fluxo de trabalho dos desenvolvedores. Essas plataformas oferecem um conjunto integrado de ferramentas que auxiliam desde a escrita do código, com recursos como realce de sintaxe e autocompletar, até a depuração e teste de aplicações. 
 
 Ao longo dos anos, a comunidade Python desenvolveu e aprimorou uma variedade de IDEs e ambientes, cada um com suas peculiaridades e vantagens, atendendo a diferentes necessidades e estilos de programação. Escolher o ambiente certo pode significativamente o desenvolvimento e melhorar a qualidade do código produzido. A seguir, exploraremos alguns dos ambientes e ferramentas mais populares usados para trabalhar com Python.
+<br>
 
-Ambiente de Linha de Comando (CLI):
+*Ambiente de Linha de Comando (CLI):*
+
 - Terminal Python (Python Shell): Este é o REPL (Read-Eval-Print Loop) padrão do Python, acessível digitando python ou python3 no terminal ou prompt de comando.
 - IPython: versão aprimorada do terminal Python padrão, oferecendo recursos como auto-completar, histórico avançado e capacidade de visualização.
+<br>
 
-Jupyter e Ambientes Relacionados:
+*Jupyter e Ambientes Relacionados:*
+
 - Jupyter Notebook: plataforma de desenvolvimento integrado (IDE) que une a edição de código à visualização imediata de seus resultados.
 - JupyterLab: interface de usuário baseada na web que fornece uma extensão do Jupyter Notebook, com uma área de trabalho mais flexível e recursos adicionais.
 - Google Colab: Baseado no Jupyter Notebook, é uma plataforma de notebooks oferecida pelo Google com GPU gratuita e integração com o Google Drive. Será utilizado para o desenvolvimento de nosso curso.
+<br>
 
-Ambientes de Desenvolvimento Integrado (IDEs):
+*Ambientes de Desenvolvimento Integrado (IDEs):*
+
 - PyCharm: IDE popular da JetBrains específico para Python, com recursos avançados como depuração, testes unitários e integração com sistemas de controle de versão.
 - Visual Studio Code (VS Code): editor de código leve, mas poderoso da Microsoft com suporte ao Python através de extensões. Ele possui recursos como depuração, linting e Git integrado.
 - Spyder: IDE com foco em análise de dados, frequentemente comparada ao MATLAB ou RStudio, mas para Python.
+<br>
 
-Ambientes Virtuais e Gerenciadores de Pacotes:
+*Ambientes Virtuais e Gerenciadores de Pacotes:*
+
 - venv: ferramenta padrão para criar ambientes virtuais em Python.
 - virtualenv: ferramenta externa que oferece mais funcionalidades do que o venv.
 - conda: gerenciador de pacotes e ambiente, frequentemente associado à distribuição Anaconda. É particularmente útil para ciência de dados e projetos que necessitam de bibliotecas não-Python.
+<br>
 
-Editores de Texto com Suporte ao Python:
+*Editores de Texto com Suporte ao Python:*
+
 - Sublime Text: editor de texto rápido e altamente personalizável com um pacote chamado "Anaconda" (não confundir com a distribuição de Python) que fornece funcionalidade IDE-like para Python.
 - Atom: editor de texto open-source desenvolvido pelo GitHub que pode ser transformado em um ambiente Python completo através de pacotes e extensões.
+<br>
 
-Outros IDEs:
+*Outros IDEs:*
+
 - Eclipse com PyDev: IDE popular para várias linguagens, e PyDev é um plugin que adiciona suporte para desenvolvimento Python.
 - Thonny: IDE para iniciantes, focado em ensinar programação em Python.
+<br>
 
 A escolha de um ambiente específico frequentemente se resume a preferências pessoais, natureza do projeto e experiência anterior. Em muitos casos, é comum utilizar mais de um ambiente e/ou ferramenta.
 
@@ -195,7 +225,7 @@ Algumas das principais características e funcionalidades do Jupyter Notebook:
 - Reprodutibilidade: Ao detalhar cada etapa da análise, os notebooks promovem práticas de ciência reprodutível. Outros pesquisadores ou colegas podem seguir o mesmo processo, entender as decisões tomadas e até reproduzir os resultados.
 - Integração com Big Data: O Jupyter pode ser integrado com plataformas de big data como Apache Spark, permitindo análises em grandes conjuntos de dados diretamente a partir do notebook.
 
-
+<br><br>
 *Google Colaboratory*
 
 O Google Colaboratory, conhecido como "Google Colab", é um serviço gratuito do Google que oferece um ambiente Jupyter Notebook na nuvem. Ele permite desenvolver, executar e compartilhar códigos em Python diretamente pelo navegador, sem necessidade de configuração prévia. Essa facilidade torna o Colab atraente para iniciantes em análise de dados e geoprocessamento, assim como para pesquisadores e desenvolvedores interessados em colaboração e experimentação rápida.

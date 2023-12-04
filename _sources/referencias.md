@@ -13,7 +13,7 @@ kernelspec:
 ---
 
 
-# REFERÊNCIAS BIBLIOGRÁFICAS:
+# REFERÊNCIAS BIBLIOGRÁFICAS
 
 
 CONTEXTILY DEVELOPERS. Contextily Reference Guide. Disponível em: <https://contextily.readthedocs.io/en/latest/reference.html>. Acesso em: 02/10/2023.
