@@ -2,8 +2,9 @@ Programação para Geoprocessamento
 =================================
 
 
-Este livro é uma introdução ao geoprocessamento utilizando linguagem de programação, mais especificamente a linguagem Python. É destinado a estudantes e profissionais que desejam explorar e analisar dados geoespaciais. Utilizando o ambiente do Google Colaboratory, o livro oferece uma abordagem prática e acessível, permitindo aos leitores trabalhar com exemplos reais e aplicáveis no mundo do geoprocessamento.
+Este livro é uma introdução ao geoprocessamento utilizando linguagem de programação, mais especificamente a linguagem Python. É destinado a estudantes e profissionais que desejam explorar e analisar dados geoespaciais. Utilizando o ambiente do Google Colaboratory, o livro oferece uma abordagem prática e acessível, permitindo aos leitores trabalhar com exemplos reais e aplicáveis na área do geoprocessamento.
 
+O livro foi especialmente elaborado para o curso de pós-graduação lato sensu em Geoprocessamento da Universidade Federal do ABC (UFABC), uma especialização oferecida na modalidade de Ensino à Distância (EaD), no âmbito do programa Universidade Aberta do Brasil (UAB) da Coordenação de Aperfeiçoamento de Pessoal de Nível Superior (CAPES).
 
 O Capítulo 1 traz uma breve discussão sobre a aplicação e a relevância da programação no contexto do geoprocessamento, apresentando a linguagem de programação Python. 
 
