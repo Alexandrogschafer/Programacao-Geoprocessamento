@@ -173,7 +173,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo4.html">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
@@ -3692,7 +3691,7 @@ Sintaxe básica:</p>
 <p>Exemplo 2: Ler somente determinadas colunas de um arquivo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;País&#39;</span><span class="p">,</span> <span class="s1">&#39;Área&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv&#39;</span><span class="p">,</span> <span class="n">usecols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;País&#39;</span><span class="p">,</span> <span class="s1">&#39;Área&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -3753,7 +3752,7 @@ Sintaxe básica:</p>
 <p>Exemplo 3: Ler um arquivo e interpretar a coluna ‘data’ como data.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Independência&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv&#39;</span><span class="p">,</span> <span class="n">parse_dates</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Independência&#39;</span><span class="p">])</span>
 <span class="n">df</span><span class="o">.</span><span class="n">dtypes</span>
 </pre></div>
 </div>
@@ -3800,7 +3799,7 @@ dtype: object
 <p>Nesta tabela, temos diversos dados ausentes, representados por diferentes valores. Para que o Pandas os interprete como valores ausentes, podemos utilizar o método na_values() quando da leitura do arquivo CSV:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;N/A&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv&#39;</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;NA&#39;</span><span class="p">,</span> <span class="s1">&#39;N/A&#39;</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">],</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3871,7 +3870,7 @@ Considere um arquivo do Excel denominado paises_america_sul_central, com duas pl
 <p>Para importar os dados somente da planilha america_central:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx&#39;</span><span class="p">,</span> 
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx&#39;</span><span class="p">,</span> 
     <span class="n">sheet_name</span><span class="o">=</span><span class="s1">&#39;america_central&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -3881,7 +3880,7 @@ Considere um arquivo do Excel denominado paises_america_sul_central, com duas pl
 <p>Também é possível ler várias planilhas de um arquivo Excel com apenas um script:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;//home/alexandro/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;america_sul&#39;</span><span class="p">,</span> <span class="s1">&#39;america_central&#39;</span><span class="p">])</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfs</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx&#39;</span><span class="p">,</span> <span class="n">sheet_name</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;america_sul&#39;</span><span class="p">,</span> <span class="s1">&#39;america_central&#39;</span><span class="p">])</span>
 </pre></div>
 </div>
 </div>

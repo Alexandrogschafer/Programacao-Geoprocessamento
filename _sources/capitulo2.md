@@ -2615,8 +2615,13 @@ Escrevendo em um arquivo
 Se você abrir um arquivo em modo de escrita ou anexação, pode escrever dados nele.
 
 ```{code-cell} python
-with open('/home/alexandro/geopythonbook/content/exemplo.txt', 'w') as file:
+import os
+home_dir = os.path.expanduser("~")
+file_path = os.path.join(home_dir, 'geopythonbook/content/exemplo.txt')
+
+with open(file_path, 'w') as file:
     file.write('Olá, Mundo!')
+
 ```
 
 Lendo um arquivo
@@ -2625,7 +2630,7 @@ Depois de abrir ou criar um arquivo em modo de leitura, você pode ler seu conte
 
 ```{code-cell} python
 
-with open('/home/alexandro/geopythonbook/content/exemplo.txt', 'r') as file:
+with open(file_path, 'r') as file:
     conteudo = file.read()
     print(conteudo)
 ```
@@ -2635,7 +2640,7 @@ Fechando um arquivo
 Após a leitura, escrita ou ambas, é essencial fechar o arquivo.
 
 ```{code-cell} python
-file2 = open('/home/alexandro/geopythonbook/content/exemplo.txt', 'r')
+file2 = open(file_path, 'r')
 file2.close()
 
 ```
@@ -2776,13 +2781,13 @@ horario = time(14, 47, 5)
 ```{code-cell} python
 # Diferença entre datas (timedelta)
 diferenca = hoje - data_especifica
-print(diferenca.days)  # Saída:0 (pois são a mesma data no exemplo_
+print(diferenca.days)  
 ```
 
 ```{code-cell} python
 # Adicionando 5 dias à data atual
 daqui_a_cinco_dias = hoje + timedelta(days=5)
-print(daqui_a_cinco_dias)  # Ex: 2023-09-28
+print(daqui_a_cinco_dias)  
 ```
 
 ## 2.9 Gerenciamento e Tratamento de Exceções em Python

@@ -46,7 +46,7 @@ with fiona.open('capitais_br.shp', 'w', driver='ESRI Shapefile', crs=from_epsg(4
 During handling of the above exception, another exception occurred:
 
 [0;31mCRSError[0m                                  Traceback (most recent call last)
-[0;32m/tmp/ipykernel_5315/2240429878.py[0m in [0;36m<module>[0;34m[0m
+[0;32m/tmp/ipykernel_6912/2240429878.py[0m in [0;36m<module>[0;34m[0m
 [1;32m      1[0m [0;31m# Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como 'capitais_br.shp'. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.[0m[0;34m[0m[0;34m[0m[0m
 [1;32m      2[0m [0;34m[0m[0m
 [0;32m----> 3[0;31m [0;32mwith[0m [0mfiona[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m'capitais_br.shp'[0m[0;34m,[0m [0;34m'w'[0m[0;34m,[0m [0mdriver[0m[0;34m=[0m[0;34m'ESRI Shapefile'[0m[0;34m,[0m [0mcrs[0m[0;34m=[0m[0mfrom_epsg[0m[0;34m([0m[0;36m4326[0m[0;34m)[0m[0;34m,[0m [0mschema[0m[0;34m=[0m[0mesquema[0m[0;34m)[0m [0;32mas[0m [0mlayer[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m

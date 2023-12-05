@@ -71,11 +71,11 @@ y = [0, 1, 4, 9, 16]
 Duas listas são criadas. A lista x representará os valores no eixo horizontal (eixo x), enquanto a lista y representará os valores no eixo vertical (eixo y). 
 
 
-plt.plot(x, y)
+``` plt.plot(x, y) ```
 
-O método plot do pyplot é usado para plotar as listas x e y como um gráfico de linhas. Por padrão, o Matplotlib traçará uma linha contínua azul ligando os pontos definidos pelas listas x e y. Este comando exibe o gráfico criado (figura 74):
+O método plot do pyplot é usado para plotar as listas x e y como um gráfico de linhas. Por padrão, o Matplotlib traçará uma linha contínua azul ligando os pontos definidos pelas listas x e y. Este comando exibe o gráfico criado:
 
-plt.show()
+``` plt.show() ```
 
 
 Exemplo 2:
@@ -103,7 +103,7 @@ Esta é a chamada principal para a criação do gráfico de barras. A função b
 
 ``` plt.show() ```
 
-Por fim, esta linha exibe o gráfico. Ela é responsável por renderizar o gráfico e mostrá-lo ao usuário (figura 75):
+Por fim, esta linha exibe o gráfico. Ela é responsável por renderizar o gráfico e mostrá-lo ao usuário:
 
 Exemplo 3:
 
@@ -201,15 +201,15 @@ Ao ajustar esses elementos básicos, já é possível criar gráficos mais infor
 
 Rótulos, títulos e legendas
 
-Os rótulos, títulos e legendas são componentes essenciais em visualizações de dados, pois proporcionam contexto e significado, facilitando a interpretação dos gráficos. Vejamos um exemplo na figura 82:
+Os rótulos, títulos e legendas são componentes essenciais em visualizações de dados, pois proporcionam contexto e significado, facilitando a interpretação dos gráficos. Vejamos um exemplo:
 
 
 
-Rótulos: são usados para dar nome aos eixos (x e y) de um gráfico.
+- Rótulos: são usados para dar nome aos eixos (x e y) de um gráfico.
 
-Títulos: uma descrição breve e concisa que indica o propósito ou o conteúdo do gráfico.
+- Títulos: uma descrição breve e concisa que indica o propósito ou o conteúdo do gráfico.
 
-Legendas: usadas para identificar as diferentes séries ou categorias em um gráfico, especialmente útil quando várias linhas, pontos ou barras são desenhadas no mesmo espaço.
+- Legendas: usadas para identificar as diferentes séries ou categorias em um gráfico, especialmente útil quando várias linhas, pontos ou barras são desenhadas no mesmo espaço.
 
 A partir dos elementos apresentados até aqui, podemos sugerir uma estrutura básica para criar um gráfico no Matplotlib:
 
@@ -222,7 +222,7 @@ plt.legend()
 plt.show()
 ```
 
-Esse é o código para gerar o gráfico da figura 82. Vamos detalhar cada componente:
+Vamos detalhar cada componente:
 
 plt.plot(x, y, label='Legenda') é a função principal para plotar gráficos de linhas. Ela toma os valores do eixo x e y como entrada e os plota. O argumento label é usado para associar uma legenda a essa linha específica, o que será útil quando chamarmos plt.legend() mais tarde. Podemos ter diversos outros argumentos, como os responsáveis pela definição de cores, marcadores, tipo e espessura de linhas, entre outros;
 
@@ -255,7 +255,7 @@ plt.legend()
 plt.show()
 ```
 
-Nosso exemplo consiste em um gráfico de linhas (figura 83), em que utilizamos a estrutura básica sugerida anteriormente para a criação de gráficos no Matplotlib. Adicionamos plt.text(x, y, ‘texto’) para inserir o texto “Texto de exemplo” na posição x=1 e y=1.5.
+Nosso exemplo consiste em um gráfico de linhas, em que utilizamos a estrutura básica sugerida anteriormente para a criação de gráficos no Matplotlib. Adicionamos plt.text(x, y, ‘texto’) para inserir o texto “Texto de exemplo” na posição x=1 e y=1.5.
 
 
 Vamos agora plotar um gráfico com duas linhas.
@@ -304,7 +304,7 @@ fig, axs = plt.subplots(2, 3)
 # Cria uma grade de 2x3 subplots
 ```
 
-Aqui, axs é uma matriz 2x3 contendo os eixos dos subplots. Você pode acessar um subplot específico usando a indexação, como ``` axs[0, 1] ``` para o subplot na primeira linha e segunda coluna. A área gráfica gerada é apresentada na figura 86.
+Aqui, axs é uma matriz 2x3 contendo os eixos dos subplots. Você pode acessar um subplot específico usando a indexação, como ``` axs[0, 1] ``` para o subplot na primeira linha e segunda coluna.
 
 
 Ajustando o Espaçamento
@@ -428,7 +428,7 @@ O código completo para ler o arquivo e criar o gráfico é:
 import pandas as pd
 import matplotlib.pyplot as plt
 
-df_precipitacao = pd.read_csv('/home/alexandro/geopythonbook/content/23_estacao_a827/precipitacao_A827.csv')
+df_precipitacao = pd.read_csv('~/geopythonbook/content/23_estacao_a827/precipitacao_A827.csv')
 df_precipitacao.head()
 ```
 
@@ -445,14 +445,12 @@ plt.show()
 ```
 
 
-Figura 92: Precipitação na estação climatológica INMET A827 entre 2021 e 2023.
-
 Vamos analisar o código por partes:
 
 ```
 import pandas as pd
 import matplotlib.pyplot as plt
-df_precipitacao = pd.read_csv('/home/alexandro/geopythonbook/content/23_estacao_a827/precipitacao_A827.csv')
+df_precipitacao = pd.read_csv('~/geopythonbook/content/23_estacao_a827/precipitacao_A827.csv')
 df_precipitacao.head()
 ```
  
@@ -490,7 +488,7 @@ Ajusta automaticamente o layout da figura para garantir que tudo seja exibido co
 
 ``` plt.show() ```
 
-Exibe a figura (figura x). Se você estiver usando um Jupyter Notebook ou um ambiente IPython, a figura será exibida diretamente abaixo da célula que contém o código. Em outros ambientes, isso pode abrir uma janela com a figura.
+Exibe a figura. Se você estiver usando um Jupyter Notebook ou um ambiente IPython, a figura será exibida diretamente abaixo da célula que contém o código. Em outros ambientes, isso pode abrir uma janela com a figura.
 
 
 ### 6.1.6 Exportando Gráficos
@@ -558,7 +556,7 @@ Com o Geopandas, é possível realizar a plotagem básica de dados geográficos 
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 gdf_uf.plot()
 ```
 
@@ -742,8 +740,8 @@ Vamos criar uma plotagem das rodovias do estado de Sergipe sobrepostas a geometr
 import geopandas as gdf_gpd
 import matplotlib.pyplot as plt
 
-gdf_sergipe = gpd.read_file('/home/alexandro/geopythonbook/content/24_sergipe/sergipe_UF.shp')
-gdf_rodovias = gpd.read_file('/home/alexandro/geopythonbook/content/24_sergipe/sergipe_rodo.shp')
+gdf_sergipe = gpd.read_file('~/geopythonbook/content/24_sergipe/sergipe_UF.shp')
+gdf_rodovias = gpd.read_file('~/geopythonbook/content/24_sergipe/sergipe_rodo.shp')
 
 # Criar uma figura e eixos com Matplotlib
 fig, ax = plt.subplots(figsize=(10, 10))
@@ -830,7 +828,7 @@ Inicialmente, vamos importar as bibliotecas, ler o arquivo shapefile e plotar as
 import geopandas as gpd
 import matplotlib.pyplot as plt
 
-gdf_sc = gpd.read_file('/home/alexandro/geopythonbook/content/25_censo_SC/censo_mun_sc.shp')
+gdf_sc = gpd.read_file('~/geopythonbook/content/25_censo_SC/censo_mun_sc.shp')
 gdf_sc.head()
 ```
 
@@ -977,9 +975,9 @@ import geopandas as gpd
 import matplotlib.pyplot as plt
 
 # Leitura dos arquivos
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
-gdf_bio = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/biomas.shp')
-gdf_hid = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/regioes_hidro.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_bio = gpd.read_file('~/geopythonbook/content/26_biomas_reghidro/biomas.shp')
+gdf_hid = gpd.read_file('~/geopythonbook/content/26_biomas_reghidro/regioes_hidro.shp')
 
 # Criando uma figura com três subplots (um ao lado do outro)
 fig, axs = plt.subplots(1, 3, figsize=(15, 5))
@@ -1037,9 +1035,9 @@ Agora vamos alterar o código, adicionando as configurações de texto, legendas
 
 ```{code-cell} python
 
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
-gdf_bio = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/biomas.shp')
-gdf_hid = gpd.read_file('/home/alexandro/geopythonbook/content/26_biomas_reghidro/regioes_hidro.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_bio = gpd.read_file('~/geopythonbook/content/26_biomas_reghidro/biomas.shp')
+gdf_hid = gpd.read_file('~/geopythonbook/content/26_biomas_reghidro/regioes_hidro.shp')
 
 # Criando uma figura e três eixos
 fig, axs = plt.subplots(nrows=1, ncols=3, figsize=(15, 5))
@@ -1151,12 +1149,12 @@ Abaixo apresentamos alguns exemplos de estilos de mapas base:
 
 | OpenStreetMap.Mapnik | Stamen.Watercolor |
 |----------------------|-------------------|
-| ![Figura 22](images/fig22.png)           | ![Figura 23](images/fig23.png)         |
+| ![Figura 23](images/fig23.png)           | ![Figura 24](images/fig24.png)         |
 
 
 | Esri.DeLorme | NASAGIBS.ASTER_GDEM_Greyscale_Shaded_Relief |
 |--------------|---------------------------------------------|
-| ![Figura 24](images/fig24.png)     | ![Figura 25](images/fig25.png)                                    |
+| ![Figura 25](images/fig25.png)     | ![Figura 26](images/fig26.png)                                    |
 
 
 
@@ -1180,7 +1178,7 @@ import contextily as ctx
 import matplotlib.pyplot as plt
 
 # Carregar o GeoDataFrame
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/27_floripa/floripa.shp')
+gdf = gpd.read_file('~/geopythonbook/content/27_floripa/floripa.shp')
 gdf.plot()
 ```
 
@@ -1246,7 +1244,7 @@ Exemplo 1: Criar uma visualização interativa das localizações das hidrelétr
 # Importar as bibliotecas, ler o arquivo shapefile e criar o GeoDataFrame
 import geopandas as gpd
 import folium
-gdf_hsp = gpd.read_file('/home/alexandro/geopythonbook/content/28_hidreletricas_SP/hidreletricas_sp.shp')
+gdf_hsp = gpd.read_file('~/geopythonbook/content/28_hidreletricas_SP/hidreletricas_sp.shp')
 
 
 #nCalcular a latitude e longitude médias das geometrias no GeoDataFrame
@@ -1352,7 +1350,7 @@ import geopandas as gpd
 import folium
 
 # Ler o arquivo shapefile e armazenar no GeoDataFrame
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/14_br116/br116.shp')
+gdf = gpd.read_file('~/geopythonbook/content/14_br116/br116.shp')
 
 # Calcular o ponto central da união das geometrias no GeoDataFrame
 center = gdf.geometry.unary_union.centroid
@@ -1362,6 +1360,7 @@ latitude_central = center.y
 longitude_central = center.x
 
 # Converter o GeoDataFrame para formato JSON 
+gdf.crs = 'EPSG:4326'
 gdf.to_json()
 gdf_json = gdf.to_json()
 
@@ -1389,7 +1388,7 @@ import geopandas as gpd
 import folium
 
 # Ler o arquivo shapefile e armazenar no GeoDataFrame
-amapa = gpd.read_file('/home/alexandro/geopythonbook/content/29_mun_amapa/censo_mun_AP.shp')
+amapa = gpd.read_file('~/geopythonbook/content/29_mun_amapa/censo_mun_AP.shp')
 
 # Calcular o ponto central (centroid) da união de todas as geometrias no GeoDataFrame
 center = amapa.geometry.unary_union.centroid
@@ -1399,6 +1398,7 @@ latitude_central = center.y
 longitude_central = center.x
 
 # Converter o GeoDataFrame para formato JSON (útil para visualização em algumas bibliotecas)
+amapa.crs = 'EPSG:4326'
 amapa.to_json()
 amapa_json = amapa.to_json()
 # Criar um objeto de feature GeoJson a partir do GeoDataFrame convertido em JSON
@@ -1428,6 +1428,7 @@ def estilo_mun(ftr):
     return({'color':'red', 'weight':1, 'fillColor':'purple'})
 
 # Converter o GeoDataFrame 'amapa' para formato JSON.
+
 amapa_json = amapa.to_json()
 
 # Criar o objeto de feature GeoJson a partir do GeoDataFrame convertido em JSON. E:
@@ -1450,7 +1451,7 @@ mapa_AP
 A partir das alterações realizadas no código, é possível visualizar as geometrias referentes aos municípios do estado do Amapá com outra configuração. Além disso, podemos verificar os dados sobre a população em 2010 e 2021 e a sua alteração (em porcentagem):
 
 
-É possível criar estilos de visualização diferentes, com base na seleção de propriedades ou atributos. Nesse exemplo, vamos criar uma função que verifica o nome do município e, se for 'Macapá', aplica estilo específico. Caso contrário, aplica um estilo padrão para os outros municípios. O resultado pode ser visualizado na figura 119.
+É possível criar estilos de visualização diferentes, com base na seleção de propriedades ou atributos. Nesse exemplo, vamos criar uma função que verifica o nome do município e, se for 'Macapá', aplica estilo específico. Caso contrário, aplica um estilo padrão para os outros municípios.
 
 ```{code-cell} python
 def estilo_mun(ftr):
@@ -1461,6 +1462,7 @@ def estilo_mun(ftr):
     else:
         #Estilo padrão para os outros municípios
         return {'color':'black', 'weight':2, 'fillColor':'purple'} 
+
 
 amapa_json = amapa.to_json()
 
@@ -1475,11 +1477,11 @@ mapa_AP
 ```
 
 
-No próximo exemplo, vamos aplicar um estilo com cor de preenchimento aleatória a cada município do Amapá, enquanto a cor de borda e a espessura serão as mesmas para todos. O resultado pode ser visualizado na figura 120.
+No próximo exemplo, vamos aplicar um estilo com cor de preenchimento aleatória a cada município do Amapá, enquanto a cor de borda e a espessura serão as mesmas para todos. 
 
-Importar o módulo random, que permite fazer escolhas aleatórias
 
 ```{code-cell} python
+# Importar o módulo random, que permite fazer escolhas aleatórias
 import random
 
 # Definir uma função para estilizar as geometrias (municípios) no mapa.
@@ -1508,12 +1510,12 @@ mapa_AP
 ```
 
 
-Por fim, vamos gerar um mapa interativo (figura 121) que mostra os municípios do estado do Amapá e as estações fluviométricas da Agência Nacional de Águas (ANA), com estilizações e tooltips específicos.
+Por fim, vamos gerar um mapa interativo que mostra os municípios do estado do Amapá e as estações fluviométricas da Agência Nacional de Águas (ANA), com estilizações e tooltips específicos.
 
 ```{code-cell} python
 # Carregar o shapefile que contém informações sobre as estações 
 # fluviométricas da ANA
-ANA = gpd.read_file('/home/alexandro/geopythonbook/content/30_estacoes_ANA/ANA_estacoes.shp')
+ANA = gpd.read_file('~/geopythonbook/content/30_estacoes_ANA/ANA_estacoes.shp')
 
 # Definir uma função para estilizar as geometrias dos municípios.
 def estilo_mun(ftr):
@@ -1527,6 +1529,8 @@ amapa_ftrs = folium.features.GeoJson(
     tooltip=folium.features.GeoJsonTooltip(['municipio', 
         'pop_2010', 'pop_2021', 'dif_pop']), 
     style_function=estilo_mun)
+
+ANA.crs = 'EPSG:4326' 
 
 ANA_json = ANA.to_json()
 
@@ -1560,7 +1564,7 @@ mapa_AP
 ```
 
 
-Nesta visualização interativa, podemos verificar tanto dados referentes à população dos municípios (figura 122) quanto dados das estações da ANA (figura 123).
+Nesta visualização interativa, podemos verificar tanto dados referentes à população dos municípios quanto dados das estações da ANA.
 
 
 

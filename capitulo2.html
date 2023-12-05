@@ -175,7 +175,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo3.html">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo4.html">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
-
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
@@ -2922,7 +2921,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;linha&#39;, &#39;ponto&#39;, &#39;polígono&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;linha&#39;, &#39;polígono&#39;, &#39;ponto&#39;}
 </pre></div>
 </div>
 </div>
@@ -2968,7 +2967,7 @@ False
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;união&#39;, &#39;diferença&#39;, &#39;intersecção&#39;}
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>{&#39;intersecção&#39;, &#39;diferença&#39;, &#39;união&#39;}
 </pre></div>
 </div>
 </div>
@@ -4210,7 +4209,11 @@ Ponto 45 está acima do nível desejado.
 <p>Se você abrir um arquivo em modo de escrita ou anexação, pode escrever dados nele.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/exemplo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="n">home_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s2">&quot;~&quot;</span><span class="p">)</span>
+<span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">home_dir</span><span class="p">,</span> <span class="s1">&#39;geopythonbook/content/exemplo.txt&#39;</span><span class="p">)</span>
+
+<span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;Olá, Mundo!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
@@ -4220,7 +4223,7 @@ Ponto 45 está acima do nível desejado.
 <p>Depois de abrir ou criar um arquivo em modo de leitura, você pode ler seu conteúdo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/exemplo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
     <span class="n">conteudo</span> <span class="o">=</span> <span class="n">file</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
     <span class="nb">print</span><span class="p">(</span><span class="n">conteudo</span><span class="p">)</span>
 </pre></div>
@@ -4236,7 +4239,7 @@ Ponto 45 está acima do nível desejado.
 <p>Após a leitura, escrita ou ambas, é essencial fechar o arquivo.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/exemplo.txt&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">file2</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
 <span class="n">file2</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4343,7 +4346,7 @@ Ponto 45 está acima do nível desejado.
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-05 09:58:10.880382
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>2023-12-05 13:11:50.305037
 </pre></div>
 </div>
 </div>
@@ -4382,7 +4385,7 @@ Ponto 45 está acima do nível desejado.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Diferença entre datas (timedelta)</span>
 <span class="n">diferenca</span> <span class="o">=</span> <span class="n">hoje</span> <span class="o">-</span> <span class="n">data_especifica</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">diferenca</span><span class="o">.</span><span class="n">days</span><span class="p">)</span>  <span class="c1"># Saída:0 (pois são a mesma data no exemplo_</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">diferenca</span><span class="o">.</span><span class="n">days</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>
@@ -4396,7 +4399,7 @@ Ponto 45 está acima do nível desejado.
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Adicionando 5 dias à data atual</span>
 <span class="n">daqui_a_cinco_dias</span> <span class="o">=</span> <span class="n">hoje</span> <span class="o">+</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">daqui_a_cinco_dias</span><span class="p">)</span>  <span class="c1"># Ex: 2023-09-28</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">daqui_a_cinco_dias</span><span class="p">)</span>  
 </pre></div>
 </div>
 </div>

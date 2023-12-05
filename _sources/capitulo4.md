@@ -17,7 +17,7 @@ kernelspec:
 Dentro do ecossistema Python, existem diversas bibliotecas para otimizar o trabalho com dados geoespaciais. Dentre elas, Shapely e Fiona merecem destaque, não apenas por sua simplicidade, mas também pela eficácia com que lidam com tarefas geoespaciais. Quando utilizadas em conjunto, essas bibliotecas proporcionam uma abordagem integrada e robusta para o geoprocessamento básico no Python, tornando a análise e manipulação de dados espaciais mais acessível e eficiente.
 
 
-# 4.1 A biblioteca Shapely
+## 4.1 A biblioteca Shapely
 
 Shapely é uma biblioteca Python para manipulação e análise de objetos geométricos planares. Baseada na biblioteca GEOS (usada em PostGIS e outros sistemas), ela oferece uma interface amigável para criar, manipular e analisar formas geométricas. As classes básicas são apresentadas na figura 5. 
 
@@ -319,21 +319,30 @@ Além das informações geográficas (coordenadas que definem a geometria), cada
 
 É importante ressaltar que o shapefile é, na realidade, um conjunto de arquivos que trabalham juntos para representar e armazenar informações geográficas e seus atributos. Existem três arquivos principais, essenciais para que o shapefile funcione corretamente, e vários outros arquivos auxiliares que podem acompanhar um shapefile dependendo das características e necessidades do conjunto de dados. No quadro 6 apresenta-se os principais arquivos que podem constituir um shapefile.
 
-Quadro 8: Arquivos que podem constituir um shapefile.
+Arquivos que podem constituir um shapefile.
 
-| Arquivo | Descrição                                                                                                                     |
+Quadro 8: Extensões obrigatórias
+
+| Extensão | Descrição                                                                                                                     |
 |---------|-------------------------------------------------------------------------------------------------------------------------------|
 | shp     | Contém a geometria dos objetos, por exemplo, pontos, linhas ou polígonos.                                                      |
 | shx     | É o índice da geometria. Ele fornece um índice para os objetos no arquivo .shp, permitindo um acesso mais rápido a eles.     |
 | dbf     | Contém os atributos para cada objeto em uma tabela. Cada linha da tabela corresponde a um objeto no arquivo .shp e cada coluna é um atributo desse objeto. |
-                                                                                                                                      |
-|---------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| prj     | Contém informações sobre a projeção e o sistema de coordenadas em que os dados estão definidos.                                                                             |
-| sbn e sbx | São arquivos de índice espacial. Eles podem ser usados por alguns sistemas SIG para renderizar e consultar dados mais rapidamente.                                          |
-| qix     | É um arquivo de índice espacial opcional criado por algumas ferramentas, como o QGIS, para acelerar operações espaciais.                                                     |
-| lyr     | É um arquivo utilizado pelo ArcGIS para armazenar informações sobre a simbologia e a visualização do shapefile.                                                               |
-| cpg     | Contém informações sobre a codificação de caracteres para o arquivo .dbf, o que pode ser importante para a exibição correta de caracteres especiais ou não ASCII.            |
-| atx     | É um arquivo de índice criado pelo ArcGIS para campos específicos na tabela de atributos, acelerando determinadas operações.                                                  |
+
+
+
+Quadro 9: Extensões auxiliares
+
+| Extensão | Descrição                                                                                                                                                                                                                                      |
+|----------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| prj      | Contém informações sobre a projeção e o sistema de coordenadas em que os dados estão definidos.                                                                                                                                               |
+| sbn      | São arquivos de índice espacial. Eles podem ser usados por alguns sistemas SIG para renderizar e consultar dados mais rapidamente.                                                                                                           |
+| sbx      | São arquivos de índice espacial. Eles podem ser usados por alguns sistemas SIG para renderizar e consultar dados mais rapidamente.                                                                                                           |
+| qix      | É um arquivo de índice espacial opcional criado por algumas ferramentas, como o QGIS, para acelerar operações espaciais.                                                                                                                      |
+| lyr      | É um arquivo utilizado pelo ArcGIS para armazenar informações sobre a simbologia e a visualização do shapefile.                                                                                                                                |
+| cpg      | Contém informações sobre a codificação de caracteres para o arquivo .dbf, o que pode ser importante para a exibição correta de caracteres especiais ou não ASCII.                                                                             |
+| atx      | É um arquivo de índice criado pelo ArcGIS para campos específicos na tabela de atributos, acelerando determinadas operações.                                                                                                                    |
+
 
 
 Existem outros arquivos que podem, ocasionalmente, estar associados a um shapefile, especialmente quando se trabalha com softwares específicos que criam arquivos de índice ou metadados adicionais. No entanto, os listados acima são os mais comuns. Vale lembrar que para transferir ou mover um shapefile, é importante manter pelo menos os três arquivos principais juntos (.shp, .shx e .dbf) para garantir a integridade dos dados.
@@ -426,7 +435,7 @@ with fiona.open('caminho_para_seu_arquivo.shp', 'r') as registro:
 
 Nesse código, fiona.open() é usado para abrir e ler o arquivo shapefile; registro.crs fornece o Sistema de Referência de Coordenadas (CRS) do shapefile; registro.bounds retorna uma tupla com os limites do conjunto de dados: (minx, miny, maxx, maxy), onde minx e miny são as coordenadas mínimas x e y, e maxx e maxy são as coordenadas máximas x e y; len(registro) retorna o número total de recursos no arquivo shapefile, ou seja, a quantidade de objetos que ele contém.
 
-Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos referentes a cada estado brasileiro (figura x) e pelos atributos que constam na figura y.
+Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos referentes a cada estado brasileiro (figura 7) e pelos atributos que constam na figura 8.
 
 ![Figura 7](images/fig7.png)
 
@@ -439,8 +448,12 @@ Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos re
 Vamos utilizar o script abaixo para abrir o shapefile, ler as geometrias do tipo Polygon e imprimir os atributos CD_UF, NM_UF e SIGLA_UF.
 
 ```{code-cell} python
+import os
+home_dir = os.path.expanduser("~")
+shp_file_path = os.path.join(home_dir, 'geopythonbook/content/4_br_uf/BR_UF.shp')
+
 import fiona
-with fiona.open('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp', 'r') as registro:
+with fiona.open(shp_file_path, 'r') as registro:
     print(registro.schema['geometry'])
 
     for entidade in registro:
@@ -454,6 +467,7 @@ with fiona.open('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp', 'r') 
             
         # Imprime os atributos
         print(f'ID: {id_estado}, Nome: {nome}, Sigla: {sigla}')
+
 ```
 
 

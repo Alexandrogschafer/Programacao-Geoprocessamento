@@ -16,7 +16,7 @@ kernelspec:
 
 Em um mundo cada vez mais orientado por dados, a capacidade de trabalhar com informações geoespaciais tornou-se fundamental em diversas áreas, desde o planejamento urbano até a ecologia e ciências ambientais. Neste contexto, o Geopandas emerge como uma importante ferramenta para a análise geoespacial em Python.
 
-Geopandas é uma extensão do Pandas que introduz estruturas de dados espaciais. Ele apresenta duas estruturas de dados principais (figura 27): GeoSeries e GeoDataFrame. Uma GeoSeries é uma série em que cada entrada representa um conjunto geométrico. Por sua vez, um GeoDataFrame assemelha-se a um DataFrame padrão do Pandas, porém, inclui uma coluna especial denominada "geometry", responsável por armazenar informações geoespaciais.
+Geopandas é uma extensão do Pandas que introduz estruturas de dados espaciais. Ele apresenta duas estruturas de dados principais (figura 10): GeoSeries e GeoDataFrame. Uma GeoSeries é uma série em que cada entrada representa um conjunto geométrico. Por sua vez, um GeoDataFrame assemelha-se a um DataFrame padrão do Pandas, porém, inclui uma coluna especial denominada "geometry", responsável por armazenar informações geoespaciais.
 
 ![Figura 10](images/fig10.png)
 
@@ -46,7 +46,7 @@ import geopandas as gpd
 Carregar o Shapefile em um GeoDataFrame
 ```{code-cell} python
 import geopandas as gpd
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
 
 Mostrar as primeiras linhas do GeoDataFrame
@@ -90,7 +90,7 @@ GeoJSON
 
 Como vimos anteriormente, o GeoJSON é um formato baseado em JSON para codificar estruturas geográficas. Para ler um arquivo GeoJSON:
 ```{code-cell} python
-gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson')
+gdf_cap = gpd.read_file('~/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson')
 gdf_cap.head()
 ```
 
@@ -109,8 +109,8 @@ GPKG (GeoPackage)
 GeoPackage é um formato de banco de dados aberto e padrão que pode conter múltiplas camadas. Você pode listar e selecionar camadas específicas:
 
 ```{code-cell} python
-gdf_rod = gpd.read_file('/home/alexandro/geopythonbook/content/6_geopackage/malha_transporte.gpkg', layer='trecho_rodoviario')
-gdf_fer = gpd.read_file('/home/alexandro/geopythonbook/content/6_geopackage/malha_transporte.gpkg', layer='trecho_ferroviario')
+gdf_rod = gpd.read_file('~/geopythonbook/content/6_geopackage/malha_transporte.gpkg', layer='trecho_rodoviario')
+gdf_fer = gpd.read_file('~/geopythonbook/content/6_geopackage/malha_transporte.gpkg', layer='trecho_ferroviario')
 ```
 
 No código acima, em layer='trecho_rodoviario', o argumento layer especifica a camada ou tabela dentro do Geopackage que desejamos ler. Em um Geopackage, você pode ter várias camadas (ou tabelas) diferentes, e essa especificação permite que você selecione qual delas deseja carregar. Neste caso, estamos escolhendo a camada chamada trecho_rodoviario. 
@@ -129,7 +129,7 @@ Caso tenhamos um arquivo CSV com colunas de latitude e longitude, primeiro podem
 
 ```{code-cell} python
 from shapely.geometry import Point
-df = pd.read_csv('/home/alexandro/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv')
+df = pd.read_csv('~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv')
 gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy
     (df.longitude, df.latitude))
 gdf.head()
@@ -145,7 +145,7 @@ a) Argumento rows
 
 Ler apenas as primeiras 10 linhas
 ```{code-cell} python
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp', rows=10)
+gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp', rows=10)
 gdf.plot()
 ```
 
@@ -162,7 +162,7 @@ Exemplo: Vamos ler o arquivo shapefile BR_UF novamente, mas agora especificando 
 Ler dados dentro de uma bounding box específica (minx, miny, maxx, maxy)
 ```{code-cell} python
 bbox = [-53.8, -29.4, -48.3, -25.8]
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp', bbox=bbox)
+gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp', bbox=bbox)
 gdf.plot()
 ```
 
@@ -190,7 +190,7 @@ Ao trabalhar com dados geoespaciais, especialmente dados de diferentes fontes ou
 
 Para corrigir o problema, vamos ler novamente o arquivo, especificando a codificação (parâmetro encoding) ISO-8859-1:
 ```{code-cell} python
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv', encoding='ISO-8859-1')
+gdf = gpd.read_file('~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv', encoding='ISO-8859-1')
 gdf
 ```
 
@@ -357,7 +357,7 @@ Exemplo 1: Calcular o comprimento dos rios do estado do Maranhão apresentados n
 Etapa 1: Leitura do shapefile e edição do GeoDataFrame
 ```{code-cell} python
 import geopandas as gpd
-gdf_rios = gpd.read_file('/home/alexandro/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp')
+gdf_rios = gpd.read_file('~/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp')
 gdf_rios = gdf_rios.rename(columns={'NORIOCOMP': 'nome'})
 gdf_rios = gdf_rios.drop(columns=['FID_GEOFT_', 
     'CORIO', 'FID_BR_UF_', 'CD_UF', 'NM_UF', 'SIGLA_UF', 
@@ -393,7 +393,9 @@ print (gdf_rios[['nome_UF', 'comprimento']])
 
 
 
-Exemplo 3: Criar um buffer de 30 metros em torno de cada rio que consta na figura x.
+Exemplo 3: Criar um buffer de 30 metros em torno de cada rio que consta na figura 12.
+
+
 ```{code-cell} python
 gdf_rios['buffer_app'] = gdf_rios['geometry'].apply(lambda geom: geom.buffer(30))
 ```
@@ -452,7 +454,7 @@ a) utilizando a função map:
 Inicialmente, criamos um GeoDataFrame a partir do arquivo shapefile mun_MT_MS_GO.shp.
 ```{code-cell} python
 import geopandas as gpd
-gdf_co = gpd.read_file ('/home/alexandro/geopythonbook/content/22_municipios_GO_MT_MS/mun_MT_MS_GO.shp')
+gdf_co = gpd.read_file ('~/geopythonbook/content/22_municipios_GO_MT_MS/mun_MT_MS_GO.shp')
 gdf_co.head()
 ```
 
@@ -494,7 +496,7 @@ No âmbito da análise de dados geoespaciais, a combinação de DataFrames e Geo
 
 ### 5.4.1 Anexação: Método concat
 
-Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 38). Queremos criar um GeoDataFrame de todo o país.
+Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 14). Queremos criar um GeoDataFrame de todo o país.
 
 ![Figura 14](images/fig14.png)
 
@@ -507,11 +509,11 @@ Inicialmente, valos criar os GeoDataFrames de cada região a partir dos arquivos
 import pandas as pd
 import geopandas as gpd
 
-gdf_norte = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/norte.shp')
-gdf_sul = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sul.shp')
-gdf_nordeste = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/nordeste.shp')
-gdf_sudeste = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sudeste.shp')
-gdf_centro_oeste = gpd.read_file('/home/alexandro/geopythonbook/content/16_BR_UF_regioes/centro_oeste.shp')
+gdf_norte = gpd.read_file('~/geopythonbook/content/16_BR_UF_regioes/norte.shp')
+gdf_sul = gpd.read_file('~/geopythonbook/content/16_BR_UF_regioes/sul.shp')
+gdf_nordeste = gpd.read_file('~/geopythonbook/content/16_BR_UF_regioes/nordeste.shp')
+gdf_sudeste = gpd.read_file('~/geopythonbook/content/16_BR_UF_regioes/sudeste.shp')
+gdf_centro_oeste = gpd.read_file('~/geopythonbook/content/16_BR_UF_regioes/centro_oeste.shp')
 ```
 
 Em seguida, concatenamos todos os GeoDataFrames criados:
@@ -535,8 +537,8 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 ```{code-cell} python
 import pandas as pd
 import geopandas as gpd
-gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/15_BR_capitais/capitais_br.shp')
-df_censo_cap = pd.read_excel('/home/alexandro/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx')
+gdf_cap = gpd.read_file('~/geopythonbook/content/15_BR_capitais/capitais_br.shp')
+df_censo_cap = pd.read_excel('~/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx')
 
 df_censo_cap.head()
 ```
@@ -589,17 +591,17 @@ import pandas as pd
 
 Ler o arquivo shapefile
 ```{code-cell} python
-gdf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
 
 Ler o arquivo Excel com dados do PIB estadual
 ```{code-cell} python
-dfpib = pd.read_excel('/home/alexandro/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx')
+dfpib = pd.read_excel('~/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx')
 ```
 
 Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022
 ```{code-cell} python
-dfcenso = pd.read_excel('/home/alexandro/geopythonbook/content/13_censo_UF/censo_UF.xlsx')
+dfcenso = pd.read_excel('~/geopythonbook/content/13_censo_UF/censo_UF.xlsx')
 ```
 
 Unindo os dataframes dfpib e dfcenso
@@ -736,7 +738,7 @@ Exemplo: Criar um GeoDataFrame com todos os estados que fazem parte das regiões
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 norte_nordeste = gdf_uf[gdf_uf['NM_REGIAO'].isin(['Norte', 'Nordeste'])]
 print(norte_nordeste)
 ```
@@ -986,7 +988,7 @@ Exemplo: Calcular a área do estado de Santa Catarina, utilizando o shapefile BR
 Inicialmente vamos criar um GeoDataFrame a partir do arquivo shapefile, que tem os seguintes atributos:
 
 ```{code-cell} python
-gdf_uf=gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_uf=gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
  
 Em seguida, selecionamos as colunas que irão compor nosso GeoDataFrame.
@@ -1032,7 +1034,7 @@ Exemplo: Determinar o comprimento dos rios Araguaia e Tocantins, criando uma col
 Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas.
 
 ```{code-cell} python
-gdf_rio=gpd.read_file('/home/alexandro/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp')
+gdf_rio=gpd.read_file('~/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp')
 gdf_rio.crs
 ```
 
@@ -1090,7 +1092,7 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 
 Inicialmente, vamos ler o shapefile e criar o GeoDataFrame.
 ```{code-cell} python
-gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp')
+gdf_cap = gpd.read_file('~/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp')
 gdf.head()
 ```
 
@@ -1281,8 +1283,8 @@ Etapa 1. Importação do Geopandas, leitura dos arquivos shapefile e plotagem da
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_rodo = gpd.read_file('/home/alexandro/geopythonbook/content/20_BR_rodovias/rodovias_BR.shp')
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_rodo = gpd.read_file('~/geopythonbook/content/20_BR_rodovias/rodovias_BR.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 gdf_rodo.plot()
 ```
 
@@ -1350,7 +1352,7 @@ Exemplo: Verificar qual estado brasileiro contém o ponto referente a capital Cu
 Inicialmente, vamos filtrar o GeoDataFrame 'gdf_cap' para encontrar a linha que tem 'Cuiabá' como capital.
 
 ```{code-cell} python
-gdf_cap = gpd.read_file('/home/alexandro/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson')
+gdf_cap = gpd.read_file('~/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson')
 filtro_cuiaba = gdf_cap['capital'] == 'Cuiabá'
 gdf_cuiaba = gdf_cap[filtro_cuiaba]
 ```
@@ -1390,7 +1392,7 @@ Inicialmente, vamos ler o arquivo shapefile, criar um GeoDataFrame e filtrar ape
 
 ```{code-cell} python
 import geopandas as gpd
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 filtro_roraima = gdf_uf['NM_UF'] == 'Roraima'
 gdf_roraima = gdf_uf[filtro_roraima]
 ```
@@ -1434,7 +1436,7 @@ Exemplo: Determinar quais estados brasileiros são interseccionados pela rodovia
 Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains.
 
 ```{code-cell} python
-gdf_br116 = gpd.read_file('/home/alexandro/geopythonbook/content/14_br116/br116.shp')
+gdf_br116 = gpd.read_file('~/geopythonbook/content/14_br116/br116.shp')
 ```
 
 
@@ -1528,9 +1530,6 @@ for geom, label in zip(gdf2.geometry, gdf2['nome']):
     ax.text(x, y, label)
 ```
 
-A visualização dos GeoDataFrames é apresentada na figura 61.
-
-
 
 
 As circunferências PA e PB pertencem ao gdf1, enquanto PC e PD pertencem ao gdf2. A seguir, vamos utilizá-las em consultas espaciais.
@@ -1604,7 +1603,7 @@ for x, y, label_left, label_right in zip(cons_int_sjoin.geometry.centroid.x,
 plt.show()
 ```
 
-Nessa operação, as geometrias originais de gdf1 são preservadas (figura x). Contudo, informações adicionais de gdf2 são anexadas às linhas correspondentes de gdf1 onde ocorre a interseção. Especificamente, os polígonos "PC" e "PD" de gdf2 tem interseção com as geometrias "PA" e "PB" de gdf1, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf1 e incorporando informações relevantes de gdf2 onde as interseções ocorrem.
+Nessa operação, as geometrias originais de gdf1 são preservadas. Contudo, informações adicionais de gdf2 são anexadas às linhas correspondentes de gdf1 onde ocorre a interseção. Especificamente, os polígonos "PC" e "PD" de gdf2 tem interseção com as geometrias "PA" e "PB" de gdf1, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf1 e incorporando informações relevantes de gdf2 onde as interseções ocorrem.
 Vamos aplicar novamente o sjoin, mas invertendo a ordem dos GeoDataFrames:
 
 ```{code-cell} python
@@ -1612,7 +1611,7 @@ cons_int_sjoin2 = gpd.sjoin(gdf2, gdf1, op='intersects', how='inner')
 cons_int_sjoin2.head()
 ```
 
-Note que, agora, as geometrias originais de gdf2 que são preservadas (figura x). Contudo, informações adicionais de gdf1 são anexadas às linhas correspondentes de gdf2 onde ocorre a interseção. Especificamente, os polígonos "PA" e "PB" de gdf1 tem interseção com as geometrias "PC" e "PD" de gdf2, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin2, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf2 e incorporando informações relevantes de gdf1 onde as interseções ocorrem.
+Note que, agora, as geometrias originais de gdf2 que são preservadas. Contudo, informações adicionais de gdf1 são anexadas às linhas correspondentes de gdf2 onde ocorre a interseção. Especificamente, os polígonos "PA" e "PB" de gdf1 tem interseção com as geometrias "PC" e "PD" de gdf2, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin2, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf2 e incorporando informações relevantes de gdf1 onde as interseções ocorrem.
 
 ```{code-cell} python
 import matplotlib.pyplot as plt
@@ -1638,7 +1637,7 @@ cons_int_overlay = gpd.overlay(gdf1, gdf2, how='intersection')
 cons_int_overlay
 ```
 
-Nesse código, gpd.overlay(...) é o método do Geopandas usado para realizar operações de sobreposição espacial entre dois GeoDataFrames. gdf1 e gdf2: São os dois GeoDataFrames que estão sendo combinados. A operação compara cada geometria em gdf1 com cada geometria em gdf2. how='intersection' especifica o tipo de operação de sobreposição a ser realizada. A opção "intersection" retorna a interseção geométrica entre as geometrias dos dois GeoDataFrames. Isso significa que a geometria resultante é aquela que é compartilhada entre gdf1 e gdf2 (figuras 65 e 66).
+Nesse código, gpd.overlay(...) é o método do Geopandas usado para realizar operações de sobreposição espacial entre dois GeoDataFrames. gdf1 e gdf2: São os dois GeoDataFrames que estão sendo combinados. A operação compara cada geometria em gdf1 com cada geometria em gdf2. how='intersection' especifica o tipo de operação de sobreposição a ser realizada. A opção "intersection" retorna a interseção geométrica entre as geometrias dos dois GeoDataFrames. Isso significa que a geometria resultante é aquela que é compartilhada entre gdf1 e gdf2.
 
 ```{code-cell} python
 ax = cons_int_overlay.plot(edgecolor='k', color='whitesmoke')
@@ -1714,8 +1713,8 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 Inicialmente, vamos ler os arquivos shapefile e criar os GeoDataFrames. Em seguida, verificamos as colunas existentes em gdf_usinas e gdf_uf.
 ```{code-cell} python
 import geopandas as gpd
-gdf_usinas = gpd.read_file('/home/alexandro/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp')
-gdf_uf = gpd.read_file('/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp')
+gdf_usinas = gpd.read_file('~/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp')
+gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 print(gdf_usinas.columns)
 ```
 

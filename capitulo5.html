@@ -173,7 +173,6 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo3.html">3. A BIBLIOTECA PANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo4.html">4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA</a></li>
-
 <li class="toctree-l1 current active"><a class="current reference internal" href="#">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
 <li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
@@ -416,7 +415,7 @@ document.write(`
   <section class="tex2jax_ignore mathjax_ignore" id="a-biblioteca-geopandas">
 <h1>5 A BIBLIOTECA GEOPANDAS<a class="headerlink" href="#a-biblioteca-geopandas" title="Permalink to this heading">#</a></h1>
 <p>Em um mundo cada vez mais orientado por dados, a capacidade de trabalhar com informações geoespaciais tornou-se fundamental em diversas áreas, desde o planejamento urbano até a ecologia e ciências ambientais. Neste contexto, o Geopandas emerge como uma importante ferramenta para a análise geoespacial em Python.</p>
-<p>Geopandas é uma extensão do Pandas que introduz estruturas de dados espaciais. Ele apresenta duas estruturas de dados principais (figura 27): GeoSeries e GeoDataFrame. Uma GeoSeries é uma série em que cada entrada representa um conjunto geométrico. Por sua vez, um GeoDataFrame assemelha-se a um DataFrame padrão do Pandas, porém, inclui uma coluna especial denominada “geometry”, responsável por armazenar informações geoespaciais.</p>
+<p>Geopandas é uma extensão do Pandas que introduz estruturas de dados espaciais. Ele apresenta duas estruturas de dados principais (figura 10): GeoSeries e GeoDataFrame. Uma GeoSeries é uma série em que cada entrada representa um conjunto geométrico. Por sua vez, um GeoDataFrame assemelha-se a um DataFrame padrão do Pandas, porém, inclui uma coluna especial denominada “geometry”, responsável por armazenar informações geoespaciais.</p>
 <p><img alt="Figura 10" src="_images/fig10.png" /></p>
 <p align="center">Figura 10: Estruturas de dados do Geopandas.</p>
 <p>O Geopandas é capaz de lidar com uma variedade de tipos geométricos, abrangendo pontos, linhas, polígonos e combinações destes. Esta capacidade é complementada por uma série de operações espaciais, possíveis graças à integração com bibliotecas como Shapely e Fiona. Estas operações incluem, mas não se limitam a, interseção, união, diferença e buffer. Além disso, a biblioteca oferece ferramentas robustas para análise espacial, permitindo o cálculo de áreas, distâncias e outras métricas geométricas essenciais.</p>
@@ -439,7 +438,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -580,7 +579,7 @@ document.write(`
 <p>Como vimos anteriormente, o GeoJSON é um formato baseado em JSON para codificar estruturas geográficas. Para ler um arquivo GeoJSON:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson&#39;</span><span class="p">)</span>
 <span class="n">gdf_cap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -682,8 +681,8 @@ document.write(`
 <p>GeoPackage é um formato de banco de dados aberto e padrão que pode conter múltiplas camadas. Você pode listar e selecionar camadas específicas:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rod</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/6_geopackage/malha_transporte.gpkg&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;trecho_rodoviario&#39;</span><span class="p">)</span>
-<span class="n">gdf_fer</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/6_geopackage/malha_transporte.gpkg&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;trecho_ferroviario&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rod</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/6_geopackage/malha_transporte.gpkg&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;trecho_rodoviario&#39;</span><span class="p">)</span>
+<span class="n">gdf_fer</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/6_geopackage/malha_transporte.gpkg&#39;</span><span class="p">,</span> <span class="n">layer</span><span class="o">=</span><span class="s1">&#39;trecho_ferroviario&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -710,7 +709,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Point</span>
-<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv&#39;</span><span class="p">)</span>
+<span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv&#39;</span><span class="p">)</span>
 <span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">geometry</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">points_from_xy</span>
     <span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">longitude</span><span class="p">,</span> <span class="n">df</span><span class="o">.</span><span class="n">latitude</span><span class="p">))</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
@@ -789,7 +788,7 @@ document.write(`
 <p>Ler apenas as primeiras 10 linhas</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">,</span> <span class="n">rows</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -809,7 +808,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bbox</span> <span class="o">=</span> <span class="p">[</span><span class="o">-</span><span class="mf">53.8</span><span class="p">,</span> <span class="o">-</span><span class="mf">29.4</span><span class="p">,</span> <span class="o">-</span><span class="mf">48.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">25.8</span><span class="p">]</span>
-<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">)</span>
+<span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">,</span> <span class="n">bbox</span><span class="o">=</span><span class="n">bbox</span><span class="p">)</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -857,7 +856,7 @@ document.write(`
 <p>Para corrigir o problema, vamos ler novamente o arquivo, especificando a codificação (parâmetro encoding) ISO-8859-1:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;ISO-8859-1&#39;</span><span class="p">)</span>
 <span class="n">gdf</span>
 </pre></div>
 </div>
@@ -1358,7 +1357,7 @@ document.write(`
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;NORIOCOMP&#39;</span><span class="p">:</span> <span class="s1">&#39;nome&#39;</span><span class="p">})</span>
 <span class="n">gdf_rios</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;FID_GEOFT_&#39;</span><span class="p">,</span> 
     <span class="s1">&#39;CORIO&#39;</span><span class="p">,</span> <span class="s1">&#39;FID_BR_UF_&#39;</span><span class="p">,</span> <span class="s1">&#39;CD_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;NM_UF&#39;</span><span class="p">,</span> <span class="s1">&#39;SIGLA_UF&#39;</span><span class="p">,</span> 
@@ -1497,7 +1496,7 @@ document.write(`
 </div>
 </div>
 </div>
-<p>Exemplo 3: Criar um buffer de 30 metros em torno de cada rio que consta na figura x.</p>
+<p>Exemplo 3: Criar um buffer de 30 metros em torno de cada rio que consta na figura 12.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rios</span><span class="p">[</span><span class="s1">&#39;buffer_app&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gdf_rios</span><span class="p">[</span><span class="s1">&#39;geometry&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">geom</span><span class="p">:</span> <span class="n">geom</span><span class="o">.</span><span class="n">buffer</span><span class="p">(</span><span class="mi">30</span><span class="p">))</span>
@@ -1567,7 +1566,7 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_co</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span> <span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/22_municipios_GO_MT_MS/mun_MT_MS_GO.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_co</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span> <span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/22_municipios_GO_MT_MS/mun_MT_MS_GO.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_co</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -1691,7 +1690,7 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <p>No âmbito da análise de dados geoespaciais, a combinação de DataFrames e GeoDataFrames é uma prática essencial para integrar e manipular informações de diferentes fontes. As ferramentas concat e merge, disponíveis em bibliotecas como pandas e geopandas, são amplamente utilizadas neste processo. Enquanto concat é utilizado para empilhar DataFrames verticalmente ou horizontalmente, respeitando o mesmo conjunto de colunas, a função merge é empregada para unir DataFrames com base em colunas específicas, similar a uma operação de junção em bancos de dados. Para melhor compreensão, exploraremos a aplicação dessas funções em detalhes utilizando dados reais a seguir.</p>
 <section id="anexacao-metodo-concat">
 <h3>5.4.1 Anexação: Método concat<a class="headerlink" href="#anexacao-metodo-concat" title="Permalink to this heading">#</a></h3>
-<p>Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 38). Queremos criar um GeoDataFrame de todo o país.</p>
+<p>Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 14). Queremos criar um GeoDataFrame de todo o país.</p>
 <p><img alt="Figura 14" src="_images/fig14.png" /></p>
 <p align="center">Figura 14: Regiões do Brasil.</p>
 <p>Inicialmente, valos criar os GeoDataFrames de cada região a partir dos arquivos shapefile:</p>
@@ -1700,11 +1699,11 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 
-<span class="n">gdf_norte</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/norte.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_sul</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sul.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_nordeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/nordeste.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_sudeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/sudeste.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_centro_oeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/16_BR_UF_regioes/centro_oeste.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_norte</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/16_BR_UF_regioes/norte.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_sul</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/16_BR_UF_regioes/sul.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_nordeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/16_BR_UF_regioes/nordeste.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_sudeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/16_BR_UF_regioes/sudeste.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_centro_oeste</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/16_BR_UF_regioes/centro_oeste.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1817,8 +1816,8 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/15_BR_capitais/capitais_br.shp&#39;</span><span class="p">)</span>
-<span class="n">df_censo_cap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx&#39;</span><span class="p">)</span>
+<span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/15_BR_capitais/capitais_br.shp&#39;</span><span class="p">)</span>
+<span class="n">df_censo_cap</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx&#39;</span><span class="p">)</span>
 
 <span class="n">df_censo_cap</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
@@ -2023,7 +2022,7 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>Ler o arquivo shapefile</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2031,7 +2030,7 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>Ler o arquivo Excel com dados do PIB estadual</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfpib</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfpib</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2039,7 +2038,7 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <p>Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfcenso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/13_censo_UF/censo_UF.xlsx&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">dfcenso</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_excel</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/13_censo_UF/censo_UF.xlsx&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -2722,7 +2721,7 @@ Inicialmente vamos importar as bibliotecas: Pandas (para manipulação de dados 
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="n">norte_nordeste</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;NM_REGIAO&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">([</span><span class="s1">&#39;Norte&#39;</span><span class="p">,</span> <span class="s1">&#39;Nordeste&#39;</span><span class="p">])]</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">norte_nordeste</span><span class="p">)</span>
 </pre></div>
@@ -3344,7 +3343,7 @@ Name: 0, dtype: object
 <p>Inicialmente vamos criar um GeoDataFrame a partir do arquivo shapefile, que tem os seguintes atributos:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -3411,7 +3410,7 @@ Datum: Sistema de Referencia Geocentrico para las AmericaS 2000
 Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rio</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_rio</span><span class="o">=</span><span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_rio</span><span class="o">.</span><span class="n">crs</span>
 </pre></div>
 </div>
@@ -3465,7 +3464,7 @@ Datum: South American Datum 1969
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10121/2493095251.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_6934/2493095251.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
 
   centroides = gdf[&#39;geometry&#39;].centroid
 </pre></div>
@@ -3480,7 +3479,7 @@ Datum: South American Datum 1969
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10121/4009800209.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_6934/4009800209.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
 
   gdf_uf[&#39;centroid&#39;] = gdf_uf[&#39;geometry&#39;].centroid
 </pre></div>
@@ -3498,7 +3497,7 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>Inicialmente, vamos ler o shapefile e criar o GeoDataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4052,8 +4051,8 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_rodo</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/20_BR_rodovias/rodovias_BR.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_rodo</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/20_BR_rodovias/rodovias_BR.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="n">gdf_rodo</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
 </pre></div>
 </div>
@@ -4156,7 +4155,7 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>Inicialmente, vamos filtrar o GeoDataFrame ‘gdf_cap’ para encontrar a linha que tem ‘Cuiabá’ como capital.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_cap</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson&#39;</span><span class="p">)</span>
 <span class="n">filtro_cuiaba</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="p">[</span><span class="s1">&#39;capital&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Cuiabá&#39;</span>
 <span class="n">gdf_cuiaba</span> <span class="o">=</span> <span class="n">gdf_cap</span><span class="p">[</span><span class="n">filtro_cuiaba</span><span class="p">]</span>
 </pre></div>
@@ -4197,7 +4196,7 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="n">filtro_roraima</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Roraima&#39;</span>
 <span class="n">gdf_roraima</span> <span class="o">=</span> <span class="n">gdf_uf</span><span class="p">[</span><span class="n">filtro_roraima</span><span class="p">]</span>
 </pre></div>
@@ -4240,7 +4239,7 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
-<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_br116</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/14_br116/br116.shp&#39;</span><span class="p">)</span>
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_br116</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/14_br116/br116.shp&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -4458,7 +4457,6 @@ Name: NM_UF, dtype: object
 <img alt="_images/a3c859483afc54d38209661e595cbdc2bdf0f413433f1d80664b8b774b6b58f8.png" src="_images/a3c859483afc54d38209661e595cbdc2bdf0f413433f1d80664b8b774b6b58f8.png" />
 </div>
 </div>
-<p>A visualização dos GeoDataFrames é apresentada na figura 61.</p>
 <p>As circunferências PA e PB pertencem ao gdf1, enquanto PC e PD pertencem ao gdf2. A seguir, vamos utilizá-las em consultas espaciais.</p>
 <p>a) Intersects</p>
 <p>A função intersects do Geopandas determina se duas geometrias se interseccionam. É normalmente aplicada a uma GeoSeries e espera outra GeoSeries ou geometria como argumento. Vamos crias duas GeoSeries a partir dos GeoDataFrames gdf1 e gdf2.</p>
@@ -4617,7 +4615,7 @@ dtype: geometry
 <img alt="_images/f089217be3f4e9c7a865ca6c366f185b2420223c2ba97d3d170669f629971796.png" src="_images/f089217be3f4e9c7a865ca6c366f185b2420223c2ba97d3d170669f629971796.png" />
 </div>
 </div>
-<p>Nessa operação, as geometrias originais de gdf1 são preservadas (figura x). Contudo, informações adicionais de gdf2 são anexadas às linhas correspondentes de gdf1 onde ocorre a interseção. Especificamente, os polígonos “PC” e “PD” de gdf2 tem interseção com as geometrias “PA” e “PB” de gdf1, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf1 e incorporando informações relevantes de gdf2 onde as interseções ocorrem.
+<p>Nessa operação, as geometrias originais de gdf1 são preservadas. Contudo, informações adicionais de gdf2 são anexadas às linhas correspondentes de gdf1 onde ocorre a interseção. Especificamente, os polígonos “PC” e “PD” de gdf2 tem interseção com as geometrias “PA” e “PB” de gdf1, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf1 e incorporando informações relevantes de gdf2 onde as interseções ocorrem.
 Vamos aplicar novamente o sjoin, mas invertendo a ordem dos GeoDataFrames:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4689,7 +4687,7 @@ Vamos aplicar novamente o sjoin, mas invertendo a ordem dos GeoDataFrames:</p>
 </table>
 </div></div></div>
 </div>
-<p>Note que, agora, as geometrias originais de gdf2 que são preservadas (figura x). Contudo, informações adicionais de gdf1 são anexadas às linhas correspondentes de gdf2 onde ocorre a interseção. Especificamente, os polígonos “PA” e “PB” de gdf1 tem interseção com as geometrias “PC” e “PD” de gdf2, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin2, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf2 e incorporando informações relevantes de gdf1 onde as interseções ocorrem.</p>
+<p>Note que, agora, as geometrias originais de gdf2 que são preservadas. Contudo, informações adicionais de gdf1 são anexadas às linhas correspondentes de gdf2 onde ocorre a interseção. Especificamente, os polígonos “PA” e “PB” de gdf1 tem interseção com as geometrias “PC” e “PD” de gdf2, respectivamente. Portanto, o novo GeoDataFrame, cons_int_sjoin2, combina os atributos dessas geometrias em linhas unificadas, mantendo a estrutura original de gdf2 e incorporando informações relevantes de gdf1 onde as interseções ocorrem.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
@@ -4774,7 +4772,7 @@ Uso comum: Semelhante à operação intersection, mas mantém informações (atr
 </table>
 </div></div></div>
 </div>
-<p>Nesse código, gpd.overlay(…) é o método do Geopandas usado para realizar operações de sobreposição espacial entre dois GeoDataFrames. gdf1 e gdf2: São os dois GeoDataFrames que estão sendo combinados. A operação compara cada geometria em gdf1 com cada geometria em gdf2. how=’intersection’ especifica o tipo de operação de sobreposição a ser realizada. A opção “intersection” retorna a interseção geométrica entre as geometrias dos dois GeoDataFrames. Isso significa que a geometria resultante é aquela que é compartilhada entre gdf1 e gdf2 (figuras 65 e 66).</p>
+<p>Nesse código, gpd.overlay(…) é o método do Geopandas usado para realizar operações de sobreposição espacial entre dois GeoDataFrames. gdf1 e gdf2: São os dois GeoDataFrames que estão sendo combinados. A operação compara cada geometria em gdf1 com cada geometria em gdf2. how=’intersection’ especifica o tipo de operação de sobreposição a ser realizada. A opção “intersection” retorna a interseção geométrica entre as geometrias dos dois GeoDataFrames. Isso significa que a geometria resultante é aquela que é compartilhada entre gdf1 e gdf2.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">ax</span> <span class="o">=</span> <span class="n">cons_int_overlay</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;whitesmoke&#39;</span><span class="p">)</span>
@@ -4903,8 +4901,8 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
-<span class="n">gdf_usinas</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp&#39;</span><span class="p">)</span>
-<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;/home/alexandro/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_usinas</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp&#39;</span><span class="p">)</span>
+<span class="n">gdf_uf</span> <span class="o">=</span> <span class="n">gpd</span><span class="o">.</span><span class="n">read_file</span><span class="p">(</span><span class="s1">&#39;~/geopythonbook/content/4_br_uf/BR_UF.shp&#39;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">gdf_usinas</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
 </pre></div>
 </div>

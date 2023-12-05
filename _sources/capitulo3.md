@@ -1215,14 +1215,14 @@ Quadro 6: Parâmetros do método read_csv.
 Exemplo 2: Ler somente determinadas colunas de um arquivo.
 
 ```{code-cell} python
-df = pd.read_csv('/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', usecols=['País', 'Área'])
+df = pd.read_csv('~/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', usecols=['País', 'Área'])
 df.head()
 ```
 
 Exemplo 3: Ler um arquivo e interpretar a coluna 'data' como data.
 
 ```{code-cell} python
-df = pd.read_csv('/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', parse_dates=['Independência'])
+df = pd.read_csv('~/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', parse_dates=['Independência'])
 df.dtypes
 ```
 
@@ -1243,7 +1243,7 @@ Considere a tabela abaixo, que é proveniente de um arquivo CSV:
 Nesta tabela, temos diversos dados ausentes, representados por diferentes valores. Para que o Pandas os interprete como valores ausentes, podemos utilizar o método na_values() quando da leitura do arquivo CSV:
 
 ```{code-cell} python
-df = pd.read_csv('/home/alexandro/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', na_values=['NA', 'N/A', '-'], encoding='ISO-8859-1')
+df = pd.read_csv('~/geopythonbook/content/1_paises_america_sul/paises_america_sul.csv', na_values=['NA', 'N/A', '-'], encoding='ISO-8859-1')
 ```
 
 O parâmetro na_values é usado para especificar uma lista de valores que devem ser tratados como "faltantes" (ou "NA" - Not Available) ao ler o arquivo. No exemplo fornecido, qualquer ocorrência dos valores 'NA', 'N/A' ou '-' nas células do arquivo CSV será interpretada pelo Pandas como um valor faltante (NaN).
@@ -1291,7 +1291,7 @@ Figura 4: Planilhas do excel com dados de países das Américas do Sul e Central
 
 Para importar os dados somente da planilha america_central:
 ```{code-cell} python
-df = pd.read_excel('/home/alexandro/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', 
+df = pd.read_excel('~/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', 
     sheet_name='america_central')
 ```
 
@@ -1300,7 +1300,7 @@ O método pd.read_excel() é utilizado para ler arquivos no formato Excel. O arg
 
 Também é possível ler várias planilhas de um arquivo Excel com apenas um script:
 ```{code-cell} python
-dfs = pd.read_excel('//home/alexandro/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', sheet_name=['america_sul', 'america_central'])
+dfs = pd.read_excel('~/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', sheet_name=['america_sul', 'america_central'])
 ```
 
 Nesse código: 
