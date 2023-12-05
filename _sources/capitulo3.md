@@ -1287,9 +1287,7 @@ Considere um arquivo do Excel denominado paises_america_sul_central, com duas pl
 
 ![Figura 4](images/fig4.png)
 
-Figura 4: Planilhas do excel com dados de países das Américas do Sul e Central.
-
-<p align="center">Este texto está centralizado.</p>
+<p align="center">Figura 4: Planilhas do excel com dados de países das Américas do Sul e Central.</p>
 
 
 Para importar os dados somente da planilha america_central:

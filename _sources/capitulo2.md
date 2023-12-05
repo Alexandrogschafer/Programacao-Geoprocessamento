@@ -291,24 +291,8 @@ Os tipos básicos de dados (figura 1), também conhecidos como tipos primitivos 
 
 ![Figura 1](images/fig1.png)
 
-<p align="center">
-    ![Figura 1](images/fig1.png)
-</p>
-
 <p align="center">Figura 1: Tipos básicos de dados em Python.</p>
 
-<center>
-  ![Figura 1](images/fig1.png)
-</center>
-
-<img src="images/fig1.png" align="center" />
-
-
-<img src="images/fig1.png" style="display: block; margin: auto;" />
-
-<p align="center">
-  <img src="images/fig1.png" alt="Figura 1" style="width:50%">
-</p>
 
 
 
