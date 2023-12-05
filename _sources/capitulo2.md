@@ -291,7 +291,27 @@ Os tipos básicos de dados (figura 1), também conhecidos como tipos primitivos 
 
 ![Figura 1](images/fig1.png)
 
-Figura 1: Tipos básicos de dados em Python.
+<p align="center">
+    ![Figura 1](images/fig1.png)
+</p>
+
+<p align="center">Figura 1: Tipos básicos de dados em Python.</p>
+
+<center>
+  ![Figura 1](images/fig1.png)
+</center>
+
+<img src="images/fig1.png" align="center" />
+
+
+<img src="images/fig1.png" style="display: block; margin: auto;" />
+
+<p align="center">
+  <img src="images/fig1.png" alt="Figura 1" style="width:50%">
+</p>
+
+
+
 
 
 ### 2.2.1 Inteiros
@@ -651,6 +671,8 @@ Em Python, strings são sequências de caracteres. Cada caractere em uma string 
 
 Figura 2: Índice da string Python.
 
+<p align="center">Este texto está centralizado.</p>
+
 Aqui estão algumas questões básicas relacionadas ao acesso de string por índice:
 
 Acessar um Caractere Específico:
@@ -816,6 +838,9 @@ As estruturas de dados são formas organizadas e eficientes de armazenar, acessa
 ![Figura 3](images/fig3.png)
 
 Figura 3: Estruturas de dados em Python.
+
+<p align="center">Este texto está centralizado.</p>
+
 
 
 As razões pelas quais as estruturas de dados são tão importantes incluem:

@@ -441,6 +441,7 @@ Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos re
 
 <p align="center">Figura 7: Visualização do arquivo shapefile BR_UF.</p>
 
+
 ![Figura 8](images/fig8.png)
 
 <p align="center">Figura 8: Visualização parcial da tabela de atributos de BR_UF.</p>
@@ -541,7 +542,8 @@ Especifica o nome e o caminho do novo shapefile que será criado: shapefile_said
 ``` with fiona.open(shapefile_saida, 'w', 'ESRI Shapefile', esquema) as c:```
 Aqui, o comando fiona.open é usado com o argumento 'w' (para escrita) para criar um novo shapefile. Também especifica o formato do arquivo ('ESRI Shapefile') e o esquema previamente definido.
 
-``` ponto = Point(5, 5)
+```
+ponto = Point(5, 5)
     propriedades = {'ID': 1, 'NOME': 'Ponto de exemplo'}
 ```
 

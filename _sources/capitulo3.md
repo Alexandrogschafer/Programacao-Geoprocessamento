@@ -1289,6 +1289,9 @@ Considere um arquivo do Excel denominado paises_america_sul_central, com duas pl
 
 Figura 4: Planilhas do excel com dados de países das Américas do Sul e Central.
 
+<p align="center">Este texto está centralizado.</p>
+
+
 Para importar os dados somente da planilha america_central:
 ```{code-cell} python
 df = pd.read_excel('~/geopythonbook/content/2_paises_america_sul_central/paises_america_sul_central.xlsx', 
