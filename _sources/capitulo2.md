@@ -648,6 +648,7 @@ print(paragrafo)
 Em Python, strings são sequências de caracteres. Cada caractere em uma string tem um índice associado a ele, começando em 0 para o primeiro caractere, 1 para o segundo, e assim por diante. Isso permite que você acesse caracteres específicos em uma string usando seu índice. Na figura 2, temos a string "Python" com sua indexação.
 
 ![Figura 2](images/fig2.png)
+
 Figura 2: Índice da string Python.
 
 Aqui estão algumas questões básicas relacionadas ao acesso de string por índice:
@@ -813,6 +814,7 @@ print(texto.split(','))
 As estruturas de dados são formas organizadas e eficientes de armazenar, acessar e manipular conjuntos de dados. Elas definem a relação entre os dados e as operações que podem ser realizadas sobre eles. A escolha da estrutura de dados adequada é crucial para a implementação eficiente de algoritmos e pode impactar significativamente o desempenho e a usabilidade de um programa. As estruturas de dados (figura 3) que serão contempladas em nosso estudo são as Listas, as Tuplas, os Dicionários e os Conjuntos.
 
 ![Figura 3](images/fig3.png)
+
 Figura 3: Estruturas de dados em Python.
 
 

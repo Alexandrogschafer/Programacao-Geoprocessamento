@@ -176,7 +176,7 @@ const thebe_selector_output = ".output, .cell_output"
 
 <li class="toctree-l1"><a class="reference internal" href="capitulo5.html">5 A BIBLIOTECA GEOPANDAS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="capitulo6.html">6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON</a></li>
-<li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS:</a></li>
+<li class="toctree-l1"><a class="reference internal" href="referencias.html">REFERÊNCIAS BIBLIOGRÁFICAS</a></li>
 </ul>
 
     </div>
@@ -401,6 +401,8 @@ document.write(`
 <section class="tex2jax_ignore mathjax_ignore" id="a-biblioteca-shapely">
 <h1>4.1 A biblioteca Shapely<a class="headerlink" href="#a-biblioteca-shapely" title="Permalink to this heading">#</a></h1>
 <p>Shapely é uma biblioteca Python para manipulação e análise de objetos geométricos planares. Baseada na biblioteca GEOS (usada em PostGIS e outros sistemas), ela oferece uma interface amigável para criar, manipular e analisar formas geométricas. As classes básicas são apresentadas na figura 5.</p>
+<p><img alt="Figura 5" src="_images/fig5.png" /></p>
+<p align="center">Figura 5: Classes para representar geometrias no Shapely</p>
 <p>A Shapely destaca-se principalmente por suas capacidades geométricas. Ele facilita a execução de operações como união, interseção, diferença e buffer. Além disso, a biblioteca é essencial para manipular e transformar geometrias, desde a simplificação de linhas e polígonos até a criação de um convex hull em torno de pontos ou a divisão e combinação de diferentes formas geométricas.</p>
 <section id="criacao-de-geometrias-com-shapely">
 <h2>4.1.1 Criação de Geometrias com Shapely<a class="headerlink" href="#criacao-de-geometrias-com-shapely" title="Permalink to this heading">#</a></h2>
@@ -635,7 +637,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>POINT (6.033333333333334 3.8)
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>POINT (6.033333333333334 3.8000000000000003)
 </pre></div>
 </div>
 </div>
@@ -684,7 +686,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/3b90bfded790f1d018a6cce1aeb8bf0ba0ee8c31bf398bed42ca514bea551348.svg" src="_images/3b90bfded790f1d018a6cce1aeb8bf0ba0ee8c31bf398bed42ca514bea551348.svg" /></div>
+<img alt="_images/27529d936be41b00b7c4fc08030013fa4b1e6c6d452af60ea2d9841a802a12de.svg" src="_images/27529d936be41b00b7c4fc08030013fa4b1e6c6d452af60ea2d9841a802a12de.svg" /></div>
 </div>
 <p>union: Retorna a união geométrica entre geometrias.</p>
 <div class="cell docutils container">
@@ -700,7 +702,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d836a90c6c62b3060efad3e5a089a519c43f7e6511b34c5b778aa94bab1c725f.svg" src="_images/d836a90c6c62b3060efad3e5a089a519c43f7e6511b34c5b778aa94bab1c725f.svg" /></div>
+<img alt="_images/cdae93f309caba6b69a885795890ff826127d3ca606d8c620ef63bd467100c69.svg" src="_images/cdae93f309caba6b69a885795890ff826127d3ca606d8c620ef63bd467100c69.svg" /></div>
 </div>
 <p>intersection: Retorna a interseção geométrica entre geometrias.</p>
 <div class="cell docutils container">
@@ -711,7 +713,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fea25d56c59ca9f698920103a81262a3aca24ad537e8255d6d9bd5dee153b872.svg" src="_images/fea25d56c59ca9f698920103a81262a3aca24ad537e8255d6d9bd5dee153b872.svg" /></div>
+<img alt="_images/1cf6e0920cc05ee733046e30db004f7554eb99bc14dbd0317ae45257488f359f.svg" src="_images/1cf6e0920cc05ee733046e30db004f7554eb99bc14dbd0317ae45257488f359f.svg" /></div>
 </div>
 <p>difference: Retorna a diferença geométrica entre geometrias (subtrai a segunda geometria da primeira).</p>
 <div class="cell docutils container">
@@ -722,7 +724,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/d3245441a3b81d0a4b842dc58199a2c8748b10df25c294af15a6d6028d9e099e.svg" src="_images/d3245441a3b81d0a4b842dc58199a2c8748b10df25c294af15a6d6028d9e099e.svg" /></div>
+<img alt="_images/3c7b660d9f005086643d31dbd6af7454a49448b6f3647de5be1885b10733d469.svg" src="_images/3c7b660d9f005086643d31dbd6af7454a49448b6f3647de5be1885b10733d469.svg" /></div>
 </div>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -732,7 +734,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/fc5c9840825e0e10ce9254a75e420e3dc025ea833b7b29779cb9f864db81696d.svg" src="_images/fc5c9840825e0e10ce9254a75e420e3dc025ea833b7b29779cb9f864db81696d.svg" /></div>
+<img alt="_images/b9a9f9ee40d409491fd2b8aa4512d2d173dc107d765ce1cd86083609ef3cfa38.svg" src="_images/b9a9f9ee40d409491fd2b8aa4512d2d173dc107d765ce1cd86083609ef3cfa38.svg" /></div>
 </div>
 <p>symmetric_difference: Retorna as partes de duas geometrias que não são compartilhadas entre si.</p>
 <div class="cell docutils container">
@@ -743,7 +745,7 @@ document.write(`
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/25b2dd7fe912a9d5552b207d9219c8c50dce9672e4c6abb9ecc1be674b133115.svg" src="_images/25b2dd7fe912a9d5552b207d9219c8c50dce9672e4c6abb9ecc1be674b133115.svg" /></div>
+<img alt="_images/15e9bc4f3b3d2dbc4043973cd7bcb57bd583ac83b7cff5bd6e3b8bf63646e070.svg" src="_images/15e9bc4f3b3d2dbc4043973cd7bcb57bd583ac83b7cff5bd6e3b8bf63646e070.svg" /></div>
 </div>
 <p>contains: Verifica se uma geometria contém a outra geometria fornecida.</p>
 <div class="cell docutils container">
@@ -818,6 +820,8 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/f5bc8e2c5925be5f22d4dbef4377666a3df9de0d0df7165e9d669b3f181e601a.svg" src="_images/f5bc8e2c5925be5f22d4dbef4377666a3df9de0d0df7165e9d669b3f181e601a.svg" /></div>
 </div>
+<p><img alt="Figura 6" src="_images/fig6.png" /></p>
+<p align="center">Figura 6: Visualização do buffer e do respectivo envelope</p>
 </section>
 <section id="leitura-de-arquivos-com-fiona">
 <h2>4.2 Leitura de arquivos com Fiona<a class="headerlink" href="#leitura-de-arquivos-com-fiona" title="Permalink to this heading">#</a></h2>
@@ -920,6 +924,10 @@ Os metadados de um shapefile referem-se a informações sobre o próprio shapefi
 </div>
 <p>Nesse código, fiona.open() é usado para abrir e ler o arquivo shapefile; registro.crs fornece o Sistema de Referência de Coordenadas (CRS) do shapefile; registro.bounds retorna uma tupla com os limites do conjunto de dados: (minx, miny, maxx, maxy), onde minx e miny são as coordenadas mínimas x e y, e maxx e maxy são as coordenadas máximas x e y; len(registro) retorna o número total de recursos no arquivo shapefile, ou seja, a quantidade de objetos que ele contém.</p>
 <p>Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos referentes a cada estado brasileiro (figura x) e pelos atributos que constam na figura y.</p>
+<p><img alt="Figura 7" src="_images/fig7.png" /></p>
+<p align="center">Figura 7: Visualização do arquivo shapefile BR_UF.</p>
+<p><img alt="Figura 8" src="_images/fig8.png" /></p>
+<p align="center">Figura 8: Visualização parcial da tabela de atributos de BR_UF.</p>
 <p>Vamos utilizar o script abaixo para abrir o shapefile, ler as geometrias do tipo Polygon e imprimir os atributos CD_UF, NM_UF e SIGLA_UF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -956,21 +964,19 @@ ID: 25, Nome: Paraíba, Sigla: PB
 ID: 26, Nome: Pernambuco, Sigla: PE
 ID: 27, Nome: Alagoas, Sigla: AL
 ID: 28, Nome: Sergipe, Sigla: SE
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 29, Nome: Bahia, Sigla: BA
+ID: 29, Nome: Bahia, Sigla: BA
 ID: 31, Nome: Minas Gerais, Sigla: MG
 ID: 32, Nome: Espírito Santo, Sigla: ES
 ID: 33, Nome: Rio de Janeiro, Sigla: RJ
-ID: 35, Nome: São Paulo, Sigla: SP
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 35, Nome: São Paulo, Sigla: SP
 ID: 41, Nome: Paraná, Sigla: PR
 ID: 42, Nome: Santa Catarina, Sigla: SC
 ID: 43, Nome: Rio Grande do Sul, Sigla: RS
 ID: 50, Nome: Mato Grosso do Sul, Sigla: MS
 ID: 51, Nome: Mato Grosso, Sigla: MT
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 52, Nome: Goiás, Sigla: GO
+ID: 52, Nome: Goiás, Sigla: GO
 ID: 53, Nome: Distrito Federal, Sigla: DF
 ID: 11, Nome: Rondônia, Sigla: RO
 ID: 14, Nome: Roraima, Sigla: RR
@@ -1128,6 +1134,36 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR 1: PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
+</pre></div>
+</div>
+<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
+<span class="ne">CPLE_AppDefinedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
+<span class="nn">fiona/crs.pyx</span> in <span class="ni">fiona.crs.CRS.from_epsg</span><span class="nt">()</span>
+
+<span class="nn">fiona/_err.pyx</span> in <span class="ni">fiona._err.exc_wrap_int</span><span class="nt">()</span>
+
+<span class="ne">CPLE_AppDefinedError</span>: PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
+
+<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
+
+<span class="ne">CRSError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_5315</span><span class="o">/</span><span class="mf">2240429878.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como &#39;capitais_br.shp&#39;. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.</span>
+<span class="g g-Whitespace">      </span><span class="mi">2</span> 
+<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;capitais_br.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;ESRI Shapefile&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">4326</span><span class="p">),</span> <span class="n">schema</span><span class="o">=</span><span class="n">esquema</span><span class="p">)</span> <span class="k">as</span> <span class="n">layer</span><span class="p">:</span>
+<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">capital</span><span class="p">,</span> <span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span> <span class="ow">in</span> <span class="n">capitais</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">ponto</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
+
+<span class="nn">fiona/crs.pyx</span> in <span class="ni">fiona.crs.from_epsg</span><span class="nt">()</span>
+
+<span class="nn">fiona/crs.pyx</span> in <span class="ni">fiona.crs.CRS.from_epsg</span><span class="nt">()</span>
+
+<span class="ne">CRSError</span>: The EPSG code is unknown. PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
+</pre></div>
+</div>
+</div>
 </div>
 <p>Nesse código, iteramos sobre o dicionário capitais. Para cada capital, ele cria um objeto Point com as coordenadas. Em seguida, ele cria um dicionário propriedades que contém as informações geométricas e os atributos associados. Esse dicionário é então escrito (adicionado) no arquivo shapefile usando o método write.</p>
 <div class="cell docutils container">
@@ -1136,14 +1172,11 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shapefile criado com sucesso!
-</pre></div>
-</div>
-</div>
 </div>
 <p>Por fim, o código imprime uma mensagem indicando que o arquivo shapefile foi criado com sucesso.
-Na figura 26 podemos visualizar os pontos referentes as capitais provenientes do arquivo shapefile criado.</p>
+Na figura 9 podemos visualizar os pontos referentes as capitais provenientes do arquivo shapefile criado.</p>
+<p><img alt="Figura 9" src="_images/fig9.png" /></p>
+<p align="center">Figura 9: Visualização dos pontos referentes às capitais dos estados brasileiros.</p>
 <p>Exemplo 3: Escrever um arquivo em formato GeoJSON</p>
 <p>O GeoJSON é um formato de intercâmbio de dados geoespaciais, baseado no JSON (JavaScript Object Notation). Foi desenvolvido para representar objetos geográficos simples, juntamente com seus atributos não espaciais. Devido à simplicidade e à crescente adoção de tecnologias baseadas em web para aplicações geoespaciais, o GeoJSON vem se tornando um dos formatos padrão para transmissão de dados geoespaciais na web.</p>
 <p>O GeoJSON suporta vários tipos de geometria, incluindo Point (ponto), Linestring (linha), Polygon (polígono), Multipoint, Multilinestring, e Multipolygon. Além disso, ele suporta GeometryCollection, que, como vimos, é uma coleção de geometrias. Além da geometria, cada objeto GeoJSON pode ter atributos associados. Estes são armazenados em um objeto chamado propriedades. As coordenadas em GeoJSON são sempre em longitude e latitude (e opcionalmente altitude), e são representadas no formato decimal.</p>
@@ -1181,11 +1214,6 @@ with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arquivo GeoJSON linhas_saida.geojson criado com sucesso!
-</pre></div>
-</div>
-</div>
 </div>
 <p>Exemplo 4: Escrever um arquivo shapefile com geometrias do tipo polígono</p>
 <p>Para escrever um shapefile contendo polígonos, utilizaremos a mesma sintaxe dos exemplos anteriores, usando Shapely para a criação das geometrias e Fiona para a escrita dos dados em formato shapefile:</p>
@@ -1218,11 +1246,6 @@ with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as
     <span class="p">})</span>
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Shapefile </span><span class="si">{</span><span class="n">arquivo_saida</span><span class="si">}</span><span class="s1"> criado com sucesso!&#39;</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shapefile poligonos_saida.shp criado com sucesso!
 </pre></div>
 </div>
 </div>

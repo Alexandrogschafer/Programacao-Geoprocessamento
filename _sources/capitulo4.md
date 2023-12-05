@@ -21,6 +21,11 @@ Dentro do ecossistema Python, existem diversas bibliotecas para otimizar o traba
 
 Shapely é uma biblioteca Python para manipulação e análise de objetos geométricos planares. Baseada na biblioteca GEOS (usada em PostGIS e outros sistemas), ela oferece uma interface amigável para criar, manipular e analisar formas geométricas. As classes básicas são apresentadas na figura 5. 
 
+![Figura 5](images/fig5.png)
+
+<p align="center">Figura 5: Classes para representar geometrias no Shapely</p>
+
+
 A Shapely destaca-se principalmente por suas capacidades geométricas. Ele facilita a execução de operações como união, interseção, diferença e buffer. Além disso, a biblioteca é essencial para manipular e transformar geometrias, desde a simplificação de linhas e polígonos até a criação de um convex hull em torno de pontos ou a divisão e combinação de diferentes formas geométricas.
 
 
@@ -295,6 +300,10 @@ envelope = bufferA.envelope
 envelope
 ```
 
+![Figura 6](images/fig6.png)
+
+<p align="center">Figura 6: Visualização do buffer e do respectivo envelope</p>
+
 
 ## 4.2 Leitura de arquivos com Fiona
 
@@ -419,7 +428,13 @@ Nesse código, fiona.open() é usado para abrir e ler o arquivo shapefile; regis
 
 Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos referentes a cada estado brasileiro (figura x) e pelos atributos que constam na figura y.
 
+![Figura 7](images/fig7.png)
 
+<p align="center">Figura 7: Visualização do arquivo shapefile BR_UF.</p>
+
+![Figura 8](images/fig8.png)
+
+<p align="center">Figura 8: Visualização parcial da tabela de atributos de BR_UF.</p>
 
 Vamos utilizar o script abaixo para abrir o shapefile, ler as geometrias do tipo Polygon e imprimir os atributos CD_UF, NM_UF e SIGLA_UF.
 
@@ -613,8 +628,11 @@ print('Shapefile criado com sucesso!')
 ```
 
 Por fim, o código imprime uma mensagem indicando que o arquivo shapefile foi criado com sucesso.
-Na figura 26 podemos visualizar os pontos referentes as capitais provenientes do arquivo shapefile criado.
+Na figura 9 podemos visualizar os pontos referentes as capitais provenientes do arquivo shapefile criado.
 
+![Figura 9](images/fig9.png)
+
+<p align="center">Figura 9: Visualização dos pontos referentes às capitais dos estados brasileiros.</p>
 
 Exemplo 3: Escrever um arquivo em formato GeoJSON
 

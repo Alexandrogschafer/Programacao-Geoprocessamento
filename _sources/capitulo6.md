@@ -1149,22 +1149,16 @@ Quadro 15: Provedores de tiles e estilos no Contextily.
 
 Abaixo apresentamos alguns exemplos de estilos de mapas base:
 
-OpenStreetMap.Mapnik
-Stamen.Watercolor
+| OpenStreetMap.Mapnik | Stamen.Watercolor |
+|----------------------|-------------------|
+| ![Figura 22](images/fig22.png)           | ![Figura 23](images/fig23.png)         |
 
 
+| Esri.DeLorme | NASAGIBS.ASTER_GDEM_Greyscale_Shaded_Relief |
+|--------------|---------------------------------------------|
+| ![Figura 24](images/fig24.png)     | ![Figura 25](images/fig25.png)                                    |
 
 
-
-Esri.DeLorme
-NASAGIBS.ASTER_GDEM_
-Greyscale_Shaded_Relief
-
-
-
-
-
-Figura 109: Exemplos de estilos de mapa base disponíveis a partir da Contextily.
 
 Vale lembrar que a disponibilidade dos tiles pode variar dependendo dos termos de serviço dos provedores e da capacidade de suportar tráfego. Além disso, a lista de provedores e estilos pode mudar com o tempo, conforme novos estilos são adicionados ou antigos são removidos. Você pode verificar diretamente a lista completa de provedores e estilos disponíveis no ambiente Python explorando o módulo ctx.providers.
 

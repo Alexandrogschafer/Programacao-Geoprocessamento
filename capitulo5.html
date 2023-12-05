@@ -417,7 +417,8 @@ document.write(`
 <h1>5 A BIBLIOTECA GEOPANDAS<a class="headerlink" href="#a-biblioteca-geopandas" title="Permalink to this heading">#</a></h1>
 <p>Em um mundo cada vez mais orientado por dados, a capacidade de trabalhar com informações geoespaciais tornou-se fundamental em diversas áreas, desde o planejamento urbano até a ecologia e ciências ambientais. Neste contexto, o Geopandas emerge como uma importante ferramenta para a análise geoespacial em Python.</p>
 <p>Geopandas é uma extensão do Pandas que introduz estruturas de dados espaciais. Ele apresenta duas estruturas de dados principais (figura 27): GeoSeries e GeoDataFrame. Uma GeoSeries é uma série em que cada entrada representa um conjunto geométrico. Por sua vez, um GeoDataFrame assemelha-se a um DataFrame padrão do Pandas, porém, inclui uma coluna especial denominada “geometry”, responsável por armazenar informações geoespaciais.</p>
-<p>Figura 27: estruturas de dados do Geopandas.</p>
+<p><img alt="Figura 10" src="_images/fig10.png" /></p>
+<p align="center">Figura 10: Estruturas de dados do Geopandas.</p>
 <p>O Geopandas é capaz de lidar com uma variedade de tipos geométricos, abrangendo pontos, linhas, polígonos e combinações destes. Esta capacidade é complementada por uma série de operações espaciais, possíveis graças à integração com bibliotecas como Shapely e Fiona. Estas operações incluem, mas não se limitam a, interseção, união, diferença e buffer. Além disso, a biblioteca oferece ferramentas robustas para análise espacial, permitindo o cálculo de áreas, distâncias e outras métricas geométricas essenciais.</p>
 <p>A flexibilidade do Geopandas não se restringe apenas às operações mencionadas. Ele pode ler e escrever em diversos formatos de dados espaciais, incluindo shapefile e GeoJSON. Além disso, suporta operações de projeção e transformações entre sistemas de coordenadas. Para os profissionais que trabalham com bancos de dados espaciais, o Geopandas também pode ser integrado ao PostGIS, facilitando operações avançadas e consultas SQL. Quando se trata de visualização, a biblioteca se integra perfeitamente a outras soluções Python, como Matplotlib, Plotly e Folium, oferecendo um vasto leque de opções para representação gráfica de dados geoespaciais.</p>
 <section id="leitura-de-arquivos">
@@ -1350,7 +1351,9 @@ document.write(`
 <section id="a-funcao-apply-no-geopandas">
 <h3>5.3.1 A função apply no Geopandas<a class="headerlink" href="#a-funcao-apply-no-geopandas" title="Permalink to this heading">#</a></h3>
 <p>A função apply é uma herança do Pandas que permite aplicar uma determinada função a todos os elementos de uma coluna ou linha em um DataFrame ou GeoDataFrame. No Geopandas, essa função é comumente utilizada para realizar operações específicas em cada uma das geometrias de um conjunto de dados geoespacial. Vamos entender melhor com alguns exemplos.</p>
-<p>Exemplo 1: Calcular o comprimento dos rios do estado do Maranhão apresentados na figura 35.</p>
+<p>Exemplo 1: Calcular o comprimento dos rios do estado do Maranhão apresentados na figura 11.</p>
+<p><img alt="Figura 11" src="_images/fig11.png" /></p>
+<p align="center">Figura 11: Rios no estado do Maranhão.</p>
 <p>Etapa 1: Leitura do shapefile e edição do GeoDataFrame</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1503,7 +1506,9 @@ document.write(`
 </div>
 </div>
 <p>Nesse código utilizamos o método apply() para aplicar uma função a cada valor na coluna geometry. A função lambda pega um argumento geom (que representa uma geometria individual da coluna geometry) e aplica o método buffer(30) a ele. O método buffer(30) é um método do Shapely que cria um buffer (ou zona de influência) ao redor da geometria. Neste caso, o buffer terá uma distância de 30 metros a partir da geometria original.</p>
-<p>Na figura x, temos uma visualização parcial das linhas originadas pela aplicação do buffer no Rio Grajaú.</p>
+<p>Na figura 12, temos uma visualização parcial das linhas originadas pela aplicação do buffer no Rio Grajaú.</p>
+<p><img alt="Figura 12" src="_images/fig12.png" /></p>
+<p align="center">Figura 12: Buffer de 30 metros ao longo do rio Grajaú.</p>
 <p>Exemplo 4: Classificar os rios existentes no DataFrame em ‘pequeno’, ‘médio’ e ‘grande’.
 Além de funções lambda, é possível criar as suas próprias funções e usá-las com apply.  Nesse exemplo, vamos criar a função ‘categoriza_comp’:</p>
 <div class="cell docutils container">
@@ -1554,7 +1559,9 @@ A linha elif row.geometry.length &lt; 600000: é avaliada se a primeira condiç�
 <p>No Geopandas, assim como no Pandas, as funções map e replace oferecem meios distintos de transformar valores em uma coluna.
 A função map é usada para substituir cada valor por outro valor, que pode ser derivado de uma função, dicionário ou uma Series. É particularmente útil quando se deseja realizar uma transformação elementar com base em um conjunto predefinido de correspondências. Por exemplo, se estiver trabalhando com um dicionário, você pode mapear códigos de estados para seus respectivos nomes completos. Contudo, é importante notar que a função map opera apenas sobre Series, e não sobre DataFrames inteiros.</p>
 <p>Por outro lado, a função replace é mais geral e flexível. Ela permite substituir um valor por outro em um DataFrame ou Series. A substituição pode ter como base valores individuais ou listas de valores. Por exemplo, você pode usar replace para substituir todos os valores nulos ou específicos em um DataFrame por um valor padrão. Diferente do map, o replace não limita a substituição com base em um mapeamento direto, oferecendo uma abordagem mais abrangente para transformações.</p>
-<p>Exemplo: Temos um arquivo shapefile com os municípios dos estados de Goiás, Mato Grosso e Mato Grosso do Sul (figura 37). No total, são 466 municípios. A identificação do estado a que cada município pertence se dá pela coluna SIGLA_UF, que armazena a sigla de cada estado. Queremos alterar a identificação dos estados de Goiás e Mato Grosso para os seus nomes ao invés das siglas, mas manter Mato Grosso do Sul identificado pela sua sigla. Vamos realizar essa operação usando tanto a função map quanto a função replace para compará-las.</p>
+<p>Exemplo: Temos um arquivo shapefile com os municípios dos estados de Goiás, Mato Grosso e Mato Grosso do Sul (figura 13). No total, são 466 municípios. A identificação do estado a que cada município pertence se dá pela coluna SIGLA_UF, que armazena a sigla de cada estado. Queremos alterar a identificação dos estados de Goiás e Mato Grosso para os seus nomes ao invés das siglas, mas manter Mato Grosso do Sul identificado pela sua sigla. Vamos realizar essa operação usando tanto a função map quanto a função replace para compará-las.</p>
+<p><img alt="Figura 13" src="_images/fig13.jpg" /></p>
+<p align="center">Figura 13: Municípios dos estados de Goiás, Mato Grosso e Mato Grosso do Sul.</p>
 <p>a) utilizando a função map:</p>
 <p>Inicialmente, criamos um GeoDataFrame a partir do arquivo shapefile mun_MT_MS_GO.shp.</p>
 <div class="cell docutils container">
@@ -1685,6 +1692,8 @@ A função map é usada para substituir cada valor por outro valor, que pode ser
 <section id="anexacao-metodo-concat">
 <h3>5.4.1 Anexação: Método concat<a class="headerlink" href="#anexacao-metodo-concat" title="Permalink to this heading">#</a></h3>
 <p>Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 38). Queremos criar um GeoDataFrame de todo o país.</p>
+<p><img alt="Figura 14" src="_images/fig14.png" /></p>
+<p align="center">Figura 14: Regiões do Brasil.</p>
 <p>Inicialmente, valos criar os GeoDataFrames de cada região a partir dos arquivos shapefile:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3180,6 +3189,7 @@ Name: ES, dtype: object
 </div>
 </div>
 <p>Verificando no GeoDataFrame original:</p>
+<p><img alt="Figura 15" src="_images/fig15.png" /></p>
 <p>Consulta 2: Obter os valores das duas primeiras colunas na primeira linha.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3265,7 +3275,9 @@ Name: 0, dtype: object
 <p>Selecionar subconjuntos de dados com base em coordenadas é uma prática comum no Geopandas, especialmente quando se trabalha com grandes conjuntos de dados geoespaciais e se deseja focar em uma área específica. Uma das maneiras mais fáceis de fazer isso é usando uma bounding box (retângulo envolvente) com a notação de slice do Python, através do indexador cx.</p>
 <p>Como vimos anteriormente, uma bounding box (caixa delimitadora) é geralmente representada por um retângulo definido por dois pontos: o canto inferior esquerdo e o canto superior direito. Em termos de coordenadas, você terá um par para o canto inferior esquerdo (mínimo de x, mínimo de y) e outro par para o canto superior direito (máximo de x, máximo de y):</p>
 <p><code class="docutils literal notranslate"><span class="pre">gdf.cx[min_x:min_y,</span> <span class="pre">max_x:max_y]</span></code></p>
-<p>Exemplo: Vamos supor que você tenha uma bounding box definida pelas coordenadas (-42, -12, -34, -2) (figura 44).</p>
+<p>Exemplo: Vamos supor que você tenha uma bounding box definida pelas coordenadas (-42, -12, -34, -2) (figura 16).</p>
+<p><img alt="Figura 16" src="_images/fig16.png" /></p>
+<p align="center">Figura 16: Visualização da bounding box.</p>
 <p>Para selecionar o subconjunto do GeoDataFrame “gdf_uf_cp” referente a esse bounding box:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3453,7 +3465,7 @@ Datum: South American Datum 1969
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8395/2493095251.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10121/2493095251.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
 
   centroides = gdf[&#39;geometry&#39;].centroid
 </pre></div>
@@ -3468,7 +3480,7 @@ Datum: South American Datum 1969
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_8395/4009800209.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/tmp/ipykernel_10121/4009800209.py:1: UserWarning: Geometry is in a geographic CRS. Results from &#39;centroid&#39; are likely incorrect. Use &#39;GeoSeries.to_crs()&#39; to re-project geometries to a projected CRS before this operation.
 
   gdf_uf[&#39;centroid&#39;] = gdf_uf[&#39;geometry&#39;].centroid
 </pre></div>
@@ -3480,7 +3492,9 @@ Datum: South American Datum 1969
 <p>Cálculo de distâncias</p>
 <p>A função distance no Geopandas é usada para calcular a distância entre geometrias. Ela é aplicada a uma geometria e requer outra geometria como argumento para calcular a distância entre elas. A distância é calculada entre os pontos mais próximos das duas geometrias.</p>
 <p>Exemplo: Calcular a distância (a menor distância) entre: a) Brasília e Palmas; b) Belém e Porto Alegre; c) Florianópolis e Goiânia.
-A figura 47 destaca as capitais dos estados brasileiros que estão localizadas no fuso 22UTM (Optamos por selecionar apenas capitais que estão sob um mesmo fuso visando facilitar a demonstração da ferramenta).</p>
+A figura 17 destaca as capitais dos estados brasileiros que estão localizadas no fuso 22UTM (Optamos por selecionar apenas capitais que estão sob um mesmo fuso visando facilitar a demonstração da ferramenta).</p>
+<p><img alt="Figura 17" src="_images/fig17.png" /></p>
+<p align="center">Figura 17: Capitais dos estados brasileiros no sufo UTM 22S.</p>
 <p>Inicialmente, vamos ler o shapefile e criar o GeoDataFrame.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3714,6 +3728,19 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 </tbody>
 </table>
 <p>Vamos aplicar o método dissolve no GeoDataFrame dos estados brasileiros, agregando os dados do censo de 2000, 2010 e 2022. Cada estado tem um nome, uma geometria e pertence a um país (no caso, o Brasil).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_uf_cp</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/0a119fdbb8c58287520520ded2d3c479c4c7de159f3b19e09a2eff3ddd63492a.png" src="_images/0a119fdbb8c58287520520ded2d3c479c4c7de159f3b19e09a2eff3ddd63492a.png" />
+</div>
+</div>
 <p>Para aplicar o dissolve, precisamos de uma coluna com dados em comum para todos os registros (no caso, os estados). Com não temos essa coluna, vamos inserir uma coluna ‘pais’, com o valor default ‘br’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -3890,7 +3917,20 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 </table>
 </div></div></div>
 </div>
-<p>A figura abaixo mostra a geometria antes (a) e após (b) a aplicação do método dissolve.</p>
+<p>A figura abaixo mostra a geometria após a aplicação do método dissolve.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">gdf_br</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:&gt;
+</pre></div>
+</div>
+<img alt="_images/809928ee35dfc3a3ea5f32a20e70062093df14ed05c7a6ce6e3e47817a5619e5.png" src="_images/809928ee35dfc3a3ea5f32a20e70062093df14ed05c7a6ce6e3e47817a5619e5.png" />
+</div>
+</div>
 <p>O resultado da operação dissolve terá a coluna usada para dissolver como índice. No exemplo acima, país se torna o índice do gdf_br. Se você não quiser que a coluna de dissolução se torne o índice, pode resetar o índice usando reset_index().</p>
 <p>Podemos verificar que, embora a geometria tenha sido dissolvida, do ponto de vista dos atributos no GeoDataFrame, a operação eliminou os dados de todos os estados, deixando apenas os dados do primeiro registro, que era o estado do ACRE.</p>
 <p>Além de combinar geometrias, a função dissolve também pode agregar dados associados a essas geometrias. Por padrão, todas as colunas (exceto a coluna usada para dissolver) tem seus valores agregados usando a função first, o que significa que apenas o primeiro valor encontrado é usado. No entanto, você pode especificar outras funções de agregação, como sum, mean, etc., para colunas específicas.</p>
@@ -4110,7 +4150,9 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>Método contains</p>
 <p>Sintaxe básica:</p>
 <p><code class="docutils literal notranslate"><span class="pre">geometria1.contains(geometria2)</span></code></p>
-<p>Exemplo: Verificar qual estado brasileiro contém o ponto referente a capital Cuiabá (figura 53). Para tanto, vamos utilizar dois GeoDataFrames, um com os polígonos referentes aos estados brasileiros e outro com os pontos referentes as suas capitais.</p>
+<p>Exemplo: Verificar qual estado brasileiro contém o ponto referente a capital Cuiabá (figura 18). Para tanto, vamos utilizar dois GeoDataFrames, um com os polígonos referentes aos estados brasileiros e outro com os pontos referentes as suas capitais.</p>
+<p><img alt="Figura 18" src="_images/fig18.png" /></p>
+<p align="center">Figura 18: Seleção do município de Cuiabá-MT.</p>
 <p>Inicialmente, vamos filtrar o GeoDataFrame ‘gdf_cap’ para encontrar a linha que tem ‘Cuiabá’ como capital.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4145,10 +4187,12 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 </div>
 </div>
 </div>
-<p>Método within</p>
+<p><em>Método within</em></p>
 <p>Sintaxe básica:</p>
 <p><code class="docutils literal notranslate"><span class="pre">geometria1.within(geometria2)</span></code></p>
-<p>Exemplo: Determinar quais pontos referentes as capitais dos estados brasileiros estão dentro do polígono referente ao estado de Roraima.</p>
+<p>Exemplo: Determinar quais pontos referentes às capitais dos estados brasileiros estão dentro do polígono referente ao estado de Roraima.</p>
+<p><img alt="Figura 19" src="_images/fig19.png" /></p>
+<p align="center">Figura 19: Seleção da geometria referente ao estado de Roraima.</p>
 <p>Inicialmente, vamos ler o arquivo shapefile, criar um GeoDataFrame e filtrar apenas as linhas em que ‘NM_UF’ é ‘Roraima’.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4190,7 +4234,9 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 <p>Método intersects</p>
 <p>Sintaxe básica:</p>
 <p><code class="docutils literal notranslate"><span class="pre">geometria1.intersects(geometria2)</span></code></p>
-<p>Exemplo: Determinar quais estados brasileiros são interseccionados pela rodovia BR-116 (figura56).</p>
+<p>Exemplo: Determinar quais estados brasileiros são interseccionados pela rodovia BR-116 (figura 20).</p>
+<p><img alt="Figura 20" src="_images/fig20.png" /></p>
+<p align="center">Figura 20: Visualização da BR-116 no Brasil.</p>
 <p>Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -4215,7 +4261,7 @@ A figura 47 destaca as capitais dos estados brasileiros que estão localizadas n
 </div>
 </div>
 </div>
-<p>Vamos imprimir os nomes desses estados, que podem ser visualizados na figura x.</p>
+<p>Vamos imprimir os nomes desses estados, que podem ser visualizados na figura 21.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">estados_br116</span><span class="p">[</span><span class="s1">&#39;NM_UF&#39;</span><span class="p">])</span>
@@ -4238,6 +4284,8 @@ Name: NM_UF, dtype: object
 </div>
 </div>
 </div>
+<p><img alt="Figura 21" src="_images/fig21.png" /></p>
+<p align="center">Figura 21: Estados brasileiros atravessados pela BR-116.</p>
 </section>
 <section id="diferentes-maneiras-de-utilizar-operacoes-e-predicados-espaciais-com-dois-ou-mais-geodataframes-no-contexto-do-geopandas">
 <h4>5.6.5.3 Diferentes maneiras de utilizar operações e predicados espaciais com dois ou mais GeoDataFrames no contexto do Geopandas<a class="headerlink" href="#diferentes-maneiras-de-utilizar-operacoes-e-predicados-espaciais-com-dois-ou-mais-geodataframes-no-contexto-do-geopandas" title="Permalink to this heading">#</a></h4>
@@ -4847,8 +4895,10 @@ Uso comum: Semelhante à operação intersection, mas mantém informações (atr
 <li><p>“inner” (junção interna): Mantém apenas as linhas para as quais há uma correspondência entre os dois GeoDataFrames. Ou seja, as linhas no resultado só estarão presentes se houver uma relação espacial válida entre elas (por exemplo, um ponto está dentro de um polígono) em ambos os conjuntos de dados. Linhas sem correspondência em qualquer GeoDataFrame serão descartadas.</p></li>
 </ul>
 <p>Se pensarmos nos GeoDataFrames como se fossem tabelas. As opções “left”, “right” e “inner” determinam quais linhas (registros) dessas tabelas estarão presentes no resultado, após a operação de junção. Se você estiver familiarizado com bancos de dados SQL, esses conceitos de junção à esquerda, à direita e interna são semelhantes aos LEFT JOIN, RIGHT JOIN e INNER JOIN, respectivamente.</p>
-<p>Exemplo: Temos um arquivo shapefile com pontos representando as usinas hidrelétricas e as PCHs (Pequenas Centrais Hidrelétricas) do Brasil (figura67). Queremos descobrir em qual estado brasileiro está localizada cada uma delas e inserir essa informação em arquivo.
+<p>Exemplo: Temos um arquivo shapefile com pontos representando as usinas hidrelétricas e as PCHs (Pequenas Centrais Hidrelétricas) do Brasil (figura 22). Queremos descobrir em qual estado brasileiro está localizada cada uma delas e inserir essa informação em arquivo.
 Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘intersects’ entre dois GeoDataFrames: o das usinas e PCHs e o dos estados brasileiros.</p>
+<p><img alt="Figura 22" src="_images/fig22.png" /></p>
+<p align="center">Figura 22: Localização das hidrelétricas e PCHs no Brasil.</p>
 <p>Inicialmente, vamos ler os arquivos shapefile e criar os GeoDataFrames. Em seguida, verificamos as colunas existentes em gdf_usinas e gdf_uf.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
