@@ -393,6 +393,7 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="geoprocessamento-basico-com-shapely-e-fiona">
 <h1>4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA<a class="headerlink" href="#geoprocessamento-basico-com-shapely-e-fiona" title="Permalink to this heading">#</a></h1>
+<p><a class="reference external" href="https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/capitulo4.ipynb">Abrir no Google Colab</a></p>
 <p>Dentro do ecossistema Python, existem diversas bibliotecas para otimizar o trabalho com dados geoespaciais. Dentre elas, Shapely e Fiona merecem destaque, não apenas por sua simplicidade, mas também pela eficácia com que lidam com tarefas geoespaciais. Quando utilizadas em conjunto, essas bibliotecas proporcionam uma abordagem integrada e robusta para o geoprocessamento básico no Python, tornando a análise e manipulação de dados espaciais mais acessível e eficiente.</p>
 <section id="a-biblioteca-shapely">
 <h2>4.1 A biblioteca Shapely<a class="headerlink" href="#a-biblioteca-shapely" title="Permalink to this heading">#</a></h2>
@@ -991,10 +992,10 @@ ID: 29, Nome: Bahia, Sigla: BA
 ID: 31, Nome: Minas Gerais, Sigla: MG
 ID: 32, Nome: Espírito Santo, Sigla: ES
 ID: 33, Nome: Rio de Janeiro, Sigla: RJ
+ID: 35, Nome: São Paulo, Sigla: SP
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 35, Nome: São Paulo, Sigla: SP
-ID: 41, Nome: Paraná, Sigla: PR
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 41, Nome: Paraná, Sigla: PR
 ID: 42, Nome: Santa Catarina, Sigla: SC
 ID: 43, Nome: Rio Grande do Sul, Sigla: RS
 ID: 50, Nome: Mato Grosso do Sul, Sigla: MS
@@ -1173,7 +1174,7 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 <span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
 
 <span class="ne">CRSError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_8119</span><span class="o">/</span><span class="mf">2240429878.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
+<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_24658</span><span class="o">/</span><span class="mf">2240429878.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
 <span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como &#39;capitais_br.shp&#39;. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.</span>
 <span class="g g-Whitespace">      </span><span class="mi">2</span> 
 <span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;capitais_br.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;ESRI Shapefile&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">4326</span><span class="p">),</span> <span class="n">schema</span><span class="o">=</span><span class="n">esquema</span><span class="p">)</span> <span class="k">as</span> <span class="n">layer</span><span class="p">:</span>

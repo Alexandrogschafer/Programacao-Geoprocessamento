@@ -14,6 +14,8 @@ kernelspec:
 
 # 6. VISUALIZAÇÃO DE DADOS GEOESPACIAIS NO PYTHON
 
+[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/capitulo6.ipynb)
+
 O geoprocessamento, como área que se dedica à coleta, processamento e análise de dados geoespaciais, é intrinsecamente ligado à visualização de informações. A representação gráfica desses dados não apenas facilita a compreensão de padrões e tendências espaciais, mas também serve como uma ponte entre informações complexas e a tomada de decisões informadas. Mapas, gráficos e outras representações visuais transformam conjuntos de dados brutos em insights tangíveis, permitindo que especialistas e tomadores de decisão visualizem fenômenos geográficos de maneira mais intuitiva.
 
 Além disso, em um mundo onde a quantidade de dados geoespaciais cresce exponencialmente, a capacidade de sintetizar e apresentar esses dados de forma clara e concisa é crucial. A visualização adequada permite que os usuários identifiquem rapidamente áreas de interesse, anomalias ou padrões, otimizando processos de análise e acelerando a resposta a questões geográficas críticas. Esta síntese visual também facilita a comunicação entre diferentes públicos, desde especialistas técnicos até o público em geral, democratizando o acesso à informação geoespacial.
