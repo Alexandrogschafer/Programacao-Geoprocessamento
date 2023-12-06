@@ -15,6 +15,9 @@ kernelspec:
 
 # 2. FUNDAMENTOS DA LINGUAGEM PYTHON
 
+[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/capitulo2.ipynb)
+
+
 ## 2.1 Sintaxe básica: variáveis, operadores, expressões
 
 O entendimento da sintaxe básica do Python é fundamental para começar a programar nesta linguagem, especialmente em aplicações voltadas para o geoprocessamento. Nesta seção abordaremos três elementos essenciais da sintaxe do Python: variáveis, operadores e expressões.
