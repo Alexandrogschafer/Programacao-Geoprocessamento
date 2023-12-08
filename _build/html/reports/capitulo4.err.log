@@ -1,0 +1,62 @@
+Traceback (most recent call last):
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/alexandro/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+# Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como 'capitais_br.shp'. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.
+
+with fiona.open('capitais_br.shp', 'w', driver='ESRI Shapefile', crs=from_epsg(4326), schema=esquema) as layer:
+    for capital, (estado, coords) in capitais.items():
+        ponto = Point(coords)
+        propriedades = {
+            'geometry': {
+                'type': 'Point',
+                'coordinates': coords,
+            },
+            'properties': {
+                'capital': capital,
+                'estado': estado,
+            },
+        }
+        layer.write(propriedades)
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mCPLE_AppDefinedError[0m                      Traceback (most recent call last)
+[0;32mfiona/crs.pyx[0m in [0;36mfiona.crs.CRS.from_epsg[0;34m()[0m
+
+[0;32mfiona/_err.pyx[0m in [0;36mfiona._err.exc_wrap_int[0;34m()[0m
+
+[0;31mCPLE_AppDefinedError[0m: PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
+
+During handling of the above exception, another exception occurred:
+
+[0;31mCRSError[0m                                  Traceback (most recent call last)
+[0;32m/tmp/ipykernel_24658/2240429878.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;31m# Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como 'capitais_br.shp'. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      2[0m [0;34m[0m[0m
+[0;32m----> 3[0;31m [0;32mwith[0m [0mfiona[0m[0;34m.[0m[0mopen[0m[0;34m([0m[0;34m'capitais_br.shp'[0m[0;34m,[0m [0;34m'w'[0m[0;34m,[0m [0mdriver[0m[0;34m=[0m[0;34m'ESRI Shapefile'[0m[0;34m,[0m [0mcrs[0m[0;34m=[0m[0mfrom_epsg[0m[0;34m([0m[0;36m4326[0m[0;34m)[0m[0;34m,[0m [0mschema[0m[0;34m=[0m[0mesquema[0m[0;34m)[0m [0;32mas[0m [0mlayer[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      4[0m     [0;32mfor[0m [0mcapital[0m[0;34m,[0m [0;34m([0m[0mestado[0m[0;34m,[0m [0mcoords[0m[0;34m)[0m [0;32min[0m [0mcapitais[0m[0;34m.[0m[0mitems[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m         [0mponto[0m [0;34m=[0m [0mPoint[0m[0;34m([0m[0mcoords[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mfiona/crs.pyx[0m in [0;36mfiona.crs.from_epsg[0;34m()[0m
+
+[0;32mfiona/crs.pyx[0m in [0;36mfiona.crs.CRS.from_epsg[0;34m()[0m
+
+[0;31mCRSError[0m: The EPSG code is unknown. PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
+CRSError: The EPSG code is unknown. PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
+

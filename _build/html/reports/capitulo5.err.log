@@ -1,0 +1,88 @@
+Traceback (most recent call last):
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/jupyter_cache/executors/utils.py", line 58, in single_nb_execution
+    executenb(
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 1204, in execute
+    return NotebookClient(nb=nb, resources=resources, km=km, **kwargs).execute()
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 84, in wrapped
+    return just_run(coro(*args, **kwargs))
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/util.py", line 62, in just_run
+    return loop.run_until_complete(coro)
+  File "/home/alexandro/anaconda3/lib/python3.9/asyncio/base_events.py", line 647, in run_until_complete
+    return future.result()
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 663, in async_execute
+    await self.async_execute_cell(
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 965, in async_execute_cell
+    await self._check_raise_for_error(cell, cell_index, exec_reply)
+  File "/home/alexandro/anaconda3/lib/python3.9/site-packages/nbclient/client.py", line 862, in _check_raise_for_error
+    raise CellExecutionError.from_cell_and_msg(cell, exec_reply_content)
+nbclient.exceptions.CellExecutionError: An error occurred while executing the following cell:
+------------------
+import geopandas as gpd
+gdf_rios = gpd.read_file('/home/alexandro/geopythonbook/content/rios_maranhao.shp')
+gdf_rios = gdf_rios.to_crs('EPSG:31983')
+gdf_rios = gdf_rios.rename(columns={'NORIOCOMP': 'nome'})
+gdf_rios = gdf_rios.drop(columns=['FID_GEOFT_', 
+    'CORIO', 'FID_BR_UF_', 'CD_UF', 'NM_UF', 'SIGLA_UF', 
+    'NM_REGIAO', 'AREA_KM2', 'Shape_Leng'])
+------------------
+
+[0;31m---------------------------------------------------------------------------[0m
+[0;31mCPLE_OpenFailedError[0m                      Traceback (most recent call last)
+[0;32mfiona/_shim.pyx[0m in [0;36mfiona._shim.gdal_open_vector[0;34m()[0m
+
+[0;32mfiona/_err.pyx[0m in [0;36mfiona._err.exc_wrap_pointer[0;34m()[0m
+
+[0;31mCPLE_OpenFailedError[0m: /home/alexandro/geopythonbook/content/rios_maranhao.shp: No such file or directory
+
+During handling of the above exception, another exception occurred:
+
+[0;31mDriverError[0m                               Traceback (most recent call last)
+[0;32m/tmp/ipykernel_27372/1576297623.py[0m in [0;36m<module>[0;34m[0m
+[1;32m      1[0m [0;32mimport[0m [0mgeopandas[0m [0;32mas[0m [0mgpd[0m[0;34m[0m[0;34m[0m[0m
+[0;32m----> 2[0;31m [0mgdf_rios[0m [0;34m=[0m [0mgpd[0m[0;34m.[0m[0mread_file[0m[0;34m([0m[0;34m'/home/alexandro/geopythonbook/content/rios_maranhao.shp'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m      3[0m [0mgdf_rios[0m [0;34m=[0m [0mgdf_rios[0m[0;34m.[0m[0mto_crs[0m[0;34m([0m[0;34m'EPSG:31983'[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      4[0m [0mgdf_rios[0m [0;34m=[0m [0mgdf_rios[0m[0;34m.[0m[0mrename[0m[0;34m([0m[0mcolumns[0m[0;34m=[0m[0;34m{[0m[0;34m'NORIOCOMP'[0m[0;34m:[0m [0;34m'nome'[0m[0;34m}[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[1;32m      5[0m gdf_rios = gdf_rios.drop(columns=['FID_GEOFT_', 
+
+[0;32m~/anaconda3/lib/python3.9/site-packages/geopandas/io/file.py[0m in [0;36m_read_file[0;34m(filename, bbox, mask, rows, engine, **kwargs)[0m
+[1;32m    257[0m [0;34m[0m[0m
+[1;32m    258[0m     [0;32mif[0m [0mengine[0m [0;34m==[0m [0;34m"fiona"[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 259[0;31m         return _read_file_fiona(
+[0m[1;32m    260[0m             [0mpath_or_bytes[0m[0;34m,[0m [0mfrom_bytes[0m[0;34m,[0m [0mbbox[0m[0;34m=[0m[0mbbox[0m[0;34m,[0m [0mmask[0m[0;34m=[0m[0mmask[0m[0;34m,[0m [0mrows[0m[0;34m=[0m[0mrows[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    261[0m         )
+
+[0;32m~/anaconda3/lib/python3.9/site-packages/geopandas/io/file.py[0m in [0;36m_read_file_fiona[0;34m(path_or_bytes, from_bytes, bbox, mask, rows, where, **kwargs)[0m
+[1;32m    301[0m [0;34m[0m[0m
+[1;32m    302[0m     [0;32mwith[0m [0mfiona_env[0m[0;34m([0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 303[0;31m         [0;32mwith[0m [0mreader[0m[0;34m([0m[0mpath_or_bytes[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m [0;32mas[0m [0mfeatures[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    304[0m             [0mcrs[0m [0;34m=[0m [0mfeatures[0m[0;34m.[0m[0mcrs_wkt[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    305[0m             [0;31m# attempt to get EPSG code[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.9/site-packages/fiona/env.py[0m in [0;36mwrapper[0;34m(*args, **kwargs)[0m
+[1;32m    406[0m     [0;32mdef[0m [0mwrapper[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    407[0m         [0;32mif[0m [0mlocal[0m[0;34m.[0m[0m_env[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 408[0;31m             [0;32mreturn[0m [0mf[0m[0;34m([0m[0;34m*[0m[0margs[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    409[0m         [0;32melse[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    410[0m             [0;32mif[0m [0misinstance[0m[0;34m([0m[0margs[0m[0;34m[[0m[0;36m0[0m[0;34m][0m[0;34m,[0m [0mstr[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.9/site-packages/fiona/__init__.py[0m in [0;36mopen[0;34m(fp, mode, driver, schema, crs, encoding, layer, vfs, enabled_drivers, crs_wkt, **kwargs)[0m
+[1;32m    262[0m [0;34m[0m[0m
+[1;32m    263[0m         [0;32mif[0m [0mmode[0m [0;32min[0m [0;34m([0m[0;34m'a'[0m[0;34m,[0m [0;34m'r'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 264[0;31m             c = Collection(path, mode, driver=driver, encoding=encoding,
+[0m[1;32m    265[0m                            layer=layer, enabled_drivers=enabled_drivers, **kwargs)
+[1;32m    266[0m         [0;32melif[0m [0mmode[0m [0;34m==[0m [0;34m'w'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32m~/anaconda3/lib/python3.9/site-packages/fiona/collection.py[0m in [0;36m__init__[0;34m(self, path, mode, driver, schema, crs, encoding, layer, vsi, archive, enabled_drivers, crs_wkt, ignore_fields, ignore_geometry, **kwargs)[0m
+[1;32m    160[0m             [0;32mif[0m [0mself[0m[0;34m.[0m[0mmode[0m [0;34m==[0m [0;34m'r'[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    161[0m                 [0mself[0m[0;34m.[0m[0msession[0m [0;34m=[0m [0mSession[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0;32m--> 162[0;31m                 [0mself[0m[0;34m.[0m[0msession[0m[0;34m.[0m[0mstart[0m[0;34m([0m[0mself[0m[0;34m,[0m [0;34m**[0m[0mkwargs[0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+[0m[1;32m    163[0m             [0;32melif[0m [0mself[0m[0;34m.[0m[0mmode[0m [0;32min[0m [0;34m([0m[0;34m'a'[0m[0;34m,[0m [0;34m'w'[0m[0;34m)[0m[0;34m:[0m[0;34m[0m[0;34m[0m[0m
+[1;32m    164[0m                 [0mself[0m[0;34m.[0m[0msession[0m [0;34m=[0m [0mWritingSession[0m[0;34m([0m[0;34m)[0m[0;34m[0m[0;34m[0m[0m
+
+[0;32mfiona/ogrext.pyx[0m in [0;36mfiona.ogrext.Session.start[0;34m()[0m
+
+[0;32mfiona/_shim.pyx[0m in [0;36mfiona._shim.gdal_open_vector[0;34m()[0m
+
+[0;31mDriverError[0m: /home/alexandro/geopythonbook/content/rios_maranhao.shp: No such file or directory
+DriverError: /home/alexandro/geopythonbook/content/rios_maranhao.shp: No such file or directory
+
