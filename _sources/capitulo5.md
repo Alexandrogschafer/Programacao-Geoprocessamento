@@ -195,7 +195,7 @@ Quadro 10: Codificações e suas descrições.
 
 Para corrigir o problema, vamos ler novamente o arquivo, especificando a codificação (parâmetro encoding) ISO-8859-1:
 ```{code-cell} python
-gdf = gpd.read_file('~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv', encoding='ISO-8859-1')
+gdf = gpd.read_file('~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv', encoding='UTF-8')
 gdf
 ```
 <br><br>
