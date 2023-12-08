@@ -1,0 +1,8 @@
+jupyter-book
+matplotlib
+numpy
+pandas
+geopandas
+contextily
+shapely
+fiona
