@@ -36,6 +36,7 @@ altura_metros = 1.75
 <br>
 
 Tipagem dinâmica refere-se ao mecanismo pelo qual o tipo de uma variável é determinado em tempo de execução, ao contrário da tipagem estática, onde o tipo de uma variável é determinado em tempo de compilação. Em linguagens com tipagem dinâmica, o tipo de uma variável pode mudar durante a execução do programa, dependendo do valor que lhe é atribuído.
+
 Cada linguagem de programação possui suas próprias regras e convenções para nomear variáveis, mas existem algumas práticas gerais recomendadas:
 
 *Regras comuns:*
@@ -267,25 +268,18 @@ Esses operadores são essenciais para controle de fluxo em programação, permit
 Expressões em Python referem-se a combinações de valores, variáveis e operadores que são avaliadas pelo interpretador Python para produzir um resultado. Em termos simples, uma expressão é como uma instrução matemática que o Python resolve e retorna um valor. No contexto de uma expressão:
 <br>
 
-Valores: São os dados básicos com os quais trabalhamos, como números (2, 4.5) ou strings ("geoprocessamento", "Python").
-Operadores: São símbolos que realizam operações sobre valores, como adição (“+”), subtração (“-”), multiplicação (“*”), divisão (“/”) e muitos outros.
+- Valores: São os dados básicos com os quais trabalhamos, como números (2, 4.5) ou strings ("geoprocessamento", "Python").
 
-Exemplo: “3 + 4” é uma expressão onde “3” e “4” são valores e “+” é um operador.
+- Operadores: São símbolos que realizam operações sobre valores, como adição (“+”), subtração (“-”), multiplicação (“*”), divisão (“/”) e muitos outros. Exemplo: “3 + 4” é uma expressão onde “3” e “4” são valores e “+” é um operador.
 <br>
 
-Variáveis: São nomes que designam locais na memória para armazenar valores. Uma vez que um valor é atribuído a uma variável, a variável pode ser usada em expressões.
-
-Exemplo: “x = 5” (Aqui, “x” é uma variável e “5” é um valor. Depois disso, é possível usar “x” em expressões como “x + 2”.)
+- Variáveis: São nomes que designam locais na memória para armazenar valores. Uma vez que um valor é atribuído a uma variável, a variável pode ser usada em expressões. Exemplo: “x = 5” (Aqui, “x” é uma variável e “5” é um valor. Depois disso, é possível usar “x” em expressões como “x + 2”.)
 <br>
 
-Funções: são blocos de código reutilizáveis que realizam uma tarefa específica. Em expressões, funções podem ser usadas para processar valores e produzir resultados.
-
-Exemplo: “print("Geoprocessamento com Python")” (Aqui, “print” é uma função que exibe seu argumento.)
+- Funções: são blocos de código reutilizáveis que realizam uma tarefa específica. Em expressões, funções podem ser usadas para processar valores e produzir resultados. Exemplo: “print("Geoprocessamento com Python")” (Aqui, “print” é uma função que exibe seu argumento.)
 <br>
 
-Avaliação: Quando o Python encontra uma expressão, seja em um script ou no terminal interativo, ele avalia (ou calcula) a expressão e retorna um resultado.
-
-Exemplo: Na expressão “7 * 6”, o Python avaliará isso e retornará “42”.
+- Avaliação: Quando o Python encontra uma expressão, seja em um script ou no terminal interativo, ele avalia (ou calcula) a expressão e retorna um resultado. Exemplo: Na expressão “7 * 6”, o Python avaliará isso e retornará “42”.
 
 
 ## 2.2 Tipos básicos de dados
@@ -295,9 +289,6 @@ Os tipos básicos de dados (figura 1), também conhecidos como tipos primitivos 
 ![Figura 1](images/fig1.png)
 
 <p align="center">Figura 1: Tipos básicos de dados em Python.</p>
-
-
-
 
 
 
@@ -453,10 +444,11 @@ print(num_inteiro)
 
 *Avisos:*
 
-Ao converter de float para int, é importante lembrar que a parte decimal é truncada, não arredondada. Assim, 4.9 se tornará 4, e não 5.
-A conversão de um número muito grande ou muito pequeno pode resultar em imprecisões. Sempre esteja ciente das limitações da precisão do ponto flutuante ao trabalhar com conversões.
+- Ao converter de float para int, é importante lembrar que a parte decimal é truncada, não arredondada. Assim, 4.9 se tornará 4, e não 5.
 
-É sempre uma boa prática verificar os valores antes de convertê-los para evitar erros em tempo de execução.
+- A conversão de um número muito grande ou muito pequeno pode resultar em imprecisões. Sempre esteja ciente das limitações da precisão do ponto flutuante ao trabalhar com conversões.
+
+- É sempre uma boa prática verificar os valores antes de convertê-los para evitar erros em tempo de execução.
 
 Em algumas situações, você pode querer arredondar o número de ponto flutuante antes de convertê-lo para inteiro. Nesse caso, você pode usar a função round() para arredondar ao número inteiro mais próximo.
 ```{code-cell} python
@@ -575,22 +567,22 @@ Bytes são sequências imutáveis de inteiros pequenos no intervalo de 0 a 255. 
 
 - Uso comum: Ideal para lidar com dados binários, como operações de I/O, comunicação de rede, arquivos binários, etc.
 
-Exemplos de código:
+Exemplos:
 
-Criando bytes usando a sintaxe b''
+Criar bytes usando a sintaxe b''
 ```{code-cell} python
 dados_binarios = b'Ol\xc3\xa1 Mundo'
 print(dados_binarios)  
 ```
 
-Convertendo uma string em bytes
+Converter uma string em bytes
 ```{code-cell} python
 string_normal = 'Olá Mundo'
 bytes_convertidos = string_normal.encode('utf-8')
 print(bytes_convertidos)  
 ```
 
-Acessando elementos dos bytes (semelhante a listas e strings)
+Acessar elementos dos bytes (semelhante a listas e strings)
 ```{code-cell} python
 primeiro_byte = dados_binarios[0]
 print(primeiro_byte)  
@@ -599,6 +591,8 @@ print(primeiro_byte)
 Bytes são imutáveis. A tentativa de mudar um valor resultará em um erro.
 ```{code-cell} python
 # dados_binarios[0] = 80  
+
+# TypeError: 'bytes' object does not support item assignment
 ```
 
 Criando bytes a partir de uma lista de inteiros
@@ -687,9 +681,11 @@ Limites de Índice: Se você tentar acessar um índice que está fora da faixa d
 
 ```{code-cell} python
 #print(nome[6])  
+
+# IndexError: string index out of range
 ```
 
-Resultará em um erro, pois o índice 6 está fora da faixa.
+O índice 6 está fora da faixa.
 
 Fatiamento de Strings: Além de acessar caracteres individuais, você também pode acessar subconjuntos ou "fatias" de uma string usando o conceito de fatiamento.
 
@@ -751,6 +747,7 @@ d. Como “mensagem_venda” contém a string "O valor total da compra foi R$ 30
 *Métodos integrados*
 
 As strings em Python vêm com uma variedade de métodos integrados que permitem realizar operações comuns em strings sem a necessidade de escrever funções adicionais. Esses métodos são essencialmente funções que estão "ligadas" a objetos de string e podem ser chamados diretamente em qualquer string. Abaixo estão algumas das operações comuns e seus métodos correspondentes:
+<br>
 
 Conversão de Caso:
 
@@ -824,9 +821,7 @@ As estruturas de dados são formas organizadas e eficientes de armazenar, acessa
 
 ![Figura 3](images/fig3.png)
 
-Figura 3: Estruturas de dados em Python.
-
-<p align="center">Este texto está centralizado.</p>
+<p align="center">Figura 3: Estruturas de dados em Python.</p>
 
 
 
@@ -889,6 +884,7 @@ lista_aninhada = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 <br>
 
 *Acessando os elementos da lista*
+<br>
 
 - Acesso pelo Índice:
 
@@ -906,16 +902,18 @@ terceiro_numero = numeros[2]
 print(terceiro_numero)  
 ```
 
-Atenção:
+*Atenção:*
 
 Ao tentar acessar um índice que não existe na lista (por exemplo, ```pais[3] ``` quando a lista tem apenas 3 elementos) resultará em um IndexError. 
 
 ```{code-cell} python
 # pais[3]
+
+# IndexError: list index out of range
 ```
 <br>
 
-Acesso com Índices Negativos:
+- Acesso com Índices Negativos:
 
 Os índices negativos permitem acessar a lista do final para o começo.
 
@@ -993,19 +991,19 @@ Podemos acessar os dados de uma lista utilizando funções do Python. Funções 
 altitudes = [320, 540, 890, 1200, 45, 650]
 ```
 
+Usando len() para determinar o número de elementos na lista:
 ```{code-cell} python
-# Usando len() para determinar o número de elementos na lista
 numero_registros = len(altitudes)
 print(numero_registros)
 ```
 
+Usando max() para encontrar a maior altitude:
 ```{code-cell} python
-# Usando max() para encontrar a maior altitude
 maior_altitude = max(altitudes)
 ```
 
+Usando o min() para determinar a menor altitude
 ```{code-cell} python
-# Usando o min() para determinar a menor altitude
 menor_altitude = min(altitudes)
 print(menor_altitude) 
 ```
@@ -1139,30 +1137,30 @@ As tuplas são uma das estruturas de dados em Python que permitem armazenar uma 
 
 - Imutabilidade: Uma vez que uma tupla é criada, você não pode modificar seus elementos. Isso significa que você não pode adicionar, remover ou alterar elementos após a tupla ser definida. Essa imutabilidade faz das tuplas uma escolha segura para representar coleções de dados que não devem ser alteradas durante a execução de um programa;
 
-- Sintaxe: Tuplas são geralmente definidas colocando os elementos entre parênteses (), enquanto listas usam colchetes.
+- Sintaxe: Tuplas são geralmente definidas colocando os elementos entre parênteses (), enquanto listas usam colchetes;
 
 - Uso: Devido à sua natureza imutável, as tuplas são frequentemente usadas em situações em que é necessário garantir que os dados não sejam modificados. Alguns exemplos incluem:
 
-    - Chaves em dicionários: Em Python, as chaves de um dicionário devem ser imutáveis, tornando as tuplas uma opção adequada para chaves compostas.
+    - Chaves em dicionários: Em Python, as chaves de um dicionário devem ser imutáveis, tornando as tuplas uma opção adequada para chaves compostas;
 
-    - Retorno de múltiplos valores de funções: É comum usar tuplas para retornar múltiplos valores de uma função.
+    - Retorno de múltiplos valores de funções: É comum usar tuplas para retornar múltiplos valores de uma função;
 
     - Armazenar dados que não devem ser alterados: Se você tem uma coleção de valores que nunca devem ser alterados durante a vida útil do programa (por exemplo, constantes), as tuplas são uma opção natural.
 
 
 No contexto do geoprocessamento, as tuplas desempenham vários papéis importantes, aproveitando sua natureza imutável e ordenada. Aqui estão algumas maneiras de como as tuplas podem ser aplicadas:
 
-- Coordenadas Geográficas: As tuplas são uma escolha natural para representar pontos no espaço, como coordenadas (latitude, longitude). Sua natureza imutável garante que as coordenadas de um ponto específico não sejam modificadas acidentalmente.
+- Coordenadas Geográficas: As tuplas são uma escolha natural para representar pontos no espaço, como coordenadas (latitude, longitude). Sua natureza imutável garante que as coordenadas de um ponto específico não sejam modificadas acidentalmente;
 
-- Dados matriciais: Em análises de dados matriciais, cada pixel pode ser representado por uma tupla que denota seu valor em várias bandas (por exemplo, bandas de imagem de satélite).
+- Dados matriciais: Em análises de dados matriciais, cada pixel pode ser representado por uma tupla que denota seu valor em várias bandas (por exemplo, bandas de imagem de satélite);
 
-- Atributos Compostos: Em muitos Sistemas de Informações Geográficas (SIG), os atributos associados a um objeto podem ser armazenados como tuplas. Por exemplo, um objeto representando um edifício pode ter um atributo que é uma tupla contendo (número de andares, área, ano de construção).
+- Atributos Compostos: Em muitos Sistemas de Informações Geográficas (SIG), os atributos associados a um objeto podem ser armazenados como tuplas. Por exemplo, um objeto representando um edifício pode ter um atributo que é uma tupla contendo (número de andares, área, ano de construção);
 
-- Chaves Únicas: No geoprocessamento, frequentemente, trabalhamos com bancos de dados espaciais. Quando se deseja criar chaves compostas para tabelas, as tuplas podem ser usadas para representar combinações únicas de diferentes colunas.
+- Chaves Únicas: No geoprocessamento, frequentemente, trabalhamos com bancos de dados espaciais. Quando se deseja criar chaves compostas para tabelas, as tuplas podem ser usadas para representar combinações únicas de diferentes colunas;
 
-- Retorno de Funções: Muitas funções em bibliotecas de geoprocessamento podem retornar múltiplos valores. Por exemplo, uma função que calcula a distância e o ângulo entre dois pontos retornaria ambos os valores como uma tupla.
+- Retorno de Funções: Muitas funções em bibliotecas de geoprocessamento podem retornar múltiplos valores. Por exemplo, uma função que calcula a distância e o ângulo entre dois pontos retornaria ambos os valores como uma tupla;
 
-- Definição de Extensões Espaciais: Em algumas operações, como cortar ou recortar um dataset, é necessário definir a extensão espacial (bounding box). Isso pode ser representado por uma tupla de valores mínimos e máximos (xmin, ymin, xmax, ymax).
+- Definição de Extensões Espaciais: Em algumas operações, como cortar ou recortar um dataset, é necessário definir a extensão espacial (bounding box). Isso pode ser representado por uma tupla de valores mínimos e máximos (xmin, ymin, xmax, ymax);
 
 - Especificação de Parâmetros: Muitas operações geoespaciais exigem um conjunto de parâmetros que não mudam durante a operação. Uma tupla pode armazenar esses valores de maneira confiável.
 
@@ -1171,38 +1169,38 @@ No contexto do geoprocessamento, as tuplas desempenham vários papéis important
 
 A criação de tuplas pode ser realizada de acordo com os exemplos a seguir:
 
+Tupla vazia:
 ```{code-cell} python
-#Tupla vazia
 nome = ()
 ```
 
+Tupla com coordenadas geográficas:
 ```{code-cell} python
-#Criação de tupla com coordenadas geográficas
 coordenada = (45.4215, -75.6972)  
 ```
 
+As tuplas podem ser criadas com ou sem a inserção de parênteses:
 ```{code-cell} python
-#As tuplas podem ser criadas com ou sem a inserção de parênteses.
 coordenada = 45.4215, -75.6972 
 ```
 
+Tupla mista, com dados do tipo string e do tipo inteiro:
 ```{code-cell} python
-#Tupla mista, com dados do tipo string e do tipo inteiro.
 rio_info = ('Rio Amazonas', 6575, 'América do Sul')  
 ```
 
+Tupla aninhada (contendo tuplas e listas):
 ```{code-cell} python
-#Tupla aninhada (contendo tuplas e listas)
 tupla_aninhada = ((1, 2, 3), [4, 5, 6], (7, 8), [9, 10, 11])
 ```
 
 
 *Acessando os elementos de uma tupla*
 
-	O acesso aos elementos de uma tupla em Python é feito de maneira análoga às listas. Seja por índice, acesso negativo, fatiamento, desempacotamento, uso de funções built-in ou loops, as técnicas usadas para acessar os elementos são as mesmas para ambas as estruturas de dados. A seguir temos um exemplo de acessos aos elementos da tupla “temperaturas”.
+O acesso aos elementos de uma tupla em Python é feito de maneira análoga às listas. Seja por índice, acesso negativo, fatiamento, desempacotamento, uso de funções built-in ou loops, as técnicas usadas para acessar os elementos são as mesmas para ambas as estruturas de dados. A seguir temos um exemplo de acessos aos elementos da tupla “temperaturas”.
 
+Criação de tupla com elementos representando a altitude:
 ```{code-cell} python
-#Criação de tupla com elementos representando a altitude
 temperaturas = (20.5, 23.2, 18.7, 21.9, 19.4)
 ```
 
@@ -1246,26 +1244,27 @@ print(temp_min)
 
 A conversão entre listas e tuplas é uma tarefa comum e fácil de realizar em Python. Tanto é possível converter uma lista em uma tupla quanto converter uma tupla em uma lista, conforme exemplos a seguir:
 
+
+Convertendo uma lista em uma tupla:
 ```{code-cell} python
-#Convertendo uma lista em uma tupla
 lista = [1, 2, 3, 4]
 tupla = tuple(lista)
 ```
 
+Verificando o tipo de dado:
 ```{code-cell} python
-# Verificando o tipo de dado
 print('Tipo de dado após a conversão:', type(tupla))
 
 ```
 
+Convertendo uma tupla em uma lista:
 ```{code-cell} python
-#Convertendo uma tupla em uma lista
 tupla = (1, 2, 3, 4)
 lista = list(tupla)
 ```
 
+Verificando o tipo de dado:
 ```{code-cell} python
-# Verificando o tipo de dado
 print('Tipo de dado após a conversão:', type(lista))
 
 ```
@@ -1279,42 +1278,42 @@ Escolher entre tuplas e listas em Python geralmente depende do contexto e da int
 
 a) Imutabilidade:
 
-Tuplas: São imutáveis. Uma vez que você cria uma tupla, não pode alterar seus elementos ou seu tamanho. Isso é útil quando você quer garantir que os dados permaneçam constantes e não sejam alterados acidentalmente em qualquer parte do programa.
+- Tuplas: São imutáveis. Uma vez que você cria uma tupla, não pode alterar seus elementos ou seu tamanho. Isso é útil quando você quer garantir que os dados permaneçam constantes e não sejam alterados acidentalmente em qualquer parte do programa.
 
-Listas: São mutáveis. Você pode modificar, adicionar ou remover elementos de uma lista após sua criação.
+- Listas: São mutáveis. Você pode modificar, adicionar ou remover elementos de uma lista após sua criação.
 <br><br>
 
 b) Semântica:
 
-Tuplas: Em muitos contextos, tuplas são usadas para representar coleções de itens heterogêneos (por exemplo, coordenadas (x, y), dados de um banco (nome, idade, endereço)). Elas geralmente têm um número fixo de elementos, cada um com um significado específico.
+- Tuplas: Em muitos contextos, tuplas são usadas para representar coleções de itens heterogêneos (por exemplo, coordenadas (x, y), dados de um banco (nome, idade, endereço)). Elas geralmente têm um número fixo de elementos, cada um com um significado específico.
 
-Listas: São geralmente usadas para coleções homogêneas de itens, onde cada item tem o mesmo tipo e significado (por exemplo, uma lista de números, uma lista de nomes).
+- Listas: São geralmente usadas para coleções homogêneas de itens, onde cada item tem o mesmo tipo e significado (por exemplo, uma lista de números, uma lista de nomes).
 <br><br>
 
 c) Desempenho:
 
-Tuplas: Como são imutáveis, tuplas podem ser ligeiramente mais rápidas do que listas em certas operações, como iteração.
+- Tuplas: Como são imutáveis, tuplas podem ser ligeiramente mais rápidas do que listas em certas operações, como iteração.
 
-Listas: Devido à sua natureza mutável, operações que alteram a lista (como adicionar ou remover elementos) podem ter um custo de desempenho.
+- Listas: Devido à sua natureza mutável, operações que alteram a lista (como adicionar ou remover elementos) podem ter um custo de desempenho.
 <br><br>
 
 d) Uso em dicionários:
 
-Tuplas: Podem ser usadas como chaves em dicionários, devido à sua imutabilidade.
+- Tuplas: Podem ser usadas como chaves em dicionários, devido à sua imutabilidade.
 
-Listas: Não podem ser usadas como chaves em dicionários, porque são mutáveis.
+- Listas: Não podem ser usadas como chaves em dicionários, porque são mutáveis.
 <br><br>
 
 e) Intenção:
 
-Tuplas: Transmitir ao leitor do código que a coleção não deve ser modificada.
+- Tuplas: Transmitir ao leitor do código que a coleção não deve ser modificada.
 
-Listas: Indicar que a coleção pode ser modificada, e que funções ou métodos que alteram listas podem ser aplicados.
+- Listas: Indicar que a coleção pode ser modificada, e que funções ou métodos que alteram listas podem ser aplicados.
 <br><br>
 
 f) Espaço em memória:
 
-Tuplas: Podem ser mais eficientes em termos de espaço em relação às listas, porque não têm o overhead adicional associado à mutabilidade das listas.
+- Tuplas: Podem ser mais eficientes em termos de espaço em relação às listas, porque não têm o overhead adicional associado à mutabilidade das listas.
 <br><br>
 
 Na prática, use tuplas para:
@@ -1393,24 +1392,25 @@ Neste dicionário, “tipo”, “nome” e “extensão” são as chaves. Já 
 
 Com relação as chaves (Keys):
 
-Cada elemento em um dicionário tem uma chave associada a ele;
+- Cada elemento em um dicionário tem uma chave associada a ele;
 
-As chaves são únicas dentro de um dicionário, ou seja, não podem existir duas entradas com a mesma chave;
+- As chaves são únicas dentro de um dicionário, ou seja, não podem existir duas entradas com a mesma chave;
 
-Uma chave pode ser de qualquer tipo imutável, como números, strings ou tuplas.
+- Uma chave pode ser de qualquer tipo imutável, como números, strings ou tuplas.
 
 
 Com relação aos valores (Values):
 
-Cada chave é associada a um valor;
+- Cada chave é associada a um valor;
 
-Os valores não precisam ser únicos;
+- Os valores não precisam ser únicos;
 
-Os valores podem ser de qualquer tipo: números, strings, listas, outros dicionários, objetos, etc.
+- Os valores podem ser de qualquer tipo: números, strings, listas, outros dicionários, objetos, etc.
 
 Até a versão 3.7 do Python, os dicionários eram desordenados, o que significa que a ordem dos itens poderia não ser a mesma em que foram adicionados. A partir dessa versão, os dicionários mantêm a ordem de inserção, mas ainda é importante notar que os dicionários são essencialmente estruturas de mapeamento e não sequências.
 
-Criação de dicionários
+
+*Criação de dicionários*
 
 Dicionários são criados usando chaves ou com a função built-in dict(). Exemplos:
 
@@ -1455,7 +1455,7 @@ sensor_satelite = {
 }
 ```
 
-Acessando os elementos de um dicionário
+*Acessando os elementos de um dicionário*
 
 Acessar informações em um dicionário é uma operação corriqueira em Python, e as principais formas de fazer isso são através das chaves, dos métodos associados e por iteração (que veremos mais adiante em nosso curso). Vamos explorar essas maneiras no contexto do geoprocessamento utilizando o dicionário “metadados_imagem” apresentado anteriormente.
 
@@ -1468,7 +1468,7 @@ metadados_imagem = {
 }
 ```
 
-Acesso Direto pelas Chaves:
+- Acesso Direto pelas Chaves:
 
 Você pode acessar um valor em um dicionário diretamente utilizando sua chave. Se a chave estiver no dicionário, o valor correspondente será retornado; caso contrário, um erro KeyError será gerado.
 
@@ -1478,7 +1478,7 @@ Exemplo: Se tivermos um dicionário representando metadados de uma imagem de sat
 print(metadados_imagem['data_captura'])  
 ```
 
-Método get():
+- Método get():
 
 Semelhante ao acesso direto, o método get() permite recuperar o valor associado a uma chave. A diferença é que, se a chave não estiver presente, get() retornará None (ou um valor padrão especificado) em vez de gerar um erro.
 
@@ -1492,7 +1492,7 @@ print(metadados_imagem.get('data_captura', 'Não informado'))
 print(metadados_imagem.get('altitude', 'Não informado'))  
 ```
 
-Acesso às Chaves, Valores e Itens:
+- Acesso às Chaves, Valores e Itens:
 
 keys(): Retorna uma lista das chaves no dicionário.
 
@@ -1517,7 +1517,7 @@ print(metadados_imagem.values())
 print(metadados_imagem.items())  
 ```
 
-Modificação de valores no dicionário
+*Modificação de valores no dicionário*
 
 Os dicionários são estruturas de dados mutáveis em Python, o que significa que você pode modificar seus valores após a criação. Para modificar um dicionário, você simplesmente atribui um novo valor a uma chave existente ou adiciona uma nova chave-valor ao dicionário.
 Vamos explorar a modificação de valores em dicionários usando o dicionário metadados_imagem:
@@ -1531,7 +1531,7 @@ metadados_imagem = {
 }
 ```
 
-Modificar um valor existente:
+- Modificar um valor existente:
 
 Se você deseja alterar o satélite registrado, pode fazer o seguinte:
 ```{code-cell} python
@@ -1539,7 +1539,7 @@ metadados_imagem['satélite'] = 'Sentinel-3'
 print(metadados_imagem['satélite'])  
 ```
 
-Adicionar uma novo par chave-valor:
+- Adicionar uma novo par chave-valor:
 
 Vamos supor que você deseja adicionar informações sobre a área de cobertura da imagem:
 
@@ -1549,7 +1549,7 @@ print(metadados_imagem['area_cobertura'])
 
 ```
 
-Modificar uma lista dentro do dicionário:
+- Modificar uma lista dentro do dicionário:
 
 Você pode alterar ou adicionar novas bandas à lista de bandas:
 
@@ -1558,7 +1558,7 @@ metadados_imagem['bandas'].append('B5')
 print(metadados_imagem['bandas'])  
 ```
 
-Remover uma chave-valor:
+- Remover uma chave-valor:
 
 Se por algum motivo você precisar remover a resolução, pode usar o método pop:
 
@@ -1569,7 +1569,7 @@ print('resolução' in metadados_imagem)
 ```
 
 
-Remoção de elementos usando del, pop() ou popitem()
+*Remoção de elementos usando del, pop() ou popitem()*
 
 Em Python, a remoção de elementos de estruturas de dados é facilitada por métodos e comandos intuitivos. O comando del é versátil e pode ser usado para deletar itens de listas ou chaves de dicionários. Por outro lado, o método pop(), frequentemente utilizado com listas, também serve para dicionários e permite remover um item especificado pela sua posição ou chave, retornando o valor correspondente. No contexto de dicionários, o popitem() é particularmente útil, pois elimina o último par chave-valor inserido, adaptando-se ao comportamento de ordem de inserção preservada dos dicionários a partir do Python 3.7. 
 
@@ -1584,7 +1584,7 @@ metadados_imagem = {
 }
 ```
 
-Usando del:
+- Usando del:
 
 Este é um comando para deletar uma chave e seu valor correspondente. Se você tentar remover uma chave que não existe usando del, um erro será gerado.
 
@@ -1592,7 +1592,7 @@ Este é um comando para deletar uma chave e seu valor correspondente. Se você t
 del metadados_imagem['data_captura']
 ```
 
-Usando pop():
+- Usando pop():
 
 Este método remove uma chave específica e retorna o valor correspondente. Se a chave não existir e nenhum valor padrão for fornecido, um erro será gerado.
 
@@ -1601,7 +1601,7 @@ resolucao = metadados_imagem.pop('resolução')
 print(resolucao)
 ```
 
-Usando popitem():
+- Usando popitem():
 
 Este método remove o último par chave-valor inserido no dicionário e o retorna como uma tupla. Este comportamento é útil quando trabalhamos com dicionários a partir do Python 3.7, onde os dicionários mantêm a ordem de inserção.
 
@@ -1613,11 +1613,14 @@ print(item_removido)
 Após executar todas essas operações, o dicionário “metadados_imagem” terá apenas o par chave-valor “satélite: Sentinel-2”. 
 {'satélite': 'Sentinel-2'}
 
-Atualização de um dicionário com outro dicionário ou com pares de chave-valor
+
+
+*Atualização de um dicionário com outro dicionário ou com pares de chave-valor*
 
 Atualizar um dicionário em Python pode ser feito de várias maneiras, mas uma das abordagens mais diretas é usar o método update(). Este método permite combinar dois dicionários ou adicionar pares chave-valor a um dicionário existente.
 
-Atualizando com outro dicionário:
+
+- Atualizando com outro dicionário:
 
 Suponha que você tenha dois dicionários relacionados referentes aos metadados de imagens do Sentinel-2:
 
@@ -1646,7 +1649,7 @@ Após essa operação, metadados_imagem1 terá todos os pares chave-valor dos do
 
 
 
-Atualizando com pares de chave-valor
+- Atualizando com pares de chave-valor
 
 Para adicionar uma nova chave "tipo" com o valor "ótico":
 
@@ -1665,9 +1668,9 @@ metadados_imagem1
 Após qualquer uma dessas operações, o dicionário metadados_imagem1 será atualizado com as novas chaves e valores fornecidos.
 
 
-Outras operações comuns em dicionários
+*Outras operações comuns em dicionários*
 
-Verificação de presença de uma chave com in:
+- Verificação de presença de uma chave com in:
 
 Em Python, para verificar se uma chave está presente em um dicionário, você pode usar o operador in. A vantagem de usar esse operador é que ele fornece uma maneira rápida e legível de verificar a existência de uma chave. Além disso, evita a ocorrência de KeyError, que pode ocorrer se você tentar acessar diretamente um valor usando uma chave que não exista no dicionário.
 
@@ -1676,7 +1679,7 @@ dicionario = {'cidade': 'Natal', 'estado': 'RN', 'país': 'Brasil'}
 existe = 'cidade' in dicionario
 ```
 
-Uso da função len():
+- Uso da função len():
 
 A função len() retorna o número de pares chave-valor presentes no dicionário.
 
@@ -1684,7 +1687,7 @@ A função len() retorna o número de pares chave-valor presentes no dicionário
 tamanho = len(dicionario)
 ```
 
-Uso do método clear():
+- Uso do método clear():
 
 O método clear() Remove todos os pares chave-valor do dicionário, tornando-o um dicionário vazio.
 
@@ -1698,19 +1701,20 @@ dicionario.clear()
 
 Conjuntos (ou sets, em inglês) são uma das estruturas de dados fundamentais em Python. Eles são coleções não ordenadas de elementos únicos. Isso significa que um conjunto não pode conter elementos duplicados. Devido à sua natureza não ordenada, conjuntos não suportam indexação ou fatiamento, como listas ou strings. Aqui estão algumas características e operações fundamentais associadas aos conjuntos:
 
-Não ordenado: Os itens têm uma ordem não definida e não podem ser referenciados por índice ou chave.
+- Não ordenado: Os itens têm uma ordem não definida e não podem ser referenciados por índice ou chave.
 
-Elementos únicos: Os conjuntos não permitem elementos duplicados.
+- Elementos únicos: Os conjuntos não permitem elementos duplicados.
 
-Mutável: Você pode adicionar ou remover itens após a criação do conjunto.
+- Mutável: Você pode adicionar ou remover itens após a criação do conjunto.
 
-Permite diferentes tipos de dados: Um conjunto pode conter números, strings, tuplas e outros tipos imutáveis de dados.
+- Permite diferentes tipos de dados: Um conjunto pode conter números, strings, tuplas e outros tipos imutáveis de dados.
 
 Conjuntos são particularmente úteis quando você quer eliminar itens duplicados de uma lista ou quando precisa realizar operações matemáticas de conjunto, como união, interseção e diferença.
 
-Criação de Conjuntos
 
-Usando chaves:
+*Criação de Conjuntos*
+
+- Usando chaves:
 
 ```{code-cell} python
 # Criando um conjunto de números inteiros
@@ -1730,7 +1734,7 @@ conjunto_duplicados = {1, 2, 2, 3, 4, 4, 5}
 print(conjunto_duplicados)
 ```
 
-Usando a função set():
+- Usando a função set():
 
 ```{code-cell} python
 # Convertendo uma lista em conjunto
@@ -1755,65 +1759,65 @@ print(conjunto_vazio)
 ```
 
 
-Operações Básicas com Conjuntos
+*Operações Básicas com Conjuntos*
 
 Os conjuntos em Python vêm com um conjunto de métodos integrados que facilitam a manipulação e a gestão dos seus elementos. Aqui, apresentaremos algumas das operações mais comuns que você pode realizar em conjuntos:
 
-add: Esse método permite adicionar um único elemento ao conjunto. Se o elemento já estiver presente, o conjunto permanecerá inalterado, pois não pode haver duplicatas.
+- add: Esse método permite adicionar um único elemento ao conjunto. Se o elemento já estiver presente, o conjunto permanecerá inalterado, pois não pode haver duplicatas.
 
-update: Usado para adicionar múltiplos elementos ao conjunto. É semelhante ao método add, mas aceita uma lista de elementos.
+- update: Usado para adicionar múltiplos elementos ao conjunto. É semelhante ao método add, mas aceita uma lista de elementos.
 
-remove: Remove um elemento especificado do conjunto. Se o elemento não estiver presente, gerará um erro.
+- remove: Remove um elemento especificado do conjunto. Se o elemento não estiver presente, gerará um erro.
 
-discard: Semelhante ao método remove, mas não gera um erro se o elemento a ser descartado não estiver presente no conjunto.
+- discard: Semelhante ao método remove, mas não gera um erro se o elemento a ser descartado não estiver presente no conjunto.
 
-clear: Este método esvazia o conjunto, removendo todos os seus elementos.
+- clear: Este método esvazia o conjunto, removendo todos os seus elementos.
 
 Exemplos:
 
+Criar dois conjuntos:
 ```{code-cell} python
-# Criar dois conjuntos
 A = {1, 2, 3}
 B = {3, 4, 5}
 ```
 
+Adicionar um único elemento no conjunto:
 ```{code-cell} python
-# Adicionar um único elemento no conjunto
 A.add(6)
 print(A)
 ```
 
+Adicionar múltiplos elementos:
 ```{code-cell} python
-# Adicionar múltiplos elementos
 A.update([7, 8])
 print(A)
 ```
 
+Remover um elemento:
 ```{code-cell} python
-# Remover um elemento
 A.remove(1)
 print(A) 
 ```
 
+Remover um elemento sem levantar erro caso ele não exista:
 ```{code-cell} python
-# Remover um elemento sem levantar erro caso ele não exista
 A.discard(10)  
 # Não acontece nada, já que 10 não está no conjunto
 ```
 
+Remover todos os elementos de um conjunto, deixando-o vazio:
 ```{code-cell} python
-# Remover todos os elementos de um conjunto, deixando-o vazio
 A.clear()
 print(f"Conjunto após limpar todos os elementos: {A}")
 ```
 
 
 
-Operações de Conjunto
+*Operações de Conjunto*
 
 Os conjuntos, em qualquer contexto matemático ou de programação, são coleções não ordenadas de itens únicos. No Python, eles não são apenas úteis para garantir unicidade, mas também para realizar operações matemáticas clássicas de conjuntos. Estas operações permitem analisar relações entre diferentes grupos de dados e encontrar semelhanças, diferenças, interseções, entre outros. Algumas das operações de conjunto mais comuns são:
 
-União: Esta operação combina os elementos de dois conjuntos, criando um novo conjunto que contém todos os elementos únicos dos conjuntos originais. No Python, a união pode ser realizada usando o método union() ou o operador “|”.
+- União: Esta operação combina os elementos de dois conjuntos, criando um novo conjunto que contém todos os elementos únicos dos conjuntos originais. No Python, a união pode ser realizada usando o método union() ou o operador “|”.
 
 ```{code-cell} python
 # Criando dois conjuntos
@@ -1832,7 +1836,7 @@ uniao = A | B
 print(uniao)
 ```
 
-Interseção: Encontra os elementos que são comuns a ambos os conjuntos. Pode ser realizada usando o método intersection() ou o operador “&”.
+- Interseção: Encontra os elementos que são comuns a ambos os conjuntos. Pode ser realizada usando o método intersection() ou o operador “&”.
 
 ```{code-cell} python
 interseccao = A.intersection(B)
@@ -1845,7 +1849,7 @@ interseccao = A & B
 print(interseccao) 
 ```
 
-Diferença: Retorna os elementos que estão no primeiro conjunto, mas não no segundo. É feito usando o método difference() ou o operador “-“.
+- Diferença: Retorna os elementos que estão no primeiro conjunto, mas não no segundo. É feito usando o método difference() ou o operador “-“.
 
 ```{code-cell} python
 diferenca = A.difference(B)
@@ -1858,7 +1862,7 @@ diferenca = A - B
 print(diferenca)
 ```
 
-Diferença Simétrica: Identifica os elementos que estão apenas em um dos conjuntos, mas não em ambos. Pode ser obtida com o método symmetric_difference() ou o operador “^”.
+- Diferença Simétrica: Identifica os elementos que estão apenas em um dos conjuntos, mas não em ambos. Pode ser obtida com o método symmetric_difference() ou o operador “^”.
 
 ```{code-cell} python
 dif_simetrica = A.symmetric_difference(B)
@@ -1873,20 +1877,20 @@ print(dif_simetrica)
 
 Além dessas operações básicas, existem métodos para verificar subconjuntos, superconjuntos e se conjuntos são disjuntos (não têm elementos em comum).
 
-Subconjunto: verifica se um conjunto é um subconjunto de outro conjunto.
+- Subconjunto: verifica se um conjunto é um subconjunto de outro conjunto.
 
 ```{code-cell} python
 C = {1, 2}
 print(C.issubset(A))
 ```
 
-Superconjunto: verifica se um conjunto é um superconjunto de outro conjunto.
+- Superconjunto: verifica se um conjunto é um superconjunto de outro conjunto.
 
 ```{code-cell} python
 print(A.issuperset(C))
 ```
 
-Conjuntos Disjuntos: verifica se dois conjuntos não têm elementos em comum.
+- Conjuntos Disjuntos: verifica se dois conjuntos não têm elementos em comum.
 
 ```{code-cell} python
 D = {7, 8, 9}
@@ -1978,13 +1982,14 @@ print(x)
 ```
 
 
-O comando if
+*O comando if*
 
 O comando if em Python é uma estrutura condicional que permite testar uma condição e, com base no resultado dessa avaliação (verdadeiro ou falso), executar um bloco de código específico. Essencialmente, ele permite que o programa "decida" qual caminho seguir baseado em determinados critérios.
 
 No campo do geoprocessamento, o comando if pode ser utilizado em diversas situações para controlar fluxos de trabalho, tomar decisões com base em atributos espaciais, filtrar dados geográficos, entre outras tarefas. Aqui estão alguns exemplos:
 
-Filtragem de Dados com base em atributos.
+
+- Filtragem de Dados com base em atributos.
 
 Exemplos:
 
@@ -2009,7 +2014,7 @@ if 20 <= temperatura_media <= 30:
 ```
 
 
-O comando else
+*O comando else*
 
 O comando else em Python é usado em conjunção com a instrução if. Enquanto if avalia se uma condição é verdadeira para executar um bloco de código, o else captura os casos em que a condição do if não é atendida, ou seja, é falso. Em outras palavras, o bloco de código sob else será executado quando a condição do if anterior for não-verdadeira.
 
@@ -2048,7 +2053,7 @@ else:
 Neste exemplo, estamos usando o operador lógico and para combinar duas condições: altitude e distância da cidade. Ambas as condições devem ser verdadeiras para que o bloco de código sob o if seja executado. Se qualquer uma (ou ambas) das condições for falsa, o código sob o else será executado.
 
 
-O comando elif
+*O comando elif*
 
 O comando elif é uma abreviação de "else if" e serve como uma ponte entre um if e um else. Permite que você teste múltiplas condições em uma sequência, sem ter que aninhar várias instruções if dentro umas das outras. É especialmente útil quando você tem várias condições distintas que precisam ser avaliadas em ordem.
 
@@ -2096,7 +2101,7 @@ else:
 
 
 
-Aninhamento de declarações condicionais
+*Aninhamento de declarações condicionais*
 
 O aninhamento de declarações condicionais ocorre quando você tem uma instrução condicional (if, elif ou else) dentro de outra instrução condicional. Isso é útil quando você quer fazer uma decisão com base em um critério e, depois, tomar outra decisão dentro dessa primeira condição.
 
@@ -2172,15 +2177,14 @@ No contexto do geoprocessamento, os loops oferecem uma solução eficaz para ger
 Além disso, os loops são instrumentais ao se tratar de datasets geoespaciais. Eles proporcionam a capacidade de iterar sobre múltiplas geometrias, o que é essencial para realizar cálculos, análises e verificar conformidades em grandes volumes de dados. Em situações em que se tem um conjunto de pontos, linhas ou polígonos, um loop pode agilizar análises que seriam extenuantes se feitas manualmente.
 No contexto de modelagem e simulação, os loops também são de suma importância. Eles permitem a execução iterativa de modelos em diferentes cenários ou condições, facilitando análises preditivas e a otimização de soluções para problemas espaciais complexos.
 
-Loop for
+
+*Loop for*
 
 O loop for é uma das estruturas de repetição mais versáteis e frequentemente usadas em Python. Ele permite iterar sobre os itens de qualquer sequência (uma lista, uma string, uma tupla, um dicionário, um conjunto ou até mesmo um intervalo), e executar um bloco de código para cada item.
 A sintaxe básica do loop for é:
 
-```{code-cell} python
-'''
+```
 for variavel in sequencia:
-'''
     # bloco de código para cada item da sequência
 ```
 
@@ -2224,9 +2228,10 @@ Durante cada iteração do loop, a área atual (valor da variável area) é soma
 Após o término do loop, a função print() é chamada para exibir a área total acumulada na variável total_area.
 
 O loop for também pode ser usado com a função range(), que é uma função incorporada em Python que gera uma sequência de números e frequentemente é usada em loops for para repetir uma determinada ação um número específico de vezes. Essa função é muito útil quando se deseja iterar sobre uma sequência de números, sem a necessidade de criar uma lista ou outro container para armazenar esses números.
+
 A função range() pode aceitar entre um a três argumentos:
 
-a) Um único argumento: range(stop). 
+- Um único argumento: range(stop). 
 
 Produz uma sequência de números de “0” a stop “- 1”.
 
@@ -2237,14 +2242,14 @@ for i in range(5):
 
 
 
-b) Dois argumentos: range(start, stop). Produz uma sequência de números de start a stop “- 1”.
+- Dois argumentos: range(start, stop). Produz uma sequência de números de start a stop “- 1”.
 
 ```{code-cell} python
 for i in range(2, 5):
     print(i)
 ```
 
-c) Três argumentos: range(start, stop, step). 
+- Três argumentos: range(start, stop, step). 
 
 Produz uma sequência de números, começando em start, terminando antes de stop e incrementando em step.
 
@@ -2268,7 +2273,7 @@ No exemplo acima, para cada iteração do loop for, o enumerate() retorna uma tu
 Esses são apenas alguns exemplos básicos. O real potencial do loop for é visto quando usado em combinação com outras estruturas de controle e operações mais complexas.
 
 
-List comprehension
+*List comprehension*
 
 A list comprehension é uma forma concisa de usar um loop for para criar listas em Python. Em essência, ela é uma maneira de representar um loop for de uma forma mais compacta, especificamente quando o objetivo principal desse loop é gerar uma nova lista.
 
@@ -2276,22 +2281,18 @@ A ideia da list comprehension é aplicar uma expressão a cada item em uma sequ�
 
 
 Sintaxe básica:
-```{code-cell} python
-'''
-[nova_expressão for item in iteravel]
-'''
-```
+``` nova_expressão for item in iteravel]```
 
 Vamos comparar o loop for tradicional a list comprehension:
 
+Usando um loop for tradicional:
 ```{code-cell} python
-# Usando um loop for tradicional
 numeros = [1, 2, 3, 4, 5]
 quadrados = []
 ```
 
+Usando list comprehension:
 ```{code-cell} python
-# Usando list comprehension
 numeros = [1, 2, 3, 4, 5]
 quadrados = [n ** 2 for n in numeros]
 ```
@@ -2306,18 +2307,19 @@ quadrados_impares = [n ** 2 for n in numeros if n % 2 != 0]
 
 Em resumo, a aplicação de list comprehension torna o código mais conciso e legível (quando não são excessivamente complexas). Além disso, frequentemente são mais rápidas do que o loop for tradicional ao criar listas, devido a otimizações internas. No entanto, é importante não sacrificar a legibilidade. Se uma list comprehension se tornar muito complicada ou difícil de entender, pode ser melhor optar por uma abordagem mais tradicional usando loops.
 
-Dictionary comprehension
+
+*Dictionary comprehension*
 
 Assim como a list comprehension, o dictionary comprehension também se baseia em um loop for interno, mas, ao invés de gerar listas, ela é utilizada para criar dicionários de forma concisa. Enquanto a list comprehension retorna uma lista, o dictionary comprehension retorna um dicionário.
 
 Sintaxe Básica:
 
-{chave: valor for item in iterável
+``` {chave: valor for item in iterável} ```
 
 Suponha que você queira criar um dicionário que associe um número à sua potência quadrada para números de 1 a 5. Vamos comparar o loop for tradicional ao dictionary comprehension:
 
 
-Usando um loop for tradicional
+- Usando um loop for tradicional
 ```{code-cell} python
 quadrados = {}  
 for x in range(1, 6):
@@ -2326,7 +2328,7 @@ print(quadrados)
 ```
 
 
-Usando dictionary comprehension
+- Usando dictionary comprehension
 ```{code-cell} python
 quadrados = {x: x ** 2 for x in range(1, 6)}
 ```
@@ -2340,17 +2342,15 @@ quadrados_impares = {x: x ** 2 for x in range(1, 6) if x % 2 != 0}
 Cabe ressaltar que é fundamental garantir que o código permaneça legível. Se uma dictionary comprehension se tornar muito complexa, pode ser preferível usar uma abordagem mais tradicional.
 
 
-Loop While
+*Loop While*
 
 O loop while é uma estrutura de repetição que permite executar um bloco de código enquanto uma condição específica for verdadeira. A lógica é: enquanto a condição estabelecida se mantiver True, o bloco de código dentro do while continuará sendo executado. É crucial garantir que, em algum momento, essa condição se torne False, caso contrário, o loop continuará infinitamente, resultando em um loop infinito.
 
 A estrutura básica do loop while é relativamente simples. Ela começa com a palavra-chave while seguida de uma condição (expressão booleana) e um bloco de código que será repetido enquanto a condição for verdadeira (True). A estrutura básica é:
 
-```{code-cell} python
-'''
+```
 while condição:
     # bloco de código a ser executado enquanto a condição for verdadeira
-    '''
 ```
 
 É importante garantir que a condição do while eventualmente se torne False, caso contrário, o código entrará em um loop infinito. Suponha que queremos imprimir os números de 1 a 5:
@@ -2386,10 +2386,11 @@ print('Limite de temperatura atingido! Parando a coleta de dados.')
 Neste exemplo, o loop while continuará coletando dados até que temperatura_solo alcance ou exceda 35°C. Após isso, ele sairá do loop e imprimirá a mensagem final.
 
 
-Controle de loop com breake e continue
+*Controle de loop com breake e continue*
+
 Os comandos break e continue são ferramentas poderosas em Python, oferecendo controle adicional sobre como os loops são executados.
 
-Break:
+- Break:
 
 O comando break é usado para sair completamente de um loop, encerrando sua execução. É geralmente utilizado em situações em que uma condição externa à condição principal do loop é satisfeita ou quando se deseja sair do loop antes que ele complete sua execução natural.
 
@@ -2407,7 +2408,7 @@ for coord in coordenadas:
 
 
 
-Continue:
+- Continue:
 
 O comando continue é utilizado para pular a iteração atual e continuar com a próxima iteração do loop. É útil em situações em que, sob certas condições, queremos evitar a execução de uma parte do loop e continuar com a próxima iteração.
 
@@ -2431,7 +2432,7 @@ Ambos, break e continue, são úteis para gerenciar a execução dos loops com m
 
 
 
-Aninhamento de loops
+*Aninhamento de loops*
 
 O aninhamento de loops ocorre quando um loop é colocado dentro de outro loop. Isso é útil em várias situações, especialmente quando se trabalha com estruturas de dados multidimensionais, como listas de listas ou matrizes. No aninhamento, cada vez que o loop externo é executado, o loop interno será executado em sua totalidade.
 
@@ -2458,7 +2459,8 @@ Em programação, uma função é um bloco de código organizado e reutilizável
 
 No contexto do geoprocessamento, que envolve a coleta, armazenamento e análise de dados geoespaciais, a modularização do código através de funções não só permite eficiência e clareza, mas também facilita a reutilização do código em diferentes projetos. Desta maneira, assegura consistência em tarefas frequentemente repetidas, como interpolação de dados e transformação de sistemas de coordenadas. Por outro lado, o uso de funções ajuda a abstrair a complexidade dos algoritmos, tornando o código mais legível. Isso é essencial, especialmente quando se trabalha em colaboração, pois funções bem definidas podem ser compartilhadas, promovendo consistência e economia de tempo. Ao adotar funções em geoprocessamento, os profissionais garantem não apenas a organização, mas também a robustez e eficiência do seu trabalho.
 
-Definição da Função
+
+*Definição da Função*
 
 Em Python, uma função é definida usando a palavra-chave def, seguida pelo nome da função, parênteses e dois pontos. O código da função começa após os dois pontos e é indentado.
 
@@ -2469,7 +2471,7 @@ def nome_da_funcao():
     '''
 ```
 
-Parâmetros e Argumentos
+*Parâmetros e Argumentos*
 
 As funções podem receber dados, conhecidos como parâmetros, entre seus parênteses.
 
@@ -2483,7 +2485,7 @@ Ao chamar a função, você passa dados para ela, conhecidos como argumentos:
 saudacao('Julia')
 ```
 
-Valor de Retorno
+*Valor de Retorno*
 
 Uma função pode processar dados e retornar um valor usando a palavra-chave return:
 
@@ -2497,7 +2499,7 @@ def soma(a, b):
 
 Se uma função não possui um return, ela retorna None por padrão.
 
-Funções Anônimas (Lambda)
+*Funções Anônimas (Lambda)*
 
 Python suporta a criação de funções anônimas (isto é, funções que não têm nome) usando a palavra-chave lambda. Elas são úteis quando você precisa de uma função pequena por um curto período e não quer formalmente defini-la usando def.
 
@@ -2506,7 +2508,7 @@ quadrado = lambda x: x ** 2
 print(quadrado(5))
 ```
 
-Funções Como Objetos
+*Funções Como Objetos*
 
 Em Python, tudo é um objeto, incluindo funções. No geoprocessamento, as funções são frequentemente usadas para realizar operações específicas em dados geoespaciais, como calcular distâncias, transformar projeções ou processar dados matriciais. Usando o conceito de funções como objetos, podemos criar uma abordagem modular para realizar diferentes operações de geoprocessamento. Vamos ilustrar isso com um exemplo.
 
@@ -2555,7 +2557,7 @@ print(perimetros)  # Saída: [40.0, 40.0, 40.0]
 Este exemplo ilustra a flexibilidade e o poder de tratar funções como objetos em Python, permitindo que criemos abordagens modulares para realizar diversas operações em dados geoespaciais. Ao mesmo tempo, evitamos a repetição de código e mantemos nosso código mais organizado e legível.
 
 
-Funções com Número Variável de Argumentos
+*Funções com Número Variável de Argumentos*
 
 Em alguns casos, pode ser necessário definir uma função capaz de aceitar qualquer número de argumentos. Em Python, *args e **kwargs são convenções utilizadas para permitir que funções aceitem um número variável de argumentos. O termo *args refere-se a argumentos posicionais que são coletados em uma tupla, permitindo que você passe qualquer número de argumentos posicionais para a função. Por outro lado, **kwargs refere-se a argumentos nomeados que são coletados em um dicionário, possibilitando a inclusão de múltiplos argumentos com nomes específicos. Juntos, esses mecanismos oferecem grande flexibilidade, permitindo a criação de funções mais genéricas e adaptáveis a diferentes necessidades.
 
@@ -2567,9 +2569,9 @@ def varios_args(*args, **kwargs):
 
 Este é um exemplo que demonstra como uma função em Python pode aceitar um número arbitrário de argumentos, tanto posicionais quanto nomeados. Inicialmente, a função varios_args é definida para aceitar um número variável de argumentos. Na sequência:
 
-*args: Coleta os argumentos posicionais passados para a função em uma tupla. O nome args é uma convenção, e o importante aqui é o prefixo *.
+- ```*args: ``` Coleta os argumentos posicionais passados para a função em uma tupla. O nome args é uma convenção, e o importante aqui é o prefixo (*).
 
-**kwargs: Coleta os argumentos nomeados (ou argumentos-chave) passados para a função em um dicionário. kwargs é abreviação de keyword arguments, e o importante é o prefixo **.
+- ```**kwargs: ``` Coleta os argumentos nomeados (ou argumentos-chave) passados para a função em um dicionário. kwargs é abreviação de keyword arguments, e o importante é o prefixo **.
 
 Dentro da função, simplesmente imprimimos os argumentos posicionais e nomeados coletados.
 
@@ -2578,8 +2580,6 @@ Considere o exemplo:
 ```{code-cell} python
 varios_args(1, 2, 3, a=4, b=5)
 # Saída:
-# (1, 2, 3)
-# {'a': 4, 'b': 5}
 ```
 
 Ao chamar a função, passamos três argumentos posicionais (1, 2 e 3) e dois argumentos nomeados (a=4 e b=5). Como esperado, args coletou os argumentos posicionais em uma tupla, e kwargs coletou os argumentos nomeados em um dicionário.
@@ -2589,19 +2589,19 @@ Ao chamar a função, passamos três argumentos posicionais (1, 2 e 3) e dois ar
 
 A manipulação de arquivos é uma tarefa comum em programação. Ela permite que você leia, escreva, crie ou delete arquivos a partir do seu programa. A maioria das linguagens de programação oferece bibliotecas ou módulos nativos para facilitar essas operações.
 
-Abrindo um arquivo
+*Abrindo um arquivo*
 
 Antes de ler ou escrever em um arquivo, você precisa abri-lo. Durante a abertura, você especifica o modo de abertura, que determina se você está lendo, escrevendo, anexando, etc.
 
 Os modos de abertura comumente utilizados são:
 
-Leitura (r): Abre um arquivo para leitura. Se o arquivo não existir, retorna um erro.
+- Leitura (r): Abre um arquivo para leitura. Se o arquivo não existir, retorna um erro.
 
-Escrita (w): Abre um arquivo para escrita. Cria um novo arquivo se ele não existir ou sobrescreve um arquivo existente.
+- Escrita (w): Abre um arquivo para escrita. Cria um novo arquivo se ele não existir ou sobrescreve um arquivo existente.
 
-Anexar (a): Abre um arquivo para anexar dados. Cria um novo arquivo se ele não existir ou move o ponteiro para o final de um arquivo existente para adicionar novos dados.
+- Anexar (a): Abre um arquivo para anexar dados. Cria um novo arquivo se ele não existir ou move o ponteiro para o final de um arquivo existente para adicionar novos dados.
 
-Leitura e escrita (r+): Abre um arquivo tanto para leitura quanto para escrita.
+- Leitura e escrita (r+): Abre um arquivo tanto para leitura quanto para escrita.
 
 Exemplo:
 
@@ -2622,7 +2622,8 @@ as file: Este é um alias para o arquivo aberto. Isso significa que, dentro do b
 
 pass: A palavra-chave pass em Python é uma operação nula — nada acontece quando é executada. É usada como um espaço reservado quando uma declaração é requerida sintaticamente, mas você não quer executar nenhum comando ou código.
 
-Escrevendo em um arquivo
+
+*Escrevendo em um arquivo*
 
 Se você abrir um arquivo em modo de escrita ou anexação, pode escrever dados nele.
 
@@ -2636,18 +2637,17 @@ with open(file_path, 'w') as file:
 
 ```
 
-Lendo um arquivo
+*Lendo um arquivo*
 
 Depois de abrir ou criar um arquivo em modo de leitura, você pode ler seu conteúdo.
 
 ```{code-cell} python
-
 with open(file_path, 'r') as file:
     conteudo = file.read()
     print(conteudo)
 ```
 
-Fechando um arquivo
+*Fechando um arquivo*
 
 Após a leitura, escrita ou ambas, é essencial fechar o arquivo.
 
@@ -2671,7 +2671,8 @@ Além da organização, módulos e pacotes são importantes no que diz respeito 
 
 Um módulo em Python é simplesmente um arquivo contendo definições e instruções Python. O nome do arquivo é o nome do módulo acrescido do sufixo .py. Módulos são usados para organizar as funcionalidades em unidades lógicas, ajudando a manter o código mais organizado e facilitando a reutilização de código.
 
-Importação de Módulos
+
+*Importação de Módulos*
 
 Você pode acessar as funcionalidades de um módulo importando-o em seu script ou console interativo Python. A palavra-chave import é usada para fazer isso. Por exemplo:
 
@@ -2680,7 +2681,7 @@ import math
 print(math.sqrt(16))  
 ```
 
-Importação Parcial:
+- Importação Parcial:
 
 Se você quiser importar apenas partes específicas de um módulo, pode usar a palavra-chave from juntamente com import:
 
@@ -2689,7 +2690,7 @@ from math import sqrt
 print(sqrt(16))  
 ```
 
-Alias:
+- Alias:
 
 Para evitar conflitos de nome ou simplesmente para criar um atalho, você pode dar um "apelido" (alias) ao módulo ou à função que está importando:
 
@@ -2698,12 +2699,12 @@ import math as m
 print(m.sqrt(16))  
 ```
 
-Módulos Personalizados
+*Módulos Personalizados*
 
 Além dos módulos da biblioteca padrão (como math, os, sys, etc.), você pode criar seus próprios módulos. 
 
 
-Atributos do Módulo
+*Atributos do Módulo*
 
 Os módulos também têm certos atributos embutidos, que podem ser úteis para diferentes propósitos. Por exemplo, o atributo __name__ pode ajudar a determinar se um módulo está sendo executado como um script principal ou se foi importado como um módulo em outro script.
 
@@ -2715,10 +2716,11 @@ Um pacote em Python é simplesmente uma maneira de organizar módulos relacionad
 
 A ideia principal por trás dos pacotes é proporcionar um espaço de nomes separado, o que permite organizar e encapsular múltiplos módulos de maneira lógica e hierárquica. Esta organização é especialmente útil em projetos maiores ou quando se deseja distribuir um conjunto de funcionalidades relacionadas.
 
-Estrutura de um Pacote
+
+*Estrutura de um Pacote*
 
 Imagine que temos um pacote chamado geoprocessamento que contém dois módulos: analise.py e visualizacao.py. A estrutura seria algo assim:
-
+```
 geoprocessamento/
 
 |-- __init__.py
@@ -2726,9 +2728,10 @@ geoprocessamento/
 |-- analise.py
 
 |-- visualizacao.py
+```
 
 
-Importando de um Pacote
+*Importando de um Pacote*
 
 Para importar um módulo específico de um pacote, você pode usar a seguinte sintaxe:
 
@@ -2738,7 +2741,7 @@ Ou, se quiser acessar uma função ou classe específica dentro desse módulo:
 
 ``` from geoprocessamento.analise import funcao_especifica ```
 
-Arquivo __init__.py
+*Arquivo __init__.py*
 
 O arquivo __init__.py é o que distingue um diretório comum de um pacote em Python. Ele é executado sempre que o pacote é importado e pode conter qualquer código Python válido. Pode ser usado para inicializar variáveis do pacote, importar submódulos, verificar dependências, entre outras coisas. Se estiver vazio, serve apenas para indicar que o diretório deve ser considerado um pacote ou subpacote.
 
@@ -2752,52 +2755,55 @@ O módulo datetime é extremamente útil quando precisamos lidar com operações
 
 Os principais tipos de dados e classes do módulo datetime são:
 
-datetime.date: Uma classe para trabalhar com datas (ano, mês e dia);
+- datetime.date: Uma classe para trabalhar com datas (ano, mês e dia);
 
-datetime.time: Uma classe para trabalhar com horários (hora, minuto, segundo, microsegundo);
+- datetime.time: Uma classe para trabalhar com horários (hora, minuto, segundo, microsegundo);
 
-datetime.datetime: Uma classe que combina date e time, representando uma data e hora;
+- datetime.datetime: Uma classe que combina date e time, representando uma data e hora;
 
-datetime.timedelta: Uma classe para trabalhar com diferenças de tempo, o que permite subtrair duas datas ou adicionar uma quantidade específica de dias, horas, etc., a uma data;
+- datetime.timedelta: Uma classe para trabalhar com diferenças de tempo, o que permite subtrair duas datas ou adicionar uma quantidade específica de dias, horas, etc., a uma data;
 
-datetime.tzinfo: Base para classes que fornecem informações de fuso horário;
+- datetime.tzinfo: Base para classes que fornecem informações de fuso horário;
 
-datetime.timezone: Uma subclasse de tzinfo que representa um deslocamento fixo do UTC.
+- datetime.timezone: Uma subclasse de tzinfo que representa um deslocamento fixo do UTC.
+
 
 Exemplos de uso do módulo datetime:
 
 ```{code-cell} python
 from datetime import datetime, date, time, timedelta
+```
 
-# Pegando a data e hora atual
+Pegando a data e hora atual:
+```{code-cell} python
 agora = datetime.now()
 print(agora)  # Ex: 2023-09-23 14:47:05.335456
 ```
 
+Trabalhando apenas com datas:
 ```{code-cell} python
-# Trabalhando apenas com datas
 hoje = date.today()
 print(hoje)  # Ex: 2023-09-23
 ```
 
+Criando uma data específica:
 ```{code-cell} python
-# Criando uma data específica
 data_especifica = date(2023, 9, 23)
 ```
 
+Criando um horário específico:
 ```{code-cell} python
-# Criando um horário específico
 horario = time(14, 47, 5)
 ```
 
+Diferença entre datas (timedelta):
 ```{code-cell} python
-# Diferença entre datas (timedelta)
 diferenca = hoje - data_especifica
 print(diferenca.days)  
 ```
 
+Adicionando 5 dias à data atual:
 ```{code-cell} python
-# Adicionando 5 dias à data atual
 daqui_a_cinco_dias = hoje + timedelta(days=5)
 print(daqui_a_cinco_dias)  
 ```
@@ -2806,7 +2812,7 @@ print(daqui_a_cinco_dias)
 
 Na utilização do Python no contexto do geoprocessamento, a ocorrência de erros é comum. Entender a diferença entre erros de sintaxe e exceções, e saber como lidar com cada um, é fundamental. 
 
-Erros de Sintaxe:
+- Erros de Sintaxe:
 
 Erros de sintaxe, também conhecidos como erros de análise, ocorrem quando você escreve algo que o Python não reconhece como um código válido. Em outras palavras, você quebrou as "regras gramaticais" da linguagem. Exemplo:
 
@@ -2821,7 +2827,7 @@ Erros de sintaxe, também conhecidos como erros de análise, ocorrem quando voc�
 Neste exemplo, falta o “:” após a condição do if, o que é um erro de sintaxe. Ao tentar executar esse código, o Python indicará a linha e a posição aproximada onde o erro foi detectado.
 
 
-Exceções:
+- Exceções:
 
 Mesmo que seu código esteja sintaticamente correto, pode acontecer de ele tentar fazer algo inválido ou impossível durante a execução. Isso levanta uma "exceção". Se não tratadas, as exceções resultarão em um erro e a interrupção do programa. Exemplo:
 
@@ -2836,15 +2842,15 @@ Este código não tem erros de sintaxe, mas tentar dividir por zero é um erro m
 
 Quando ocorrem erros durante a execução do programa, eles geralmente levantam "exceções". Se essas exceções não forem tratadas, o programa será interrompido. Para evitar isso e possibilitar a execução de ações específicas em resposta a determinadas exceções, Python fornece uma maneira de capturar e responder a elas usando os blocos try e except.
 
-Estrutura Básica
+*Estrutura Básica*
 
 A estrutura básica de tratamento de exceções em Python é a seguinte:
 
-```{code-cell} python
-'''try:
+```
+try:
     # Bloco que pode gerar uma exceção
 except TipoDaExcecao:
-    # Bloco executado se a exceção em questão for detectada'''
+    # Bloco executado se a exceção em questão for detectada
 ```
 
 Exemplos:
@@ -2867,7 +2873,7 @@ except IndexError:
     print('Índice não encontrado na lista!')
 ```
 
-Tratamento de Múltiplas Exceções
+*Tratamento de Múltiplas Exceções*
 
 Um bloco try pode ter múltiplos blocos except para tratar diferentes tipos de exceções:
 
@@ -2882,7 +2888,7 @@ except ZeroDivisionError:
     '''
 ```
 
-Capturando Todas as Exceções
+*Capturando Todas as Exceções*
 
 Para capturar todas as exceções que não foram capturadas por except específicos, você pode usar um except sem especificar o tipo da exceção:
 
@@ -2897,7 +2903,8 @@ except:
 
 No entanto, usar este tipo de captura genérica pode não ser recomendado em muitos casos, pois pode mascarar erros inesperados e tornar a depuração mais difícil.
 
-Usando a Exceção Capturada
+
+*Usando a Exceção Capturada*
 
 Você pode usar a exceção capturada para obter mais informações sobre o erro:
 
@@ -2908,7 +2915,7 @@ except ZeroDivisionError as e:
     print(f'Erro detectado: {e}')
 ```
 
-Blocos else e finally
+*Blocos else e finally*
 
 else: O bloco de código dentro de else é executado se nenhum erro ocorrer dentro do bloco try.
 
@@ -2944,7 +2951,7 @@ Em Python, o comando raise é empregado para disparar intencionalmente uma exce�
 
 Veja a seguir algumas formas de utilizar o comando raise:
 
-a) Disparando uma exceção básica:
+- Disparando uma exceção básica:
 
 Se em determinada situação do seu programa você identificar uma condição que seja inadmissível, é possível utilizar uma exceção para alertar sobre este problema.
 
@@ -2959,7 +2966,7 @@ if idade < 0:
 
 Neste exemplo, caso idade receba um valor negativo, o sistema dispara uma exceção ValueError com a mensagem informando sobre a invalidade da idade.
 
-b) Disparando uma exceção com dados extras:
+- Disparando uma exceção com dados extras:
 
 Em certos contextos, ao disparar uma exceção, pode ser útil agregar informações adicionais, fornecendo maior clareza a quem estiver interpretando ou corrigindo o erro.
 
@@ -2970,7 +2977,7 @@ def divisao(a, b):
     return a / b
 ```
 
-c) Relançando uma exceção capturada:
+- Relançando uma exceção capturada:
 
 Há momentos em que pode ser necessário capturar uma exceção, processar algo específico e, posteriormente, relançar essa mesma exceção. Isso pode ser realizado usando somente o comando raise dentro de um bloco except.
 
@@ -2986,7 +2993,7 @@ except ZeroDivisionError:
 
 Aqui, quando tentamos dividir por zero, a exceção ZeroDivisionError é identificada e tratada. Uma mensagem é exibida e, logo após, a exceção é relançada, pausando o programa.
 
-d) Disparando exceções personalizadas:
+- Disparando exceções personalizadas:
 
 É possível criar exceções personalizadas, úteis para sinalizar erros específicos de determinada aplicação ou contexto.
 
@@ -3008,24 +3015,24 @@ Pythonic é um termo usado na comunidade Python para descrever um estilo de escr
 
 Importância do modo Pythonic:
 
-Legibilidade: Uma das principais filosofias por trás do Python, conforme expresso em "The Zen of Python" (PEP 20), é que "A legibilidade conta". O código Pythonic é mais fácil de ler e compreender;
+- Legibilidade: Uma das principais filosofias por trás do Python, conforme expresso em "The Zen of Python" (PEP 20), é que "A legibilidade conta". O código Pythonic é mais fácil de ler e compreender;
 
-Eficiência: Ao seguir as práticas Pythonic, muitas vezes você utilizará construções da linguagem otimizadas, resultando em código mais eficiente;
+- Eficiência: Ao seguir as práticas Pythonic, muitas vezes você utilizará construções da linguagem otimizadas, resultando em código mais eficiente;
 
-Manutenção: Código escrito de forma Pythonic é geralmente mais fácil de manter e estender;
+- Manutenção: Código escrito de forma Pythonic é geralmente mais fácil de manter e estender;
 
-Comunidade: Aderir a um estilo Pythonic torna mais fácil para outros desenvolvedores Python entenderem e contribuírem para o seu código. Isso é particularmente importante em projetos open-source.
+- Comunidade: Aderir a um estilo Pythonic torna mais fácil para outros desenvolvedores Python entenderem e contribuírem para o seu código. Isso é particularmente importante em projetos open-source.
 
 
 Características do modo "Pythonic":
 
-Expressividade: Utilizar construções da linguagem que permitem expressar ideias complexas de maneira concisa;
+- Expressividade: Utilizar construções da linguagem que permitem expressar ideias complexas de maneira concisa;
 
-Clareza: O código deve ser escrito de forma a ser autoexplicativo, valorizando a clareza sobre a complexidade;
+- Clareza: O código deve ser escrito de forma a ser autoexplicativo, valorizando a clareza sobre a complexidade;
 
-Utilização de idioms: Usar padrões e estruturas de código que são naturalmente associados ao Python;
+- Utilização de idioms: Usar padrões e estruturas de código que são naturalmente associados ao Python;
 
-Adesão a PEP 8: Seguir a PEP 8, que é o guia de estilo para a codificação Python, ajudará na consistência e legibilidade do código.
+- Adesão a PEP 8: Seguir a PEP 8, que é o guia de estilo para a codificação Python, ajudará na consistência e legibilidade do código.
 
 Exemplos de código Pythonic vs. não-Pythonic:
 

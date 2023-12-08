@@ -18,15 +18,15 @@ kernelspec:
 
 Pandas é uma biblioteca de programação em Python que fornece estruturas de dados e ferramentas de análise de dados flexíveis e eficientes. É uma das bibliotecas mais populares e amplamente utilizadas para análise e manipulação de dados em Python. Ele transforma a complexidade da manipulação de dados em tarefas intuitivas, permitindo que o usuário se concentre na análise dos dados ao invés de se preocupar com os aspectos técnicos da preparação de dados. Constituem pontos-chave do Pandas:
 
-Estruturas de Dados: O Pandas introduz duas estruturas de dados principais para Python: Series e DataFrame;
+- Estruturas de Dados: O Pandas introduz duas estruturas de dados principais para Python: Series e DataFrame;
 
-Manipulação de Dados: Facilita a filtragem seleção, mesclagem e agrupamento de dados. Disponibiliza ainda funções e métodos para efetuar rapidamente operações comuns, como: Manipulação de datas; Ajuste de dados faltantes; Agrupamento e agregação de dados; Fusão e junção de conjuntos de dados;
+- Manipulação de Dados: Facilita a filtragem seleção, mesclagem e agrupamento de dados. Disponibiliza ainda funções e métodos para efetuar rapidamente operações comuns, como: Manipulação de datas; Ajuste de dados faltantes; Agrupamento e agregação de dados; Fusão e junção de conjuntos de dados;
 
-Análise de Dados: Facilita a análise estatística dos dados. Ele integra-se bem com outras bibliotecas de análise de dados e visualização, como numpy, scipy e matplotlib;
+- Análise de Dados: Facilita a análise estatística dos dados. Ele integra-se bem com outras bibliotecas de análise de dados e visualização, como numpy, scipy e matplotlib;
 
-Importação e Exportação de Dados: Suporta uma ampla variedade de formatos de arquivos, como CSV, Excel, SQL, HDF5, entre outros. Isso torna fácil importar dados para análise e exportar resultados após a análise;
+- Importação e Exportação de Dados: Suporta uma ampla variedade de formatos de arquivos, como CSV, Excel, SQL, HDF5, entre outros. Isso torna fácil importar dados para análise e exportar resultados após a análise;
 
-Integração: integra-se bem com muitas outras bibliotecas do ecossistema de ciência de dados em Python, como matplotlib para visualização, scikit-learn para aprendizado de máquina e statsmodels para modelagem estatística.
+- Integração: integra-se bem com muitas outras bibliotecas do ecossistema de ciência de dados em Python, como matplotlib para visualização, scikit-learn para aprendizado de máquina e statsmodels para modelagem estatística.
 
 
 ## 3.1 Introdução e Configurações Básicas
@@ -35,44 +35,44 @@ Integração: integra-se bem com muitas outras bibliotecas do ecossistema de ci�
 
 Ao iniciar com a biblioteca Pandas, é importante realizar algumas configurações iniciais para garantir que a experiência de análise de dados seja otimizada e alinhada às suas preferências. Abaixo, apresento algumas configurações comuns que os usuários do Pandas frequentemente ajustam:
 
-Importação da Biblioteca: Antes de qualquer coisa, você precisa importar a biblioteca. Pandas é geralmente importado com o alias "pd" por convenção.
+*Importação da Biblioteca:* Antes de qualquer coisa, você precisa importar a biblioteca. Pandas é geralmente importado com o alias "pd" por convenção.
 ```{code-cell} python
 import pandas as pd
 ```
 
-Configuração do número máximo de linhas e colunas exibidas: Se você estiver trabalhando com DataFrames grandes, pode querer ajustar o número de linhas e colunas exibidas por padrão quando imprimir o DataFrame.
+*Configuração do número máximo de linhas e colunas exibidas:* Se você estiver trabalhando com DataFrames grandes, pode querer ajustar o número de linhas e colunas exibidas por padrão quando imprimir o DataFrame.
 ```{code-cell} python
 pd.set_option('display.max_rows', 20)
 pd.set_option('display.max_columns', 10)
 ```
 
-Largura da Coluna e Precisão: Para melhor visualização dos dados, você pode ajustar a largura da coluna e a precisão (número de casas decimais).
+*Largura da Coluna e Precisão:* Para melhor visualização dos dados, você pode ajustar a largura da coluna e a precisão (número de casas decimais).
 ```{code-cell} python
 pd.set_option('display.max_colwidth', 20)
 pd.set_option('display.precision', 2)
 ```
 
-Configuração do Float Format: Controla a formatação de números flutuantes. Útil para quando se quer mostrar valores em formato de porcentagem, por exemplo.
+*Configuração do Float Format:* Controla a formatação de números flutuantes. Útil para quando se quer mostrar valores em formato de porcentagem, por exemplo.
 ```{code-cell} python
 pd.options.display.float_format = '{:,.2f}'.format
 ```
 
-Evitando Notação Científica: Por padrão, o Pandas pode exibir números grandes ou muito pequenos usando notação científica. Para desativar isso:
+*Evitando Notação Científica:* Por padrão, o Pandas pode exibir números grandes ou muito pequenos usando notação científica. Para desativar isso:
 ```{code-cell} python
 pd.set_option('display.float_format', lambda x: '%.2f' % x)
 ```
 
-Configurações de Visualização: Se estiver usando o Jupyter Notebook ou Jupyter Lab, para que os plots feitos com Pandas (integrados com Matplotlib) sejam exibidos diretamente no notebook:
+*Configurações de Visualização:* Se estiver usando o Jupyter Notebook ou Jupyter Lab, para que os plots feitos com Pandas (integrados com Matplotlib) sejam exibidos diretamente no notebook:
 ```{code-cell} python
 %matplotlib inline
 ```
 
-Configuração de Data e Hora: Se estiver trabalhando com séries temporais, pode ser útil ajustar a formatação padrão de datas.
+*Configuração de Data e Hora:* Se estiver trabalhando com séries temporais, pode ser útil ajustar a formatação padrão de datas.
 ```{code-cell} python
 pd.set_option('display.date_dayfirst', True)
 ```
 
-Configuração do Encoding Padrão: Ao lidar com conjuntos de dados que possuem caracteres especiais ou não-ASCII, configurar o encoding padrão para leitura e escrita de arquivos pode evitar problemas.
+*Configuração do Encoding Padrão:* Ao lidar com conjuntos de dados que possuem caracteres especiais ou não-ASCII, configurar o encoding padrão para leitura e escrita de arquivos pode evitar problemas.
 ```{code-cell} python
 pd.set_option('display.encoding', 'UTF-8')
 ```
@@ -88,7 +88,8 @@ No contexto da biblioteca Pandas, quando falamos de estruturas de dados, nos ref
 
 Além de Series e DataFrame, o Pandas oferece outras estruturas mais especializadas como Panel (estrutura tridimensional, menos usada) e MultiIndex (para indexação hierárquica).
 
-Series
+
+*Series*
 
 Series é uma estrutura de dados unidimensional, que pode armazenar valores de qualquer tipo de dado (números, strings, objetos Python, etc.). É, em essência, uma coluna em um DataFrame. Os rótulos dos eixos são chamados de índice.
     
@@ -97,79 +98,82 @@ Uma Series oferece uma variedade de métodos e operações para facilitar a mani
 
 Características Principais:
 
-Unidimensionalidade: Series contém uma sequência de itens em uma única dimensão;
+- Unidimensionalidade: Series contém uma sequência de itens em uma única dimensão;
 
-Index: Cada elemento em uma Series é associado a um índice. Esse índice é, por padrão, uma sequência numérica começando por zero, mas pode ser de outros tipos, como datas, strings ou até mesmo outros números;
+- Index: Cada elemento em uma Series é associado a um índice. Esse índice é, por padrão, uma sequência numérica começando por zero, mas pode ser de outros tipos, como datas, strings ou até mesmo outros números;
 
-Homogeneidade: Apesar de uma Series poder conter qualquer tipo de dado, todos os itens em uma única Series devem ser do mesmo tipo. Se diferentes tipos são colocados em uma Series, ela tentará converter os tipos para um formato comum;
+- Homogeneidade: Apesar de uma Series poder conter qualquer tipo de dado, todos os itens em uma única Series devem ser do mesmo tipo. Se diferentes tipos são colocados em uma Series, ela tentará converter os tipos para um formato comum;
 
-Nome: Uma Series pode ter um atributo nome, o que pode ser útil especialmente quando a Series é usada como uma coluna em um DataFrame.
+- Nome: Uma Series pode ter um atributo nome, o que pode ser útil especialmente quando a Series é usada como uma coluna em um DataFrame.
 
 
 Usos Comuns:
 
-Seleção de dados: Muitas vezes, quando você seleciona uma única coluna de um DataFrame, o resultado é uma Series;
+- Seleção de dados: Muitas vezes, quando você seleciona uma única coluna de um DataFrame, o resultado é uma Series;
 
-Operações aritméticas: Assim como com arrays do Numpy, é possível realizar operações aritméticas com uma Series;
+- Operações aritméticas: Assim como com arrays do Numpy, é possível realizar operações aritméticas com uma Series;
 
-Operações de agregação: Você pode aplicar funções de agregação, como soma, média, mediana, entre outras, diretamente a uma Series;
-Filtragem: É fácil filtrar dados em uma Series usando operadores condicionais;
+- Operações de agregação: Você pode aplicar funções de agregação, como soma, média, mediana, entre outras, diretamente a uma Series;
+
+- Filtragem: É fácil filtrar dados em uma Series usando operadores condicionais;
+
+- Aplicação de funções: O método .apply() permite que você aplique uma função a cada item de uma Series.
+
+- Conversão de tipos: Converta os tipos de dados em uma Series usando o método astype();
+
+- Manipulação de strings: Se a Series contém strings, o Pandas oferece um conjunto robusto de operações de string através do atributo .str;
+
+- Tratamento de valores faltantes: Métodos como .fillna() ou .dropna() ajudam a lidar com valores faltantes (NaN) em uma Series.
 
 
-Aplicação de funções: O método .apply() permite que você aplique uma função a cada item de uma Series.
-
-Conversão de tipos: Converta os tipos de dados em uma Series usando o método astype();
-
-Manipulação de strings: Se a Series contém strings, o Pandas oferece um conjunto robusto de operações de string através do atributo .str;
-
-Tratamento de valores faltantes: Métodos como .fillna() ou .dropna() ajudam a lidar com valores faltantes (NaN) em uma Series.
-
-
-DataFrame
+*DataFrame* 
 
 Um DataFrame é uma estrutura de dados bidimensional, semelhante a uma planilha ou uma tabela de banco de dados, uma planilha do Excel ou uma tabela em linguagens estatísticas como R, que pode armazenar dados de diferentes tipos em suas colunas. O DataFrame é a estrutura central do Pandas e é a ferramenta de escolha para a maioria das operações de análise de dados em Python. Seu design flexível e a grande quantidade de métodos e funcionalidades o tornam ideal para trabalhar com dados em muitos contextos diferentes. Enquanto a Series é essencial e útil em muitos cenários, o DataFrame amplia essa utilidade para operações mais complexas e análises multidimensionais.
 
 
 Características Principais:
 
-Bidimensionalidade: Ao contrário da Series (unidimensional), um DataFrame é bidimensional, representando dados em linhas e colunas;
+- Bidimensionalidade: Ao contrário da Series (unidimensional), um DataFrame é bidimensional, representando dados em linhas e colunas;
 Colunas com Nomes: Cada coluna em um DataFrame tem um nome, que serve como seu identificador;
 
-Indexação: Assim como a Series, o DataFrame tem um índice que identifica cada linha. Esse índice pode ser numérico, de data, de string, ou até mesmo hierárquico;
+- Indexação: Assim como a Series, o DataFrame tem um índice que identifica cada linha. Esse índice pode ser numérico, de data, de string, ou até mesmo hierárquico;
 
-Colunas com diferentes tipos de dados: Enquanto uma Series deve ter um tipo de dado único, um DataFrame pode ter diferentes tipos de dados em suas diferentes colunas (por exemplo, inteiros, floats, strings);
+- Colunas com diferentes tipos de dados: Enquanto uma Series deve ter um tipo de dado único, um DataFrame pode ter diferentes tipos de dados em suas diferentes colunas (por exemplo, inteiros, floats, strings);
 
-Flexibilidade: Você pode adicionar ou remover colunas, alterar o índice, reordenar as linhas, entre outras operações;
-Funcionalidades: O Pandas oferece uma ampla gama de funções e métodos para manipular, filtrar, agrupar, transformar e analisar os dados em um DataFrame;
+- Flexibilidade: Você pode adicionar ou remover colunas, alterar o índice, reordenar as linhas, entre outras operações;
 
-Integração com Outras Bibliotecas: DataFrames podem ser facilmente convertidos para outras estruturas de dados, como arrays do numpy, e são amplamente utilizados em conjunto com outras bibliotecas de análise de dados e visualização, como matplotlib, seaborn e scikit-learn;
+- Funcionalidades: O Pandas oferece uma ampla gama de funções e métodos para manipular, filtrar, agrupar, transformar e analisar os dados em um DataFrame;
 
-Importação e Exportação: Com o Pandas, é possível ler dados de diversas fontes, como arquivos CSV, Excel, bancos de dados SQL e muitos outros formatos, diretamente para um DataFrame. Da mesma forma, os dados em um DataFrame podem ser facilmente exportados para esses formatos.
+- Integração com Outras Bibliotecas: DataFrames podem ser facilmente convertidos para outras estruturas de dados, como arrays do numpy, e são amplamente utilizados em conjunto com outras bibliotecas de análise de dados e visualização, como matplotlib, seaborn e scikit-learn;
+
+- Importação e Exportação: Com o Pandas, é possível ler dados de diversas fontes, como arquivos CSV, Excel, bancos de dados SQL e muitos outros formatos, diretamente para um DataFrame. Da mesma forma, os dados em um DataFrame podem ser facilmente exportados para esses formatos.
 
 
 Usos Comuns:
 
-Manipulação de dados: Seleção, adição e exclusão de colunas e linhas;
+- Manipulação de dados: Seleção, adição e exclusão de colunas e linhas;
 
-Agrupamento: Utilizando o método groupby() é possível agrupar dados com base em certos critérios e aplicar funções de agregação;
-Mesclagem e junção: Com métodos como merge() e join(), é possível combinar diferentes DataFrames de acordo com critérios específicos;
-Pivotamento: Transforme dados de formato longo para largo e vice-versa usando métodos como pivot();
+- Agrupamento: Utilizando o método groupby() é possível agrupar dados com base em certos critérios e aplicar funções de agregação;
 
-Visualização: O Pandas integra-se bem com bibliotecas de visualização, como Matplotlib, permitindo a criação de gráficos diretamente de um DataFrame;
+- Mesclagem e junção: Com métodos como merge() e join(), é possível combinar diferentes DataFrames de acordo com critérios específicos;
 
-Estatísticas e análise: Calcule estatísticas básicas, realize testes estatísticos, explore correlações e muito mais;
+- Pivotamento: Transforme dados de formato longo para largo e vice-versa usando métodos como pivot();
+
+- Visualização: O Pandas integra-se bem com bibliotecas de visualização, como Matplotlib, permitindo a criação de gráficos diretamente de um DataFrame;
+
+- Estatísticas e análise: Calcule estatísticas básicas, realize testes estatísticos, explore correlações e muito mais;
 Tratamento de valores faltantes: Use métodos como fillna(), dropna(), e interpolate() para tratar dados faltantes.
 
 
 Diferenças em Relação às Series:
 
-Dimensionalidade: Enquanto uma Series é unidimensional, o DataFrame é bidimensional;
+- Dimensionalidade: Enquanto uma Series é unidimensional, o DataFrame é bidimensional;
 
-Tipos de dados: A Series tem um único tipo de dado para todos os seus elementos, enquanto um DataFrame pode ter colunas com diferentes tipos de dados;
+- Tipos de dados: A Series tem um único tipo de dado para todos os seus elementos, enquanto um DataFrame pode ter colunas com diferentes tipos de dados;
 
-Acessibilidade: Em uma Series, acessamos os dados pelo índice. Em um DataFrame, usamos o nome da coluna (ou uma lista de nomes de colunas) para selecionar colunas específicas;
+- Acessibilidade: Em uma Series, acessamos os dados pelo índice. Em um DataFrame, usamos o nome da coluna (ou uma lista de nomes de colunas) para selecionar colunas específicas;
 
-Estrutura: Enquanto você pode pensar em uma Series como uma única coluna de dados com índices, um DataFrame é como um conjunto de Series que compartilham um índice comum.
+- Estrutura: Enquanto você pode pensar em uma Series como uma única coluna de dados com índices, um DataFrame é como um conjunto de Series que compartilham um índice comum.
 
 
 ### 3.1.3 Criação e manipulação de Series
@@ -209,7 +213,7 @@ s * 2
 ```
 
 
-Indexação e Seleção
+*Indexação e Seleção*
 
 Seleção por índice
 ```{code-cell} python
@@ -263,7 +267,6 @@ df
 Neste código, primeiro é realizada a importação da biblioteca Pandas com o apelido "pd". Em seguida, é criado um dicionário chamado "dados", contendo três pares chave-valor que representam, respectivamente, nomes, idades e cidades de três indivíduos. Por fim, o dicionário é convertido em um DataFrame do Pandas e armazenado na variável "df". Assim, o DataFrame "df" organiza as informações presentes no dicionário "dados" em forma de tabela, facilitando análises e manipulações posteriores dos dados. 
 
 Criação de um DataFrame a partir de uma lista:
-
 ```{code-cell} python
 nome = ['Ana', 'Bruno', 'Carlos']
 idade = [25, 30, 35]
@@ -305,7 +308,7 @@ df = pd.DataFrame(dados)
 print(df)
 ```
 
-Selecionar colunas e linhas específicas
+*Selecionar colunas e linhas específicas*
 
 Para selecionar uma única coluna, você pode usar a notação de colchetes com o nome da coluna.
 ```{code-cell} python
@@ -321,7 +324,7 @@ paises_pib = df[['País', 'PIB (2020)']]
 print(paises_pib)
 ```
 
-Usando o método .iloc:
+- Usando o método .iloc:
 
 O método iloc do Pandas permite selecionar linhas e colunas em um DataFrame usando índices numéricos. É uma abordagem baseada em posição, o que significa que você se refere às linhas e colunas por seus índices numéricos.
 
@@ -344,7 +347,7 @@ linhas_especificas = df.iloc[[1, 3, 5]]
 print(linhas_especificas)
 ```
 
-Selecionando Linhas e Colunas Simultaneamente
+*Selecionando Linhas e Colunas Simultaneamente*
 
 Com iloc, você também pode selecionar linhas e colunas específicas ao mesmo tempo. Para selecionar uma coluna específica utilizando o método iloc, é necessário fornecer os índices das linhas e da coluna desejada. Se você deseja selecionar toda a coluna "País", por exemplo, pode fazer o seguinte:
 
@@ -360,7 +363,7 @@ selecao = df.iloc[1:4, [0, 3]]
 print(selecao)
 ```
 
-Usando loc (por índices etiquetados ou nomes de colunas)
+- Usando loc (por índices etiquetados ou nomes de colunas)
 
 O método loc do Pandas é usado para selecionar linhas e colunas por seus índices etiquetados (ou rótulos) e nomes de colunas, ao contrário do iloc, que usa índices numéricos. Vamos ver como usar o loc com o nosso DataFrame.
 
@@ -373,7 +376,8 @@ print(df)
 
 O método set_index do DataFrame é usado para definir uma coluna como índice (ou rótulo de linha) do DataFrame. O argumento que você fornece a este método especifica a coluna que você deseja usar como índice. Aqui, estamos indicando que queremos definir a coluna 'País' como o índice do DataFrame df. Quando inplace é definido como True, a operação modifica o DataFrame original e não retorna um novo DataFrame. Se inplace for False (ou não fornecido), a operação retornará um novo DataFrame com a alteração, e o DataFrame original não será modificado.
 
-Selecionando uma Única Linha
+
+- Selecionando uma Única Linha
 
 Exemplo: Selecionar a linha com índice 'Brasil'.
 ```{code-cell} python
@@ -405,7 +409,8 @@ coluna_area = df.loc[:, 'Área']
 print(coluna_area)
 ```
 
-Filtragem de dados com base em condições
+
+*Filtragem de dados com base em condições*
 
 Com o Pandas, é possível filtrar um DataFrame baseado em condições específicas aplicadas às colunas.
 
@@ -456,7 +461,8 @@ print(paises_grandes_query)
 
 A manipulação de dados é uma das principais funcionalidades oferecidas pelo Pandas. Com ela, é possível realizar uma ampla variedade de operações para transformar, limpar e analisar seus conjuntos de dados.
 
-Alterando um valor específico
+
+*Alterando um valor específico*
 
 Para alterar um valor específico, você pode usar loc ou iloc. Exemplo:
 
@@ -465,7 +471,7 @@ Alterar a população do Brasil para 203.062.215:
 df.loc[df['País'] == 'Brasil', 'População'] = 203062512
 ```
 
-Alterando valores com base em uma condição:
+*Alterando valores com base em uma condição*
 
 Você pode combinar a filtragem de dados com a atribuição para alterar valores com base em uma condição:
 ```{code-cell} python
@@ -473,14 +479,15 @@ df.loc[df['População'] > 15000000, 'PIB (2020)'] += 0.1
 ```
 Neste exemplo, estamos aumentando o PIB (2020) em 100 bilhões (lembrando que o PIB registrado no DataFrame original está em trilhões de dólares) para todos os países com uma população superior a 15 milhões.
 
-Usando o método replace
+
+*Usando o método replace*
 
 O método replace é usado para substituir valores específicos. Por exemplo, substituir o nome “Brasil” por “República Federativa do Brasil”:
 ```{code-cell} python
 df['País'] = df['País'].replace('Brasil', 'República Federativa do Brasil')
 ```
 
-Alterando valores usando uma função com apply
+*Alterando valores usando uma função com apply*
 
 O método apply permite aplicar uma função a cada elemento de uma coluna ou linha. Por exemplo, aumentar a população de todos os países em 5%:
 ```{code-cell} python
@@ -489,7 +496,7 @@ df['População'] = df['População'].apply(lambda x: int(x * 1.05))
 Neste exemplo, estamos multiplicando a população de cada país por 1.05, o que resulta em um aumento de 5% na população original.
 
 
-Redefinindo valores de uma coluna inteira
+*Redefinindo valores de uma coluna inteira*
 
 Por exemplo, redefinir todos os valores da coluna PIB (2020) para zero:
 ```{code-cell} python
@@ -499,12 +506,12 @@ df['PIB (2020)'] = 0
 Estes são apenas alguns exemplos básicos de como alterar valores em um DataFrame do Pandas. A biblioteca oferece uma ampla variedade de métodos e funcionalidades que permitem manipular e transformar dados de maneira eficiente.
 
 
-Adicionando e removendo colunas
+*Adicionando e removendo colunas*
 
 Em muitas situações de análise e manipulação de dados, é comum a necessidade de ajustar a estrutura dos conjuntos de dados para melhor atender aos requisitos do projeto. No contexto dos DataFrames do Pandas, essa flexibilidade é amplamente facilitada através de métodos que permitem adicionar novas colunas, seja com base em cálculos, combinações ou informações externas, bem como remover colunas que podem não ser relevantes para a análise subsequente. Vamos aplicar alguns dos principais métodos a partir de exemplos:
 
 
-Adicionando uma nova coluna
+Adicionar uma nova coluna:
 
 	Para adicionar uma nova coluna com valores padrão:
 ```{code-cell} python
@@ -515,7 +522,7 @@ df['NovaColuna'] = 'Valor Padrão'
 df['Continente'] = 'América do Sul'
 ```
 
-Removendo uma coluna
+Remover uma coluna:
 
 Para remover uma coluna:
 ```{code-cell} python
@@ -531,7 +538,7 @@ O método drop do Pandas é usado para remover linhas ou colunas de um DataFrame
 inplace=True: essa opção significa que a alteração será aplicada diretamente no DataFrame df, sem necessidade de reatribuição. Se inplace fosse definido como False (ou omitido, já que o padrão é False), o método retornaria um novo DataFrame com a coluna removida, mas o DataFrame original df permaneceria inalterado.
 
 
-Adicionando uma coluna com base em outras colunas
+Adicionar uma coluna com base em outras colunas
 
 Exemplo 1: adicionar uma coluna que seja a razão entre a população e a área.
 ```{code-cell} python
@@ -543,14 +550,14 @@ Exemplo 2: Adicionar uma coluna que seja a relação entre o PIB e o número de 
 df['Renda Per Capita'] = df['PIB (2020)'] * 1e12 / df['População']
 ```
 
-Removendo múltiplas colunas
+Remover múltiplas colunas
 
 	Para remover várias colunas:
 ```{code-cell} python
 df.drop(['Densidade_populacional', 'Renda Per Capita'], axis=1, inplace=True)
 ```
 
-Adicionando colunas usando assign
+Adicionar colunas usando assign
 
 	O método assign permite adicionar uma ou mais colunas ao DataFrame:
 ```{code-cell} python
@@ -560,7 +567,7 @@ df = df.assign(
 )
 ```
 
-Adicionando colunas em locais específicos
+Adicionar colunas em locais específicos
 
 	Para adicionar uma coluna em uma posição específica, é possível usar o método insert:
 ```{code-cell} python
@@ -569,11 +576,11 @@ df.insert(loc=1, column='Continente', value='América do Sul')
 
 Os argumentos fornecidos ao método insert fazem o seguinte:
 
-loc=1: Especifica a posição (ou índice) onde a nova coluna deve ser inserida. Neste caso, a nova coluna será inserida na posição 1 (lembrando que a indexação começa em 0). Portanto, a nova coluna será a segunda coluna no DataFrame.
+- loc=1: Especifica a posição (ou índice) onde a nova coluna deve ser inserida. Neste caso, a nova coluna será inserida na posição 1 (lembrando que a indexação começa em 0). Portanto, a nova coluna será a segunda coluna no DataFrame.
 
-column='Continente': Define o nome da nova coluna como 'Continente'.
+- column='Continente': Define o nome da nova coluna como 'Continente'.
 
-value='América do Sul': Especifica o valor que será preenchido em todas as linhas dessa nova coluna. Aqui, todas as linhas da coluna 'Continente' terão o valor 'América do Sul'.
+- value='América do Sul': Especifica o valor que será preenchido em todas as linhas dessa nova coluna. Aqui, todas as linhas da coluna 'Continente' terão o valor 'América do Sul'.
 
 Neste exemplo, a nova coluna foi inserida na segunda posição (lembre-se que a indexação no Python começa em zero).
 
@@ -650,7 +657,7 @@ df = df.sort_index(ascending=False)
 
 As operações aritméticas com DataFrames são componentes essenciais da análise de dados. Essas operações podem ser realizadas entre colunas de um único DataFrame, entre Series e DataFrames, ou entre dois DataFrames. Abaixo, você encontrará os principais tópicos relacionados a operações aritméticas com DataFrames no Pandas:
 
-Operações Escalares
+*Operações Escalares*
 
 Exemplo: Aplicar uma operação aritmética entre um DataFrame e um escalar (multiplicar todos os valores do DataFrame por 10):
  Inicialmente, vamos criar um DataFrame:
@@ -667,7 +674,7 @@ df * 10  # Multiplica todos os elementos por 10
 ```
 
 
-Operações entre Series e DataFrames
+*Operações entre Series e DataFrames*
 
 Por padrão, ao realizar uma operação entre uma Series e um DataFrame, o Pandas tentará fazer a operação ao longo do índice (para cada linha):
 
@@ -691,7 +698,9 @@ No código acima, “s” é uma Series do Pandas que contém três elementos co
 
 Observe que a coluna 'C' no resultado é preenchida com NaN (Not a Number), porque o DataFrame df não tem uma coluna 'C', e o Pandas introduz valores NaN quando não consegue encontrar um valor correspondente para a operação.
 
-Operações entre DataFrames
+
+*Operações entre DataFrames*
+
 Quando se realizam operações entre DataFrames, o Pandas alinha os DataFrames pelos índices e pelas colunas:
 
 ```{code-cell} python
@@ -714,7 +723,7 @@ df1 + df2  # Realiza a soma elemento a elemento
 
 
 
-Operações com Métodos Específicos
+*Operações com Métodos Específicos*
 
 O Pandas também oferece métodos específicos que proporcionam mais controle sobre as operações aritméticas. Por exemplo, o método .add():
 
@@ -725,7 +734,7 @@ df1.add(df2, fill_value=0)
 Nesse código, fill_value=0 faz com que registros NaN, caso existam, sejam substituídos por 0 antes da operação. Saída:
 
 
-Operações com Funções Agregadas
+*Operações com Funções Agregadas*
 
 Para aplicar funções que agregam dados, como soma, média e contagem, você pode usar métodos como .sum(), .mean() e .count(), respectivamente.
 
@@ -745,7 +754,8 @@ df.count()
 
 Existem três registros em cada coluna.
 
-Operações ao longo de um Eixo Específico
+
+*Operações ao longo de um Eixo Específico*
 
 Suponha que você queira subtrair a média de cada coluna de todos os valores dessa coluna. Você pode usar o método .sub() e especificar o eixo:
 
@@ -756,11 +766,10 @@ df.sub(df.mean(axis=1), axis=0)
 Nesse código, df1.mean(axis=1) calcula a média dos valores ao longo do eixo horizontal (ao longo das colunas) para cada linha. O resultado é uma Series onde o seu índice corresponde ao índice das linhas do DataFrame df1 e os valores são as médias calculadas para cada linha.
 
 
-Continuando com o código acima, df1.sub(df1.mean(axis=1), axis=0) subtrai os valores da Series resultante da etapa anterior de cada coluna do DataFrame df1. O parâmetro axis=0 indica que a operação de subtração deve ser realizada verticalmente (ao longo das linhas). Isso significa que cada valor da Series (a média de cada linha) será subtraído de cada valor na coluna correspondente do DataFrame. Para o DataFrame df1, a subtração seria:
+Continuando com o código acima, df1.sub(df1.mean(axis=1), axis=0) subtrai os valores da Series resultante da etapa anterior de cada coluna do DataFrame df1. O parâmetro axis=0 indica que a operação de subtração deve ser realizada verticalmente (ao longo das linhas). Isso significa que cada valor da Series (a média de cada linha) será subtraído de cada valor na coluna correspondente do DataFrame. P
 
-Resultando em:
 
-Operações utilizando o método applymap
+*Operações utilizando o método applymap*
 
 O método applymap() é usado em DataFrames do Pandas para aplicar uma função a todos os elementos do DataFrame. Ele é particularmente útil quando você deseja realizar uma operação ou transformação elemento a elemento em todo o DataFrame.
 
@@ -816,7 +825,7 @@ print(df)
 ```
 
 
-Identificação de dados ausentes
+*Identificação de dados ausentes*
 
 O Pandas utiliza o valor NaN (Not a Number) para representar dados ausentes. Você pode identificar esses valores usando o método isna() ou isnull(), ambos retornam o mesmo resultado: um DataFrame de mesma dimensão com valores booleanos (True ou False) indicando a presença de valores faltantes.
 
@@ -841,12 +850,12 @@ print(df.isna().sum().sum())
 ```
 
 
-Estratégias para tratamento de dados faltantes: exclusão e imputação
+*Estratégias para tratamento de dados faltantes: exclusão e imputação*
 
 O tratamento de dados faltantes é uma etapa importante na análise e preparação de dados, especialmente porque a presença de valores faltantes pode distorcer análises. Existem várias estratégias para lidar com dados faltantes, e a escolha da estratégia adequada geralmente depende do contexto e da natureza dos dados. Vamos explorar duas categorias principais: exclusão e imputação.
 
 
-Exclusão de dados ausentes
+- Exclusão de dados ausentes
 
 A exclusão de dados ausentes em um DataFrame é uma abordagem que pode ser aplicada tanto às linhas quanto às colunas. Dependendo da natureza e da quantidade de dados ausentes, você pode optar por remover registros inteiros (linhas) ou características específicas (colunas) para manter a integridade e a qualidade dos dados analisados.
 
@@ -876,7 +885,7 @@ df.dropna(axis=1)  # Remove colunas com qualquer valor faltante
 No caso do nosso DataFrame df, somente a coluna “A “não possuía dados faltantes. Logo, o DataFrame (agora, uma Series) resultante tem somente os dados dessa coluna.
 
 
-Imputação
+- Imputação
 
 A imputação é uma técnica fundamental no pré-processamento de dados para tratar valores faltantes. Dentre as abordagens mais populares para realizá-la, podemos citar: a) a imputação com valor constante; b) a imputação com média, mediana ou moda; c) a interpolação e; d) a imputação utilizando métodos avançados. Vamos detalhar essas abordagens a seguir.
 
@@ -909,7 +918,7 @@ df.fillna(df.mean())
 Ao usar df.fillna(df.mean()), você está instruindo o Pandas a substituir todos os valores faltantes no DataFrame df pela média da respectiva coluna em que o valor faltante está localizado. Para ser mais específico, se uma coluna do DataFrame tiver algum valor faltante, esse valor será substituído pela média de todos os outros valores (não faltantes) da mesma coluna.
 
 
-Interpolação
+- Interpolação
 
 A interpolação é especialmente útil em séries temporais ou dados sequenciais. A interpolação estima valores faltantes com base nos valores existentes antes e depois do ponto faltante. Por exemplo, em uma série temporal, se tivermos valores para os dias 1, 2 e 4, mas o dia 3 estiver faltando, a interpolação pode ser usada para estimar o valor para o dia 3 com base nos valores dos dias 2 e 4. Existem vários métodos de interpolação, desde técnicas lineares simples até métodos mais complexos, como interpolação polinomial ou spline. A escolha do método de interpolação deve ser feita considerando a natureza dos dados e o padrão subjacente que se acredita existir na sequência. Vamos aplicar a interpolação ao nosso DataFrame df:
 
@@ -923,7 +932,7 @@ A função interpolate() do Pandas utiliza, por padrão, um método de interpola
 Para lidar com valores NaN nas extremidades, você pode considerar outras abordagens, como: preencher com um valor constante, preencher com a média da coluna ou aplicar métodos como bfill ou ffill.
 
 
-Imputação com Métodos Avançados
+- Imputação com Métodos Avançados
 
 Existem métodos de imputação de dados mais avançados, como a imputação KNN (K-Nearest Neighbors), imputação por regressão e algoritmos como o MICE (Multiple Imputation by Chained Equations). Embora esses métodos possam oferecer uma precisão superior em comparação com abordagens mais simples, eles são computacionalmente mais intensivos e demandam uma compreensão mais profunda por parte do usuário. 
 
@@ -951,11 +960,11 @@ df = pd.DataFrame(paises_dados)
 df
 ```
 
-Funções de agregação
+*Funções de agregação*
 
 As funções de agregação proporcionam um resumo estatístico ou uma redução dos dados. Quando você tem um grande conjunto de dados e quer obter informações resumidas ou insights gerais, as funções de agregação são muito úteis. No Python, especialmente com o Pandas, temos várias funções de agregação à disposição.
 
-Aqui estão algumas das funções de agregação mais comuns:
+Algumas das funções de agregação mais comuns são:
 
 min() e max(): Retorna os valores mínimo e máximo registrado em cada coluna no DataFrame, respectivamente.
 
@@ -1023,15 +1032,15 @@ df.agg({'População': 'sum', 'Área': 'mean'})
 ```
 
 
-Método Groupby
+*Método Groupby*
 
 O método groupby é uma ferramenta do Pandas que permite agrupar dados com base em algumas colunas e, em seguida, aplicar uma função (como soma, média, contagem, etc.) a cada grupo. Esse método é especialmente útil para segmentar um DataFrame em subconjuntos de dados para análise. Ele opera em três etapas fundamentais: Dividir, Aplicar e Combinar.
 
-Dividir: Nesta etapa, o DataFrame é dividido em grupos com base em uma ou mais colunas especificadas. Cada grupo é um subconjunto do DataFrame que tem o mesmo valor na coluna (ou colunas) especificada(s);
+a) Dividir: Nesta etapa, o DataFrame é dividido em grupos com base em uma ou mais colunas especificadas. Cada grupo é um subconjunto do DataFrame que tem o mesmo valor na coluna (ou colunas) especificada(s);
 
-Aplicar: Uma vez que os dados são agrupados, uma função é aplicada a cada grupo individualmente. Esta função pode ser uma operação de agregação (como calcular a média, a soma, a contagem, etc.), uma transformação (como normalizações ou cálculos mais complexos) ou qualquer outra operação que você queira realizar em grupos específicos;
+b) Aplicar: Uma vez que os dados são agrupados, uma função é aplicada a cada grupo individualmente. Esta função pode ser uma operação de agregação (como calcular a média, a soma, a contagem, etc.), uma transformação (como normalizações ou cálculos mais complexos) ou qualquer outra operação que você queira realizar em grupos específicos;
 
-Combinar: Após aplicar a função a cada grupo, o Pandas combina os resultados em uma nova estrutura, geralmente um DataFrame. O resultado é um DataFrame reformulado, onde os índices são os valores únicos das colunas usadas para agrupar e as colunas contêm os resultados das funções aplicadas.
+c) Combinar: Após aplicar a função a cada grupo, o Pandas combina os resultados em uma nova estrutura, geralmente um DataFrame. O resultado é um DataFrame reformulado, onde os índices são os valores únicos das colunas usadas para agrupar e as colunas contêm os resultados das funções aplicadas.
 
 Exemplos:
 
@@ -1051,33 +1060,33 @@ df
 ```
 
 
-a) Agrupar os dados por 'Imagem' e obter a soma da 'Área Coberta (km²)' para cada tipo de imagem:
+Agrupar os dados por 'Imagem' e obter a soma da 'Área Coberta (km²)' para cada tipo de imagem:
 ```{code-cell} python
 df.groupby('Imagem')['Área Coberta (km²)'].sum()
 ```
 
-b) Agrupar os dados por 'Região' e calcular a média do 'Custo (R$)':
+Agrupar os dados por 'Região' e calcular a média do 'Custo (R$)':
 ```{code-cell} python
 df.groupby('Região')['Custo (R$)'].mean()
 ```
 
-c) Agrupar os dados por 'Imagem' e 'Região' e obter a contagem de registros para cada combinação:
+Agrupar os dados por 'Imagem' e 'Região' e obter a contagem de registros para cada combinação:
 ```{code-cell} python
 df.groupby(['Imagem', 'Região']).size()
 ```
 
-d) Agrupar os dados por 'Imagem' e obter várias agregações para a coluna 'Custo (R$)' (média, soma e desvio padrão):
+Agrupar os dados por 'Imagem' e obter várias agregações para a coluna 'Custo (R$)' (média, soma e desvio padrão):
 ```{code-cell} python
 df.groupby('Imagem')['Custo (R$)'].agg(['mean', 'sum', 'std'])
 ```
 
 
 
-Combinação de Dados
+*Combinação de Dados*
 
 A combinação de dados é uma operação de grande relevância em geoprocessamento, permitindo que você junte informações de diferentes fontes ou DataFrames. Existem várias ferramentas para combinar DataFrames no Pandas, incluindo concatenação, junção e mesclagem.
 
-Concatenação de DataFrames:
+- Concatenação de DataFrames:
 
 A concatenação é o processo de anexar um DataFrame a outro, seja verticalmente (adicionando linhas) ou horizontalmente (adicionando colunas).
 
@@ -1127,7 +1136,9 @@ Neste exemplo, o argumento axis=1 indica que a concatenação deve ocorrer horiz
 
 Ao usar o método concat, é importante garantir que os índices dos DataFrames que estão sendo concatenados se alinhem corretamente, especialmente ao realizar a concatenação horizontal. Caso contrário, você pode acabar com valores ausentes nas posições onde os índices não se alinham.
 
-b) junção e mesclagem
+
+- junção e mesclagem
+
 A junção e a mesclagem permitem combinar DataFrames com base em colunas comuns ou índices comuns. Vamos explorar como usar essas técnicas com os DataFrames df e df_satelites.
 
 ```{code-cell} python
@@ -1141,7 +1152,7 @@ df_satelites = pd.DataFrame(dados_satelites)
 df_satelites
 ```
 
-Merge
+*Merge*
 
 O método merge() é usado para combinar DataFrames com base em colunas comuns.
 
@@ -1153,7 +1164,7 @@ df_mesclado
 Neste exemplo, estamos usando left_on para especificar a coluna do DataFrame df e right_on para especificar a coluna do DataFrame df_satelites. O argumento how='left' garante que todas as entradas do df sejam mantidas, mesmo que não tenham uma correspondência no df_satelites.
 
 
-Junção (join)
+*Junção (join)*
 
 O método join é semelhante ao merge, mas é usado para combinar DataFrames com base em índices ao invés de colunas. Para demonstrá-lo, vamos primeiro definir o índice de df_satelites para a coluna 'Satélite':
 
@@ -1182,15 +1193,11 @@ Neste exemplo, estamos usando on para especificar a coluna do DataFrame df que d
 
 A leitura de arquivos CSV (Comma-Separated Values) é uma das tarefas mais comuns ao se trabalhar com análise de dados em Python. No Pandas utilizamos a função read_CSV. Vamos explorar os principais aspectos e opções dessa função:
 Sintaxe básica:
-```
-df = pd.read_csv('caminho_do_arquivo.csv')
-```
+``` df = pd.read_csv('caminho_do_arquivo.csv') ```
 
 Caso o delimitador do arquivo seja ponto e vírgula, é possível utilizar o parâmetro “sep”:
 
-```
-df = pd.read_csv('caminho_do_arquivo.csv', sep=';')
-```
+``` df = pd.read_csv('caminho_do_arquivo.csv', sep=';') ```
 
 Quadro 6: Parâmetros do método read_csv.
 
@@ -1317,7 +1324,7 @@ Nesse código:
 O Pandas oferece uma série de métodos que permitem gravar DataFrames em diversos formatos. Vamos ver como salvar seus dados em formato .CSV e .xlsx.
 
 
-Arquivo CSV
+*Arquivo CSV*
 
 Para gravar um DataFrame como um arquivo CSV, use o método to_CSV:
 
@@ -1332,7 +1339,7 @@ index: Se verdadeiro, inclui o índice do DataFrame no arquivo. Por padrão é T
 sep: Delimitador a ser usado. Por padrão é ','.
 
 
-Arquivo Excel
+*Arquivo Excel*
 
 Para gravar um DataFrame em um arquivo do Excel, use o método to_excel:
 

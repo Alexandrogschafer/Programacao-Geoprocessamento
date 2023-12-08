@@ -23,7 +23,7 @@ Geopandas é uma extensão do Pandas que introduz estruturas de dados espaciais.
 ![Figura 10](images/fig10.png)
 
 <p align="center">Figura 10: Estruturas de dados do Geopandas.</p>
-
+<br><br>
 
 O Geopandas é capaz de lidar com uma variedade de tipos geométricos, abrangendo pontos, linhas, polígonos e combinações destes. Esta capacidade é complementada por uma série de operações espaciais, possíveis graças à integração com bibliotecas como Shapely e Fiona. Estas operações incluem, mas não se limitam a, interseção, união, diferença e buffer. Além disso, a biblioteca oferece ferramentas robustas para análise espacial, permitindo o cálculo de áreas, distâncias e outras métricas geométricas essenciais.
 
@@ -35,9 +35,9 @@ A flexibilidade do Geopandas não se restringe apenas às operações mencionada
 O Geopandas tem a capacidade de simplificar a leitura de arquivos geoespaciais em Python, suportando uma variedade de formatos comuns na área de Geoprocessamento. 
 
 O método gpd.read_file é uma função da biblioteca Geopandas que permite ler diferentes formatos de arquivos de dados geoespaciais e convertê-los em um GeoDataFrame. Quando você utiliza o gpd.read_file, o Geopandas faz uso da biblioteca Fiona internamente para ler o arquivo. Isso significa que ele pode lidar com uma variedade de formatos de arquivo, incluindo Shapefiles (.shp), GeoJSON, GPKG, entre outros.
+<br><br>
 
-
-Lendo Shapefiles com Geopandas
+*Lendo Shapefiles com Geopandas*
 
 Você pode ler um arquivo Shapefile da seguinte maneira:
 ```{code-cell} python
@@ -45,33 +45,34 @@ import pandas as pd
 import geopandas as gpd
 ```
 
-Carregar o Shapefile em um GeoDataFrame
+Carregar o Shapefile em um GeoDataFrame:
 ```{code-cell} python
 import geopandas as gpd
 gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
 
-Mostrar as primeiras linhas do GeoDataFrame
+Mostrar as primeiras linhas do GeoDataFrame:
 ```{code-cell} python
 gdf.head()
 ```
 
-Após ler o arquivo, ele é armazenado no GeoDataFrame gdf; gdf.head() imprime as primeiras cinco linhas do GeoDataFrame gdf usando o método head(), o que é útil para se ter uma visão rápida dos dados e verificar se tudo foi carregado e convertido corretamente.
+Após ler o arquivo, ele é armazenado no GeoDataFrame gdf; gdf.head() imprime as primeiras cinco linhas do GeoDataFrame gdf usando o método head(). Desta maneira podemos ter uma visão rápida dos dados e verificar se tudo foi carregado e convertido corretamente.
+<br><br>
 
-Observações:
+*Observações:*
 
-Dependências: O Geopandas depende de várias outras bibliotecas, como Fiona (para leitura/escrita de arquivos) e Shapely (para operações geométricas). Ao instalar o Geopandas via pip, estas dependências também serão instaladas.
+- Dependências: A Geopandas depende de várias outras bibliotecas, como Fiona (para leitura/escrita de arquivos) e Shapely (para operações geométricas). Ao instalar o Geopandas via pip, estas dependências também serão instaladas.
 
-Projeção: Muitas vezes, é uma boa prática verificar a projeção do Shapefile depois de carregá-lo, especialmente se você planeja combinar dados de várias fontes. Você pode fazer isso usando gdf.crs.
+- Projeção: Muitas vezes, é uma boa prática verificar a projeção do Shapefile depois de carregá-lo, especialmente se você planeja combinar dados de várias fontes. Você pode fazer isso usando gdf.crs:
 
-Consultar o sistema de projeção
 ```{code-cell} python
 print(gdf.crs)
 ```
+<br><br>
 
-Plotando GeoDataFrames com Geopandas
+*Plotando GeoDataFrames com Geopandas*
 
-O Geopandas permite a visualização de GeoDataFrames, facilitando a visualização das geometrias no espaço geográfico. Para exibir a geometria ativa, utilize o método GeoDataFrame.plot(). 
+A Geopandas permite a visualização de GeoDataFrames, facilitando a visualização das geometrias no espaço geográfico. Para exibir a geometria ativa, utilize o método GeoDataFrame.plot(). 
 ```{code-cell} python
 gdf.plot()
 ```
@@ -83,12 +84,12 @@ No exemplo a seguir, exibimos a coluna de geometria ativa e usamos a coluna "NM_
 gdf.plot('NM_REGIAO', legend=True)
 ```
 
-Esta é uma breve apresentação do método GeoDataFrame.plot() para possibilitar a visualização dos GeoDataFrames ao longo do estudo do Geopandas. Após estudar o Geopandas, teremos uma seção sobre visualização de dados geoespaciais.
+Essa é uma breve apresentação do método GeoDataFrame.plot() para possibilitar a visualização dos GeoDataFrames ao longo do estudo da Geopandas. Após estudar a Geopandas, teremos uma seção sobre visualização de dados geoespaciais.
+<br><br>
 
+*Lendo dados com Geopandas – outros arquivos*
 
-Lendo dados com Geopandas – outros arquivos
-
-GeoJSON
+- GeoJSON
 
 Como vimos anteriormente, o GeoJSON é um formato baseado em JSON para codificar estruturas geográficas. Para ler um arquivo GeoJSON:
 ```{code-cell} python
@@ -106,7 +107,7 @@ ax = gdf['geometry'].plot(color='gray')
 gdf_cap['geometry'].plot(ax=ax, color='black')
 ```
 
-GPKG (GeoPackage)
+- GPKG (GeoPackage)
 
 GeoPackage é um formato de banco de dados aberto e padrão que pode conter múltiplas camadas. Você pode listar e selecionar camadas específicas:
 
@@ -123,9 +124,9 @@ No código seguinte, especificamos o layer ‘trecho_ferroviario’. Vamos visua
 gdf_rod.plot()
 gdf_fer.plot()
 ```
+<br><br>
 
-
-CSV com Coordenadas: Convertendo dados tabulares em dados geoespaciais
+*CSV com Coordenadas: Convertendo dados tabulares em dados geoespaciais*
 
 Caso tenhamos um arquivo CSV com colunas de latitude e longitude, primeiro podemos ler o arquivo com o Pandas e depois converter o DataFrame para um GeoDataFrame.
 
@@ -137,9 +138,10 @@ gdf = gpd.GeoDataFrame(df, geometry=gpd.points_from_xy
 gdf.head()
 ```
 
-Em resumo, o código lê um arquivo CSV contendo informações sobre as capitais brasileiras (incluindo suas coordenadas de longitude e latitude), converte essas coordenadas em pontos geoespaciais e armazena tudo em um GeoDataFrame. O parâmetro geometry é usado para definir a coluna de geometria do GeoDataFrame. A função gpd.points_from_xy(df.longitude, df.latitude) é usada para criar pontos a partir das colunas longitude e latitude do DataFrame df. Por fim, as primeiras cinco linhas desse GeoDataFrame são impressas para visualização. 
+O código acima lê um arquivo CSV contendo informações sobre as capitais brasileiras (incluindo suas coordenadas de longitude e latitude), converte essas coordenadas em pontos geoespaciais e armazena tudo em um GeoDataFrame. O parâmetro geometry é usado para definir a coluna de geometria do GeoDataFrame. A função gpd.points_from_xy(df.longitude, df.latitude) é usada para criar pontos a partir das colunas longitude e latitude do DataFrame df. Por fim, as primeiras cinco linhas desse GeoDataFrame são impressas para visualização. 
+<br><br>
 
-Leitura Seletiva de Dados
+*Leitura Seletiva de Dados*
 
 Se um arquivo geoespacial contiver um grande volume de dados, pode ser útil ler apenas uma subseção ou uma amostra dos dados. Você pode fazer isso usando os argumentos rows ou bbox no método read_file.
 
@@ -158,29 +160,30 @@ b) Argumento bbox (bounding box)
 
 Uma bounding box (ou retângulo envolvente) refere-se ao retângulo de dimensões mínimas que envolve um conjunto geométrico, definido pelos cantos inferior esquerdo e superior direito. Cada ponto é definido por uma coordenada de longitude e latitude. Esse retângulo frequentemente é usado para operações rápidas de verificação espacial, pois trabalhar com um retângulo é computacionalmente mais simples do que com formas geométricas mais complexas.
 
+
 Exemplo: Vamos ler o arquivo shapefile BR_UF novamente, mas agora especificando uma bounding box.
 
 
-Ler dados dentro de uma bounding box específica (minx, miny, maxx, maxy)
+Ler dados dentro de uma bounding box específica (minx, miny, maxx, maxy):
 ```{code-cell} python
 bbox = [-53.8, -29.4, -48.3, -25.8]
 gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp', bbox=bbox)
 gdf.plot()
 ```
+<br><br>
 
+*Conversão de Projeção durante a Leitura*
 
-Conversão de Projeção durante a Leitura
+É possível reprojetar dados durante a leitura aplicando o método to_crs(), economizando um passo posterior de transformação. Por exemplo, para reprojetar dados de qualquer EPSG para o EPSG: 4674:
 
-É possível reprojetar dados durante a leitura aplicando o método to_crs(), economizando um passo posterior de transformação.
+``` gdf = gpd.read_file('caminho_do_arquivo.shp').to_crs(epsg=4674) ```
+<br><br>
 
-Reprojetar dados de qualquer EPSG para o EPSG: 4674.
-```{code-cell} python
-# gdf = gpd.read_file('caminho_do_arquivo.shp').to_crs(epsg=4674)
-```
+*Lendo com Codificação Específica*
 
-Lendo com Codificação Específica
+Ao trabalhar com dados geoespaciais, especialmente dados de diferentes fontes ou regiões, pode ser necessário experimentar ou verificar a documentação para determinar a codificação correta. Algumas codificações comuns incluem (quadro 10):
 
-Ao trabalhar com dados geoespaciais, especialmente dados de diferentes fontes ou regiões, pode ser necessário experimentar ou verificar a documentação para determinar a codificação correta. Algumas codificações comuns incluem (quadro 9):
+Quadro 10: Codificações e suas descrições.
 
 
 | Codificação   | Descrição                                                                                                                                                   |
@@ -195,8 +198,9 @@ Para corrigir o problema, vamos ler novamente o arquivo, especificando a codific
 gdf = gpd.read_file('~/geopythonbook/content/7_capitais_CSV/capitais_brasil.csv', encoding='ISO-8859-1')
 gdf
 ```
+<br><br>
 
-Lendo dados não espaciais (tabulares)
+*Lendo dados não espaciais (tabulares)*
 
 O Geopandas é projetado para lidar com dados geoespaciais, mas, dado que é uma extensão do Pandas, também pode manipular dados tabulares (não espaciais). No entanto, para dados puramente tabulares, é mais comum e direto usar o Pandas.
 
@@ -205,6 +209,7 @@ O Geopandas é projetado para lidar com dados geoespaciais, mas, dado que é uma
 ## 5.2 Criando geometrias no Geopandas
 
 No Geopandas, além de manipular e analisar dados geoespaciais, você também pode criar geometrias. Como vimos anteriormente, a biblioteca Shapely (que é uma dependência do Geopandas) fornece as ferramentas para criar e manipular geometrias. O Geopandas integra essas ferramentas para facilitar a criação e manipulação de geometrias dentro de seus GeoDataFrames e GeoSeries. Vamos estudar algumas funções e métodos para criar geometrias no Geopandas:
+<br><br>
 
 a) A partir de dados: 
 
@@ -255,17 +260,18 @@ latitudes = [capitais[capital][1][1] for capital in nomes]
 
 No código acima: 
 
-a) nomes = list(capitais.keys()) extrai os nomes das capitais (que são as chaves do dicionário) e os armazena em uma lista chamada nomes; 
+- nomes = list(capitais.keys()) extrai os nomes das capitais (que são as chaves do dicionário) e os armazena em uma lista chamada nomes; 
 
-b) estados = ``` [capitais[capital][0] for capital in nomes] ``` é uma list comprehension que itera sobre cada capital na lista nomes e extrai o nome do estado associado (que é o primeiro elemento da tupla associada a cada capital no dicionário). O resultado é armazenado na lista estados.;
+- estados = ``` [capitais[capital][0] for capital in nomes] ``` é uma list comprehension que itera sobre cada capital na lista nomes e extrai o nome do estado associado (que é o primeiro elemento da tupla associada a cada capital no dicionário). O resultado é armazenado na lista estados.;
 
-c) longitudes = ``` [capitais[capital][1][0] ``` for capital in nomes] extrai a longitude de cada capital (que é o primeiro elemento da segunda tupla associada a cada capital) e armazena os valores na lista longitudes. 
+- longitudes = ``` [capitais[capital][1][0] ``` for capital in nomes] extrai a longitude de cada capital (que é o primeiro elemento da segunda tupla associada a cada capital) e armazena os valores na lista longitudes. 
 
-d) latitudes = ``` [capitais[capital][1][1] for capital in nomes] ``` extrai a latitude de cada capital (que é o segundo elemento da segunda tupla associada a cada capital) e armazena os valores na lista latitudes.
+- latitudes = ``` [capitais[capital][1][1] for capital in nomes] ``` extrai a latitude de cada capital (que é o segundo elemento da segunda tupla associada a cada capital) e armazena os valores na lista latitudes.
+<br><br>
 
-O trecho de código abaixo cria um GeoDataFrame a partir das listas nomes, estados, longitudes e latitudes que foram previamente extraídas do dicionário capitais.
+O trecho de código abaixo cria um GeoDataFrame a partir das listas nomes, estados, longitudes e latitudes que foram previamente extraídas do dicionário capitais:
 
-Criando o GeoDataFrame
+
 ```{code-cell} python
 gdf = gpd.GeoDataFrame({
     'capital': nomes,
@@ -277,20 +283,21 @@ gdf.head()
 
 Nesse trecho:
 
-a) gpd.GeoDataFrame() cria um novo GeoDataFrame chamado gdf;
+- ``` gpd.GeoDataFrame()```  cria um novo GeoDataFrame chamado gdf;
 
-b) 'capital': nomes e 'estado': estados são colunas que armazenam os nomes das capitais e dos estados, respectivamente, usando as listas nomes e estados; 
+- ``` 'capital': nomes ``` e ``` 'estado': estados ``` são colunas que armazenam os nomes das capitais e dos estados, respectivamente, usando as listas nomes e estados; 
 
-c) 'geometry': ``` [Point(xy) for xy in zip(longitudes, latitudes)] ``` é a coluna de geometria do GeoDataFrame. A compreensão de lista dentro dessa linha cria uma lista de objetos Point a partir das listas longitudes e latitudes. A função zip() é usada para emparelhar cada longitude com sua latitude correspondente, e cada par é passado para o construtor Point() para criar um objeto geométrico do tipo ponto.
+- ``` 'geometry': [Point(xy) for xy in zip(longitudes, latitudes)] ``` é a coluna de geometria do GeoDataFrame. A compreensão de lista dentro dessa linha cria uma lista de objetos Point a partir das listas longitudes e latitudes. A função zip() é usada para emparelhar cada longitude com sua latitude correspondente, e cada par é passado para o construtor Point() para criar um objeto geométrico do tipo ponto.
+<br><br>
 
 ```{code-cell} python
 gdf.crs = 'EPSG:4674'
 ```
 
 A linha acima atribui o CRS SIRGAS 2000 ao GeoDataFrame gdf. 
+<br><br>
 
-
-A partir de WKT (Well-Known Text)
+*A partir de WKT (Well-Known Text)*
 
 O formato WKT, que significa Well-Known Text, é uma representação textual padrão para geometrias espaciais. Ele é usado para transmitir informações sobre objetos geométricos - como pontos, linhas e polígonos - de uma maneira legível por humanos e máquina.
 
@@ -319,9 +326,9 @@ print(gdf_wkt)
 ```{code-cell} python
 gdf_wkt.plot()
 ``` 
+<br><br>
 
-
-Escrevendo um GeoDataFrame para um arquivo no disco 
+*Escrevendo um GeoDataFrame para um arquivo no disco*
 
 Escrever um GeoDataFrame em um arquivo ou banco de dados é uma operação corriqueira ao trabalhar com dados geoespaciais no Geopandas. Aqui estão algumas das opções mais comuns:
 
@@ -347,16 +354,18 @@ gdf.to_file('~/geopythonbook/capitais.gpkg', driver='GPKG')
 ### 5.3.1 A função apply no Geopandas
 
 A função apply é uma herança do Pandas que permite aplicar uma determinada função a todos os elementos de uma coluna ou linha em um DataFrame ou GeoDataFrame. No Geopandas, essa função é comumente utilizada para realizar operações específicas em cada uma das geometrias de um conjunto de dados geoespacial. Vamos entender melhor com alguns exemplos.
+<br><br>
 
-Exemplo 1: Calcular o comprimento dos rios do estado do Maranhão apresentados na figura 11. 
+Exemplo 1: Calcular o comprimento dos rios apresentados na figura 11, localizados no estado do Maranhão. 
 
 
 ![Figura 11](images/fig11.png)
 
 <p align="center">Figura 11: Rios no estado do Maranhão.</p>
+<br><br>
 
 
-Etapa 1: Leitura do shapefile e edição do GeoDataFrame
+Etapa 1: Leitura do shapefile e edição do GeoDataFrame:
 ```{code-cell} python
 import geopandas as gpd
 gdf_rios = gpd.read_file('~/geopythonbook/content/21_rios_maranhao/rios_maranhao.shp')
@@ -367,16 +376,17 @@ gdf_rios = gdf_rios.drop(columns=['FID_GEOFT_',
 gdf_rios
 ```
 
-Etapa 2: Calcular o comprimento de cada rio e armazenar os resultados na nova coluna comprimento.
+Etapa 2: Cálculo do comprimento de cada rio e armazenamento dos resultados na nova coluna 'comprimento':
 ```{code-cell} python
 gdf_rios['comprimento'] = gdf_rios['geometry'].apply(lambda geom: geom.length)/1e3
 ```
 
-Nesse código, utilizamos o método apply() para aplicar uma função a cada valor na coluna geometry do GeoDataFrame chamado gdf_rios. A função é uma função lambda que pega um argumento geom (que representa uma geometria individual da coluna geometry) e retorna o comprimento dessa geometria usando o método length. Em seguida, dividimos todos os comprimentos por 1e3 (que é igual a 1000). Isso é feito para converter os comprimentos de metros para quilômetros.
+Nesse código, utilizamos o método apply() para aplicar uma função a cada valor na coluna geometry do GeoDataFrame chamado gdf_rios. A função é uma função lambda que pega um argumento geom (que representa uma geometria individual da coluna geometry) e retorna o comprimento dessa geometria usando o método length. Em seguida, dividimos todos os comprimentos por '1e3'(que é igual a 1000). Isso é feito para converter os comprimentos de metros para quilômetros.
 
 ```{code-cell} python
 print (gdf_rios[['nome', 'comprimento']])
 ```
+<br><br>
 
 Exemplo 2: Inserir uma nova coluna no GeoDataFrame, cujo registro é o nome no rio e a sigla do estado. Por exemplo, Rio Pindaré MA. 
 
@@ -392,7 +402,7 @@ No código acima, criamos a coluna ‘UF’ com o valor padrão ‘MA’, refere
 ```{code-cell} python
 print (gdf_rios[['nome_UF', 'comprimento']])
 ```
-
+<br><br>
 
 
 Exemplo 3: Criar um buffer de 30 metros em torno de cada rio que consta na figura 12.
@@ -410,7 +420,7 @@ Na figura 12, temos uma visualização parcial das linhas originadas pela aplica
 ![Figura 12](images/fig12.png)
 
 <p align="center">Figura 12: Buffer de 30 metros ao longo do rio Grajaú.</p>
-
+<br><br>
 
 Exemplo 4: Classificar os rios existentes no DataFrame em ‘pequeno’, ‘médio’ e ‘grande’. 
 Além de funções lambda, é possível criar as suas próprias funções e usá-las com apply.  Nesse exemplo, vamos criar a função ‘categoriza_comp’: 
@@ -442,6 +452,7 @@ No Geopandas, assim como no Pandas, as funções map e replace oferecem meios di
 A função map é usada para substituir cada valor por outro valor, que pode ser derivado de uma função, dicionário ou uma Series. É particularmente útil quando se deseja realizar uma transformação elementar com base em um conjunto predefinido de correspondências. Por exemplo, se estiver trabalhando com um dicionário, você pode mapear códigos de estados para seus respectivos nomes completos. Contudo, é importante notar que a função map opera apenas sobre Series, e não sobre DataFrames inteiros.
 
 Por outro lado, a função replace é mais geral e flexível. Ela permite substituir um valor por outro em um DataFrame ou Series. A substituição pode ter como base valores individuais ou listas de valores. Por exemplo, você pode usar replace para substituir todos os valores nulos ou específicos em um DataFrame por um valor padrão. Diferente do map, o replace não limita a substituição com base em um mapeamento direto, oferecendo uma abordagem mais abrangente para transformações.
+<br><br>
 
 Exemplo: Temos um arquivo shapefile com os municípios dos estados de Goiás, Mato Grosso e Mato Grosso do Sul (figura 13). No total, são 466 municípios. A identificação do estado a que cada município pertence se dá pela coluna SIGLA_UF, que armazena a sigla de cada estado. Queremos alterar a identificação dos estados de Goiás e Mato Grosso para os seus nomes ao invés das siglas, mas manter Mato Grosso do Sul identificado pela sua sigla. Vamos realizar essa operação usando tanto a função map quanto a função replace para compará-las.
 
@@ -449,9 +460,9 @@ Exemplo: Temos um arquivo shapefile com os municípios dos estados de Goiás, Ma
 ![Figura 13](images/fig13.jpg)
 
 <p align="center">Figura 13: Municípios dos estados de Goiás, Mato Grosso e Mato Grosso do Sul.</p>
+<br><br>
 
-
-a) utilizando a função map:
+*Utilizando a função map*
 
 Inicialmente, criamos um GeoDataFrame a partir do arquivo shapefile mun_MT_MS_GO.shp.
 ```{code-cell} python
@@ -476,10 +487,9 @@ gdf_map['SIGLA_UF'] = gdf_map['SIGLA_UF'].map(mapeamento)
 ```
 
 Neste código, a função map é aplicada à coluna 'SIGLA_UF'. O que ela faz é mapear os valores desta coluna usando o dicionário mapeamento. Se um valor da coluna 'SIGLA_UF' corresponder a uma chave do dicionário, ele será substituído pelo valor associado no dicionário. Qualquer valor na coluna 'SIGLA_UF' que não estiver no dicionário mapeamento será convertido para NaN (ou seja, considerado como valor ausente). Saída:
+<br><br>
 
-
-Usando a função replace:
-
+*Usando a função replace*
 ```{code-cell} python
 gdf_rep = gdf_co
 gdf_rep['SIGLA_UF'] = gdf_rep['SIGLA_UF'].replace(mapeamento)
@@ -503,7 +513,7 @@ Exemplo: Temos cinco arquivos shapefile, um de cada região do Brasil (figura 14
 ![Figura 14](images/fig14.png)
 
 <p align="center">Figura 14: Regiões do Brasil.</p>
-
+<br><br>
 
 Inicialmente, valos criar os GeoDataFrames de cada região a partir dos arquivos shapefile:
 
@@ -526,6 +536,7 @@ gdf_brasil = pd.concat([gdf_norte, gdf_sul, gdf_nordeste,
 gdf_brasil.head()
 ```
 
+E plotamos o GeoDataFrame resultante:
 ```{code-cell} python
 gdf_brasil.plot()
 ```
@@ -541,7 +552,6 @@ import pandas as pd
 import geopandas as gpd
 gdf_cap = gpd.read_file('~/geopythonbook/content/15_BR_capitais/capitais_br.shp')
 df_censo_cap = pd.read_excel('~/geopythonbook/content/17_capitais_censo/censo_capitais.xlsx')
-
 df_censo_cap.head()
 ```
 
@@ -591,32 +601,33 @@ import geopandas as gpd
 import pandas as pd
 ```
 
-Ler o arquivo shapefile
+Ler o arquivo shapefile:
 ```{code-cell} python
 gdf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
 
-Ler o arquivo Excel com dados do PIB estadual
+Ler o arquivo Excel com dados do PIB estadual:
 ```{code-cell} python
 dfpib = pd.read_excel('~/geopythonbook/content/8_pib_excel/pibUfBr2020.xlsx')
 ```
 
-Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022
+Ler o arquivo Excel com dados do Censo de 2000, 2010 e 2022:
 ```{code-cell} python
 dfcenso = pd.read_excel('~/geopythonbook/content/13_censo_UF/censo_UF.xlsx')
 ```
 
-Unindo os dataframes dfpib e dfcenso
+Unir os dataframes dfpib e dfcenso:
 ```{code-cell} python
 df_uf = pd.merge(dfpib, dfcenso, on='SIGLA_UF').drop(columns='UF_y').rename(columns={'UF_x': 'UF'})
 ```
 
-Unindo o dataframe df_uf com o geodataframe
+Unir o dataframe df_uf com o geodataframe gdf:
 ```{code-cell} python
 gdf_uf_cp = gdf.merge(df_uf, on='SIGLA_UF').drop(columns=['NM_UF', 'NM_REGIAO'])
 ```
+<br><br>
 
-Selecionar uma única coluna
+*Selecionar uma única coluna*
 
 Sintaxe básica:
 ``` gdf['nome_da_coluna'] ```
@@ -625,8 +636,8 @@ ou
 
 ``` gdf.nome_da_coluna ```
 
-Exemplo: Selecionar a coluna ‘UF’, que armazena o nome dos estados brasileiros:
 
+Exemplo: Selecionar a coluna ‘UF’, que armazena o nome dos estados brasileiros:
 
 ```{code-cell} python
 estados=gdf_uf_cp['UF']
@@ -636,8 +647,9 @@ Quando selecionamos apenas uma coluna, retorna uma Series.
 
 
 Ao trabalhar com Geopandas, lembre-se de que se você remover a coluna "geometry", o DataFrame (ou Series) resultante perderá sua natureza espacial e se tornará um DataFrame comum ou uma Series do Pandas.
+<br><br>
 
-Selecionar Múltiplas Colunas
+*Selecionar Múltiplas Colunas*
 
 Sintaxe básica:
 
@@ -649,9 +661,9 @@ Exemplo: selecionar as colunas UF, PIB_2020, Popul_2022 e geometry do GeoDataFra
 gdf_selecao = gdf_uf_cp[['UF', 'PIB_2020', 'Popul_2022', 'geometry']]
 gdf_selecao.head()
 ```
+<br><br>
 
-
-Descartar Colunas
+*Descartar Colunas*
 
 Ao invés de selecionar colunas específicas, você também pode descartar colunas que não deseja:
 
@@ -659,20 +671,18 @@ Ao invés de selecionar colunas específicas, você também pode descartar colun
 gdf_drop = gdf_uf_cp.drop(columns=['CD_UF', 'AREA_KM2'])
 gdf_drop.head()
 ```
+<br><br>
 
-Seleção com base em Condições
+#### 5.5.1.1 Seleção com base em Condições
 
 A seleção baseada em condições é uma técnica comum ao trabalhar com DataFrames no Pandas e Geopandas. Ela permite filtrar linhas de um DataFrame com base em critérios específicos definidos por uma ou mais condições. Essa técnica é especialmente útil para análises exploratórias, pré-processamento de dados e muitas outras operações de manipulação de dados.
 
-Sintaxe Básica:
+Sintaxe Básica: A seleção baseada em condições é realizada usando uma expressão booleana dentro de colchetes. Por exemplo:
 
-A seleção baseada em condições é realizada usando uma expressão booleana dentro de colchetes. Por exemplo:
+```  gdf[gdf['coluna'] > 10] ```
 
-```
- gdf[gdf['coluna'] > 10]
-```
 
-Exemplo: Criar o GeoDataFrame pop_menor_1M, com os estados brasileiros com população menor do que 1 milhão de habitantes em 2022:
+Exemplo 1: Criar o GeoDataFrame pop_menor_1M, com os estados brasileiros com população menor do que 1 milhão de habitantes em 2022:
 
 ```{code-cell} python
 pop_menor_1M = gdf_uf_cp[gdf_uf_cp['Popul_2022'] < 1000000]
@@ -686,9 +696,9 @@ Exemplo 2: Criar o GeoDataFrame pop_maior_20M, com os estados brasileiros cuja p
 pop_maior_20m = gdf_uf_cp[gdf_uf_cp['Popul_2022'] > 20000000]
 pop_maior_20m.head()
 ```
+<br><br>
 
-
-Selecionar a partir de Múltiplas Condições
+*Selecionar a partir de Múltiplas Condições*
 
 Para aplicar múltiplas condições, é importante entender como combiná-las corretamente. Você pode usar operadores lógicos como “&” (e), “|” (ou) e “ ~ ” (não) para combinar condições. Lembre-se de colocar cada condição entre parênteses.
 
@@ -700,17 +710,17 @@ gdf_uf_cp[(gdf_uf_cp['Popul_2022'] > 10000000) & (gdf_uf_cp['PIB_2020'] < 500000
 
 
 
-O Método query
+#### 5.5.1.2 O Método query
 
 O método query permite escrever condições de seleção de forma mais legível, especialmente quando se lida com condições complexas. Por exemplo:
 ```{code-cell} python
 gdf_uf_cp.query('Popul_2022 > 10000000 & PIB_2020 < 500000')
 ```
 
-Vamos realizar algumas consultas utilizando o método query.
+Vamos realizar algumas consultas utilizando o método query:
 
 
-Utilizando o operador OR
+*Utilizando o operador OR*
 
 Selecionar os estados com mais de 15 milhões de habitantes em 2022 “OU” PIB de 2020 menor que R$ 1,6 trilhões.
 ```{code-cell} python
@@ -718,23 +728,21 @@ gdf_uf_cp.query('Popul_2022 > 15000000 | PIB_2020 > 1600000')
 ```
 
 
-Operador NOT (~)
+*Utilizando o operador NOT (~)*
 
 Selecionar os estados cuja população não era maior do que 1 milhão no censo de 2022:
 ```{code-cell} python
 	
 gdf_uf_cp.query('~(Popul_2022 > 1000000)')
 ```
+<br><br>
 
 
-
-O método isin
+#### 5.5.1.3 O método isin
 
 O método isin é útil para filtrar o DataFrame com base em uma lista de valores.
 
-Sintaxe básica:
-
-``` df[df['coluna'].isin(['valor1', 'valor2'])] ```
+Sintaxe básica: ``` df[df['coluna'].isin(['valor1', 'valor2'])] ```
 
 Exemplo: Criar um GeoDataFrame com todos os estados que fazem parte das regiões Norte e Nordeste do Brasil, a partir do arquivo shapefile BR_UF.
 
@@ -744,14 +752,14 @@ gdf_uf = gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 norte_nordeste = gdf_uf[gdf_uf['NM_REGIAO'].isin(['Norte', 'Nordeste'])]
 print(norte_nordeste)
 ```
+<br><br>
 
-
-Seleção por rótulos e por posição
+#### 5.5.1.4 Seleção por rótulos e por posição
 
 No Pandas e no Geopandas, a seleção de dados pode ser feita de várias maneiras, sendo as mais comuns a seleção por rótulos, por posição e por um único valor específico. Vamos entender a diferença entre esses métodos e exemplificar a partir GeoDataFrame gdf_uf_cp.
 
 
-Seleção por Rótulos (loc)
+*Seleção por Rótulos (loc)*
 
 O método loc é usado principalmente para selecionar com base em rótulos (nomes) de linhas e colunas. Pode aceitar rótulos de índices de linha e rótulos de colunas para retornar um subconjunto do DataFrame. Para obter o valor da coluna "A" na linha com índice "x":
 
@@ -761,58 +769,55 @@ valor = gdf.loc['x', 'A']
 
 Em que:
 
-'x': É o rótulo da linha que você deseja acessar. Neste caso, você está tentando acessar a linha cujo rótulo (ou índice) é 'x'.
+- 'x': É o rótulo da linha que você deseja acessar. Neste caso, você está tentando acessar a linha cujo rótulo (ou índice) é 'x'.
 
-'A': É o rótulo da coluna que você deseja acessar. Neste caso, você está tentando acessar a coluna chamada 'A'.
+- 'A': É o rótulo da coluna que você deseja acessar. Neste caso, você está tentando acessar a coluna chamada 'A'.
 
-O código ``` valor = df.loc['x', 'A'] ``` está pegando o dado registrado na linha com rótulo 'x' e na coluna com rótulo 'A' do DataFrame df e atribuindo esse dado à variável “valor”.
+- O código ``` valor = df.loc['x', 'A'] ``` está pegando o dado registrado na linha com rótulo 'x' e na coluna com rótulo 'A' do DataFrame df e atribuindo esse dado à variável “valor”.
+<br><br>
 
-Vamos aplicar o loc em alguns exemplos em que queremos obter respostas no contexto dos estados do Brasil. 
-
-Inicialmente, vamos alterar o índice referente as linhas para a coluna “SIGLA_UF”. Assim poderemos usar a sigla referente a cada estado nas consultas.
+Vamos aplicar o loc em alguns exemplos em que queremos obter respostas no contexto dos estados do Brasil. Inicialmente, vamos alterar o índice referente as linhas para a coluna “SIGLA_UF”. Assim poderemos usar a sigla referente a cada estado nas consultas.
 
 ```{code-cell} python
 gdf_uf_cp.set_index('SIGLA_UF', inplace=True)
 ```
 
-GeoDataFrame com o índice alterado:
 
-
-Consulta 1: Verificar a população em 2022 (Popul_2022) no estado da Paraíba.
+Consulta 1: Verificar a população em 2022 (Popul_2022) no estado da Paraíba:
 
 ```{code-cell} python
 gdf_uf_cp.loc['PB','Popul_2022']
 #Saída: 3974495
 ```
 
-Consulta 2: Obter a geometria do estado da Paraíba.
+Consulta 2: Obter a geometria do estado da Paraíba:
 
 ```{code-cell} python
 gdf_uf_cp.loc['PB','geometry']
 ```
 
 
-Consulta 3: Obter os valores de PIB de 2020 (PIB_2020), População em 2000 (Popul_2000) e população em 2022 (Popul_2022) para o estado do Espírito Santo.
+Consulta 3: Obter os valores de PIB de 2020 (PIB_2020), População em 2000 (Popul_2000) e população em 2022 (Popul_2022) para o estado do Espírito Santo:
 ```{code-cell} python
 gdf_uf_cp.loc['ES',['UF', 'PIB_2020', 'Popul_2000', 'Popul_2022']]
 ```
 
 
-Consulta 4: Selecionar todas as linhas de colunas específicas.
+Consulta 4: Selecionar todas as linhas de colunas específicas:
 
 ```{code-cell} python
 gdf_uf_cp.loc[:, ['CD_UF', 'UF', 'PIB_2020', 'geometry']]
 ```
 
 
-Consulta 5: Selecionar colunas específicas em um intervalo de linhas. Nesta consulta, vamos acessar os registros entre os estados de Sergipe e Santa Catarina.
+Consulta 5: Selecionar colunas específicas em um intervalo de linhas. Nesta consulta, vamos acessar os registros entre os estados de Sergipe e Santa Catarina:
 
 ```{code-cell} python
 gdf_uf_cp.loc['SE':'SC',['UF', 'PIB_2020', 'Popul_2000', 'Popul_2022']]
 ```
+<br><br>
 
-
-Seleção por Posição (iloc)
+*Seleção por Posição (iloc)*
 
 O método iloc é usado principalmente para seleção por posição inteira. Aceita somente valores inteiros que representam a posição do índice (linha) ou coluna.
     
@@ -837,21 +842,21 @@ Verificando no GeoDataFrame original:
 
 
 
-Consulta 2: Obter os valores das duas primeiras colunas na primeira linha.
+Consulta 2: Obter os valores das duas primeiras colunas na primeira linha:
 
 ```{code-cell} python
 gdf_uf_cp.iloc[0, 0:2]
 ```
 
 
-Consulta 3: Obter a geometria referente a segunda linha (índice 1) do GeoDataFrame (lembrando que é a coluna geometry que está no índice 3 das colunas)
+Consulta 3: Obter a geometria referente a segunda linha (índice 1) do GeoDataFrame (lembrando que é a coluna geometry que está no índice 3 das colunas):
 
 ```{code-cell} python
 gdf_uf_cp.iloc[1, 3]
 ```
+<br><br>
 
-
-Seleção de um Valor Específico (at)
+*Seleção de um Valor Específico (at)*
 
 O método at é semelhante ao loc, mas é usado para acessar um valor específico rapidamente. É mais rápido que loc quando você precisa acessar um único valor, mas não é adequado para selecionar múltiplos elementos.
 
@@ -861,29 +866,29 @@ Para obter o valor da coluna "A" na linha com índice "x":
 valor = gdf.at['x', 'A']
 ```
 
-Vamos alterar novamente o índice do GeoDataFrame para “SIGLA_UF”.
+Vamos alterar novamente o índice do GeoDataFrame para “SIGLA_UF”:
 
 ```{code-cell} python
 gdf_uf_cp.set_index('SIGLA_UF', inplace=True)
 ```
 
-Consulta 1: Selecionar a geometria referente ao estado do Mato Grosso.
+Consulta 1: Selecionar a geometria referente ao estado do Mato Grosso:
 
 ```{code-cell} python
 gdf_uf_cp.at['MT', 'geometry']
 ```
+<br><br>
 
+*Observações:*
 
-Observações:
+- Embora at seja mais rápido para acessar um único valor, em operações mais complexas ou ao trabalhar com slices/subconjuntos, loc e iloc são geralmente mais versáteis;
 
-Embora at seja mais rápido para acessar um único valor, em operações mais complexas ou ao trabalhar com slices/subconjuntos, loc e iloc são geralmente mais versáteis.
+- Sempre tenha cuidado ao usar loc e iloc para modificar valores, pois você pode alterar inadvertidamente seu DataFrame se não especificar corretamente a linha e a coluna;
 
-Sempre tenha cuidado ao usar loc e iloc para modificar valores, pois você pode alterar inadvertidamente seu DataFrame se não especificar corretamente a linha e a coluna.
+- Lembre-se de que, ao trabalhar com GeoDataFrame, a coluna "geometry" contém as geometrias espaciais (por exemplo, pontos, linhas ou polígonos), e você pode acessar ou modificar essas geometrias da mesma maneira que outras colunas usando loc, iloc e at.
+<br><br>
 
-Lembre-se de que, ao trabalhar com GeoDataFrame, a coluna "geometry" contém as geometrias espaciais (por exemplo, pontos, linhas ou polígonos), e você pode acessar ou modificar essas geometrias da mesma maneira que outras colunas usando loc, iloc e at.
-
-
-Seleção por Posição com iat:
+*Seleção por Posição com iat:*
 
 O iat é um método rápido para acessar um valor escalar em um local específico em um DataFrame ou GeoDataFrame e é semelhante ao at. A principal diferença entre os dois é que iat é baseado em posições numéricas (como iloc), enquanto at é baseado em rótulos (como loc).
 
@@ -893,25 +898,25 @@ Vamos novamente resetar o índice do GeoDataFrame:
 gdf_uf_cp.reset_index(inplace=True)
 ```
 
-Consulta 1: Recuperar o registro que está armazenado na linha 23, coluna 3 do GeoDataFrame.
+Consulta 1: Recuperar o registro que está armazenado na linha 23, coluna 3 do GeoDataFrame:
 
 ```{code-cell} python
 gdf_uf_cp.iat[23, 3]
 ```
 
 
-Vantagens de usar iat:
+*Vantagens de usar iat:*
 
-Velocidade: O iat é otimizado para ser rápido ao acessar um único valor, tornando-o mais eficiente que iloc quando você precisa apenas de um valor escalar.
+- Velocidade: O iat é otimizado para ser rápido ao acessar um único valor, tornando-o mais eficiente que iloc quando você precisa apenas de um valor escalar;
 
-Simplicidade: É um método conciso para obter um valor rapidamente quando você sabe a posição numérica da linha e da coluna.
+- Simplicidade: É um método conciso para obter um valor rapidamente quando você sabe a posição numérica da linha e da coluna.
 
 
-Cuidados ao usar iat:
+*Cuidados ao usar iat:*
 
-Como iat é baseado em posições numéricas, é importante ter certeza de que você está referenciando a posição correta para evitar acessar dados errados.
+- Como iat é baseado em posições numéricas, é importante ter certeza de que você está referenciando a posição correta para evitar acessar dados errados;
 
-Semelhante ao at, o iat é projetado para acessar um único valor de cada vez e não é adequado para operações que envolvem múltiplos valores ou slices.
+- Semelhante ao at, o iat é projetado para acessar um único valor de cada vez e não é adequado para operações que envolvem múltiplos valores ou slices.
 
 
 
@@ -941,11 +946,11 @@ selecao.plot()
 Lembre-se de garantir que o GeoDataFrame e a bounding box estejam no mesmo Sistema de Referência de Coordenadas (CRS) para obter resultados precisos. Se eles não estiverem, você precisará reprojetar o GeoDataFrame ou a bounding box para um CRS em comum antes de realizar a operação.
 
 
-## 5.6 Operações espaciais no Geopandas
+## 5.6 Operações espaciais na Geopandas
 
 Uma operação espacial refere-se a um conjunto de procedimentos ou métodos aplicados a objetos geométricos que produzem novas informações geoespaciais ou novas geometrias com base nas propriedades e relações espaciais dos objetos originais. Estas operações são fundamentais em sistemas de informação geográfica (SIG) e análise espacial, permitindo a obtenção de insights, a transformação de dados e resolução de problemas específicos do domínio espacial.
 
-No Geopandas, estas operações são facilitadas pela integração com outras bibliotecas, como Shapely, para a manipulação de geometrias, e Fiona para a leitura e a escrita de arquivos. Dentre as operações espaciais mais comuns no Geopandas, podemos destacar:
+Na Geopandas, estas operações são facilitadas pela integração com outras bibliotecas, como Shapely, para a manipulação de geometrias, e Fiona para a leitura e a escrita de arquivos. Dentre as operações espaciais mais comuns no Geopandas, podemos destacar:
 
 - Operações Métricas;
 
@@ -963,10 +968,10 @@ No Geopandas, estas operações são facilitadas pela integração com outras bi
 
 ### 5.6.1 Operações métricas
 
-As operações métricas em geoprocessamento e análise espacial referem-se a cálculos que produzem valores baseados em propriedades espaciais, como distâncias, áreas e comprimentos. Algumas das operações métricas disponíveis no Geopandas são apresentadas no quadro 10.
+As operações métricas em geoprocessamento e análise espacial referem-se a cálculos que produzem valores baseados em propriedades espaciais, como distâncias, áreas e comprimentos. Algumas das operações métricas disponíveis no Geopandas são apresentadas no quadro 11.
 
 
-Quadro 10: Operações métricas no Geopandas.
+Quadro 11: Operações métricas no Geopandas.
 
 | Operação       | Definição                                                                                                                                           |
 |----------------|-----------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -975,17 +980,17 @@ Quadro 10: Operações métricas no Geopandas.
 | centroid       | Calcula o ponto central (ou médio) de uma geometria.                                                                                                |
 | total_bounds   | Retorna uma tupla com as coordenadas (minx, miny, maxx, maxy) que formam o retângulo envolvente ao redor do conjunto total de geometrias em um GeoDataFrame ou GeoSeries. |
 | distance       | Calcula a distância mínima entre as geometrias de dois GeoDataFrames ou GeoSeries.                                                                  |
+<br><br>
 
 
+Vejamos alguns exemplos :
+<br><br>
 
-Vejamos alguns exemplos a seguir.
+*Cálculo de área*
 
-Cálculo de área:
+Sintaxe básica: ``` area = gdf['geometry'].area ```
 
-Sintaxe básica:
-``` area = gdf['geometry'].area ```
-
-Exemplo: Calcular a área do estado de Santa Catarina, utilizando o shapefile BR_UF.
+Exemplo: Calcular a área do estado de Santa Catarina, utilizando o shapefile BR_UF:
 
 Inicialmente vamos criar um GeoDataFrame a partir do arquivo shapefile, que tem os seguintes atributos:
 
@@ -993,7 +998,7 @@ Inicialmente vamos criar um GeoDataFrame a partir do arquivo shapefile, que tem 
 gdf_uf=gpd.read_file('~/geopythonbook/content/4_br_uf/BR_UF.shp')
 ```
  
-Em seguida, selecionamos as colunas que irão compor nosso GeoDataFrame.
+Em seguida, selecionamos as colunas que irão compor nosso GeoDataFrame:
 
 ```{code-cell} python
 gdf_uf = gdf_uf[['NM_UF', 'SIGLA_UF', 'geometry']]
@@ -1024,16 +1029,15 @@ Por fim, calculamos a área (em km2) e insira como uma nova coluna. Lembre-se qu
 ```{code-cell} python
 gdf_sc['AREA_KM2'] = gdf_sc['geometry'].area / 1e6
 ```
+<br><br>
 
+*Cálculo de comprimento*
 
-Cálculo de comprimento:
-
-Sintaxe básica:
-``` gdf['geometry'].length ```
+Sintaxe básica: ``` gdf['geometry'].length ```
 
 
 Exemplo: Determinar o comprimento dos rios Araguaia e Tocantins, criando uma coluna ‘comprimento_M’ e inserindo os valores calculados.
-Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas.
+Inicialmente criamos o GeoDataFrame e verificamos o sistema de coordenadas:
 
 ```{code-cell} python
 gdf_rio=gpd.read_file('~/geopythonbook/content/9_rios_araguaia_tocantins/rios_arag_toc.shp')
@@ -1041,33 +1045,29 @@ gdf_rio.crs
 ```
 
 
-Em seguida, alteramos o nome da coluna ‘NORIOCOMP’ para ‘nome’ e deletamos a coluna ‘CORIO’
+Em seguida, alteramos o nome da coluna ‘NORIOCOMP’ para ‘nome’ e deletamos a coluna ‘CORIO’:
 
 ```{code-cell} python
 gdf_rio = gdf_rio.rename(columns={'NORIOCOMP': 'nome'})
 gdf_rio = gdf_rio.drop(columns=['CORIO'])
 ```
 
-Agora vamos reprojetar para o EPSG 31982 (SIRGAS UTM 22S).
+Agora vamos reprojetar para o EPSG 31982 (SIRGAS UTM 22S):
 
 ```{code-cell} python
 gdf_rio = gdf_rio.to_crs(epsg=31982)
 ```
 
-Por fim, calculamos o comprimento (em km) e inserimos os valores como uma nova coluna.
+Por fim, calculamos o comprimento (em km) e inserimos os valores como uma nova coluna:
 
 ```{code-cell} python
 gdf_rio['Comprimento_km'] = gdf_rio['geometry'].length / 1e3
 ```
+<br><br>
 
+*Cálculo do centroide*
 
-Cálculo do centroide 
-
-Sintaxe básica:
-
-```{code-cell} python
-centroides = gdf['geometry'].centroid
-```
+Sintaxe básica: ``` centroides = gdf['geometry'].centroid ```
 
 Exemplo: Determinar os centroides dos estados do Brasil.
 
@@ -1076,14 +1076,16 @@ gdf_uf['centroid'] = gdf_uf['geometry'].centroid
 ```
 
 
-Observação: 
+*Observação:*
 
-Quando você calcula o centroide em um CRS geográfico, o resultado será expresso em coordenadas de latitude e longitude. Esse centroide representa o "centro médio" das coordenadas da geometria. Ele provavelmente não será tão preciso quanto em um CRS projetado, especialmente para grandes áreas ou formas irregulares. Isso ocorre porque a distância entre graus de longitude varia com a latitude, e a superfície da Terra não é plana. Sendo assim, calcular o centroide em um CRS geográfico pode ser suficiente, especialmente se uma grande precisão não for necessária. No entanto, se você precisar de maior precisão, especialmente para grandes áreas, pode ser aconselhável transformar o GeoDataFrame para um CRS projetado antes de calcular o centroide.
+Quando você calcula o centroide em um CRS geográfico, o resultado será expresso em coordenadas de latitude e longitude. Esse centroide representa o "centro médio" das coordenadas da geometria. Ele provavelmente não será tão preciso quanto em um CRS projetado, especialmente para grandes áreas ou formas irregulares. Isso ocorre porque a distância entre graus de longitude varia com a latitude, e a superfície da Terra não é plana. 
 
+Sendo assim, calcular o centroide em um CRS geográfico pode ser suficiente, especialmente se uma grande precisão não for necessária. No entanto, se você precisar de maior precisão, especialmente para grandes áreas, pode ser aconselhável transformar o GeoDataFrame para um CRS projetado antes de calcular o centroide.
+<br><br>
 
-Cálculo de distâncias
+*Cálculo de distâncias*
 
-A função distance no Geopandas é usada para calcular a distância entre geometrias. Ela é aplicada a uma geometria e requer outra geometria como argumento para calcular a distância entre elas. A distância é calculada entre os pontos mais próximos das duas geometrias.
+A função 'distance' na Geopandas é usada para calcular a distância entre geometrias. Ela é aplicada a uma geometria e requer outra geometria como argumento para calcular a distância entre elas. A distância é calculada entre os pontos mais próximos das duas geometrias.
 
 Exemplo: Calcular a distância (a menor distância) entre: a) Brasília e Palmas; b) Belém e Porto Alegre; c) Florianópolis e Goiânia.
 A figura 17 destaca as capitais dos estados brasileiros que estão localizadas no fuso 22UTM (Optamos por selecionar apenas capitais que estão sob um mesmo fuso visando facilitar a demonstração da ferramenta). 
@@ -1092,13 +1094,13 @@ A figura 17 destaca as capitais dos estados brasileiros que estão localizadas n
 
 <p align="center">Figura 17: Capitais dos estados brasileiros no sufo UTM 22S.</p>
 
-Inicialmente, vamos ler o shapefile e criar o GeoDataFrame.
+Inicialmente, vamos ler o shapefile e criar o GeoDataFrame:
 ```{code-cell} python
 gdf_cap = gpd.read_file('~/geopythonbook/content/10_capitais_UTM22/capitais_UTM22.shp')
 gdf.head()
 ```
 
-Como o GeoDataFrame está em coordenadas geográficas, vamos reprojetá-lo para o EPSG 31982.
+Como o GeoDataFrame está em coordenadas geográficas, vamos reprojetá-lo para o EPSG 31982:
 
 ```{code-cell} python
 gdf_cap = gdf_cap.to_crs(epsg=31982)
@@ -1108,39 +1110,37 @@ Podemos verificar a mudança das coordenadas da coluna ‘geometry’.
 
 Por fim, calculamos a distância entre capitais. Para tanto, vamos utilizar a seguinte sintaxe:
 
-```
-distancia = (gdf['geometry'].iloc[capA]).distance(gdf['geometry'].iloc[capB])
-```
+``` distancia = (gdf['geometry'].iloc[capA]).distance(gdf['geometry'].iloc[capB]) ```
 
 No código acima, ``` iloc[capA] e iloc[capB] ``` são as posições dos índices no GeoDataFrame das capitais que se está consultando. Por exemplo, a posição do índice de Brasilia é zero ``` (iloc[0]) ``` e a de Palmas é seis ``` (iloc[6]). ```
 
-Distância entre Brasília e Palmas
+- Distância entre Brasília e Palmas
 ```{code-cell} python
 distancia = (gdf_cap['geometry'].iloc[0]).distance(gdf_cap['geometry'].iloc[6])/1e3
 distancia
 ```
 
-Distância entre Belém e Porto Alegre
+- Distância entre Belém e Porto Alegre
 ```{code-cell} python
 distancia = (gdf_cap['geometry'].iloc[2]).distance(gdf_cap['geometry'].iloc[4])/1e3
 distancia
 ```
 
-#Distância entre Goiás e Florianópolis
+- Distância entre Goiás e Florianópolis
 ```{code-cell} python
 distancia = (gdf_cap['geometry'].iloc[1]).distance(gdf_cap['geometry'].iloc[5])/1e3
 distancia
 ```
+<br><br>
 
 
-total_bounds
+*Total_bounds*
 
-O método total_bounds no Geopandas retorna uma tupla contendo as coordenadas do retângulo envolvente para todas as geometrias em um GeoSeries ou GeoDataFrame. 
+O método *total_bounds* na Geopandas retorna uma tupla contendo as coordenadas do retângulo envolvente para todas as geometrias em um GeoSeries ou GeoDataFrame.
 
-A tupla que retorna tem a seguinte estrutura:
+A tupla que retorna tem a seguinte estrutura: ``` (minx, miny, maxx, maxy) ```
 
-
-``` (minx, miny, maxx, maxy) ```
+Em que:
 
 minx e miny: São as coordenadas x e y do canto inferior esquerdo do retângulo delimitador;
 
@@ -1158,9 +1158,9 @@ limites
 
 ### 5.6.2 Operações de transformação
 
-Operações de transformação em geoprocessamento referem-se a métodos que alteram a posição, orientação, tamanho ou forma das geometrias, mas não necessariamente sua natureza intrínseca. Algumas das principais operações de transformação disponíveis no Geopandas estão no quadro 11.
+Operações de transformação em geoprocessamento referem-se a métodos que alteram a posição, orientação, tamanho ou forma das geometrias, mas não necessariamente sua natureza intrínseca. Algumas das principais operações de transformação disponíveis no Geopandas estão no quadro 12.
 
-Tabela 11: Operações de transformação no Geopandas.
+Quadro 12: Operações de transformação no Geopandas.
 
 | Operação          | Definição                                                                                   | Exemplo de Sintaxe                              |
 |-------------------|---------------------------------------------------------------------------------------------|-------------------------------------------------|
@@ -1175,9 +1175,9 @@ Tabela 11: Operações de transformação no Geopandas.
 
 ### 5.6.3 Operações de generalização
 
-Generalização, no contexto da análise geoespacial, refere-se ao processo de simplificar representações geométricas, a fim de torná-las mais manejáveis, reduzir a complexidade, ou apresentar os dados em uma escala menor ou em um nível de detalhe mais amplo. As operações de generalização são especialmente úteis para visualização e otimização de desempenho. Algumas das principais operações de generalização disponíveis no Geopandas estão no quadro 12.
+Generalização, no contexto da análise geoespacial, refere-se ao processo de simplificar representações geométricas, a fim de torná-las mais manejáveis, reduzir a complexidade, ou apresentar os dados em uma escala menor ou em um nível de detalhe mais amplo. As operações de generalização são especialmente úteis para visualização e otimização de desempenho. Algumas das principais operações de generalização disponíveis no Geopandas estão no quadro 13.
 
-Quadro 12: Operações de generalização no Geopandas.
+Quadro 13: Operações de generalização no Geopandas.
 
 | Operação    | Definição                                                                                                                                                               | Exemplo de Sintaxe                         |
 |-------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------|--------------------------------------------|
@@ -1193,7 +1193,7 @@ Vamos aplicar o método dissolve no GeoDataFrame dos estados brasileiros, agrega
 gdf_uf_cp.plot()
 ```
 
-Para aplicar o dissolve, precisamos de uma coluna com dados em comum para todos os registros (no caso, os estados). Com não temos essa coluna, vamos inserir uma coluna ‘pais’, com o valor default ‘br’.
+Para aplicar o método dissolve, precisamos de uma coluna com dados em comum para todos os registros (no caso, os estados). Com não temos essa coluna, vamos inserir uma coluna ‘pais’, com o valor default ‘br’.
 
 ```{code-cell} python
 gdf_uf_cp['pais'] = 'br'
@@ -1235,9 +1235,9 @@ gdf_br2.head()
 
 ### 5.6.4 Operações de decomposição
 
-Operações de decomposição, no contexto geoespacial, envolvem a quebra ou separação de geometrias complexas em componentes mais simples ou partes constituintes. Algumas das principais operações de decomposição disponíveis no Geopandas estão no quadro 13.
+Operações de decomposição, no contexto geoespacial, envolvem a quebra ou separação de geometrias complexas em componentes mais simples ou partes constituintes. Algumas das principais operações de decomposição disponíveis no Geopandas estão no quadro 14.
 
-Quadro 13: Operações de decomposição no Geopandas.
+Quadro 14: Operações de decomposição no Geopandas.
 
 | Operação                                  | Definição                                                                                                                                                                      |
 |-------------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -1247,15 +1247,11 @@ Quadro 13: Operações de decomposição no Geopandas.
 
 
 
-Boundary 
+*Boundary*
 
 O método boundary retorna uma representação geométrica das linhas de borda de uma geometria. Para um polígono, isso resultará em uma Linestring (ou Multilinestring para polígonos com furos) que representa o contorno do polígono. Ele não fornece uma medida, mas sim uma representação geométrica.
 
-Sintaxe básica:
-
-```
-contornos = gdf['geometry'].boundary
-```
+Sintaxe básica: ``` contornos = gdf['geometry'].boundary ```
 
 Exemplo: gerar a geometria de contorno do estado de Santa Catarina:
 
@@ -1281,7 +1277,7 @@ Ao realizar um recorte, obtém-se uma nova geometria que representa exatamente a
 
 Exemplo: Gerar um GeoDataFrame com as rodovias de jurisdição federal no estado do Rio Grande do Sul.
 
-Etapa 1. Importação do Geopandas, leitura dos arquivos shapefile e plotagem das rodovias federais do Brasil.
+Etapa 1. Importação do Geopandas, leitura dos arquivos shapefile e plotagem das rodovias federais do Brasil:
 
 ```{code-cell} python
 import geopandas as gpd
@@ -1291,27 +1287,27 @@ gdf_rodo.plot()
 ```
 
 
-Etapa 2. Filtragem do estado desejado.
+Etapa 2. Filtragem do estado desejado:
 
 ```{code-cell} python
 gdf_RS = gdf_uf[gdf_uf['SIGLA_UF'] == 'RS']
 gdf_RS.plot()
 ```
 
-Etapa 3. Verificação e Ajuste de CRS.
+Etapa 3. Verificação e Ajuste de CRS:
 ```{code-cell} python
 if gdf_rodo.crs != gdf_RS.crs:
     gdf_rodo = gdf_rodo.to_crs(gdf_RS.crs)
 ```
 
-Etapa 4. Recortar a geometria.
+Etapa 4. Recortar a geometria:
 ```{code-cell} python
 rodovias_rs = gpd.clip(gdf_rodo, gdf_RS)
 ```
 
 A função clip do Geopandas é usada para recortar as rodovias usando a geometria do Rio Grande do Sul. O resultado é um novo GeoDataFrame, rodovias_rs, que contém apenas as rodovias de jurisdição federal (ou partes delas) localizadas dentro dos limites geográficos do RS.
 
-Etapa 5. Visualização
+Etapa 5. Visualização:
 ```{code-cell} python
 ax = gdf_RS.plot(color='green', alpha=0.5)
 rodovias_rs.plot(ax=ax, color='red', alpha=0.5)
@@ -1325,9 +1321,9 @@ Predicados espaciais, também chamado de relações espaciais, são operadores q
 
 Estes predicados são definidos pelo padrão "Simple Features" do Open Geospatial Consortium (OGC). O padrão estabelece uma linguagem comum e um conjunto de operações para manipulação e consulta de dados geométricos.
 
-As bibliotecas geoespaciais, como shapely e Geopandas, implementam esses predicados espaciais, possibilitando a realização de consultas e análises espaciais complexas de maneira eficiente e intuitiva. Ao compreender e aplicar corretamente esses predicados, é possível extrair informações significativas de conjuntos de dados geoespaciais. Algumas das relações mais comuns descritas por predicados espaciais são apresentadas no quadro 11.
+As bibliotecas geoespaciais, como shapely e Geopandas, implementam esses predicados espaciais, possibilitando a realização de consultas e análises espaciais complexas de maneira eficiente e intuitiva. Ao compreender e aplicar corretamente esses predicados, é possível extrair informações significativas de conjuntos de dados geoespaciais. Algumas das relações mais comuns descritas por predicados espaciais são apresentadas no quadro 15.
 
-Quadro 14: Predicados espaciais.
+Quadro 15: Predicados espaciais.
 
 | Predicado Espacial | Conceito                                                                                   |
 |--------------------|--------------------------------------------------------------------------------------------|
@@ -1337,21 +1333,20 @@ Quadro 14: Predicados espaciais.
 | crosses            | Verifica se duas geometrias têm alguma, mas não toda, área em comum.                       |
 | intersects         | Verifica se duas geometrias têm algum ponto em comum.                                     |
 | disjoint           | Verifica se duas geometrias não têm pontos em comum.                                      |
+<br><br>
 
+*Método contains*
 
-Método contains
-
-Sintaxe básica:
-
-``` geometria1.contains(geometria2) ```
+Sintaxe básica: ``` geometria1.contains(geometria2) ```
 
 Exemplo: Verificar qual estado brasileiro contém o ponto referente a capital Cuiabá (figura 18). Para tanto, vamos utilizar dois GeoDataFrames, um com os polígonos referentes aos estados brasileiros e outro com os pontos referentes as suas capitais. 
 
 ![Figura 18](images/fig18.png)
 
 <p align="center">Figura 18: Seleção do município de Cuiabá-MT.</p>
+<br><br>
 
-Inicialmente, vamos filtrar o GeoDataFrame 'gdf_cap' para encontrar a linha que tem 'Cuiabá' como capital.
+Inicialmente, vamos filtrar o GeoDataFrame 'gdf_cap' para encontrar a linha que tem 'Cuiabá' como capital:
 
 ```{code-cell} python
 gdf_cap = gpd.read_file('~/geopythonbook/content/5_capitais_br_geojson/capitais_br.geojson')
@@ -1359,19 +1354,19 @@ filtro_cuiaba = gdf_cap['capital'] == 'Cuiabá'
 gdf_cuiaba = gdf_cap[filtro_cuiaba]
 ```
 
-Em seguida, selecionamos a coluna 'geometry' desse GeoDataFrame filtrado. 
+Em seguida, selecionamos a coluna 'geometry' desse GeoDataFrame filtrado:
 
 ```{code-cell} python
 geometria_cuiaba = gdf_cuiaba['geometry']
 ```
 
-Como sabemos que só existe uma capital chamada 'Cuiabá', pegamos o primeiro (e único) item dessa coluna.
+Como sabemos que só existe uma capital chamada 'Cuiabá', pegamos o primeiro (e único) item dessa coluna:
 
 ```{code-cell} python
 ponto_cuiaba = geometria_cuiaba.iloc[0]
 ```
 
-Agora, a variável 'ponto_cuiaba' contém as informações de latitude e longitude da capital Cuiabá. Por fim, utilizamos o método contains para verificar qual polígono contêm esse ponto.
+Agora, a variável 'ponto_cuiaba' contém as informações de latitude e longitude da capital Cuiabá. Por fim, utilizamos o método contains para verificar qual polígono contêm esse ponto:
 
 ```{code-cell} python
 estado = gdf_uf[gdf_uf['geometry'].contains(ponto_cuiaba)]
@@ -1380,17 +1375,16 @@ estado = gdf_uf[gdf_uf['geometry'].contains(ponto_cuiaba)]
 
 *Método within*
 
-Sintaxe básica:
-
-``` geometria1.within(geometria2) ```
+Sintaxe básica: ``` geometria1.within(geometria2) ```
 
 Exemplo: Determinar quais pontos referentes às capitais dos estados brasileiros estão dentro do polígono referente ao estado de Roraima.
 
 ![Figura 19](images/fig19.png)
 
 <p align="center">Figura 19: Seleção da geometria referente ao estado de Roraima.</p>
+<br><br>
 
-Inicialmente, vamos ler o arquivo shapefile, criar um GeoDataFrame e filtrar apenas as linhas em que 'NM_UF' é 'Roraima'.
+Inicialmente, vamos ler o arquivo shapefile, criar um GeoDataFrame e filtrar apenas as linhas em que 'NM_UF' é 'Roraima':
 
 ```{code-cell} python
 import geopandas as gpd
@@ -1402,7 +1396,7 @@ gdf_roraima = gdf_uf[filtro_roraima]
 Isso nos dará um novo GeoDataFrame com todos os atributos referentes ao estado de Roraima.
 
 
-A partir do GeoDataFrame filtrado, selecionamos a coluna 'geometry'
+A partir do GeoDataFrame filtrado, selecionamos a coluna 'geometry':
 ```{code-cell} python
 geometrias_roraima = gdf_roraima['geometry']
 ```
@@ -1410,7 +1404,7 @@ geometrias_roraima = gdf_roraima['geometry']
 Essa operação resultará em uma Series com a geometria. Como temos apenas uma linha para Roraima, a Series terá apenas um item:
 
 
-Vamos selecionar o primeiro (e único) item da série de geometrias
+Vamos selecionar o primeiro (e único) item da série de geometrias:
 ```{code-cell} python
 poligono_roraima = geometrias_roraima.iloc[0]
 ```
@@ -1422,41 +1416,40 @@ capital_rr = gdf_cap[gdf_cap['geometry'].within(poligono_roraima)]
 ```
 
 O resultado, capital_rr, é um GeoDataFrame contendo todos os registros de gdf_cap que estão dentro do polígono de Roraima.
+<br><br>
 
-Método intersects
 
-Sintaxe básica:
+*Método intersects*
 
-``` geometria1.intersects(geometria2) ```
+Sintaxe básica: ``` geometria1.intersects(geometria2) ```
 
 Exemplo: Determinar quais estados brasileiros são interseccionados pela rodovia BR-116 (figura 20).
 
 ![Figura 20](images/fig20.png)
 
 <p align="center">Figura 20: Visualização da BR-116 no Brasil.</p>
+<br><br>
 
-Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains.
+Inicialmente, vamos ler o arquivo shapefile referente a BR-116 e criar um GeoDataFrame. Iremos utilizar ainda o GeoDataFrame gdf_uf que carregamos anteriormente para exemplificar o método contains:
 
 ```{code-cell} python
 gdf_br116 = gpd.read_file('~/geopythonbook/content/14_br116/br116.shp')
 ```
 
 
-Em seguida, selecionamos a geometria referente a BR-116. Como o GeoDataFrame gdf_linha_br116 possui apenas uma linha, expecificamos ``` iloc[0]. ```
+Em seguida, selecionamos a geometria referente a BR-116. Como o GeoDataFrame gdf_linha_br116 possui apenas uma linha, expecificamos ``` iloc[0]. ```:
 
 ```{code-cell} python
 geometria_br116 = gdf_br116['geometry'].iloc[0]
 ```
 
-
-
-Agora podemos verificar quais estados se interseccionam com a BR-116 utilizando o método intersects. 
+Agora podemos verificar quais estados se interseccionam com a BR-116 utilizando o método intersects: 
 
 ```{code-cell} python
 estados_br116 = gdf_uf[gdf_uf['geometry'].intersects(geometria_br116)]
 ```
 
-Vamos imprimir os nomes desses estados, que podem ser visualizados na figura 21.
+Vamos imprimir os nomes desses estados, que podem ser visualizados na figura 21:
 ```{code-cell} python
 print(estados_br116['NM_UF'])
 ```
@@ -1470,7 +1463,7 @@ print(estados_br116['NM_UF'])
 
 Ao trabalhar com dados geoespaciais, é comum realizar operações que identificam e processam interações entre diferentes conjuntos de dados geográficos. A biblioteca Geopandas oferece várias funções e métodos para facilitar esse tipo de análise. Entretanto, à primeira vista, as funções podem parecer semelhantes em suas finalidades, levando a confusões sobre qual utilizar e quando. 
 
-Neste contexto, vamos explorar e comparar funcionalidades que relacionadas à interseção de geometrias: o intersects e o intersection no contexto do sjoin e do overlay. Para tanto, vamos criar dois GeoDataFrames (gdf1 e gdf2) a partir de operações de buffers em pontos que tem coordenadas x e y.
+Neste contexto, vamos explorar e comparar funcionalidades que relacionadas à interseção de geometrias: o intersects e o intersection no contexto do sjoin e do overlay. Para tanto, vamos criar dois GeoDataFrames (gdf1 e gdf2) a partir de operações de buffers em pontos que tem coordenadas x e y:
 
 ```{code-cell} python
 import geopandas as gpd
@@ -1535,10 +1528,11 @@ for geom, label in zip(gdf2.geometry, gdf2['nome']):
 
 
 As circunferências PA e PB pertencem ao gdf1, enquanto PC e PD pertencem ao gdf2. A seguir, vamos utilizá-las em consultas espaciais.
+<br><br>
 
 a) Intersects
 
-A função intersects do Geopandas determina se duas geometrias se interseccionam. É normalmente aplicada a uma GeoSeries e espera outra GeoSeries ou geometria como argumento. Vamos crias duas GeoSeries a partir dos GeoDataFrames gdf1 e gdf2.
+A função intersects da Geopandas determina se duas geometrias se interseccionam. É normalmente aplicada a uma GeoSeries e espera outra GeoSeries ou geometria como argumento. Vamos criar duas GeoSeries a partir dos GeoDataFrames gdf1 e gdf2:
 ```{code-cell} python
 gs1=gdf1['geometry']
 gs2=gdf2['geometry']
@@ -1561,7 +1555,7 @@ Saída: TypeError: no numeric data to plot
 ```
 
 Como intersects resulta em uma Series de valores booleanos, não pode ser plotada diretamente. 
-
+<br><br>
 
 b) Intersection
 
@@ -1575,7 +1569,7 @@ cons_intersection
 ```{code-cell} python
 cons_intersection.plot()
 ```
-
+<br><br>
 
 c) Intersects com Sjoin
 
@@ -1627,6 +1621,7 @@ for x, y, label_left, label_right in zip(cons_int_sjoin2.geometry.centroid.x,
         textcoords='offset points', color='red')
 plt.show()
 ```
+<br><br>
 
 
 d) Intersection com operação de Overlay
@@ -1652,7 +1647,6 @@ plt.show()
 ```
 
 
-
 Diferente do sjoin, que mantém as geometrias originais de um dos GeoDataFrames e apenas anexa os atributos do outro onde há interseção, o overlay cria geometrias resultantes da interseção real entre as geometrias dos dois GeoDataFrames. Além disso, o novo GeoDataFrame resultante também combina os atributos das geometrias originais de gdf1 e gdf2 para cada uma dessas novas geometrias de interseção. Assim, cons_int_overlay fornece uma representação espacial precisa de onde as geometrias de gdf1 e gdf2 se cruzam, juntamente com os atributos combinados dessas interseções.
 
 Agora vamos inverter a ordem de entrada dos GeoDataFrames na consulta:
@@ -1672,7 +1666,7 @@ plt.show()
 ```
 
 Podemos verificar que, em termos de geometria, a interseção entre gdf1 e gdf2 será a mesma que a interseção entre gdf2 e gdf1. No entanto, a ordem dos atributos no resultado é diferente. Enquanto cons_int_overlay tem os atributos de gdf1 seguidos pelos de gdf2 para cada geometria de interseção, cons_int_overlay2 tem os atributos de gdf2 seguidos pelos de gdf1. Desta maneira, é possível concluir que a ordem em que GeoDataFrames são fornecidos ao método overlay influenciam a ordem dos atributos no GeoDataFrame resultante, mas não a geometria da interseção.
-
+<br><br>
 
 Conclusões:
 
@@ -1702,6 +1696,7 @@ O parâmetro how em sjoin (e em muitas outras operações de junção em bibliot
 - "right" (junção à direita): Mantém todas as linhas do GeoDataFrame à direita, independentemente de haver uma correspondência no GeoDataFrame à esquerda. As linhas que não têm correspondência no GeoDataFrame à esquerda terão NaN para todas as colunas desse GeoDataFrame;
 
 - "inner" (junção interna): Mantém apenas as linhas para as quais há uma correspondência entre os dois GeoDataFrames. Ou seja, as linhas no resultado só estarão presentes se houver uma relação espacial válida entre elas (por exemplo, um ponto está dentro de um polígono) em ambos os conjuntos de dados. Linhas sem correspondência em qualquer GeoDataFrame serão descartadas.
+<br><br>
 
 Se pensarmos nos GeoDataFrames como se fossem tabelas. As opções "left", "right" e "inner" determinam quais linhas (registros) dessas tabelas estarão presentes no resultado, após a operação de junção. Se você estiver familiarizado com bancos de dados SQL, esses conceitos de junção à esquerda, à direita e interna são semelhantes aos LEFT JOIN, RIGHT JOIN e INNER JOIN, respectivamente.
 
@@ -1711,8 +1706,9 @@ Para resolver esse exemplo, vamos aplicar o sjoin com o predicado espacial ‘in
 ![Figura 22](images/fig22.png)
 
 <p align="center">Figura 22: Localização das hidrelétricas e PCHs no Brasil.</p>
+<br><br>
 
-Inicialmente, vamos ler os arquivos shapefile e criar os GeoDataFrames. Em seguida, verificamos as colunas existentes em gdf_usinas e gdf_uf.
+Inicialmente, vamos ler os arquivos shapefile e criar os GeoDataFrames. Em seguida, verificamos as colunas existentes em gdf_usinas e gdf_uf:
 ```{code-cell} python
 import geopandas as gpd
 gdf_usinas = gpd.read_file('~/geopythonbook/content/18_BR_hidreletricas/hidreletricas.shp')
@@ -1725,7 +1721,7 @@ gdf_uf.columns
 ``` 
   
 
-Vamos deletar algumas colunas de gdf_uf que não utilizaremos.
+Vamos deletar algumas colunas de gdf_uf que não utilizaremos:
 ```{code-cell} python
 gdf_uf = gdf_uf.drop(columns=['CD_UF', 'NM_UF', 'AREA_KM2'])
 gdf_uf.columns
@@ -1740,7 +1736,7 @@ if gdf_usinas.crs != gdf_uf.crs:
 
 Esse código verifica se os dois GeoDataFrames têm CRSs diferentes. Em caso afirmativo, aplica uma transformação em gdf_usinas para corresponder ao CRS de gdf_uf.
 
-Agora vamos aplicar a junção espacial.
+Agora vamos aplicar a junção espacial:
 
 ```{code-cell} python
 usinas_uf = gpd.sjoin(gdf_usinas, gdf_uf, op='intersects', how='left')
@@ -1750,7 +1746,7 @@ usinas_uf.head()
 Esse código associa cada usina ao estado ao qual ela está localizada e consulta as colunas do GeoDataFrame. 
 
 Podemos verificar que, agora, o GeoDataFrame usinas_uf tem colunas referentes aos estados (SIGLA_UF E NM_REGIAO). 
-Vamos verificar quantas usinas e PCHs estão implantadas em cada estado.
+Vamos verificar quantas usinas e PCHs estão implantadas em cada estado:
 
 ```{code-cell} python
 numero_usinas_por_estado = usinas_uf.groupby('SIGLA_UF').size()
@@ -1758,7 +1754,7 @@ print(numero_usinas_por_estado)
 ```
 
 
-Por fim, vamos agrupar os dados por região (NM_REGIAO) e imprimir o número de usinas em cada região do país.
+Por fim, vamos agrupar os dados por região (NM_REGIAO) e imprimir o número de usinas em cada região do país:
 
 ```{code-cell} python
 numero_usinas_por_regiao = usinas_uf.groupby('NM_REGIAO').size()
@@ -1790,6 +1786,7 @@ for geom, label in zip(gdf2.geometry, gdf2['nome']):
     x, y = get_coords(geom)
     ax.text(x, y, label)
 ```
+<br><br>
 
 
 *Overlay com union*
@@ -1804,6 +1801,7 @@ uniao.head()
 ```{code-cell} python
 uniao.plot()
 ```
+<br><br>
 
 
 *Overlay com difference*
@@ -1819,8 +1817,6 @@ diferenca.head()
 diferenca.plot()
 ```
 
-
-
 Fazendo gdf2 a esquerda e gdf1 a direita:
 ```{code-cell} python
 diferenca2 = gpd.overlay(gdf2, gdf1, how='difference')
@@ -1830,6 +1826,8 @@ diferenca2.head()
 ```{code-cell} python
 diferenca2.plot()
 ```
+<br><br>
+
 
 *Overlay com symmetric_difference*
 
@@ -1843,8 +1841,10 @@ diferenca_simetrica.head()
 ```{code-cell} python
 diferenca_simetrica.plot()
 ```
+<br><br>
 
-Overlay com identity
+
+*Overlay com identity*
 
 Essa operação mantém as geometrias do primeiro conjunto de dados que se sobrepõem ao segundo conjunto de dados, bem como qualquer parte do primeiro conjunto de dados que não se sobrepõe ao segundo.
 

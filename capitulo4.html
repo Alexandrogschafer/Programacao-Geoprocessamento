@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 
 
-<html lang="en" >
+<html lang="en" data-content_root="" >
 
   <head>
     <meta charset="utf-8" />
@@ -19,12 +19,12 @@
   </script>
   
   <!-- Loaded before other Sphinx assets -->
-  <link href="_static/styles/theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/bootstrap.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
-<link href="_static/styles/pydata-sphinx-theme.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/styles/theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=5b4479735964841361fd" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=5b4479735964841361fd" rel="stylesheet" />
 
   
-  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=365ca57ee442770a23c6" rel="stylesheet" />
+  <link href="_static/vendor/fontawesome/6.1.2/css/all.min.css?digest=5b4479735964841361fd" rel="stylesheet" />
   <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-solid-900.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-brands-400.woff2" />
 <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.1.2/webfonts/fa-regular-400.woff2" />
@@ -38,9 +38,9 @@
     <link rel="stylesheet" type="text/css" href="_static/design-style.4045f2051d55cab465a707391d5b2007.min.css" />
   
   <!-- Pre-loaded scripts that we'll load fully later -->
-  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6" />
-<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6" />
-  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=365ca57ee442770a23c6"></script>
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=5b4479735964841361fd" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd" />
+  <script src="_static/vendor/fontawesome/6.1.2/js/all.min.js?digest=5b4479735964841361fd"></script>
 
     <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
     <script src="_static/jquery.js"></script>
@@ -139,6 +139,7 @@ const thebe_selector_output = ".output, .cell_output"
   
     <div class="sidebar-primary-items__start sidebar-primary__section">
         <div class="sidebar-primary-item">
+
   
 
 <a class="navbar-brand logo" href="intro.html">
@@ -329,6 +330,7 @@ const thebe_selector_output = ".output, .cell_output"
 </button>
 
 
+
 <script>
 document.write(`
   <button class="btn btn-sm navbar-btn theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
@@ -338,6 +340,7 @@ document.write(`
   </button>
 `);
 </script>
+
 
 <script>
 document.write(`
@@ -371,7 +374,7 @@ document.write(`
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-biblioteca-shapely">4.1 A biblioteca Shapely</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criacao-de-geometrias-com-shapely">4.1.1 Criação de Geometrias com Shapely</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-geometrico-no-shapely">4.1.2 Atributos geométrico no Shapely</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-geometrico-na-shapely">4.1.2 Atributos geométrico na Shapely</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-geometricas-no-shapely">4.1.3 Funções geométricas no Shapely</a></li>
 </ul>
 </li>
@@ -393,7 +396,8 @@ document.write(`
                   
   <section class="tex2jax_ignore mathjax_ignore" id="geoprocessamento-basico-com-shapely-e-fiona">
 <h1>4. GEOPROCESSAMENTO BÁSICO COM SHAPELY E FIONA<a class="headerlink" href="#geoprocessamento-basico-com-shapely-e-fiona" title="Permalink to this heading">#</a></h1>
-<p><a class="reference external" href="https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/capitulo4.ipynb">Abrir no Google Colab</a></p>
+<p><a class="reference external" href="https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/capitulo4.ipynb">Abrir no Google Colab</a>
+<br></p>
 <p>Dentro do ecossistema Python, existem diversas bibliotecas para otimizar o trabalho com dados geoespaciais. Dentre elas, Shapely e Fiona merecem destaque, não apenas por sua simplicidade, mas também pela eficácia com que lidam com tarefas geoespaciais. Quando utilizadas em conjunto, essas bibliotecas proporcionam uma abordagem integrada e robusta para o geoprocessamento básico no Python, tornando a análise e manipulação de dados espaciais mais acessível e eficiente.</p>
 <section id="a-biblioteca-shapely">
 <h2>4.1 A biblioteca Shapely<a class="headerlink" href="#a-biblioteca-shapely" title="Permalink to this heading">#</a></h2>
@@ -403,7 +407,7 @@ document.write(`
 <p>A Shapely destaca-se principalmente por suas capacidades geométricas. Ele facilita a execução de operações como união, interseção, diferença e buffer. Além disso, a biblioteca é essencial para manipular e transformar geometrias, desde a simplificação de linhas e polígonos até a criação de um convex hull em torno de pontos ou a divisão e combinação de diferentes formas geométricas.</p>
 <section id="criacao-de-geometrias-com-shapely">
 <h3>4.1.1 Criação de Geometrias com Shapely<a class="headerlink" href="#criacao-de-geometrias-com-shapely" title="Permalink to this heading">#</a></h3>
-<p>Conforme apresentamos na figura 5, o Shapely oferece uma série de classes para representar diferentes tipos de geometrias. Vamos explorar como criar cada uma a seguir:</p>
+<p>Conforme apresentamos na figura 5, a Shapely oferece uma série de classes para representar diferentes tipos de geometrias. Vamos explorar como criá-las:</p>
 <p>a) Point: Representa uma coordenada única no espaço.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -452,7 +456,7 @@ document.write(`
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">poligono_com_furos</span> <span class="o">=</span> <span class="n">Polygon</span><span class="p">(</span><span class="n">exterior</span><span class="p">,</span> <span class="p">[</span><span class="n">interior1</span><span class="p">,</span> <span class="n">interior2</span><span class="p">])</span>
 </pre></div>
 </div>
-<p>No código acima, exterior define os pontos do polígono externo, enquanto interior1 e interior2 definem os furos dentro do polígono externo. Você pode adicionar quantos “furos” quiser, simplesmente estendendo a lista de interiores. Exemplo:</p>
+<p>No código acima, exterior define os pontos do polígono externo, enquanto interior1 e interior2 definem os furos dentro do polígono externo. Você pode adicionar quantos “furos” quiser, estendendo a lista de interiores. Exemplo:</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="n">Polygon</span>
@@ -545,9 +549,10 @@ document.write(`
 <img alt="_images/5a42b5ba731f8276a6a7228b83fec2c205650e24ba7c9edbf9907c4fcab63040.svg" src="_images/5a42b5ba731f8276a6a7228b83fec2c205650e24ba7c9edbf9907c4fcab63040.svg" /></div>
 </div>
 </section>
-<section id="atributos-geometrico-no-shapely">
-<h3>4.1.2 Atributos geométrico no Shapely<a class="headerlink" href="#atributos-geometrico-no-shapely" title="Permalink to this heading">#</a></h3>
-<p>O Shapely fornece uma variedade de atributos e métodos para interagir e analisar objetos geométricos. Quando falamos sobre “atributos geométricos” no contexto do Shapely, estamos nos referindo às propriedades intrínsecas de uma forma geométrica. Aqui estão alguns dos atributos geométricos mais comuns e úteis disponíveis no Shapely:</p>
+<section id="atributos-geometrico-na-shapely">
+<h3>4.1.2 Atributos geométrico na Shapely<a class="headerlink" href="#atributos-geometrico-na-shapely" title="Permalink to this heading">#</a></h3>
+<p>A Shapely fornece uma variedade de atributos e métodos para interagir e analisar objetos geométricos. Quando falamos sobre “atributos geométricos” no contexto da Shapely, estamos nos referindo às propriedades intrínsecas de uma forma geométrica. Aqui estão alguns dos atributos geométricos mais comuns e úteis disponíveis na Shapely:
+<br><br></p>
 <p>geom_type: Retorna o tipo de geometria do objeto, como “Point”, “Linestring”, “Polygon”, etc.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -561,6 +566,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>area: Retorna a área do objeto geométrico. Este atributo é relevante principalmente para polígonos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -574,6 +580,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>length: Para objetos Linestring, retorna o comprimento total da linha. Para objetos Polygon, retorna o comprimento total do perímetro.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -587,6 +594,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>bounds: Retorna uma tupla com as coordenadas (minx, miny, maxx, maxy) que define a caixa delimitadora (bounding box) da geometria.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -600,6 +608,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>is_valid: Verifica se a geometria é válida de acordo com as regras do plano euclidiano. Por exemplo, um polígono que se auto intersecciona não seria válido.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -613,6 +622,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>is_simple: Indica se a geometria não se auto intersecciona. Para a maioria das geometrias, isso é o mesmo que is_valid, mas existem alguns casos raros em que uma geometria pode ser válida, mas não simples.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -626,6 +636,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>centroid: Retorna o ponto central (ou “centroide”) da geometria.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -639,6 +650,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>exterior: Para polígonos, retorna o anel externo como um objeto LinearRing.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -652,6 +664,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>interiors: Para polígonos com furos, retorna uma sequência dos anéis internos.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -668,10 +681,12 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 </section>
 <section id="funcoes-geometricas-no-shapely">
 <h3>4.1.3 Funções geométricas no Shapely<a class="headerlink" href="#funcoes-geometricas-no-shapely" title="Permalink to this heading">#</a></h3>
-<p>No Shapely, além dos atributos geométricos, existem várias funções ou métodos que permitem realizar operações geométricas. Essas funções são úteis para manipular, analisar e transformar geometrias. A seguir utilizaremos algumas das funções geométricas mais importantes no Shapely.</p>
+<p>No Shapely, além dos atributos geométricos, existem várias funções ou métodos que permitem realizar operações geométricas. Essas funções são úteis para manipular, analisar e transformar geometrias. A seguir utilizaremos algumas das funções geométricas mais importantes no Shapely.
+<br></p>
 <p>buffer: Cria um buffer ao redor de uma geometria com uma distância especificada.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -685,6 +700,7 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/27529d936be41b00b7c4fc08030013fa4b1e6c6d452af60ea2d9841a802a12de.svg" src="_images/27529d936be41b00b7c4fc08030013fa4b1e6c6d452af60ea2d9841a802a12de.svg" /></div>
 </div>
+<p><br><br></p>
 <p>union: Retorna a união geométrica entre geometrias.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -701,6 +717,7 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/cdae93f309caba6b69a885795890ff826127d3ca606d8c620ef63bd467100c69.svg" src="_images/cdae93f309caba6b69a885795890ff826127d3ca606d8c620ef63bd467100c69.svg" /></div>
 </div>
+<br>
 <p>intersection: Retorna a interseção geométrica entre geometrias.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -712,6 +729,7 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/1cf6e0920cc05ee733046e30db004f7554eb99bc14dbd0317ae45257488f359f.svg" src="_images/1cf6e0920cc05ee733046e30db004f7554eb99bc14dbd0317ae45257488f359f.svg" /></div>
 </div>
+<br>
 <p>difference: Retorna a diferença geométrica entre geometrias (subtrai a segunda geometria da primeira).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -733,6 +751,7 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/b9a9f9ee40d409491fd2b8aa4512d2d173dc107d765ce1cd86083609ef3cfa38.svg" src="_images/b9a9f9ee40d409491fd2b8aa4512d2d173dc107d765ce1cd86083609ef3cfa38.svg" /></div>
 </div>
+<br>
 <p>symmetric_difference: Retorna as partes de duas geometrias que não são compartilhadas entre si.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -744,6 +763,7 @@ document.write(`
 <div class="cell_output docutils container">
 <img alt="_images/15e9bc4f3b3d2dbc4043973cd7bcb57bd583ac83b7cff5bd6e3b8bf63646e070.svg" src="_images/15e9bc4f3b3d2dbc4043973cd7bcb57bd583ac83b7cff5bd6e3b8bf63646e070.svg" /></div>
 </div>
+<br>
 <p>contains: Verifica se uma geometria contém a outra geometria fornecida.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -757,6 +777,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>intersects: Verifica se uma geometria intercepta a outra geometria fornecida.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -770,6 +791,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>crosses: Verifica se uma geometria cruza a outra (aplicável principalmente com linhas).</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -792,6 +814,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>distance: Calcula a distância mínima entre as geometrias.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -806,6 +829,7 @@ document.write(`
 </div>
 </div>
 </div>
+<br>
 <p>envelope: Retorna o menor retângulo delimitador que contém uma geometria.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -819,6 +843,7 @@ document.write(`
 </div>
 <p><img alt="Figura 6" src="_images/fig6.png" /></p>
 <p align="center">Figura 6: Visualização do buffer e do respectivo envelope</p>
+<br><br>
 </section>
 </section>
 <section id="leitura-de-arquivos-com-fiona">
@@ -829,12 +854,12 @@ document.write(`
 <h3>4.2.1 Leitura de arquivos shapefile com Fiona<a class="headerlink" href="#leitura-de-arquivos-shapefile-com-fiona" title="Permalink to this heading">#</a></h3>
 <p>O shapefile é um formato de arquivo popular para armazenar informações geográficas, amplamente utilizado em Sistemas de Informações Geográficas (SIG ou GIS, em inglês). Embora existam outros formatos (como GeoJSON, GML, KML) que são mais modernos e flexíveis em muitos aspectos, o formato shapefile pode ser considerado o padrão na área de SIG atualmente.
 Além das informações geográficas (coordenadas que definem a geometria), cada objeto em um shapefile pode ter um conjunto de atributos associado. Além disso, um shapefile pode (e geralmente tem) um sistema de referência de coordenadas associado, que define o sistema de projeção.</p>
-<p>É importante ressaltar que o shapefile é, na realidade, um conjunto de arquivos que trabalham juntos para representar e armazenar informações geográficas e seus atributos. Existem três arquivos principais, essenciais para que o shapefile funcione corretamente, e vários outros arquivos auxiliares que podem acompanhar um shapefile dependendo das características e necessidades do conjunto de dados. No quadro 6 apresenta-se os principais arquivos que podem constituir um shapefile.</p>
-<p>Arquivos que podem constituir um shapefile.</p>
-<p>Quadro 8: Extensões obrigatórias</p>
+<p>É importante ressaltar que o shapefile é, na realidade, um conjunto de arquivos que trabalham juntos para representar e armazenar informações geográficas e seus atributos. Existem três arquivos principais, essenciais para que o shapefile funcione corretamente, e vários outros arquivos auxiliares que podem acompanhar um shapefile dependendo das características e necessidades do conjunto de dados. Nos quadros 8 e 9 apresenta-se os principais arquivos que podem constituir um shapefile.
+<br><br></p>
+<p>Quadro 8: Arquivos obrigatórios</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Extensão</p></th>
+<tr class="row-odd"><th class="head"><p>Arquivo</p></th>
 <th class="head"><p>Descrição</p></th>
 </tr>
 </thead>
@@ -848,12 +873,15 @@ Além das informações geográficas (coordenadas que definem a geometria), cada
 <tr class="row-even"><td><p>dbf</p></td>
 <td><p>Contém os atributos para cada objeto em uma tabela. Cada linha da tabela corresponde a um objeto no arquivo .shp e cada coluna é um atributo desse objeto.</p></td>
 </tr>
+<tr class="row-odd"><td><p><br><br></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
-<p>Quadro 9: Extensões auxiliares</p>
+<p>Quadro 9: Arquivos auxiliares</p>
 <table class="table">
 <thead>
-<tr class="row-odd"><th class="head"><p>Extensão</p></th>
+<tr class="row-odd"><th class="head"><p>Arquivo</p></th>
 <th class="head"><p>Descrição</p></th>
 </tr>
 </thead>
@@ -879,6 +907,9 @@ Além das informações geográficas (coordenadas que definem a geometria), cada
 <tr class="row-even"><td><p>atx</p></td>
 <td><p>É um arquivo de índice criado pelo ArcGIS para campos específicos na tabela de atributos, acelerando determinadas operações.</p></td>
 </tr>
+<tr class="row-odd"><td><p><br><br></p></td>
+<td><p></p></td>
+</tr>
 </tbody>
 </table>
 <p>Existem outros arquivos que podem, ocasionalmente, estar associados a um shapefile, especialmente quando se trabalha com softwares específicos que criam arquivos de índice ou metadados adicionais. No entanto, os listados acima são os mais comuns. Vale lembrar que para transferir ou mover um shapefile, é importante manter pelo menos os três arquivos principais juntos (.shp, .shx e .dbf) para garantir a integridade dos dados.</p>
@@ -898,34 +929,43 @@ Além das informações geográficas (coordenadas que definem a geometria), cada
         <span class="nb">print</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Vamos entender o que cada parte do código faz:</p>
+<p>Vamos entender cada parte do código:
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fiona</span></code></p>
-<p>A primeira linha importa a biblioteca fiona.</p>
+<p>A primeira linha importa a biblioteca fiona.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">with</span> <span class="pre">fiona.open('caminho_para_seu_arquivo.shp',</span> <span class="pre">'r')</span> <span class="pre">as</span> <span class="pre">registro:</span></code></p>
-<p>A função fiona.open é usada para abrir um arquivo shapefile. O argumento ‘r’ indica que o arquivo está sendo aberto no modo de leitura (read). A instrução with é usada aqui para garantir que o arquivo seja fechado corretamente após sua utilização, independentemente de ocorrerem erros durante a execução do código.</p>
+<p>A função fiona.open é usada para abrir um arquivo shapefile. O argumento ‘r’ indica que o arquivo está sendo aberto no modo de leitura (read). A instrução with é usada aqui para garantir que o arquivo seja fechado corretamente após sua utilização, independentemente de ocorrerem erros durante a execução do código.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">print(registro.schema['geometry'])</span></code></p>
-<p>Imprime o tipo de geometria do shapefile, que pode ser, por exemplo, ‘Point’, ‘Linestring’ ou ‘Polygon’. registro.schema é um dicionário que descreve os atributos e a geometria do shapefile.</p>
+<p>Imprime o tipo de geometria do shapefile, que pode ser, por exemplo, ‘Point’, ‘Linestring’ ou ‘Polygon’. registro.schema é um dicionário que descreve os atributos e a geometria do shapefile.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">for</span> <span class="pre">entidade</span> <span class="pre">in</span> <span class="pre">registro:</span></code></p>
-<p>Este é um loop que itera sobre cada registro no shapefile.</p>
+<p>Este é um loop que itera sobre cada registro no shapefile. O objetivo dessa iteração é processar cada entidade individualmente.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">geom</span> <span class="pre">=</span> <span class="pre">entidade['geometry']</span>&#160; <span class="pre">#</span> <span class="pre">geometria</span></code></p>
-<p>Aqui, a geometria de cada registro é extraída. A geometria pode ser um ponto, uma linha, um polígono, etc.</p>
+<p>Aqui, a geometria de cada registro é extraída. A geometria pode ser um ponto, uma linha, um polígono, etc.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">props</span> <span class="pre">=</span> <span class="pre">entidade['properties']</span>&#160; <span class="pre">#</span> <span class="pre">atributos</span></code></p>
-<p>Aqui, os atributos associados a cada recurso são extraídos. Os atributos são os dados associados a cada geometria, como nomes, valores, categorias, etc.:</p>
+<p>Aqui, os atributos associados a cada recurso são extraídos. Os atributos são os dados associados a cada geometria, como nomes, valores, categorias, etc..
+<br><br></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="n">geom</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">props</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Esse código imprime a geometria e os atributos de cada registro.</p>
+<p>Esse código imprime a geometria e os atributos de cada registro.
+<br><br></p>
 <p>Quando você usa a biblioteca fiona para abrir e ler um shapefile, vários processos ocorrem internamente. Aqui está uma visão geral do que acontece:</p>
 <p>Abertura do Arquivo: Quando você chama fiona.open(), a biblioteca primeiramente localiza e abre o arquivo shapefile para leitura;
 Leitura dos Metadados: Uma vez que o arquivo é aberto, fiona começa lendo os metadados associados ao shapefile. Isso inclui informações sobre o sistema de coordenadas, o tipo de geometria (pontos, linhas, polígonos, etc.) e a estrutura do arquivo de atributos (campos, tipos de dados, etc.);</p>
 <p>Interface Iterável: A biblioteca fornece uma interface iterável sobre os registros no shapefile. Cada registro contém uma geometria e um conjunto associado de atributos;</p>
 <p>Acesso Direto à Geometria e Atributos: Ao iterar sobre os registros, você pode acessar diretamente as geometrias e os atributos de cada registro. Fiona retorna geometrias no formato GeoJSON e permite que você interaja com os atributos como se estivesse trabalhando com um dicionário em Python;</p>
-<p>Conversão de Geometrias: Embora as geometrias retornem no formato GeoJSON, elas são compatíveis com a biblioteca shapely. Isto significa que você pode convertê-las em objetos shapely para análise e manipulação geométrica mais avançada;</p>
+<p>Conversão de Geometrias: Embora as geometrias retornem no formato GeoJSON, elas são compatíveis com a biblioteca shapely. Isto significa que você pode convertê-las em objetos shapely para análise e manipulação geométrica;</p>
 <p>Fechamento Automático: Se você usar fiona dentro de um bloco with (como é recomendado), o arquivo será automaticamente fechado quando o bloco for concluído. Isso garante que os recursos do sistema sejam liberados e que não haja bloqueios no arquivo;</p>
-<p>Manipulação de Erros: Durante todo o processo, fiona tem mecanismos para lidar com erros. Se houver algum problema com o arquivo (por exemplo, se estiver corrompido ou faltando componentes), fiona geralmente lançará um erro explicativo.</p>
-<p>Obtendo metadados do arquivo
-Os metadados de um shapefile referem-se a informações sobre o próprio shapefile, como o sistema de coordenadas em que os dados estão projetados, o tipo de geometria (pontos, linhas ou polígonos) e outras informações que descrevem o conteúdo, qualidade, condição, e outras características do arquivo. Em muitos casos, os metadados são vitais para a correta interpretação e uso dos dados no shapefile. Sem metadados adequados, um usuário pode interpretar mal os dados, levando a decisões ou análises incorretas.</p>
+<p>Manipulação de Erros: Durante todo o processo, fiona tem mecanismos para lidar com erros. Se houver algum problema com o arquivo (por exemplo, se estiver corrompido ou faltando componentes), fiona geralmente lançará um erro explicativo.
+<br><br></p>
+<p><em>Obtendo metadados do arquivo</em></p>
+<p>Os metadados de um shapefile referem-se a informações sobre o próprio shapefile, como o sistema de coordenadas em que os dados estão projetados, o tipo de geometria (pontos, linhas ou polígonos) e outras informações que descrevem o conteúdo, qualidade, condição, e outras características do arquivo. Em muitos casos, os metadados são vitais para a correta interpretação e uso dos dados no shapefile. Sem metadados adequados, um usuário pode interpretar mal os dados, levando a decisões ou análises incorretas.</p>
 <p>Os metadados de um arquivo shapefile utilizando Fiona podem ser obtidos utilizando o seguinte código:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">fiona</span>
 <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;caminho_para_seu_arquivo.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">registro</span><span class="p">:</span>
@@ -946,8 +986,10 @@ Os metadados de um shapefile referem-se a informações sobre o próprio shapefi
 <p>Exemplo: Vamos abrir o shapefile “BR_UF.shp”, constituído por polígonos referentes a cada estado brasileiro (figura 7) e pelos atributos que constam na figura 8.</p>
 <p><img alt="Figura 7" src="_images/fig7.png" /></p>
 <p align="center">Figura 7: Visualização do arquivo shapefile BR_UF.</p>
+<br><br>
 <p><img alt="Figura 8" src="_images/fig8.png" /></p>
 <p align="center">Figura 8: Visualização parcial da tabela de atributos de BR_UF.</p>
+<br><br>
 <p>Vamos utilizar o script abaixo para abrir o shapefile, ler as geometrias do tipo Polygon e imprimir os atributos CD_UF, NM_UF e SIGLA_UF.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -992,10 +1034,10 @@ ID: 29, Nome: Bahia, Sigla: BA
 ID: 31, Nome: Minas Gerais, Sigla: MG
 ID: 32, Nome: Espírito Santo, Sigla: ES
 ID: 33, Nome: Rio de Janeiro, Sigla: RJ
-ID: 35, Nome: São Paulo, Sigla: SP
 </pre></div>
 </div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 41, Nome: Paraná, Sigla: PR
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ID: 35, Nome: São Paulo, Sigla: SP
+ID: 41, Nome: Paraná, Sigla: PR
 ID: 42, Nome: Santa Catarina, Sigla: SC
 ID: 43, Nome: Rio Grande do Sul, Sigla: RS
 ID: 50, Nome: Mato Grosso do Sul, Sigla: MS
@@ -1008,6 +1050,7 @@ ID: 14, Nome: Roraima, Sigla: RR
 </div>
 </div>
 </div>
+<p><br><br></p>
 <p>Aplicando o script de consulta de metadados, obtemos:</p>
 <p>O EPSG 4326 é um código de sistema de referência espacial (SRS) que se refere ao sistema WGS 84 (World Geodetic System 1984). EPSG significa “European Petroleum Survey Group”. Originalmente era um grupo de trabalho dedicado à aplicação da geodésia e da cartografia na indústria de petróleo e gás na Europa.</p>
 <p>O grupo criou e mantém uma base de dados com códigos para sistemas de referência espacial, transformações de coordenadas, unidades e métodos relacionados. Este banco de dados é amplamente utilizado em software GIS e outras aplicações geoespaciais. “4326” é o código específico no banco de dados EPSG que se refere ao WGS 84 com coordenadas em latitude e longitude (em graus decimais).</p>
@@ -1054,38 +1097,49 @@ ID: 14, Nome: Roraima, Sigla: RR
 </div>
 </div>
 </div>
-<p>Vamos entender cada parte do código:</p>
+<p><br><br></p>
+<p>Vamos detalhar o código:
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">import</span> <span class="pre">fiona</span> </code></p>
-<p>Importa a biblioteca Fiona, que é usada para a leitura e escrita de arquivos geoespaciais.</p>
+<p>Importa a biblioteca Fiona, que é usada para a leitura e escrita de arquivos geoespaciais.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">from</span> <span class="pre">shapely.geometry</span> <span class="pre">import</span> <span class="pre">Point,</span> <span class="pre">mapping</span> </code></p>
-<p>Importa a classe Point da biblioteca Shapely, que é usada para criar geometrias de ponto. A função mapping é usada para converter geometrias Shapely em um formato que Fiona possa entender.</p>
+<p>Importa a classe Point da biblioteca Shapely, que é usada para criar geometrias de ponto. A função mapping é usada para converter geometrias Shapely em um formato que Fiona possa entender.
+<br><br></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">esquema</span> <span class="o">=</span> <span class="p">{</span>
     <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="s1">&#39;Point&#39;</span><span class="p">,</span>
     <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;name&#39;</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span><span class="p">},</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>Um dicionário chamado esquema é definido para especificar a estrutura do shapefile. Indica que o shapefile conterá geometrias do tipo ponto (‘geometry’: ‘Point’) e terá duas propriedades/atributos: id (um número inteiro) e name (uma string).</p>
-<p><code class="docutils literal notranslate"><span class="pre">shapefile_saida</span> <span class="pre">=</span> <span class="pre">'pontos_saida.shp'</span></code>
-Especifica o nome e o caminho do novo shapefile que será criado: shapefile_saida.</p>
-<p><code class="docutils literal notranslate"> <span class="pre">with</span> <span class="pre">fiona.open(shapefile_saida,</span> <span class="pre">'w',</span> <span class="pre">'ESRI</span> <span class="pre">Shapefile',</span> <span class="pre">esquema)</span> <span class="pre">as</span> <span class="pre">c:</span></code>
-Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para criar um novo shapefile. Também especifica o formato do arquivo (‘ESRI Shapefile’) e o esquema previamente definido.</p>
+<p>Um dicionário chamado esquema é definido para especificar a estrutura do shapefile. Indica que o shapefile conterá geometrias do tipo ponto (‘geometry’: ‘Point’) e terá duas propriedades/atributos: id (um número inteiro) e name (uma string).
+<br><br></p>
+<p><code class="docutils literal notranslate"><span class="pre">shapefile_saida</span> <span class="pre">=</span> <span class="pre">'pontos_saida.shp'</span></code></p>
+<p>Especifica o nome e o caminho do novo shapefile que será criado: shapefile_saida.
+<br><br></p>
+<p><code class="docutils literal notranslate"> <span class="pre">with</span> <span class="pre">fiona.open(shapefile_saida,</span> <span class="pre">'w',</span> <span class="pre">'ESRI</span> <span class="pre">Shapefile',</span> <span class="pre">esquema)</span> <span class="pre">as</span> <span class="pre">c:</span></code></p>
+<p>Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para criar um novo shapefile. Também especifica o formato do arquivo (‘ESRI Shapefile’) e o esquema previamente definido.
+<br><br></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">ponto</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
     <span class="n">propriedades</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;ID&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;NOME&#39;</span><span class="p">:</span> <span class="s1">&#39;Ponto de exemplo&#39;</span><span class="p">}</span>
 </pre></div>
 </div>
-<p>Um objeto de ponto é criado usando a classe Point da biblioteca Shapely, e as propriedades associadas a esse ponto são armazenadas no dicionário “propriedades”.</p>
+<p>Um objeto de ponto é criado usando a classe Point da biblioteca Shapely, e as propriedades associadas a esse ponto são armazenadas no dicionário “propriedades”.
+<br><br></p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>   <span class="n">c</span><span class="o">.</span><span class="n">write</span><span class="p">({</span>
         <span class="s1">&#39;geometry&#39;</span><span class="p">:</span> <span class="n">mapping</span><span class="p">(</span><span class="n">ponto</span><span class="p">),</span>
         <span class="s1">&#39;properties&#39;</span><span class="p">:</span> <span class="n">propriedades</span>
     <span class="p">})</span>
 </pre></div>
 </div>
-<p>O ponto e suas propriedades são escritos no shapefile. A função mapping é usada para converter o objeto de ponto em um formato que Fiona possa entender e escrever no arquivo.</p>
+<p>O ponto e suas propriedades são escritos no shapefile. A função mapping é usada para converter o objeto de ponto em um formato que Fiona possa entender e escrever no arquivo.
+<br><br></p>
 <p><code class="docutils literal notranslate"><span class="pre">print(f'Shapefile</span> <span class="pre">{shapefile_saida}</span> <span class="pre">criado</span> <span class="pre">com</span> <span class="pre">sucesso!')</span></code></p>
-<p>Uma mensagem é impressa para confirmar que o shapefile foi criado com sucesso.</p>
+<p>Uma mensagem é impressa para confirmar que o shapefile foi criado com sucesso.
+<br><br></p>
 <p>Você pode visualizar os arquivos criados na aba files, na lateral esquerda do ambiente do Google Colab.</p>
-<p>Lembre-se de que ao trabalhar com shapefiles, além do arquivo .shp, outros arquivos (como .shx e .dbf) também são gerados. Se você decidir mover ou compartilhar seu shapefile, certifique-se de incluir esses arquivos auxiliares.</p>
+<p>Lembre-se de que ao trabalhar com shapefiles, além do arquivo .shp, outros arquivos (como .shx e .dbf) também são gerados. Se você decidir mover ou compartilhar seu shapefile, certifique-se de incluir esses arquivos auxiliares.
+<br><br></p>
 <p>Exemplo 2: Criar um shapefile com as capitais do Brasil, com geometrias do tipo ponto.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
@@ -1101,7 +1155,8 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 </div>
 </div>
 </div>
-<p>Nesse código, importamos as bibliotecas e definimos a estrutura do arquivo shapefile. O campo geometry define que o arquivo conterá pontos (Point). O campo properties especifica que cada ponto terá dois atributos associados: capital (o nome da capital) e estado (o nome do estado), ambos do tipo string (str).</p>
+<p>Nesse código, importamos as bibliotecas e definimos a estrutura do arquivo shapefile. O campo geometry define que o arquivo conterá pontos (Point). O campo properties especifica que cada ponto terá dois atributos associados: capital (o nome da capital) e estado (o nome do estado), ambos do tipo string (str).
+<br><br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">capitais</span> <span class="o">=</span> <span class="p">{</span>
@@ -1137,7 +1192,8 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 </div>
 </div>
 </div>
-<p>Com este código, criamos um dicionário chamado “capitais”. As chaves do dicionário são os nomes das capitais e os valores são tuplas que contêm o nome do estado e as coordenadas (longitude e latitude) da respectiva capital.</p>
+<p>Com este código, criamos um dicionário chamado “capitais”. As chaves do dicionário são os nomes das capitais e os valores são tuplas que contêm o nome do estado e as coordenadas (longitude e latitude) da respectiva capital.
+<br><br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como &#39;capitais_br.shp&#39;. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.</span>
@@ -1159,49 +1215,26 @@ Aqui, o comando fiona.open é usado com o argumento ‘w’ (para escrita) para 
 </pre></div>
 </div>
 </div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ERROR 1: PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
-</pre></div>
 </div>
-<div class="output traceback highlight-ipythontb notranslate"><div class="highlight"><pre><span></span><span class="gt">---------------------------------------------------------------------------</span>
-<span class="ne">CPLE_AppDefinedError</span><span class="g g-Whitespace">                      </span>Traceback (most recent call last)
-<span class="nn">fiona/crs.pyx</span> in <span class="ni">fiona.crs.CRS.from_epsg</span><span class="nt">()</span>
-
-<span class="nn">fiona/_err.pyx</span> in <span class="ni">fiona._err.exc_wrap_int</span><span class="nt">()</span>
-
-<span class="ne">CPLE_AppDefinedError</span>: PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
-
-<span class="n">During</span> <span class="n">handling</span> <span class="n">of</span> <span class="n">the</span> <span class="n">above</span> <span class="n">exception</span><span class="p">,</span> <span class="n">another</span> <span class="n">exception</span> <span class="n">occurred</span><span class="p">:</span>
-
-<span class="ne">CRSError</span><span class="g g-Whitespace">                                  </span>Traceback (most recent call last)
-<span class="o">/</span><span class="n">tmp</span><span class="o">/</span><span class="n">ipykernel_24658</span><span class="o">/</span><span class="mf">2240429878.</span><span class="n">py</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-<span class="g g-Whitespace">      </span><span class="mi">1</span> <span class="c1"># Neste trecho, o código inicia o processo de criação do arquivo shapefile usando a biblioteca fiona. O arquivo será salvo como &#39;capitais_br.shp&#39;. O CRS (Sistema de Referência de Coordenadas) utilizado é o EPSG 4326.</span>
-<span class="g g-Whitespace">      </span><span class="mi">2</span> 
-<span class="ne">----&gt; </span><span class="mi">3</span> <span class="k">with</span> <span class="n">fiona</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;capitais_br.shp&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">driver</span><span class="o">=</span><span class="s1">&#39;ESRI Shapefile&#39;</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="n">from_epsg</span><span class="p">(</span><span class="mi">4326</span><span class="p">),</span> <span class="n">schema</span><span class="o">=</span><span class="n">esquema</span><span class="p">)</span> <span class="k">as</span> <span class="n">layer</span><span class="p">:</span>
-<span class="g g-Whitespace">      </span><span class="mi">4</span>     <span class="k">for</span> <span class="n">capital</span><span class="p">,</span> <span class="p">(</span><span class="n">estado</span><span class="p">,</span> <span class="n">coords</span><span class="p">)</span> <span class="ow">in</span> <span class="n">capitais</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
-<span class="g g-Whitespace">      </span><span class="mi">5</span>         <span class="n">ponto</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">coords</span><span class="p">)</span>
-
-<span class="nn">fiona/crs.pyx</span> in <span class="ni">fiona.crs.from_epsg</span><span class="nt">()</span>
-
-<span class="nn">fiona/crs.pyx</span> in <span class="ni">fiona.crs.CRS.from_epsg</span><span class="nt">()</span>
-
-<span class="ne">CRSError</span>: The EPSG code is unknown. PROJ: internal_proj_create_from_database: /home/alexandro/anaconda3/share/proj/proj.db lacks DATABASE.LAYOUT.VERSION.MAJOR / DATABASE.LAYOUT.VERSION.MINOR metadata. It comes from another PROJ installation.
-</pre></div>
-</div>
-</div>
-</div>
-<p>Nesse código, iteramos sobre o dicionário capitais. Para cada capital, ele cria um objeto Point com as coordenadas. Em seguida, ele cria um dicionário propriedades que contém as informações geométricas e os atributos associados. Esse dicionário é então escrito (adicionado) no arquivo shapefile usando o método write.</p>
+<p>Nesse código, iteramos sobre o dicionário capitais. Para cada capital, ele cria um objeto Point com as coordenadas. Em seguida, ele cria um dicionário propriedades que contém as informações geométricas e os atributos associados. Esse dicionário é então escrito (adicionado) no arquivo shapefile usando o método write.
+<br><br></p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Shapefile criado com sucesso!&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shapefile criado com sucesso!
+</pre></div>
 </div>
-<p>Por fim, o código imprime uma mensagem indicando que o arquivo shapefile foi criado com sucesso.
-Na figura 9 podemos visualizar os pontos referentes as capitais provenientes do arquivo shapefile criado.</p>
+</div>
+</div>
+<p>Por fim, o código imprime uma mensagem indicando que o arquivo shapefile foi criado com sucesso.</p>
+<p>Na figura 9 podemos visualizar os pontos referentes as capitais provenientes do arquivo shapefile criado.</p>
 <p><img alt="Figura 9" src="_images/fig9.png" /></p>
 <p align="center">Figura 9: Visualização dos pontos referentes às capitais dos estados brasileiros.</p>
+<br><br>
 <p>Exemplo 3: Escrever um arquivo em formato GeoJSON</p>
 <p>O GeoJSON é um formato de intercâmbio de dados geoespaciais, baseado no JSON (JavaScript Object Notation). Foi desenvolvido para representar objetos geográficos simples, juntamente com seus atributos não espaciais. Devido à simplicidade e à crescente adoção de tecnologias baseadas em web para aplicações geoespaciais, o GeoJSON vem se tornando um dos formatos padrão para transmissão de dados geoespaciais na web.</p>
 <p>O GeoJSON suporta vários tipos de geometria, incluindo Point (ponto), Linestring (linha), Polygon (polígono), Multipoint, Multilinestring, e Multipolygon. Além disso, ele suporta GeometryCollection, que, como vimos, é uma coleção de geometrias. Além da geometria, cada objeto GeoJSON pode ter atributos associados. Estes são armazenados em um objeto chamado propriedades. As coordenadas em GeoJSON são sempre em longitude e latitude (e opcionalmente altitude), e são representadas no formato decimal.</p>
@@ -1239,7 +1272,13 @@ with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Arquivo GeoJSON linhas_saida.geojson criado com sucesso!
+</pre></div>
 </div>
+</div>
+</div>
+<p><br><br></p>
 <p>Exemplo 4: Escrever um arquivo shapefile com geometrias do tipo polígono</p>
 <p>Para escrever um shapefile contendo polígonos, utilizaremos a mesma sintaxe dos exemplos anteriores, usando Shapely para a criação das geometrias e Fiona para a escrita dos dados em formato shapefile:</p>
 <div class="cell docutils container">
@@ -1274,7 +1313,13 @@ with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as
 </pre></div>
 </div>
 </div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Shapefile poligonos_saida.shp criado com sucesso!
+</pre></div>
 </div>
+</div>
+</div>
+<p><br><br></p>
 <p>Você pode visualizar os arquivos criados na aba files, na lateral esquerda do ambiente do Google Colab.</p>
 <p>É possível estender o exemplo acima para adicionar mais polígonos ou outras propriedades conforme a necessidade. Novamente, lembre-se de que shapefiles são compostos por múltiplos arquivos (.shp, .shx, .dbf, entre outros). Ao mover ou compartilhar seu shapefile, não se esqueça de incluir todos os arquivos auxiliares.</p>
 </section>
@@ -1308,7 +1353,7 @@ with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as
               
               
                 <footer class="prev-next-footer">
-                  <!-- Previous / next buttons -->
+                  
 <div class="prev-next-area">
     <a class="left-prev"
        href="capitulo3.html"
@@ -1345,7 +1390,7 @@ with fiona.open(arquivo_saida, ‘w’, driver=’GeoJSON’, schema=esquema) as
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-biblioteca-shapely">4.1 A biblioteca Shapely</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#criacao-de-geometrias-com-shapely">4.1.1 Criação de Geometrias com Shapely</a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-geometrico-no-shapely">4.1.2 Atributos geométrico no Shapely</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#atributos-geometrico-na-shapely">4.1.2 Atributos geométrico na Shapely</a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#funcoes-geometricas-no-shapely">4.1.3 Funções geométricas no Shapely</a></li>
 </ul>
 </li>
@@ -1375,6 +1420,7 @@ By Alexandro Gularte Schafer
   
   <div class="footer-item">
     
+
   <p class="copyright">
     
       © Copyright 2022.
@@ -1401,8 +1447,8 @@ By Alexandro Gularte Schafer
   </div>
   
   <!-- Scripts loaded after <body> so the DOM is not blocked -->
-  <script src="_static/scripts/bootstrap.js?digest=365ca57ee442770a23c6"></script>
-<script src="_static/scripts/pydata-sphinx-theme.js?digest=365ca57ee442770a23c6"></script>
+  <script src="_static/scripts/bootstrap.js?digest=5b4479735964841361fd"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=5b4479735964841361fd"></script>
 
   <footer class="bd-footer">
   </footer>
