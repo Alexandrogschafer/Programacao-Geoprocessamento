@@ -1,0 +1,33 @@
+{
+"type": "FeatureCollection",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:EPSG::4674" } },
+"features": [
+{ "type": "Feature", "properties": { "capital": "Brasília", "estado": "Distrito Federal", "codigo": 5300108 }, "geometry": { "type": "Point", "coordinates": [ -47.8825, -15.7934 ] } },
+{ "type": "Feature", "properties": { "capital": "Rio Branco", "estado": "Acre", "codigo": 1200401 }, "geometry": { "type": "Point", "coordinates": [ -67.827, -9.97499 ] } },
+{ "type": "Feature", "properties": { "capital": "Maceió", "estado": "Alagoas", "codigo": 2704302 }, "geometry": { "type": "Point", "coordinates": [ -35.7353, -9.66599 ] } },
+{ "type": "Feature", "properties": { "capital": "Manaus", "estado": "Amazonas", "codigo": 1302603 }, "geometry": { "type": "Point", "coordinates": [ -60.0253, -3.11333 ] } },
+{ "type": "Feature", "properties": { "capital": "Macapá", "estado": "Amapá", "codigo": 1600303 }, "geometry": { "type": "Point", "coordinates": [ -51.0705, 0.039452 ] } },
+{ "type": "Feature", "properties": { "capital": "Salvador", "estado": "Bahia", "codigo": 2927408 }, "geometry": { "type": "Point", "coordinates": [ -38.5014, -12.9714 ] } },
+{ "type": "Feature", "properties": { "capital": "Fortaleza", "estado": "Ceará", "codigo": 2304400 }, "geometry": { "type": "Point", "coordinates": [ -38.5423, -3.71722 ] } },
+{ "type": "Feature", "properties": { "capital": "Vitória", "estado": "Espírito Santo", "codigo": 3205309 }, "geometry": { "type": "Point", "coordinates": [ -40.2976, -20.3195 ] } },
+{ "type": "Feature", "properties": { "capital": "Goiânia", "estado": "Goiás", "codigo": 5208707 }, "geometry": { "type": "Point", "coordinates": [ -49.2539, -16.6869 ] } },
+{ "type": "Feature", "properties": { "capital": "São Luís", "estado": "Maranhão", "codigo": 2111300 }, "geometry": { "type": "Point", "coordinates": [ -44.3028, -2.52996 ] } },
+{ "type": "Feature", "properties": { "capital": "Cuiabá", "estado": "Mato Grosso", "codigo": 5103403 }, "geometry": { "type": "Point", "coordinates": [ -56.0974, -15.6014 ] } },
+{ "type": "Feature", "properties": { "capital": "Campo Grande", "estado": "Mato Grosso do Sul", "codigo": 5002704 }, "geometry": { "type": "Point", "coordinates": [ -54.6156, -20.4428 ] } },
+{ "type": "Feature", "properties": { "capital": "Belo Horizonte", "estado": "Minas Gerais", "codigo": 3106200 }, "geometry": { "type": "Point", "coordinates": [ -43.9378, -19.9208 ] } },
+{ "type": "Feature", "properties": { "capital": "Belém", "estado": "Pará", "codigo": 1501402 }, "geometry": { "type": "Point", "coordinates": [ -48.4874, -1.4554 ] } },
+{ "type": "Feature", "properties": { "capital": "João Pessoa", "estado": "Paraíba", "codigo": 2507507 }, "geometry": { "type": "Point", "coordinates": [ -34.8761, -7.11509 ] } },
+{ "type": "Feature", "properties": { "capital": "Curitiba", "estado": "Paraná", "codigo": 4106902 }, "geometry": { "type": "Point", "coordinates": [ -49.2713, -25.4296 ] } },
+{ "type": "Feature", "properties": { "capital": "Recife", "estado": "Pernambuco", "codigo": 2611606 }, "geometry": { "type": "Point", "coordinates": [ -34.8813, -8.05428 ] } },
+{ "type": "Feature", "properties": { "capital": "Teresina", "estado": "Piauí", "codigo": 2211001 }, "geometry": { "type": "Point", "coordinates": [ -42.8056, -5.09194 ] } },
+{ "type": "Feature", "properties": { "capital": "Rio de Janeiro", "estado": "Rio de Janeiro", "codigo": 3304557 }, "geometry": { "type": "Point", "coordinates": [ -43.1965, -22.9083 ] } },
+{ "type": "Feature", "properties": { "capital": "Natal", "estado": "Rio Grande do Norte", "codigo": 2408102 }, "geometry": { "type": "Point", "coordinates": [ -35.2091, -5.79448 ] } },
+{ "type": "Feature", "properties": { "capital": "Porto Alegre", "estado": "Rio Grande do Sul", "codigo": 4314902 }, "geometry": { "type": "Point", "coordinates": [ -51.2167, -30.0277 ] } },
+{ "type": "Feature", "properties": { "capital": "Porto Velho", "estado": "Rondônia", "codigo": 1100205 }, "geometry": { "type": "Point", "coordinates": [ -63.9004, -8.76077 ] } },
+{ "type": "Feature", "properties": { "capital": "Boa Vista", "estado": "Roraima", "codigo": 1400100 }, "geometry": { "type": "Point", "coordinates": [ -60.6733, 2.81972 ] } },
+{ "type": "Feature", "properties": { "capital": "Florianópolis", "estado": "Santa Catarina", "codigo": 4205407 }, "geometry": { "type": "Point", "coordinates": [ -48.5012, -27.5954 ] } },
+{ "type": "Feature", "properties": { "capital": "São Paulo", "estado": "São Paulo", "codigo": 3550308 }, "geometry": { "type": "Point", "coordinates": [ -46.6395, -23.5475 ] } },
+{ "type": "Feature", "properties": { "capital": "Aracaju", "estado": "Sergipe", "codigo": 2800308 }, "geometry": { "type": "Point", "coordinates": [ -37.0763, -10.9873 ] } },
+{ "type": "Feature", "properties": { "capital": "Palmas", "estado": "Tocantins", "codigo": 1721000 }, "geometry": { "type": "Point", "coordinates": [ -48.3344, -10.2391 ] } }
+]
+}
