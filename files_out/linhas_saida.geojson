@@ -1,6 +1,0 @@
-{
-"type": "FeatureCollection",
-"features": [
-{ "type": "Feature", "properties": { "id": 1, "descricao": "Linha Exemplo" }, "geometry": { "type": "LineString", "coordinates": [ [ 0.0, 0.0 ], [ 5.0, 5.0 ], [ 10.0, 10.0 ] ] } }
-]
-}
