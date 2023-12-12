@@ -15,7 +15,8 @@ kernelspec:
 
 # 2. FUNDAMENTOS DA LINGUAGEM PYTHON
 
-[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/notebooks/capitulo2.ipynb)
+[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/gh-pages/notebooks/capitulo2.ipynb)
+
 
 
 ## 2.1 Sintaxe básica: variáveis, operadores, expressões

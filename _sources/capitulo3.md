@@ -14,7 +14,7 @@ kernelspec:
 
 # 3. A BIBLIOTECA PANDAS
 
-[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/notebooks/capitulo3.ipynb)
+[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/gh-pages/notebooks/capitulo3.ipynb)
 
 Pandas é uma biblioteca de programação em Python que fornece estruturas de dados e ferramentas de análise de dados flexíveis e eficientes. É uma das bibliotecas mais populares e amplamente utilizadas para análise e manipulação de dados em Python. Ele transforma a complexidade da manipulação de dados em tarefas intuitivas, permitindo que o usuário se concentre na análise dos dados ao invés de se preocupar com os aspectos técnicos da preparação de dados. Constituem pontos-chave da Pandas:
 

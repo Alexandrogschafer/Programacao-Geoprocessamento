@@ -14,7 +14,7 @@ kernelspec:
 
 # 5 A BIBLIOTECA GEOPANDAS
 
-[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/main/notebooks/capitulo5.ipynb)
+[Abrir no Google Colab](https://colab.research.google.com/github/Alexandrogschafer/Programacao-Geoprocessamento/blob/gh-pages/notebooks/capitulo5.ipynb)
 
 Em um mundo cada vez mais orientado por dados, a capacidade de trabalhar com informações geoespaciais tornou-se fundamental em diversas áreas, desde o planejamento urbano até a ecologia e ciências ambientais. Neste contexto, a Geopandas emerge como uma importante ferramenta para a análise geoespacial em Python.
 
