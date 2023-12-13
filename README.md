@@ -36,4 +36,4 @@ Este livro é distribuído sob a [Licença Creative Commons Attribution-NonComme
 
 Se você tiver dúvidas, sugestões ou quiser entrar em contato conosco, sinta-se à vontade para abrir uma issue ou enviar um e-mail para [alexandroschafer@unipampa.edu.br].
 
-Esperamos que este livro seja uma ferramenta útil para quem deseja aprender a programar para geoprocessamento e aprofundar seus conhecimentos nessa área. Agradecemos seu interesse e colaboração!
+Esperamos que este livro seja uma ferramenta útil para quem deseja aprender a utilizar linguagem de programação na área do geoprocessamento. Agradecemos seu interesse e colaboração!
