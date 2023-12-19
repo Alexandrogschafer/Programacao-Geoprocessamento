@@ -2,13 +2,10 @@
 
 Este repositório contém os recursos relacionados ao livro "Introdução à Programação para Geoprocessamento", que tem como objetivo proporcionar uma introdução acessível e prática à programação na área do geoprocessamento. Este livro é voltado para iniciantes e profissionais que desejam aprender a utilizar a programação para manipular e analisar dados geoespaciais. Utilizaremos a linguagem de programação Python como principal ferramenta para o desenvolvimento das atividades práticas.
 
-Para acessar o livro: https://alexandrogschafer.github.io/Programacao-Geoprocessamento/intro.html
 
 ## Conteúdo
 
-- [Capítulos](/capitulos): Neste diretório, você encontrará os capítulos do livro em formato Markdown.
-- [Exemplos de Código](/exemplos-de-codigo): Aqui estão exemplos de código mencionados no livro, juntamente com instruções para execução.
-- [Recursos Adicionais](/recursos-adicionais): Links e recursos complementares para expandir o conhecimento em programação para geoprocessamento.
+- Para acessar o livro: https://alexandrogschafer.github.io/Programacao-Geoprocessamento/intro.html
 
 ## Como Contribuir
 
