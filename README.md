@@ -5,7 +5,7 @@ Este repositório contém os recursos relacionados ao livro "Introdução à Pro
 
 ## Conteúdo
 
-- Para acessar o livro: https://alexandrogschafer.github.io/Programacao-Geoprocessamento/intro.html
+- Para acessar o e-book: https://alexandrogschafer.github.io/Programacao-Geoprocessamento/intro.html
 
 ## Como Contribuir
 
